@@ -66,7 +66,7 @@ Happy coding! 😄
         </a>
       </td>
       <td align="center" style="border: none;">
-        <a href="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/tree/main/LINUX%20RELATED/DEBIAN-12">
+        <a href="https://github.com/tolgaerok/Debian-tolga">
           <img src="https://flathub.org/img/distro/debian.svg" alt="Debian" style="width: 100%;">
           <br>Debian
         </a>
