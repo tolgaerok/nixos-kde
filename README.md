@@ -60,7 +60,7 @@ Happy coding! 😄
   <table style="border-collapse: collapse; width: 100%; border: none;">
     <tr>
      <td align="center" style="border: none;">
-        <a href="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/tree/main/LINUX%20RELATED/FEDORA%20RELATED/SCRIPTS">
+        <a href="https://github.com/tolgaerok/fedora-tolga">
           <img src="https://flathub.org/img/distro/fedora.svg" alt="Fedora" style="width: 100%;">
           <br>Fedora
         </a>
