@@ -17,14 +17,7 @@ Tolga Erok
 14/6/2023
 ```
 
-
 I have successfully coded, setup, and tested the following configurations and services in my NixOs operating system with the examples provided in my repository:
-
-
-
-
-
-
 
 ## Syncing User Home Folder to a Specified Destination
 
@@ -54,6 +47,33 @@ In this blog post, I've highlighted some of the key components of my GitHub envi
 If you're interested in exploring these scripts or incorporating them into your own environment, feel free to check out my GitHub repository. I hope you find them useful and they inspire you to create your own custom solutions to enhance your development experience!
 
 Happy coding! 😄
+
+## *`How to run?`*
+
+1. Make sure `git` is usable. If not, *install it:*
+
+```sh
+sudo dnf install git -y
+```
+
+2. Open Terminal, type:
+
+```sh
+git clone https://github.com/tolgaerok/NixOS-tolga.git
+cd ./NixOS-tolga
+```
+
+3. Copy either or all files into your /etc/nixos directory:
+  - *configuration.nix*
+  - *hardware-configuration.nix*  - Change to suit to you `UUID`
+  - *bluetooth.service*
+  - *smb-secrets*
+    
+then execute:
+
+```sh
+sudo nixos-rebuild switch
+```
 
 ## *Other repositories in my git hub:*
 
