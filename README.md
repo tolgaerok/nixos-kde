@@ -51,7 +51,7 @@ Happy coding! 😄
 ## *`How to run?`*
 
 1. Make sure `git` is usable. If not, *add it into your environment.systemPackages in configuration.nix:*
-   - execute `sudo nixos-rebuild switch` in your terminal
+   - Execute `sudo nixos-rebuild switch` in your terminal afterward.
 
 ```sh
 # Nix package collection (pkgs) that you want to include in the system environment.
@@ -74,7 +74,7 @@ cd ./NixOS-tolga
    - *bluetooth.service*
    - *smb-secrets*
     
-execute `sudo nixos-rebuild switch` in your terminal
+Execute `sudo nixos-rebuild switch` in your terminal afterward.
 
 ```sh
 sudo nixos-rebuild switch
