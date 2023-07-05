@@ -25,7 +25,7 @@ fi
 # Define function to execute commands and update progress bar
 execute_commands() {
     echo 0 | dialog --title "Progress" --gauge "Executing commands..." 7 70 0
-    sudo apt list network-manager -a
+    # sudo apt list network-manager -a
     echo 10 | dialog --title "Progress" --gauge "Executing commands..." 7 70 10
     sudo apt list systemd-resolved -a
     echo 20 | dialog --title "Progress" --gauge "Executing commands...flush dev wlx08606eca6941" 7 70 20
