@@ -10,8 +10,8 @@ clear
 
 SOURCE_DIR="/mnt/smb-rsync/"
 DEST_DIR="/home/tolga/"
-USERNAME="tolga"
-PASSWORD="ibm450"
+USERNAME="xxx"
+PASSWORD="xxx"
 SERVER_IP="192.168.0.20"
 # MOUNT_OPTIONS="credentials=/etc/samba/credentials,uid=$USER,gid=samba,file_mode=0777,dir_mode=0777"
 
