@@ -39,7 +39,7 @@ if [ ! -d "/mnt/nixos_share" ]; then
 fi
 
 # sudo mount -t cifs -o username=tolga,password=ibm450,vers=1.0 "$backup_DST" /mnt/nixos_share  # Update with the correct SMB share path
-sudo mount -t cifs -o username=tolga,password=ibm450,vers=3.0 "$backup_DST" /mnt/nixos_share
+sudo mount -t cifs -o username=xxx,password=xxx,vers=3.0 "$backup_DST" /mnt/nixos_share
 
 if [ $? -ne 0 ]; then
     echo "Failed to mount SMB share."
@@ -80,6 +80,6 @@ echo "Source directory: $backup_SRC
 "
 echo "Destination directory: $backup_DST/$year/$month/$day"
 echo "Backup command: 7z a /tmp/$backup_file $backup_SRC"
-echo "Mount command: sudo mount -t cifs -o username=tolga,password=ibm450,vers=3.0 $backup_DST /mnt/nixos_share"
+echo "Mount command: sudo mount -t cifs -o username=xxx,password=xxx,vers=3.0 $backup_DST /mnt/nixos_share"
 echo "Copy command: sudo cp /tmp/$backup_file /mnt/nixos_share/$year/$month/$day/$backup_file"
 echo "Unmount command: sudo umount -f /mnt/nixos_share"
