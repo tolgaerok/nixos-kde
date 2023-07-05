@@ -50,10 +50,15 @@ Happy coding! 😄
 
 ## *`How to run?`*
 
-1. Make sure `git` is usable. If not, *install it:*
+1. Make sure `git` is usable. If not, *add it into your environment.systemPackages in configuration.nix:*
+   - execute `sudo nixos-rebuild switch` in your terminal
 
 ```sh
-sudo dnf install git -y
+# Nix package collection (pkgs) that you want to include in the system environment.
+  environment.systemPackages = with pkgs; [    
+    git
+    git-extras
+];
 ```
 
 2. Open Terminal, type:
@@ -64,12 +69,12 @@ cd ./NixOS-tolga
 ```
 
 3. Copy either or all files into your /etc/nixos directory:
-  - *configuration.nix*
-  - *hardware-configuration.nix*  - Change to suit to you `UUID`
-  - *bluetooth.service*
-  - *smb-secrets*
+   - *configuration.nix*
+   - *hardware-configuration.nix*  - Change to suit to you `UUID`
+   - *bluetooth.service*
+   - *smb-secrets*
     
-then execute:
+execute `sudo nixos-rebuild switch` in your terminal
 
 ```sh
 sudo nixos-rebuild switch
