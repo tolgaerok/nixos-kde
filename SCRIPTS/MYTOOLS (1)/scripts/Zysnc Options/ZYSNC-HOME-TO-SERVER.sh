@@ -11,8 +11,8 @@ clear
 
 SOURCE_DIR="/home/tolga/"
 DEST_DIR="/mnt/smb-rsync/"
-USERNAME="tolga"
-PASSWORD="ibm450"
+USERNAME="xxx"
+PASSWORD="xxx"
 SERVER_IP="192.168.0.20"
 
 MOUNT_OPTIONS="credentials=/etc/nixos/smb-secrets,uid=$USER,gid=$(id -g),vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
