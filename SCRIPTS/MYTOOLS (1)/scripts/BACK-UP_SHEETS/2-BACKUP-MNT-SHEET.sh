@@ -38,7 +38,7 @@ if [ ! -d "/mnt/nixos_share" ]; then
     sudo mkdir "/mnt/nixos_share"
 fi
 
-# sudo mount -t cifs -o username=tolga,password=ibm450,vers=1.0 "$backup_DST" /mnt/nixos_share  # Update with the correct SMB share path
+# sudo mount -t cifs -o username=xxx,password=xxx,vers=1.0 "$backup_DST" /mnt/nixos_share  # Update with the correct SMB share path
 sudo mount -t cifs -o username=xxx,password=xxx,vers=3.0 "$backup_DST" /mnt/nixos_share
 
 if [ $? -ne 0 ]; then
