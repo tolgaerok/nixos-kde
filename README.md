@@ -1,3 +1,8 @@
+# *`My NixOs 23.05 environment`*
+```sh
+Tolga Erok
+14/6/2023
+```
 <div align="left">
   <table style="border-collapse: collapse; width: 100%; border: none;">
     <tr>
@@ -10,12 +15,6 @@
     </tr>
   </table>
 </div>
-
-# *`My NixOs 23.05 environment`*
-```sh
-Tolga Erok
-14/6/2023
-```
 
 I have successfully coded, setup, and tested the following configurations and services in my NixOs operating system with the examples provided in my repository:
 
