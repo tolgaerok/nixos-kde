@@ -3,7 +3,7 @@
 let name = "tolga";
 
 in {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ./hardware-acceleration.nix ];
 
   # Bootloader and System Settings
   boot.loader.grub.enable = true;
@@ -173,7 +173,6 @@ in {
     nix-direnv
     nixfmt
     nixos-option
-    nomachine-client
     ookla-speedtest
     p7zip
     parallel-full
@@ -200,6 +199,7 @@ in {
     sublime4
     tig
     tldr
+    transmission
     tree
     unzip
     vim
@@ -318,7 +318,6 @@ in {
     '';
 
     shares = {
-
       # Home Directories Share - From my old fedora days
       homes = {
         comment = "Home Directories";
@@ -373,5 +372,5 @@ in {
 
   # Add a systemd tmpfiles rule that creates a directory /var/spool/samba with permissions 1777 and ownership set to root:root.
   systemd.tmpfiles.rules = [ "d /var/spool/samba 1777 root root -" ];
-
+  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 }
