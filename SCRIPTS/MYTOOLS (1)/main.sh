@@ -1,4 +1,6 @@
 #!/bin/bash
+# Tolga Erok
+# 10/6/2023
 
 # Function to display the menu
 display_menu() {
