@@ -228,9 +228,7 @@ in {
     noto-fonts-cjk
     noto-fonts-emoji
     font-awesome
-    source-han-sans
-    source-han-sans-japanese
-    source-han-serif-japanese
+    source-han-sans    
   ];
 
   # Provides a virtual file system for environment modules
@@ -292,7 +290,9 @@ in {
     "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
 
   # Samba Configuration - NixOS wiki
-  # For a user to be authenticated on the samba server, you must add their password using sudo smbpasswd -a <user> as root
+  # For a user to be authenticated on the samba server, you must add their password using: 
+  # sudo smbpasswd -a tolga && sudo groupadd samba && sudo usermod -aG samba tolga
+
   services.samba = {
     enable = true;
     package = pkgs.sambaFull;
@@ -313,7 +313,7 @@ in {
       guest account = nobody
       map to guest = bad user
       load printers = yes
-      printing = cups
+      # printing = cups
       printcap name = cups
     '';
 
