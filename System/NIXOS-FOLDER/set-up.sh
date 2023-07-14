@@ -16,20 +16,8 @@ sudo flatpak update -y
 echo "Updating cache, this will take a while..."
 
 # Install Flatpak apps
-packages=(
-    com.github.unrud.VideoDownloader
-    com.sindresorhus.Caprine
-    com.sublimetext.three
-    com.transmissionbt.Transmission
-    com.wps.Office
-    io.github.mimbrero.WhatsAppDesktop
-    org.audacityteam.Audacity
-    org.gimp.GIMP
-    org.gnome.Shotwell
-    org.gnome.SimpleScan
-    org.gnome.gitlab.YaLTeR.VideoTrimmer
-    org.kde.krita
-    org.kde.kweather
+packages=(    
+    com.sindresorhus.Caprine 
 )
 
 # Install each package if not already installed
@@ -137,5 +125,3 @@ sudo nix-store --optimise
 #sudo chmod 777 /mnt/smb-budget
 #sudo chmod 777 /mnt/smb-rsync
 #sudo chmod 777 /mnt/windows-data
-
-
