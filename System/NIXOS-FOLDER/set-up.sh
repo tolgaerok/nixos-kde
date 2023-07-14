@@ -2,7 +2,7 @@
 
 # Tolga Erok
 # 14/7/2023
-
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 sudo NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin --run 'sudo -E hp-setup'
 sudo smbpasswd -a tolga && sudo groupadd samba && sudo usermod -aG samba tolga
 sudo mkdir -p /mnt/Budget-Archives
