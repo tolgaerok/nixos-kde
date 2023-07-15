@@ -17,7 +17,8 @@ echo "Updating cache, this will take a while..."
 
 # Install Flatpak apps
 packages=(    
-    com.sindresorhus.Caprine 
+    com.sindresorhus.Caprine
+    org.kde.kweather
 )
 
 # Install each package if not already installed
