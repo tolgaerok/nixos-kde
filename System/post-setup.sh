@@ -104,6 +104,17 @@ sudo usermod -aG sambashares $username
 # Set permissions for the user's home directory
 sudo chmod 0757 /home/$username
 
+# Path to alias script
+main_script="./setup-alias.sh"
+
+# Check if the main script exists
+if [[ -e "$main_script" ]]; then
+  # Execute the main script using source
+  source "$main_script"
+else
+  echo "Main script not found: $main_script"
+fi
+
 
 # run after sudo nixos-rebuild switch
 sudo nix-channel --update
@@ -126,3 +137,26 @@ sudo nix-store --optimise
 #sudo chmod 777 /mnt/smb-budget
 #sudo chmod 777 /mnt/smb-rsync
 #sudo chmod 777 /mnt/windows-data
+
+source #HOME/.bashrc
+#alias mynix='sudo ~/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh'
+#alias mount='sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/MOUNT-ALL.sh'
+#alias umount='sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh'
+#alias mse='sudo ~/scripts/MYTOOLS/MAKE-SCRIPTS-EXECUTABLE.sh'
+#alias htos='sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh'
+#alias stoh='sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-SERVER-TO-HOME.sh'
+#{ config, pkgs, ... }:
+
+
+# {
+#  users.users.root = {
+#    shell = pkgs.mkShell {
+ #     buildInputs = [ pkgs.bashInteractive ];
+ #     shellHook = ''
+#        echo "Setting up root shell environment"
+#        echo "alias tolga='sudo /home/tolga/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh'" >> $HOME/.profile
+#      '';
+#    };
+#  };
+# }
+
