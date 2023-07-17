@@ -2,8 +2,15 @@
 
 {
 
-  # Allow Unfree Packages
-  nixpkgs.config.allowUnfree = true;
+  # Configure your nixpkgs instance
+  nixpkgs = {
+    config = {
+      # Allow Unfree Packages
+      allowUnfree = true;
+      # Accept the joypixels license
+      joypixels.acceptLicense = true;
+    };
+  };
 
   # Allow insecure or old pkgs - Help from nix package manager
   nixpkgs.config.permittedInsecurePackages =
@@ -23,21 +30,58 @@
   # Thanks Chris Titus!
   services.dbus.enable = true;
 
-  # Custom fonts - Chris Titus setup
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk
-    noto-fonts-emoji
-    font-awesome
-    source-han-sans
-  ];
+  # Custom fonts - Chris Titus && wimpysworld
+  fonts = {
+    fontDir.enable = true;
+    fonts = with pkgs; [
+      (nerdfonts.override {
+        fonts = [ "FiraCode" "SourceCodePro" "UbuntuMono" ];
+      })
+      fira
+      fira-go
+      font-awesome
+      joypixels
+      liberation_ttf
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      source-han-sans
+      source-serif
+      ubuntu_font_family
+      work-sans
+    ];
+
+    # Enable a basic set of fonts providing several font styles and families and reasonable coverage of Unicode.
+    enableDefaultFonts = false;
+
+    fontconfig = {
+      antialias = true;
+      defaultFonts = {
+        serif = [ "Source Serif" ];
+        sansSerif = [ "Work Sans" "Fira Sans" "FiraGO" ];
+        monospace = [ "FiraCode Nerd Font Mono" "SauceCodePro Nerd Font Mono" ];
+        emoji = [ "Joypixels" "Noto Color Emoji" ];
+      };
+      enable = true;
+      hinting = {
+        autohint = false;
+        enable = true;
+        style = "hintslight";
+      };
+      subpixel = {
+        rgba = "rgb";
+        lcdfilter = "light";
+      };
+    };
+  };
 
   # Nix package collection (pkgs) that you want to include in the system environment.
   environment.systemPackages = with pkgs; [
-    audacity
     asciiquarium
     asunder
     atool
+    audacity
+    bashInteractive
     bat
     blueberry
     brasero
@@ -58,6 +102,7 @@
     ffmpegthumbnailer
     figlet
     firefox
+    fish
     flatpak
     fx
     fzf
@@ -93,17 +138,16 @@
     libbtbb
     libdvdcss
     libdvdread
+    libopus
     libsForQt5.kweather
     libsForQt5.kweathercore
-    libopus
     libvorbis
-    lsdvd
     lolcat
+    lsdvd
     lz4
     lzip
     lzo
     lzop
-    ocamlPackages.gstreamer
     mariadb
     mosh
     mp3fs
@@ -113,16 +157,19 @@
     ncdu
     neofetch
     neovim
-    ntfs3g
     nix-direnv
     nixfmt
     nixos-option
+    ntfs3g
+    ocamlPackages.gstreamer
     ookla-speedtest
     p7zip
     parallel-full
+    pciutils
     pfetch
     pmutils
     powershell
+    psmisc
     pulseaudioFull
     pulumi
     python.pkgs.pip
@@ -133,8 +180,8 @@
     rzip
     samba
     sane-backends
-    scanbd
     scala-cli
+    scanbd
     shotwell
     simplescreenrecorder
     sl
@@ -146,21 +193,20 @@
     transmission
     tree
     unzip
+    usbutils
     video-trimmer
     vim
     vlc
     vscode
-    vscode-with-extensions
-    direnv
     vscode-extensions.mkhl.direnv
-    nix-direnv
+    vscode-with-extensions
     wget
     whatsapp-for-linux
     wl-clipboard
     wpsoffice
-    xdg-utils
     xdg-desktop-portal-gtk
     xdg-launch
+    xdg-utils
     xfce.thunar
     xz
     youtube-dl
