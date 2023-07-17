@@ -1,7 +1,11 @@
 { config, pkgs, lib, ... }:
 
 # Nix-specific settings and garbage collection options - Mostly research from NixOS wiki
-let name = "tolga";
+let 
+
+name = "tolga";
+
+
 in {
   nix = {
     settings = {
@@ -12,6 +16,7 @@ in {
       warn-dirty = false;
       allowed-users = [ "@wheel" ];
     };
+
     gc = {
       automatic = true;
       dates = "weekly";
@@ -19,9 +24,23 @@ in {
     };
   };
 
-# Use aliases in FISH console
+# Use aliases in FISH & Bash console (Konsole)
   programs = {
     command-not-found.enable = false;
+    # enable = true;
+    
+    # Add Konsole (bash) aliases
+    bash = {      
+      # enable = true;
+      shellAliases = {
+
+        # Testing purposes 
+        abc = "sudo nixos-rebuild switch";
+
+      };
+    };
+
+    # Add Fish aliases
     fish = {
       enable = true;
 
@@ -61,16 +80,13 @@ in {
 
       # Fish shellAbbrs
       shellAbbrs = {
-
         garbage = "sudo nix-collect-garbage --delete-older-than 14d";
         rebuild-all = "sudo nix-collect-garbage --delete-older-than 14d && sudo nixos-rebuild switch";
         rbs = "sudo nixos-rebuild switch";
-
       };
 
       # Fish aliases
       shellAliases = {
-
         mynix = "sudo ~/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh";
         mount = "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/MOUNT-ALL.sh";
         umount = "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh";
@@ -79,9 +95,7 @@ in {
         stoh = "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-SERVER-TO-HOME.sh";
         trimgen = "sudo ~/scripts/MYTOOLS/scripts/GENERATION-TRIMMER/TrimmGenerations.sh";
         master = "sudo ~/scripts/MYTOOLS/main.sh";
-        
       };
-
     };
   };
 }
