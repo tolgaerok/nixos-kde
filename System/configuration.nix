@@ -1,14 +1,17 @@
-{ config, pkgs, lib, ... }:
+{ config, desktop, pkgs, lib, ... }:
 
-let scriptPath = "/etc/nixos/scripts/test.sh";
+let
+
+  scriptPath = "/etc/nixos/scripts/test.sh";
+
 in {
   imports = [
 
-    ./hardware/hardware-configuration.nix
     ./hardware/hardware-acceleration.nix
-    ./pkgs/system-packages.nix
+    ./hardware/hardware-configuration.nix
     ./network/system-networking.nix
     ./nix/system-nix-settings.nix
+    ./pkgs/system-packages.nix
     ./printer/system-scanner-printer-settings.nix
 
   ];
@@ -33,7 +36,7 @@ in {
   services.fstrim.enable = true;
 
   # Kernel Configuration
-  boot.kernel.sysctl = { "vm.swappiness" = 1; }; 
+  boot.kernel.sysctl = { "vm.swappiness" = 1; };
 
   # Time Zone and Locale
   time.timeZone = "Australia/Perth";
@@ -51,23 +54,23 @@ in {
   };
 
   # X11 and KDE Plasma
-  services.xserver.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.enable = true;
   services.xserver.layout = "au";
   services.xserver.xkbVariant = "";
 
   # Audio
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  sound.enable = true;
 
   services.pipewire = {
-    enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     jack.enable = true;
     pulse.enable = true;
+    enable = true;
   };
 
   # User Configuration
@@ -90,7 +93,6 @@ in {
       "video"
       "wheel"
     ];
-    packages = with pkgs; [ ];
   };
 
   # Provide a graphical Bluetooth manager for desktop environments
@@ -98,16 +100,16 @@ in {
   services.blueman.enable = true;
 
   # Nvidia drivers - NixOS wiki and help from David Turcotte (https://davidturcotte.com)
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.opengl.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Enable the copying of system configuration files to the Nix store
   # Automatic system upgrades, automatically reboot after an upgrade if necessary
-  system.copySystemConfiguration = true;
-  system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade.enable = true;
+  system.copySystemConfiguration = true;
   system.stateVersion = "23.05";
 
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
