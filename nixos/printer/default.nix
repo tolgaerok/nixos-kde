@@ -17,6 +17,12 @@ in {
   services.printing.enable = true;
 
   # Add a systemd tmpfiles rule that creates a directory /var/spool/samba with permissions 1777 and ownership set to root:root.
-  systemd.tmpfiles.rules = [ "d /var/spool/samba 1777 root root -" ];
+  systemd = {
+    tmpfiles.rules = [
+      "D! /tmp 1777 root root 0"
+      "r! /tmp/**/*"
+      "d /var/spool/samba 1777 root root -"
+    ];
+  };
 
 }
