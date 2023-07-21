@@ -18,6 +18,7 @@ username=$(id -u -n 1000)
 # MOUNT_OPTIONS="credentials=/etc/samba/credentials,uid=$USER,gid=samba,file_mode=0777,dir_mode=0777"
 
 MOUNT_OPTIONS="credentials=/etc/nixos/network/smb-secrets,uid=1000,gid=100,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
+# credentials=/etc/nixos/network/smb-secrets,uid=1000,gid=100,vers=3.1.1,rsize=8192,wsize=8192,cache=none,strictcache,dir_mode=0777,file_mode=0777
 
 # Unmount smb share
 sudo umount -f /mnt/*
@@ -83,7 +84,7 @@ while true; do
 
     # Mount smb share
     # sudo mount -t cifs //$SERVER_IP/LinuxData/HOME/PROFILES/$distro/$USERNAME $SOURCE_DIR -o $MOUNT_OPTIONS
-    sudo mount -t cifs "//$SERVER_IP/LinuxData/HOME/PROFILES/$distro/TOLGA/" "$SOURCE_DIR" -o "credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba"
+    sudo mount -t cifs "//$SERVER_IP/LinuxData/HOME/PROFILES/$distro/TOLGA/" "$SOURCE_DIR" -o "credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,rsize=8192,wsize=8192,cache=none,strictcache,dir_mode=0777,file_mode=0777"
 
     # Rsync
     INCLUDE_FOLDERS=(
