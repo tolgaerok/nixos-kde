@@ -2,6 +2,7 @@
 
 # Tolga Erok
 # 14/7/2023
+
 sudo -u tolga mkdir -p /home/tolga/Pictures
 sudo -u tolga mkdir -p /home/tolga/Videos
 sudo -u tolga mkdir -p /home/tolga/Music
