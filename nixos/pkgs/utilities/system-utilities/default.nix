@@ -37,7 +37,7 @@
       gparted
       graphviz
       imagemagick
-      hw-probe
+      hw-probe         # sudo -E hw-probe -all -upload
     ];
   };
 }
