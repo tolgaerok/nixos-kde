@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Tolga Erok
+# 11/5/2023
+# About:
+#   Personal RSYNC script that only rsyncs selected folders listed in INCLUDE_FOLDERS variables
+#   excluding ALL hidden files and folders from /home/tolga/ to //192.168.0.3/LinuxData/HOME/tolga
+
 DEST_DIR="/mnt/smb-rsync/"
 USERNAME="tolga"
 SERVER_IP="192.168.0.20"
