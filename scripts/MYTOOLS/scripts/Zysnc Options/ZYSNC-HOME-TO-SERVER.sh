@@ -30,6 +30,7 @@ perform_rsync() {
     echo -e "\e[1;34mSyncing $SOURCE_DIR/ $DEST_DIR/ ...\e[0m"
     rsync -avz --progress --partial --bwlimit=500M --no-compress --relative --hard-links --exclude ".*" --update --stats "$SOURCE_DIR/" "$DEST_DIR/"
     echo -e "\e[1;31mFinished syncing $SOURCE_DIR/ $DEST_DIR/\e[0m"
+    sleep 1
     echo
 
     # After performing the rsync, store the last update details in an array
