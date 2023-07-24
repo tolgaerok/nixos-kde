@@ -180,7 +180,7 @@ in {
   hardware = {
     nvidia = {
       modesetting.enable = true;
-      package = pkgs.config.boot.kernelPackages.nvidiaPackages.stable;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
     opengl = {
