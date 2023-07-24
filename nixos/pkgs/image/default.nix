@@ -5,7 +5,8 @@
     systemPackages = with pkgs; [
       sane-backends
       scanbd
-      
+      sxiv
+      nsxiv
     ];
   };
 }
