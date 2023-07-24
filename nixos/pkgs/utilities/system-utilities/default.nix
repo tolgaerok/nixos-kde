@@ -37,6 +37,7 @@
       gparted
       graphviz
       imagemagick
+      hw-probe
     ];
   };
 }
