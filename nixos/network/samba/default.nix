@@ -53,24 +53,24 @@
     openFirewall = true;
     securityType = "user";
     extraConfig = ''
-            workgroup = WORKGROUP
-            server string = smb-NixOs23
-            netbios name = smb-NixOs23
-            security = user
-            hosts allow = 192.168.0. 127.0.0.1 localhost
-            hosts deny = 0.0.0.0/0
+      workgroup = WORKGROUP
+      server string = smb-NixOs23
+      netbios name = smb-NixOs23
+      security = user
+      hosts allow = 192.168.0. 127.0.0.1 localhost
+      hosts deny = 0.0.0.0/0
 
-            # Set the minimum SMB protocol version on the client end
-            # Allow accessing old SMB protocols (SMB1 - COREPLUS)
-            client min protocol = COREPLUS
+      # Set the minimum SMB protocol version on the client end
+      # Allow accessing old SMB protocols (SMB1 - COREPLUS)
+      client min protocol = COREPLUS
 
-            guest account = nobody
-            map to guest = bad user
+      guest account = nobody
+      map to guest = bad user
             
-            printing = cups
-      	    printcap name = cups
-      	    load printers = yes
-      	    cups options = raw
+      printing = cups
+      printcap name = cups
+      load printers = yes
+      cups options = raw
     '';
 
     shares = {
