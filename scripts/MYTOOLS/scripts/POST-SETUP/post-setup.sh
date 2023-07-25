@@ -2,17 +2,60 @@
 
 # Tolga Erok
 # 14/7/2023
+# Post Nixos setup
+
+# -----------------------------------------------------------------------------------
+# Check if Script is Run as Root
+# -----------------------------------------------------------------------------------
+
+if [[ $EUID -ne 0 ]]; then
+  echo "You must be a root user to run this script, please run sudo ./install.sh" 2>&1
+  exit 1
+fi
+
+# -----------------------------------------------------------------------------------
+# Get user id an group id
+# -----------------------------------------------------------------------------------
+
+# Check if the script is run using sudo
+if [ "$(id -u)" = "0" ] && [ -n "$SUDO_USER" ]; then
+  # Get the original non-root user ID and group ID
+  user_id=$(id -u "$SUDO_USER")
+  group_id=$(id -g "$SUDO_USER")
+
+  # Get the user and group names using the IDs
+  user_name=$(id -un "$user_id")
+  group_name=$(getent group "$group_id" | cut -d: -f1)
+
+  # Display the non-root user ID, name, and group ID
+  echo "Non-Root User: $user_name (ID: $user_id)"
+  echo "Non-Root Group: $group_name (ID: $group_id)"
+else
+  echo "This script should be run using sudo."
+fi
+
+#username=$(id -u -n 1000)
+#builddir=$(pwd)
+
+# -----------------------------------------------------------------------------------
+#  Create some directories
+# -----------------------------------------------------------------------------------
 
 sudo -u tolga mkdir -p /home/tolga/Pictures
 sudo -u tolga mkdir -p /home/tolga/Videos
 sudo -u tolga mkdir -p /home/tolga/Music
 sudo -u tolga mkdir -p /home/tolga/Documents
-# Add more directories as needed.
-sudo chown tolga:users /home/tolga/Pictures
-sudo chown tolga:users /home/tolga/Videos
-sudo chown tolga:users /home/tolga/Music
-sudo chown tolga:users /home/tolga/Documents
-# Add more directories as needed.
+sudo mkdir -p ~/.config/nix
+
+# -----------------------------------------------------------------------------------
+# Set directories permissions to username and groupname
+# -----------------------------------------------------------------------------------
+
+sudo chown $user_name:$group_name /home/tolga/Pictures
+sudo chown $user_name:$group_name /home/tolga/Videos
+sudo chown $user_name:$group_name /home/tolga/Music
+sudo chown $user_name:$group_name /home/tolga/Documents
+
 
 echo "Install Flatpak apps..."
 
