@@ -9,6 +9,8 @@
       isoimagewriter
       fd
       less
+      lf
+      lfs
       lsd
       lsdvd
       ncdu
