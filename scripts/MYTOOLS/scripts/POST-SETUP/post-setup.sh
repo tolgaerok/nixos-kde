@@ -46,6 +46,7 @@ sudo -u tolga mkdir -p /home/tolga/Videos
 sudo -u tolga mkdir -p /home/tolga/Music
 sudo -u tolga mkdir -p /home/tolga/Documents
 sudo mkdir -p ~/.config/nix
+echo "experimental-features  = nix-command flakes" >> ~/.config/nix/nix.conf
 
 # -----------------------------------------------------------------------------------
 # Set directories permissions to username and groupname
