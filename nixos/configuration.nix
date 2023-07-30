@@ -180,6 +180,7 @@ in {
   hardware = {
     nvidia = {
       modesetting.enable = true;
+      nvidiaPersistenced = true;
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
 
@@ -192,11 +193,19 @@ in {
         vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         libvdpau-va-gl
+        vulkan-validation-layers
       ];
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
+
+  services.xserver = {
+    enable = true;
+    videoDrivers = [
+      "nvidia"
+    ];
+  };
 
   #---------------------------------------------------------------------
   # Enable the copying of system configuration files to the Nix store
