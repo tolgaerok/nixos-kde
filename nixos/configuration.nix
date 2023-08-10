@@ -1,21 +1,55 @@
-# MOTHERBOARD:  Intel® Q87
-# MODEL:        Hewlett-Packard Company EliteDesk 800 G1
-# CPU:          Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell)
-# GPU:          NVIDIA GeForce GT 1030/PCIe/SSE2
-# RAM:          28GB DDR3
-# SATA:         SAMSUNG SSD 870 EVO 500GB
-# NETWORK:      Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz (rev 1a)
-# BLUE-TOOTH:   REALTEK 5G
+# MOTHERBOARD:	  Intel® Q87
+# MODEL:        	HP EliteDesk 800 G1 SFF
+# CPU:          	Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell)
+# GPU:          	NVIDIA GeForce GT 1030/PCIe/SSE2
+# RAM:          	28 GB DDR3
+# SATA:         	SAMSUNG SSD 870 EVO 500GB
+# NETWORK:       	Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz 
+# BLUE-TOOTH:   	REALTEK 5G
 #---------------------------------------------------------------------
 
 { config, desktop, pkgs, lib, username, ... }:
 
 let
 
-  pkgs = import <nixpkgs> { };
+  create-smb-user = pkgs.writeScriptBin "create-smb-user" ''
+    #!/usr/bin/env bash
+
+    clear
+
+    echo -e "\\033[34;1mCreate SMB user and SMB group\\033[0m"
+    echo -e "\\033[34;1mBy \\033[33mTolga Erok\\033[0m"
+    
+    # -----------------------------------------------------------------------------------
+    #  Create some SMB user and group
+    # -----------------------------------------------------------------------------------
+
+    # Function to read user input and prompt for input
+    prompt_input() {
+      read -p "$1" value
+      echo "$value"
+    }
+
+    # Create user/group
+
+    # Prompt for the desired username and group for Samba
+    sambausername=$(prompt_input $'\nEnter the USERNAME to add to Samba: ')
+    sambagroup=$(prompt_input $'\nEnter the GROUP name to add username to Samba: ')
+
+    # Create Samba user and group
+    sudo groupadd "$sambagroup"
+    sudo useradd -m "$sambausername"
+    sudo smbpasswd -a "$sambausername"
+    sudo usermod -aG "$sambagroup" "$sambausername"
+
+    # Pause and continue
+    echo -e "\nContinuing..."
+    read -r -n 1 -s -t 1
+    sleep 2
+  '';
 
 in {
-
+  environment.systemPackages = [ create-smb-user ];
   #---------------------------------------------------------------------
   # Import snippet files
   #---------------------------------------------------------------------
@@ -30,6 +64,7 @@ in {
     ./nix
     ./pkgs
     ./printer
+    ./scanner
 
   ];
 
@@ -133,6 +168,7 @@ in {
   #---------------------------------------------------------------------
 
   users.users.tolga = {
+    homeMode = "0755";
     isNormalUser = true;
     description = "tolga erok";
     uid = 1000;
@@ -151,7 +187,7 @@ in {
       "video"
       "wheel"
     ];
-
+    packages = [ pkgs.home-manager ];
   };
 
   #---------------------------------------------------------------------
@@ -173,7 +209,7 @@ in {
   services.blueman.enable = true;
 
   #---------------------------------------------------------------------
-  # Nvidia drivers - NixOS wiki and help from David Turcotte 
+  # Nvidia drivers - NixOS wiki and help from David Turcotte. 
   # (https://davidturcotte.com)
   #---------------------------------------------------------------------
 
@@ -189,8 +225,8 @@ in {
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        intel-media-driver         # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel                 # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         libvdpau-va-gl
         vulkan-validation-layers
@@ -200,13 +236,12 @@ in {
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  #---------------------------------------------------------------------
-  # Enable the copying of system configuration files to the Nix store
+  #---------------------------------------------------------------------  
   # Automatic system upgrades, automatically reboot after an upgrade if 
   # necessary
   #---------------------------------------------------------------------
 
-  system.autoUpgrade.allowReboot = true;
+  # system.autoUpgrade.allowReboot = true;  # Very annoying 
   system.autoUpgrade.enable = true;
   system.copySystemConfiguration = true;
   system.stateVersion = "23.05";
