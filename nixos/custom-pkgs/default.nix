@@ -10,6 +10,7 @@
 
     ./mounter.nix
     ./unmounter.nix
+    ./create-smb-user.nix
 
   ];
 
