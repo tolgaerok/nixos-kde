@@ -207,7 +207,7 @@ in {
   # necessary
   #---------------------------------------------------------------------
 
-  # system.autoUpgrade.allowReboot = true;  # Very annoying .
+  # system.autoUpgrade.allowReboot = true;  # Very annoying ....
 
   system.autoUpgrade.enable = true;
   system.copySystemConfiguration = true;
