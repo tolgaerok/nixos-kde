@@ -59,6 +59,7 @@ let
     fi
 
     exit 0
+
   '';
 
 in {
