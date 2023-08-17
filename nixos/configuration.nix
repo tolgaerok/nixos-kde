@@ -10,18 +10,19 @@
 
 { config, desktop, pkgs, lib, username, ... }:
 
-let
-
+let 
+    
 in {
 
   #---------------------------------------------------------------------
-  # Import snippet files 
+  # Import snippet files .:: ::....
   #---------------------------------------------------------------------
 
   imports = [
 
     # ./usernames/mutable-users-config.nix
     # ./usernames/root-user-config.nix
+    #./custom-config { inherit config; }
     ./custom-pkgs
     ./hardware-acceleration
     ./hardware-configuration
@@ -32,7 +33,6 @@ in {
     ./scanner
     ./screensaver
     ./services
-
 
   ];
 

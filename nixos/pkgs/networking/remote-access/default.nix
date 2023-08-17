@@ -15,6 +15,7 @@
       powershell
       sshpass
       teamviewer 
+      # nomachine-client
     ];
   };
 

@@ -8,15 +8,13 @@ in {
 
   imports = [   
     
+    # ./custom-config
     # ./samba/default.nix
-
     # Configuration for bash and fish
+    # System condiguration
     ./aliases/system-bash-aliases.nix
     ./aliases/system-fish-aliases.nix
-
-    # System condiguration
     ./dconf
-
   ];
 
   # Nix-specific settings and garbage collection options - Mostly research from NixOS wiki
@@ -29,8 +27,7 @@ in {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       keep-derivations = true;
-      keep-outputs = true;
-      # nixPath = [ "nixos-config=/home/tolga/nixos/configuration.nix" ];
+      keep-outputs = true;      
       sandbox = true;
       trusted-users = [ "root" "${name}" ];
       warn-dirty = false;
