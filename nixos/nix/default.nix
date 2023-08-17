@@ -25,14 +25,15 @@ in {
 
   nix = {
     settings = {
+      allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      keep-derivations = true;
+      keep-outputs = true;
+      nixPath = [ "nixos-config=/home/tolga/nixos/configuration.nix" ];
       sandbox = true;
       trusted-users = [ "root" "${name}" ];
-      keep-outputs = true;
-      keep-derivations = true;
       warn-dirty = false;
-      allowed-users = [ "@wheel" ];
     };
 
     gc = {
