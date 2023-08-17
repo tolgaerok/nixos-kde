@@ -47,20 +47,25 @@
       shellAbbrs = {
         garbage = "sudo nix-collect-garbage --delete-older-than 7d";
         rbs = "sudo nixos-rebuild switch";
-        rbs2 = "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
+        rbs3 = "sudo nixos-rebuild switch -I /home/tolga/nixos/NixOS-tolga/nixos/configuration.nix";
         rebuild-all = "sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
       };
 
       # Fish aliases
       shellAliases = {
-        htos = "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh";
+        htos =
+          "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh";
         master = "sudo ~/scripts/MYTOOLS/main.sh";
         mount = "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/MOUNT-ALL.sh";
         mse = "sudo ~/scripts/MYTOOLS/MAKE-SCRIPTS-EXECUTABLE.sh";
-        mynix = "sudo ~/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh";
-        stoh = "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-SERVER-TO-HOME.sh";
-        trimgen = "sudo ~/scripts/MYTOOLS/scripts/GENERATION-TRIMMER/TrimmGenerations.sh";
-        umount = "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh";
+        mynix =
+          "sudo ~/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh";
+        stoh =
+          "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-SERVER-TO-HOME.sh";
+        trimgen =
+          "sudo ~/scripts/MYTOOLS/scripts/GENERATION-TRIMMER/TrimmGenerations.sh";
+        umount =
+          "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh";
 
         # navigate files and directories
         # cd = "cd ..";
