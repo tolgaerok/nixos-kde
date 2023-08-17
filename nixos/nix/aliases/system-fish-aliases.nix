@@ -46,8 +46,9 @@
       # Fish shellAbbrs
       shellAbbrs = {
         garbage = "sudo nix-collect-garbage --delete-older-than 7d";
-        rebuild-all = "sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
         rbs = "sudo nixos-rebuild switch";
+        rbs2 = "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
+        rebuild-all = "sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
       };
 
       # Fish aliases
@@ -63,12 +64,12 @@
 
         # navigate files and directories
         # cd = "cd ..";
-        ls = "lsd";
-        ll = "lsd -l";
-        la = "lsd -a";
-        lsla = "lsd -la";
         cl = "clear";
         copy = "rsync -P";
+        la = "lsd -a";
+        ll = "lsd -l";
+        ls = "lsd";
+        lsla = "lsd -la";
 
         # fun stuff
         icons = "sxiv -t /home/tolga/Pictures/icons";
@@ -76,8 +77,8 @@
 
         # file access
         cp = "cp -riv";
-        mv = "mv -iv";
         mkdir = "mkdir -vp";
+        mv = "mv -iv";
 
       };
     };

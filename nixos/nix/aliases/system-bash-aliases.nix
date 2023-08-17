@@ -23,17 +23,19 @@
         neu =         "sudo nix-env --upgrade";
         nopt =        "sudo nix-store --optimise";
         rbs =         "sudo nixos-rebuild switch";
+        rbs2 =        "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
         rebuild-all = "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+        switch =      "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
 
         #---------------------------------------------------------------------
         # Personal scripts
         #---------------------------------------------------------------------
 
+        htos =        "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh";
         master =      "sudo ~/scripts/MYTOOLS/main.sh";
         mount =       "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/MOUNT-ALL.sh";
         mse =         "sudo ~/scripts/MYTOOLS/MAKE-SCRIPTS-EXECUTABLE.sh";
         mynix =       "sudo ~/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh";         
-        htos =        "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh";
         stoh =        "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-SERVER-TO-HOME.sh";
         trimgen =     "sudo ~/scripts/MYTOOLS/scripts/GENERATION-TRIMMER/TrimmGenerations.sh";
         umount =      "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh";
@@ -43,12 +45,12 @@
         #---------------------------------------------------------------------
         
         # cd = "cd ..";
-        ls = "lsd";
-        ll = "lsd -l";
-        la = "lsd -a";
-        lsla = "lsd -la";
         cl = "clear";
         copy = "rsync -P";
+        la = "lsd -a";
+        ll = "lsd -l";
+        ls = "lsd";
+        lsla = "lsd -la";
 
         #---------------------------------------------------------------------
         # Fun stuff
@@ -61,8 +63,8 @@
         # File access
         #---------------------------------------------------------------------
         cp = "cp -riv";
-        mv = "mv -iv";
         mkdir = "mkdir -vp";
+        mv = "mv -iv";
 
       };
     };

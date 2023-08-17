@@ -5,6 +5,8 @@ let
   copy-backup-nix = pkgs.writeScriptBin "copy-backup-nix" ''
     #!/bin/bash
 
+    # Tolga Erok
+        
     # Destination information
     DEST_DIR="/mnt/smb-rsync/"
     SERVER_IP="192.168.0.20"
