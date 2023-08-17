@@ -7,6 +7,7 @@
 
       # Utilities
       # unstable.vscode-fhs
+      direnv
       gh
       git
       git-extras
