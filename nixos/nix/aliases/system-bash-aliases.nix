@@ -23,7 +23,7 @@
         neu =         "sudo nix-env --upgrade";
         nopt =        "sudo nix-store --optimise";
         rbs =         "sudo nixos-rebuild switch";
-        rbs2 =        "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
+        rbs2 =        "sudo nixos-rebuild switch -I nixos-config=/home/tolga/My GitHub/NixOS-tolga/nixos/configuration.nix";
         rebuild-all = "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
         switch =      "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
 
