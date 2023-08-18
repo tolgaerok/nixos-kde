@@ -63,8 +63,8 @@ Happy coding! 😄
 2. Open Terminal, type:
 
 ```sh
-git clone https://github.com/tolgaerok/NixOS-tolga.git
-cd ./NixOS-tolga
+git clone https://github.com/tolgaerok/nixos.git
+cd ./nixos
 ```
 
 3. Copy either or all files into your /etc/nixos directory:
