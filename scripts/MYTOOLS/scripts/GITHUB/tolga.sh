@@ -3,10 +3,10 @@
 # Tolga Erok
 
 config_files=(
-    ~/nixos/A
+    ~/nixos/nixos/
 )
 
-git_dir="$HOME/nixos/"
+git_dir="$HOME/nixos/nixos/.git"
 work_tree="$HOME"
 
 for file in "${config_files[@]}"; do
