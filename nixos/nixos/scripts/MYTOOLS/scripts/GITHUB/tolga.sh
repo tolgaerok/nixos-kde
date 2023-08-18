@@ -5,7 +5,7 @@
 
 
 config_files=(
-    ~/nixos/nixos/
+    ~/nixos
 )
 
 git_dir="$HOME/nixos/nixos/.git"
