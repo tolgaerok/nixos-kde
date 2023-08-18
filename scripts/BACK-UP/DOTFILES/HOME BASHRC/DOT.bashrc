@@ -1,7 +1,0 @@
-alias mynix='sudo ~/scripts/MYTOOLS/scripts/COMMAN-NIX-COMMAND-SCRIPT/MyNixOS-commands.sh'
-alias mount='sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/MOUNT-ALL.sh'
-alias umount='sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh'
-alias mse='sudo ~/scripts/MYTOOLS/MAKE-SCRIPTS-EXECUTABLE.sh'
-alias htos='sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh'
-alias stoh='sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-SERVER-TO-HOME.sh'
-alias trimgen='sudo ~/scripts/MYTOOLS/scripts/GENERATION-TRIMMER/TrimmGenerations.sh'
