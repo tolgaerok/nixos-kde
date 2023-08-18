@@ -4,14 +4,14 @@
 # idea's for dave
 
 config_files=(
-    ~/Programs
+    ~/.config/alacritty
+    ~/.config/picom
     ~/.dwm
     ~/.mutt
     ~/.muttrc
     ~/.newsboat
-    ~/.config/alacritty
-    ~/.config/picom
     ~/Documents
+    ~/Programs
 )
 
 git_dir="$HOME/.cfg/"
