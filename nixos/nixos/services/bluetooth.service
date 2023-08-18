@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth service
+After=network.target
+
+[Service]
+ExecStart=/run/current-system/sw/bin/bluetoothd
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
