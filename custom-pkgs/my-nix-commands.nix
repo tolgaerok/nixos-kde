@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 
-# Tolga Erok
-# 16/7/23
-
 let
 
   my-nix = pkgs.writeScriptBin "my-nix" ''

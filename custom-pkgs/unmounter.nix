@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 
-# Tolga Erok
-# 16/6/23
-
 let
 
   unmounter = pkgs.writeScriptBin "unmounter" ''

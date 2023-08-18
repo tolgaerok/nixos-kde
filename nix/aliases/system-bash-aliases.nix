@@ -15,7 +15,7 @@
       shellAliases = {
 
         #---------------------------------------------------------------------
-        # Nixos related +
+        # Nixos related
         #---------------------------------------------------------------------
         
         garbage =     "sudo nix-collect-garbage --delete-older-than 7d";
@@ -23,7 +23,7 @@
         neu =         "sudo nix-env --upgrade";
         nopt =        "sudo nix-store --optimise";
         rbs =         "sudo nixos-rebuild switch";
-        rbs3 =        "sudo nixos-rebuild switch -I /home/tolga/nixos/NixOS-tolga/nixos/configuration.nix";
+        rbs2 =        "sudo nixos-rebuild switch -I /home/tolga/nixos/configuration.nix";
         rebuild-all = "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
         switch =      "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
 

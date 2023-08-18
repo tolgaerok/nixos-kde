@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 
-# Tolga Erok
-# 3/8/23
-
 let
 
   backup-nix = pkgs.writeScriptBin "backup-nix" ''

@@ -1,8 +1,5 @@
 { config, pkgs, lib, ... }:
 
-# Tolga Erok
-# 10/8/23
-
 let
 
   create-smb-user = pkgs.writeScriptBin "create-smb-user" ''
