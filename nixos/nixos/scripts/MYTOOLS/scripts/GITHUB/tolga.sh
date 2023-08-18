@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Tolga Erok
+# git remote set-url origin git@github.com:tolgaerok/nixos.git
+
 
 config_files=(
     ~/nixos/nixos/
