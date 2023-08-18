@@ -15,7 +15,7 @@
       powershell
       sshpass
       teamviewer 
-      nomachine-client  # may clash with flatpak
+      # nomachine-client
     ];
   };
 
