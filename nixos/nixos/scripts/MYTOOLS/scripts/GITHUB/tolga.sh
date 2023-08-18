@@ -5,12 +5,12 @@
 
 
 config_files=(
-    ~/nixos/nixos/
+    ~/nixos/nixos/*
 )
 
 git_dir="$HOME/nixos/nixos/.git"
 work_tree="$HOME"
-git add .
+
 
 for file in "${config_files[@]}"; do
     git --git-dir="$git_dir" --work-tree="$work_tree" add "$file"
