@@ -47,7 +47,7 @@
       shellAbbrs = {
         garbage = "sudo nix-collect-garbage --delete-older-than 7d";
         rbs = "sudo nixos-rebuild switch";
-        rbs2 = "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/configuration.nix";
+        rbs2 = "sudo nixos-rebuild switch -I nixos-config=/home/tolga/nixos/nixos/configuration.nix";
         rebuild-all = "sudo nix-collect-garbage --delete-older-than 7d && sudo nixos-rebuild switch";
       };
 
