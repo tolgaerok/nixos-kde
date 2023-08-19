@@ -79,7 +79,8 @@ in {
   # Activate the automatic trimming process for SSDs on the NixOS system  
   # Manual over-ride is sudo fstrim / -v
   #---------------------------------------------------------------------
-  services.fstrim.enable = true;
+  
+  services.fstrim.enable = true;  # sudo fstrim -av { targets all mounted filesystems }
 
   #---------------------------------------------------------------------
   # Kernel Configuration
