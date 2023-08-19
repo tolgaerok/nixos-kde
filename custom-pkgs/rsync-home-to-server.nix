@@ -2,8 +2,8 @@
 
 let
 
-  rsync-home-to-server = pkgs.writeScriptBin "rsync-home-to-server" ''
-    #!/bin/bash
+  perform_rsync = pkgs.writeScriptBin "perform_rsync" ''
+    #!/usr/bin/env bash
 
     # Tolga Erok
     # 11/5/2023
@@ -19,11 +19,7 @@ let
     MOUNT_OPTIONS="credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
 
     # Function to print colored output
-    print_color() {
-        local color="$1"
-        shift
-        echo -e "\e[${color}m$@\e[0m"
-    }
+    
 
     # Reload daemon, fstab, and mount -a
     sudo systemctl daemon-reload && sudo mount -a
@@ -60,16 +56,16 @@ let
         fi
 
         # Check if the array is not empty and display the last update details
-        if [[ ${#last_update_details[@]} -gt 0 ]]; then
-            print_color "1;34" "Last update details for transferred items:"
+        if [[ ${last_update_details[@]} -gt 0 ]]; then
+            echo -e "1;34" "Last update details for transferred items:"
             for details in "${last_update_details[@]}"; do
-                print_color "1;34" "$details"
+                echo -e "1;34" "$details"
             done
         else
-            print_color "1;34" "No transferred items found."
+            echo -e "1;34" "No transferred items found."
         fi
 
-        print_color "1;31" "Press Enter to go back to the menu."
+        echo -e "1;31" "Press Enter to go back to the menu."
         read -r -s
         clear
     }
@@ -140,10 +136,9 @@ let
 
         clear
     done
-  '';
-  
+   '';
 in {
   
-  # Type: rsync-home-to-server in terminal to execute the bash script
-  environment.systemPackages = [ rsync-home-to-server ];
+  # Type: perform_rsync in terminal to execute the bash script
+  environment.systemPackages = [ perform_rsync ];
 }
