@@ -53,6 +53,11 @@ Happy coding! 😄
    - Execute `sudo nixos-rebuild switch` in your terminal afterward.
 
 ```sh
+Terminal: nix-shell -p git
+Terminal: nix-shell -p gitFull
+
+or..
+
 # Nix package collection (pkgs) that you want to include in the system environment.
   environment.systemPackages = with pkgs; [    
     git
