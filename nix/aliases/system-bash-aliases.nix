@@ -24,7 +24,7 @@
         nopt =        "sudo nix-store --optimise";
         rbs =         "sudo nixos-rebuild switch";
         rbs2 =        "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
-        rebuild-all = "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot";
+        rebuild-all = "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot && sudo fstrim -av";
         switch =      "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
 
         #---------------------------------------------------------------------

@@ -43,7 +43,7 @@
         "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
       vers = "3.1.1";
       cacheOpts = "cache=loose";
-      credentialsPath = "/etc/nixos/network/smb-secrets";
+      credentialsPath = "$HOME/nixos/network/smb-secrets";
     in [
       "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},vers=${vers},${cacheOpts}"
     ];
