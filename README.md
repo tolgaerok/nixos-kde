@@ -54,15 +54,17 @@ Happy coding! 😄
 
 ```sh
 Terminal: nix-shell -p git
+Terminal: nix-shell -p git-extras
 Terminal: nix-shell -p gitFull
 
-or..
+or add into your configuration.nix file
 
 # Nix package collection (pkgs) that you want to include in the system environment.
   environment.systemPackages = with pkgs; [    
     git
     git-extras
 ];
+
 ```
 
 2. Open Terminal, type:
