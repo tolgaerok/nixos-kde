@@ -3,7 +3,7 @@
   imports = [
 
     #---------------------------------------------------------------------
-    # Import custom in-house environment packages:
+    # Import custom in-house environment packages::
     #---------------------------------------------------------------------
 
     # ./git_upload.nix
