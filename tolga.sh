@@ -3,7 +3,7 @@
 # Tolga Erok.
 # ¯\_(ツ)_/¯
 
-# Personal nixos git folder uploader
+# Personal nixos git folder uploader!
 # 20/8/23
 
 config_files=(
