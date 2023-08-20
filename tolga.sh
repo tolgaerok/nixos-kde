@@ -60,3 +60,6 @@ echo "Committed edits"
 # Push changes to remote
 git push origin main
 echo "Pushed changes to remote repository at $commit_time"
+
+# Display Global settings
+git config --global --list
