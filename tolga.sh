@@ -3,9 +3,9 @@
 # Tolga Erok
 # ¯\_(ツ)_/¯
 
+# Personal nixos git folder uploader
 # 20/8/23
 
-# ¯\_(ツ)_/¯ Random test
 config_files=(
     "$HOME/nixos/"
 )
@@ -36,7 +36,6 @@ else
     exit 1
 fi
 
-git_dir="$HOME/shiva/shiva.git"
 work_tree="$HOME/nixos"
 
 # Navigate to the working tree directory
