@@ -74,4 +74,4 @@ push_time=$(date +"%I:%M %p") # Update push time
 git push origin main
 echo "Pushed changes to remote repository at $push_time"
 
-# End of script
+
