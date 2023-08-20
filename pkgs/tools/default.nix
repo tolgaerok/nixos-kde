@@ -6,7 +6,7 @@
       keepassxc
       media-downloader
       testdisk-qt
-      ventoy
+      # ventoy
       ventoy-full          # ventoy   ventoy-persistent   ventoy-web   ventoy-plugson   ventoy-extend-persistent
     ];
   };
