@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Tolga Erok
+# Tolga Erok.
 # ¯\_(ツ)_/¯
 
 # Personal nixos git folder uploader
