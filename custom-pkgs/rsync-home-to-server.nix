@@ -16,10 +16,10 @@ let
     SERVER_IP="192.168.0.20"
 
     # MOUNT_OPTIONS="credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba,file_mode=0777,dir_mode=0777"
-    MOUNT_OPTIONS="credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
+    MOUNT_OPTIONS="credentials=$HOME/nixos/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
 
     # Function to print colored output
-    
+
 
     # Reload daemon, fstab, and mount -a
     sudo systemctl daemon-reload && sudo mount -a
@@ -29,6 +29,8 @@ let
         sudo umount -f /mnt/*
         sudo umount -l /mnt/*
     }
+
+    perform_unmount
 
     # Reload daemon and fstab
     perform_reload() {
@@ -55,18 +57,11 @@ let
             last_update_details+=("Last Update: $last_update, Data Size: $data_size")
         fi
 
-        # Check if the array is not empty and display the last update details
-        if [[ ${last_update_details[@]} -gt 0 ]]; then
-            echo -e "1;34" "Last update details for transferred items:"
-            for details in "${last_update_details[@]}"; do
-                echo -e "1;34" "$details"
-            done
-        else
-            echo -e "1;34" "No transferred items found."
-        fi
+        
 
         echo -e "1;31" "Press Enter to go back to the menu."
         read -r -s
+        perform_unmount
         clear
     }
 
@@ -136,9 +131,9 @@ let
 
         clear
     done
-   '';
+  '';
 in {
-  
+
   # Type: perform_rsync in terminal to execute the bash script
   environment.systemPackages = [ perform_rsync ];
 }

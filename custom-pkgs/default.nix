@@ -7,7 +7,7 @@
     #---------------------------------------------------------------------
 
     # ./git_upload.nix
-    # ./rsync-home-to-server.nix    
+    ./rsync-home-to-server.nix    
     # ./trimmgenerations.nix
     ./copy-back-up.nix
     ./create-smb-user.nix
