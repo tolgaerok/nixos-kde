@@ -13,9 +13,11 @@
     ./make-executable.nix
     ./mounter.nix
     ./my-nix-commands.nix
+    ./my-pkgs.nix
     ./rsync-back-up.nix
     ./rsync-home-to-server.nix    
     ./unmounter.nix
+    
   ];
 
 }
