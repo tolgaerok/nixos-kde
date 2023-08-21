@@ -21,7 +21,7 @@ let
     git config --global http.postBuffer 524288000
 
     if [[ $remote_url == *"git@github.com"* ]]; then
-        echo "Remote URL is set to SSH. Proceeding with the script..."
+        echo "Remote URL is set to SSH. Proceeding with the script..."| ${pkgs.lolcat}/bin/lolcat
     else
         echo "Remote URL is not set to SSH. Please set up SSH key-based authentication for the remote repository."
         echo "If you haven't already, generate an SSH key pair:"
@@ -44,22 +44,22 @@ let
 
     # Pull remote changes using merge
     git pull origin main --no-rebase
-    echo "Pulled remote changes using merge"
+    echo "Pulled remote changes using merge"| ${pkgs.lolcat}/bin/lolcat
 
     git add "$config_files"
 
     commit_time=$(date +"%I:%M %p") # 12-hour format
     git commit -m "Update at $commit_time"
-    echo "Committed local changes"
+    echo "Committed local changes"| ${pkgs.lolcat}/bin/lolcat
 
     # Commit changes from deletions
     git add --all
     git commit -m "Edited commit @ $commit_time"
-    echo "Committed edits"
+    echo "Committed edits"| ${pkgs.lolcat}/bin/lolcat
 
     # Push changes to remote
     git push origin main
-    echo "Pushed changes to remote repository at $commit_time"
+    echo "Pushed changes to remote repository at $commit_time"| ${pkgs.lolcat}/bin/lolcat
 
     # Display Global settings
     git config --global --list      
