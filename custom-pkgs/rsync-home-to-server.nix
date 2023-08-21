@@ -40,7 +40,7 @@ let
      # Function to perform rsync
      perform_rsync() {
          # mount smb share
-         sudo mount -t cifs //$SERVER_IP/LinuxData2/HOME/PROFILES/"$distro"/TOLGA/ $DEST_DIR -o "$MOUNT_OPTIONS"
+         sudo mount -t cifs //$SERVER_IP/LINUXDATA2/HOME/PROFILES/"$distro"/TOLGA/ $DEST_DIR -o "$MOUNT_OPTIONS"
 
          # rsync with --exclude option to skip hidden files/folders
          echo -e "\e[1;34mSyncing $SOURCE_DIR/ $DEST_DIR/ ...\e[0m"
@@ -48,24 +48,7 @@ let
          echo -e "\e[1;31mFinished syncing $SOURCE_DIR/ $DEST_DIR/\e[0m"
          sleep 1
          echo 
-          # After performing the rsync, store the last update details in an array
-
-     last_update_details=()
-        if [[ -d "$DEST_DIR" ]]; then
-         last_update=$(stat -c "%y" "$DEST_DIR" | cut -d' ' -f1)
-         data_size=$(du -sh "$DEST_DIR" | cut -f1)
-         last_update_details+=("Last Update: $last_update, Data Size: $data_size")
-     fi
-
-     # Check if the array is not empty and display the last update details
-        if [[ $''${last_update_details[@]} -gt 0 ]]; then
-         echo -e "Last update details for transferred items:" 
-         for details in $''${last_update_details[@]}; do
-           echo -e "1;34" "$$details"
-         done
-     else
-         echo -e "\e[1;34mNo transferred items found.\e[0m\n"
-     fi     
+             
          echo -e "Press Enter to go back to the menu." 
          read -r -s
          perform_unmount

@@ -3,6 +3,7 @@
 let
 
   xxx = pkgs.writeScriptBin "xxx" ''
+  #!/usr/bin/env bash
 
   '';
 
