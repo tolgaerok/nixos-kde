@@ -4,9 +4,7 @@
 # Tolga Erok. ¯\_(ツ)_/¯
 # 20/8/23
 
-config_files=(
-    "$HOME/nixos/"
-)
+config_files= "$HOME/nixos/"
 
 # Check if the remote URL is set to SSH
 remote_url=$(git remote get-url origin)
@@ -44,9 +42,12 @@ git pull origin main --no-rebase
 echo "Pulled remote changes using merge"
 
 # Add and commit local changes
-for path in "${config_files[@]}"; do
-    git add "$path"
-done
+#for path in "${config_files[@]}"; do
+#    git add "$path"
+
+git add "$config_files"
+
+
 
 commit_time=$(date +"%I:%M %p") # 12-hour format
 git commit -m "Update at $commit_time"
