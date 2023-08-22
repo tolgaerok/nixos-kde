@@ -3,7 +3,7 @@
 # Laptop { various}
 # Intel hardware video acceleration and
 # VAAPI/VDPAU compatibility, which are more
-# relevant for Intel and AMD GPUs
+# relevant for Intel and AMD GPU's
 
 {
   nixpkgs.config.packageOverrides = pkgs: {
