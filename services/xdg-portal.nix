@@ -19,6 +19,7 @@
         ];
     };
 
+    # Turn Wayland off
     wlr = { enable = false; };
 
     extraPortals = with pkgs; [
