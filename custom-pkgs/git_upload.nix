@@ -7,13 +7,14 @@ let
 
     # Personal nixos git folder uploader!
     # Tolga Erok. ¯\_(ツ)_/¯
-    # 20/8/23:
+    # 20/8/23
 
     config_files= "$HOME/nixos/"
 
     # Check if the remote URL is set to SSH
     remote_url=$(git remote get-url origin)
-
+    git config pull.rebase true
+    
     # Add some tweaks
     git config --global core.compression 9
     git config --global core.deltaBaseCacheLimit 2g
