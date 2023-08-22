@@ -49,23 +49,23 @@ let
 
     # Pull remote changes using merge
     git pull origin main --no-rebase
-    echo "(ツ) Pulled remote changes using merge" | ${pkgs.lolcat}/bin/lolcat
+    echo "(ツ)_/¯   Pulled remote changes using merge" | ${pkgs.lolcat}/bin/lolcat
 
     # Add changes
     git add "$config_files"
 
     commit_time=$(date +"%I:%M %p") # 12-hour format
-    git commit -m "(ツ) Update @ $commit_time"
-    echo "(ツ) Committed local changes" | ${pkgs.lolcat}/bin/lolcat
+    git commit -m "(ツ)_/¯    Update @ $commit_time"
+    echo "(ツ)_/¯   Committed local changes" | ${pkgs.lolcat}/bin/lolcat
 
     # Commit changes from deletions
     git add --all
-    git commit -m "(ツ) Edited commit @ $commit_time"
-    echo "Committed edits" | ${pkgs.lolcat}/bin/lolcat
+    git commit -m "(ツ)_/¯  Edited commit @ $commit_time"
+    echo "(ツ)_/¯   Committed edits" | ${pkgs.lolcat}/bin/lolcat
 
     # Push changes to remote
     git push origin main
-    echo "(ツ) Pushed changes to remote repository @ $commit_time" | ${pkgs.lolcat}/bin/lolcat
+    echo "(ツ)_/¯   Pushed changes to remote repository @ $commit_time" | ${pkgs.lolcat}/bin/lolcat
 
     # Display Global settings
     git config --global --list
