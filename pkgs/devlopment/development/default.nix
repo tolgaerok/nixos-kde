@@ -10,7 +10,7 @@
       direnv
       gh
 
-      #Git related:
+      #Git related
       # git
       git-extras
       git-my
