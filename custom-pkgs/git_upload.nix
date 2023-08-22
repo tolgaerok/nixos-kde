@@ -62,7 +62,7 @@ let
     done
 
     commit_time=$(date +"%I:%M %p") # 12-hour format
-    git commit -m "Update at $commit_time"
+    git commit -m "Update at $commit_time $file_status: $file_name"
     echo "Committed local changes" | ${pkgs.lolcat}/bin/lolcat
 
     # Commit changes from deletions
