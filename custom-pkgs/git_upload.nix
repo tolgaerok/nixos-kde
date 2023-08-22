@@ -59,6 +59,7 @@ let
         file_status=$(echo "$line" | awk '{ print $1 }')
         file_name=$(echo "$line" | awk '{ print $2 }')
         echo "Adding $file_status: $file_name"
+        git add "$file_name"
     done
 
     commit_time=$(date +"%I:%M %p") # 12-hour format
