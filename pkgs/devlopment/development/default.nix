@@ -9,8 +9,15 @@
       # unstable.vscode-fhs
       direnv
       gh
+
+      #Git related
       git
       git-extras
+      git-my
+      gitFull
+      gitg
+      gitlab
+
       graalvm17-ce
       mosh
       nix-direnv

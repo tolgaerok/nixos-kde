@@ -9,10 +9,16 @@ let
     # Tolga Erok. ¯\_(ツ)_/¯
     # 20/8/23
 
-    config_files= "$HOME/nixos/"
+    config_files="$HOME/nixos"
+    work_tree="$HOME/nixos"
 
     # Check if the remote URL is set to SSH
     remote_url=$(git remote get-url origin)
+    
+    # Configure Git credential helper to cache credentials for 1 hour
+    git config --global credential.helper "cache --timeout=3600"
+
+    # Configure pull to always rebase
     git config pull.rebase true
 
     # Add some tweaks
@@ -36,9 +42,7 @@ let
         echo "git config --global credential.helper store"
         echo "Remote URL needs to be updated to SSH. Exiting..."
         exit 1
-    fi
-
-    work_tree="$HOME/nixos"
+    fi    
 
     # Navigate to the working tree directory
     cd "$work_tree" || exit
@@ -63,8 +67,9 @@ let
     echo "Pushed changes to remote repository at $commit_time"| ${pkgs.lolcat}/bin/lolcat
 
     # Display Global settings
-    git config --global --list      
-      # End of script
+    git config --global --list    
+    
+    # End of script
   '';
 
 in {
