@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-# Laptop:
+# Laptop { various}
 # Intel hardware video acceleration and
 # VAAPI/VDPAU compatibility, which are more
 # relevant for Intel and AMD GPUs
