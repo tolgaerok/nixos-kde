@@ -19,6 +19,17 @@ let
   echo "unmounter           Un-mount all /mnt" | ${pkgs.lolcat}/bin/lolcat
   echo ""
   echo "#---------------------------------------------------------------" | ${pkgs.lolcat}/bin/lolcat
+
+  echo "Your nix info:"
+  echo "#---------------------------------------------------------------" | ${pkgs.lolcat}/bin/lolcat
+  nix-shell -p nix-info --run 'nix-info -m' 
+
+  echo "Your list of generations:"
+  echo "#---------------------------------------------------------------" | ${pkgs.lolcat}/bin/lolcat
+  sudo nix-env -p /nix/var/nix/profiles/system --list-generations
+  
+
+
 '';
 
 in {

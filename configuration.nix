@@ -33,6 +33,7 @@ in {
     ./scanner
     ./screensaver
     ./services
+    ./system
 
   ];
 

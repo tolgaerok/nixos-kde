@@ -15,8 +15,8 @@
       xfce.thunar
 
       # Other Miscellaneous Programs
-
       blueberry
+      efibootmgr
       gum
       krusader
     ];

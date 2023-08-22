@@ -11,6 +11,7 @@
       libdvdread
       libopus
       libvorbis
+      mediainfo
       mpg123
       mplayer
       mpv
@@ -18,7 +19,6 @@
       pulseaudioFull
       simplescreenrecorder
       video-trimmer
-      mediainfo
 
     ];
   };
