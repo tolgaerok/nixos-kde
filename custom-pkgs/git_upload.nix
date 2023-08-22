@@ -14,7 +14,7 @@ let
 
     # Check if the remote URL is set to SSH
     remote_url=$(git remote get-url origin)
-    
+
     # Configure Git credential helper to cache credentials for 1 hour
     git config --global credential.helper "cache --timeout=3600"
 
@@ -28,7 +28,7 @@ let
     git config --global http.postBuffer 524288000
 
     if [[ $remote_url == *"git@github.com"* ]]; then
-        echo "Remote URL is set to SSH. Proceeding with the script..."| ${pkgs.lolcat}/bin/lolcat
+        echo "Remote URL is set to SSH. Proceeding with the script..." | ${pkgs.lolcat}/bin/lolcat
     else
         echo "Remote URL is not set to SSH. Please set up SSH key-based authentication for the remote repository."
         echo "If you haven't already, generate an SSH key pair:"
@@ -42,34 +42,43 @@ let
         echo "git config --global credential.helper store"
         echo "Remote URL needs to be updated to SSH. Exiting..."
         exit 1
-    fi    
+    fi
 
     # Navigate to the working tree directory
     cd "$work_tree" || exit
 
     # Pull remote changes using merge
     git pull origin main --no-rebase
-    echo "Pulled remote changes using merge"| ${pkgs.lolcat}/bin/lolcat
+    echo "Pulled remote changes using merge" | ${pkgs.lolcat}/bin/lolcat
 
+    # Add changes
     git add "$config_files"
+
+    # Commit changes and display filenames/folders
+    git status -s | while read -r line; do
+        file_status=$(echo "$line" | awk '{ print $1 }')
+        file_name=$(echo "$line" | awk '{ print $2 }')
+        echo "Adding $file_status: $file_name"
+    done
 
     commit_time=$(date +"%I:%M %p") # 12-hour format
     git commit -m "Update at $commit_time"
-    echo "Committed local changes"| ${pkgs.lolcat}/bin/lolcat
+    echo "Committed local changes" | ${pkgs.lolcat}/bin/lolcat
 
     # Commit changes from deletions
     git add --all
     git commit -m "Edited commit @ $commit_time"
-    echo "Committed edits"| ${pkgs.lolcat}/bin/lolcat
+    echo "Committed edits" | ${pkgs.lolcat}/bin/lolcat
 
     # Push changes to remote
     git push origin main
-    echo "Pushed changes to remote repository at $commit_time"| ${pkgs.lolcat}/bin/lolcat
+    echo "Pushed changes to remote repository at $commit_time" | ${pkgs.lolcat}/bin/lolcat
 
     # Display Global settings
-    git config --global --list    
-    
+    git config --global --list
+
     # End of script
+
   '';
 
 in {
