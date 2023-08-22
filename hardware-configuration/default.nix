@@ -8,14 +8,14 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ehci_pci"
     "ahci"
-    "usbhid"
-    "usb_storage"
+    "ehci_pci"
     "sd_mod"
     "sr_mod"
     "uas"
+    "usb_storage"
+    "usbhid"
+    "xhci_pci"
   ];
 
   boot.extraModulePackages = [ ];
@@ -71,4 +71,11 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   networking.useDHCP = lib.mkDefault true;
+
+  #---------------------------------------------------------------------
+  # Latest real-time (RT) version of the Linux kernel.
+  #---------------------------------------------------------------------
+
+  # kernelPackages = pkgs.linuxPackages-rt_latest;
+
 }

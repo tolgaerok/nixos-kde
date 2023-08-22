@@ -10,8 +10,8 @@
 
 { config, desktop, pkgs, lib, username, ... }:
 
-let 
-    
+let
+
 in {
 
   #---------------------------------------------------------------------
@@ -79,8 +79,9 @@ in {
   # Activate the automatic trimming process for SSDs on the NixOS system  
   # Manual over-ride is sudo fstrim / -v
   #---------------------------------------------------------------------
-  
-  services.fstrim.enable = true;  # sudo fstrim -av { targets all mounted filesystems }
+
+  services.fstrim.enable =
+    true; # sudo fstrim -av { targets all mounted filesystems }
 
   #---------------------------------------------------------------------
   # Kernel Configuration
@@ -110,11 +111,17 @@ in {
   # X11 and KDE Plasma
   #---------------------------------------------------------------------
 
-  services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.enable = true;
-  services.xserver.layout = "au";
-  services.xserver.xkbVariant = "";
+  services = {
+    xserver = {
+      desktopManager = { plasma5.enable = true; };
+      videoDrivers = [ "nvidia" ];
+      displayManager.sddm.enable = true;
+      displayManager.sddm.autoNumlock = true;
+      enable = true;
+      layout = "au";
+      xkbVariant = "";
+    };
+  };
 
   #---------------------------------------------------------------------
   # Audio
@@ -194,8 +201,8 @@ in {
       driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
-        intel-media-driver  # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel          # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         libvdpau-va-gl
         vulkan-validation-layers
@@ -203,7 +210,7 @@ in {
     };
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # services.xserver.videoDrivers = [ "nvidia" ];
 
   #---------------------------------------------------------------------  
   # Automatic system upgrades, automatically reboot after an upgrade if 
@@ -215,5 +222,5 @@ in {
   system.copySystemConfiguration = true;
   system.stateVersion = "23.05";
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
-  
+
 }
