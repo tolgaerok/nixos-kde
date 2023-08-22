@@ -7,7 +7,7 @@ let
 
     # Personal nixos git folder uploader!
     # Tolga Erok. ¯\_(ツ)_/¯
-    # 20/8/23
+    # 20/8/23:
 
     config_files= "$HOME/nixos/"
 
