@@ -16,7 +16,7 @@ in {
 
       config = {
         commit = {
-          # Remove the gpgsign line or set it to "false" to disable GPG signing
+          # Remove the gpgsign line or set it to "false" to disable GPG signing...
           # gpgsign = "false";
 
           # Add this line to enable signing commits with your SSH key

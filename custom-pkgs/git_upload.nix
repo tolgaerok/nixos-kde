@@ -9,8 +9,8 @@ let
     # Tolga Erok. ¯\_(ツ)_/¯
     # 20/8/23
 
-    config_files="$HOME/nixos"
-    work_tree="$HOME/nixos"
+    config_files="/etc/nixos"
+    work_tree="/etc/nixos"
 
     # Check if the remote URL is set to SSH
     remote_url=$(git remote get-url origin)
