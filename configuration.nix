@@ -21,11 +21,10 @@ in {
   imports = [
 
     ./custom-pkgs
-    ./hardware-acceleration
     ./hardware-configuration
     ./nix
-    ./pkgs    
-    ./programs    
+    ./pkgs
+    ./programs
     ./services
     ./system
 
@@ -170,34 +169,6 @@ in {
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-
-  #---------------------------------------------------------------------
-  # Nvidia drivers - NixOS wiki and help from David Turcotte. 
-  # (https://davidturcotte.com)
-  #---------------------------------------------------------------------
-
-  hardware = {
-    nvidia = {
-      modesetting.enable = true;
-      nvidiaPersistenced = true;
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
-    };
-
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-        vaapiVdpau
-        libvdpau-va-gl
-        vulkan-validation-layers
-      ];
-    };
-  };
-
-  # services.xserver.videoDrivers = [ "nvidia" ];
 
   #---------------------------------------------------------------------  
   # Automatic system upgrades, automatically reboot after an upgrade if 
