@@ -1,7 +1,8 @@
 {
-    "folders": [
-        {
-            "path": "pkgs"
-        }
-    ]
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
 }

@@ -30,7 +30,7 @@ create_directory_if_not_exist() {
   if [ ! -d "$1" ]; then
     mkdir -p "$1"
     echo "Created directory: $1"
-    chmod 757 "$1"    # Set full access (read, write, and execute) for user, group, and others
+    chmod 757 "$1" # Set full access (read, write, and execute) for user, group, and others
   fi
 }
 
@@ -53,7 +53,7 @@ update_directory_permissions() {
 if [ "$(id -u)" = "0" ] && [ -n "$SUDO_USER" ]; then
   # Get the original non-root user ID and group ID
   user_id=$(id -u "$SUDO_USER")
-  group_id=$(id -g "$SUDO_USER") 
+  group_id=$(id -g "$SUDO_USER")
 
   # Display the non-root user ID, name, and group ID
   echo "Non-Root User: $user_name (ID: $user_id)"
@@ -95,7 +95,7 @@ if [ -n "$user_name" ] && [ -n "$group_name" ]; then
 
   # Give full permissions to the nix.conf file
   echo "experimental-features  = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
-  chmod 757 "$config_dir/nix.conf"    # Set full access (read and write) for user, group, and others
+  chmod 757 "$config_dir/nix.conf" # Set full access (read and write) for user, group, and others
 else
   echo "Failed to retrieve non-root user and group information."
   exit 1
@@ -109,7 +109,7 @@ echo "Install Flatpak apps..."
 
 # Enable Flatpak
 if ! flatpak remote-list | grep -q "flathub"; then
-    sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 fi
 
 # Update Flatpak
@@ -118,19 +118,19 @@ sudo flatpak update -y
 echo "Updating cache, this will take a while..."
 
 # Install Flatpak apps
-packages=(    
-    com.sindresorhus.Caprine
-    org.kde.kweather
+packages=(
+  com.sindresorhus.Caprine
+  org.kde.kweather
 )
 
 # Install each package if not already installed
 for package in "${packages[@]}"; do
-    if ! flatpak list | grep -q "$package"; then
-        echo "Installing $package..."
-        sudo flatpak install -y flathub "$package"
-    else
-        echo "$package is already installed. Skipping..."
-    fi
+  if ! flatpak list | grep -q "$package"; then
+    echo "Installing $package..."
+    sudo flatpak install -y flathub "$package"
+  else
+    echo "$package is already installed. Skipping..."
+  fi
 done
 
 # Double check for the latest Flatpak updates and remove Flatpak cruft
@@ -206,5 +206,5 @@ sudo chmod 0757 "/home/$username"
 
 # Run the following commands after sudo nixos-rebuild switch
 sudo nix-env --upgrade && sudo nix-store --optimise
-sudo nixos-rebuild switch && sudo nix-collect-garbage --delete-old 
+sudo nixos-rebuild switch && sudo nix-collect-garbage --delete-old
 sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot

@@ -3,7 +3,11 @@
     systemPackages = with pkgs; [
       (
         vscode-with-extensions.override {
+<<<<<<< HEAD
           vscode = vscodium;
+=======
+          vscode = vscode;
+>>>>>>> 9c78c88 ((ツ)_/¯ Update @ 9:35 PM)
           vscodeExtensions = with vscode-extensions;
             [
               b4dm4n.vscode-nixpkgs-fmt
