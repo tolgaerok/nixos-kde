@@ -34,6 +34,7 @@ in {
     };
   };
 
+  #
   # cat ~/.ssh/id_ed25519.pub
   # git config --global user.signingkey your_ssh_key_id_here
 
