@@ -15,7 +15,7 @@ in {
   #---------------------------------------------------------------------
   # Printers and printer drivers (To suit my HP LaserJet 600 M601)
   # In terminal: sudo NIXPKGS_ALLOW_UNFREE=1 nix-shell -p hplipWithPlugin 
-  # --run 'sudo -E hp-setup'
+  # then run: sudo -E hp-setup
   #---------------------------------------------------------------------
 
   services.avahi.enable = true;
