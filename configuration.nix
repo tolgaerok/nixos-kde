@@ -23,12 +23,9 @@ in {
     ./custom-pkgs
     ./hardware-acceleration
     ./hardware-configuration
-    ./network
     ./nix
-    ./pkgs
-    ./printer
-    ./programs
-    ./scanner
+    ./pkgs    
+    ./programs    
     ./services
     ./system
 
@@ -72,14 +69,6 @@ in {
 
   services.devmon.enable = true;
   services.udisks2.enable = true;
-
-  #---------------------------------------------------------------------
-  # Activate the automatic trimming process for SSDs on the NixOS system  
-  # Manual over-ride is sudo fstrim / -v
-  #---------------------------------------------------------------------
-
-  services.fstrim.enable =
-    true; # sudo fstrim -av { targets all mounted filesystems }
 
   #---------------------------------------------------------------------
   # Kernel Configuration

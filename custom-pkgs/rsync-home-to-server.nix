@@ -16,7 +16,7 @@ let
      SERVER_IP="192.168.0.20"
 
      # MOUNT_OPTIONS="credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba,file_mode=0777,dir_mode=0777"
-     MOUNT_OPTIONS="credentials=/etc/nixos/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
+     MOUNT_OPTIONS="credentials=/etc/nixos/hardware-configuration/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
 
      # Function to print colored output
 
