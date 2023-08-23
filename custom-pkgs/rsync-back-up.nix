@@ -18,7 +18,7 @@ let
         # Function to perform rsync
         perform_rsync() {
             # Mount smb share
-            sudo mount -t cifs //$SERVER_IP/LINUXDATA2/ISO/ "$DEST_DIR" -o "$MOUNT_OPTIONS"
+            sudo mount -t cifs //$SERVER_IP/LINUXDATA2/ISO/RSYNC/ "$DEST_DIR" -o "$MOUNT_OPTIONS"
 
             # Rsync
             echo -e "\e[1;34mSyncing $SOURCE_DIR/ $DEST_DIR/ ..."

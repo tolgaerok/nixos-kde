@@ -23,7 +23,7 @@ let
     perform_unmount
 
     # Mount smb share
-    sudo mount -t cifs //$SERVER_IP/LINUXDATA2/ISO/ "$DEST_DIR" -o "$MOUNT_OPTIONS"
+    sudo mount -t cifs //$SERVER_IP/LINUXDATA2/ISO/COPY/ "$DEST_DIR" -o "$MOUNT_OPTIONS"
 
     # Check if mount was successful
     if [ $? -ne 0 ]; then
