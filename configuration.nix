@@ -30,6 +30,7 @@ in {
     ./nix
     ./pkgs
     ./printer
+    ./programs
     ./scanner
     ./screensaver
     ./services
