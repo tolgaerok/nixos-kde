@@ -10,9 +10,7 @@
 
 { config, desktop, pkgs, lib, username, ... }:
 
-let
-
-in {
+{
 
   #---------------------------------------------------------------------
   # Import snippet files:- 
@@ -46,30 +44,6 @@ in {
   boot.kernel.sysctl."kernel.sysrq" = 1;
 
   #---------------------------------------------------------------------
-  # Provides a virtual file system for environment modules. Solution
-  # from NixOS forums to help shotwell to keep preference settings
-  #---------------------------------------------------------------------
-
-  services.envfs.enable = true;
-
-  #---------------------------------------------------------------------
-  # Dynamic device management. udev is responsible for device detection, 
-  # device node creation, and managing device events.
-  #---------------------------------------------------------------------
-
-  services.udev.enable = true;
-
-  #---------------------------------------------------------------------
-  # Automatically detect and manage storage devices connected to your 
-  # system. This includes handling device mounting and unmounting, 
-  # as well as providing a consistent interface for accessing USB and 
-  # managing disk-related operations.
-  #---------------------------------------------------------------------
-
-  services.devmon.enable = true;
-  services.udisks2.enable = true;
-
-  #---------------------------------------------------------------------
   # Kernel Configuration
   #---------------------------------------------------------------------
 
@@ -93,23 +67,7 @@ in {
     LC_TIME = "en_AU.UTF-8";
   };
 
-  #---------------------------------------------------------------------
-  # X11 and KDE Plasma
-  #---------------------------------------------------------------------
-
-  services = {
-    xserver = {
-      desktopManager = { plasma5.enable = true; };
-      videoDrivers = [ "nvidia" ];
-      displayManager.sddm.enable = true;
-      displayManager.sddm.autoNumlock = true;
-      enable = true;
-      layout = "au";
-      xkbVariant = "";
-    };
-  };
-
-  #---------------------------------------------------------------------
+  # --------------------------------------------------------------------
   # Audio
   #---------------------------------------------------------------------
 
