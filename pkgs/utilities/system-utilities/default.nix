@@ -46,7 +46,7 @@
       tldr
       tree
       vim
-      gnome.zenity
+      gnome.zenity    # For notifications and code dialogs
 
       # XDG Utilities
       xdg-launch
