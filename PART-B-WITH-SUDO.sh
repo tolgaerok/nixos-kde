@@ -219,7 +219,6 @@ sudo nix-channel --update
 sudo nixos-rebuild switch
 sudo nix-store --optimise
 
-
 cd $HOME
 make-executable
 my-nix
@@ -233,3 +232,6 @@ Tolga Erok.
 ¯\_(ツ)_/¯
 " -u normal
 cmatrix
+chmod 600 ~/.ssh/id_ed25519
+chmod 644 ~/.ssh/id_ed25519.pub
+
