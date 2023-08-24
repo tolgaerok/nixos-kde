@@ -2,9 +2,11 @@
 
   imports = [
 
-    # Configuration for git
+    # Configuration for Programs
+
+    ./fish
     ./git
-    
+    ./konsole
 
   ];
 }

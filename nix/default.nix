@@ -6,14 +6,8 @@ let
 
 in {
 
-  imports = [   
-    
-    # ./custom-config
-    # ./samba/default.nix
-    # Configuration for bash and fish
-    # System condiguration
-    ./aliases/system-bash-aliases.nix
-    ./aliases/system-fish-aliases.nix
+  imports = [
+
     ./dconf
   ];
 
@@ -27,7 +21,7 @@ in {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       keep-derivations = true;
-      keep-outputs = true;      
+      keep-outputs = true;
       sandbox = true;
       trusted-users = [ "root" "${name}" ];
       warn-dirty = false;
