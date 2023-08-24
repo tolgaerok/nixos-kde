@@ -9,8 +9,8 @@
 # -----------------------------------------------------------------------------------
 
 if [[ $EUID -ne 0 ]]; then
-  echo "You must be a root user to run this script, please run sudo ./install.sh" 2>&1
-  exit 1
+    echo "You must be a root user to run this script, please run sudo ./install.sh" 2>&1
+    exit 1
 fi
 
 # -----------------------------------------------------------------------------------
@@ -26,22 +26,22 @@ group_name=$(getent group "$group_id" | cut -d: -f1)
 
 # Function to create directories if they don't exist and set permissions
 create_directory_if_not_exist() {
-  if [ ! -d "$1" ]; then
-    mkdir -p "$1"
-    echo "Created directory: $1"
-    chmod 757 "$1"    # Set full access (read, write, and execute) for user, group, and others
-  fi
+    if [ ! -d "$1" ]; then
+        mkdir -p "$1"
+        echo "Created directory: $1"
+        chmod 757 "$1" # Set full access (read, write, and execute) for user, group, and others
+    fi
 }
 
 # Function to check and update permissions of existing directories
 update_directory_permissions() {
-  if [ -d "$1" ]; then
-    perm=$(stat -c "%a" "$1")
-    if [ "$perm" != "757" ]; then
-      echo "Updating permissions of existing directory: $1"
-      chmod 757 "$1"
+    if [ -d "$1" ]; then
+        perm=$(stat -c "%a" "$1")
+        if [ "$perm" != "757" ]; then
+            echo "Updating permissions of existing directory: $1"
+            chmod 757 "$1"
+        fi
     fi
-  fi
 }
 
 # -----------------------------------------------------------------------------------
@@ -50,16 +50,16 @@ update_directory_permissions() {
 
 # Check if the script is run using sudo
 if [ "$(id -u)" = "0" ] && [ -n "$SUDO_USER" ]; then
-  # Get the original non-root user ID and group ID
-  user_id=$(id -u "$SUDO_USER")
-  group_id=$(id -g "$SUDO_USER") 
-
-  # Display the non-root user ID, name, and group ID
-  echo "Non-Root User: $user_name (ID: $user_id)"
-  echo "Non-Root Group: $group_name (ID: $group_id)"
+    # Get the original non-root user ID and group ID
+    user_id=$(id -u "$SUDO_USER")
+    group_id=$(id -g "$SUDO_USER")
+    
+    # Display the non-root user ID, name, and group ID
+    echo "Non-Root User: $user_name (ID: $user_id)"
+    echo "Non-Root Group: $group_name (ID: $group_id)"
 else
-  echo "This script should be run using sudo."
-  exit 1
+    echo "This script should be run using sudo."
+    exit 1
 fi
 
 # -----------------------------------------------------------------------------------
@@ -67,37 +67,37 @@ fi
 # -----------------------------------------------------------------------------------
 
 if [ -n "$user_name" ] && [ -n "$group_name" ]; then
-  home_dir="/home/$user_name"
-  config_dir="$home_dir/.config/nix"
-
-  create_directory_if_not_exist "$home_dir"
-  create_directory_if_not_exist "$config_dir"
-
-  # Update directory permissions
-  update_directory_permissions "$home_dir/Documents"
-  update_directory_permissions "$home_dir/Music"
-  update_directory_permissions "$home_dir/Pictures"
-  update_directory_permissions "$home_dir/Public"
-  update_directory_permissions "$home_dir/Templates"
-  update_directory_permissions "$home_dir/Videos"
-
-  # Set ownership for directories
-  sudo chown -R "$user_name":"$group_name" "$home_dir"
-
-  # Additional chown commands for directories
-  create_directory_if_not_exist "$home_dir/Documents"
-  create_directory_if_not_exist "$home_dir/Music"
-  create_directory_if_not_exist "$home_dir/Pictures"
-  create_directory_if_not_exist "$home_dir/Public"
-  create_directory_if_not_exist "$home_dir/Templates"
-  create_directory_if_not_exist "$home_dir/Videos"
-
-  # Give full permissions to the nix.conf file
-  echo "experimental-features  = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
-  chmod 757 "$config_dir/nix.conf"    # Set full access (read and write) for user, group, and others
+    home_dir="/home/$user_name"
+    config_dir="$home_dir/.config/nix"
+    
+    create_directory_if_not_exist "$home_dir"
+    create_directory_if_not_exist "$config_dir"
+    
+    # Update directory permissions
+    update_directory_permissions "$home_dir/Documents"
+    update_directory_permissions "$home_dir/Music"
+    update_directory_permissions "$home_dir/Pictures"
+    update_directory_permissions "$home_dir/Public"
+    update_directory_permissions "$home_dir/Templates"
+    update_directory_permissions "$home_dir/Videos"
+    
+    # Set ownership for directories
+    sudo chown -R "$user_name":"$group_name" "$home_dir"
+    
+    # Additional chown commands for directories
+    create_directory_if_not_exist "$home_dir/Documents"
+    create_directory_if_not_exist "$home_dir/Music"
+    create_directory_if_not_exist "$home_dir/Pictures"
+    create_directory_if_not_exist "$home_dir/Public"
+    create_directory_if_not_exist "$home_dir/Templates"
+    create_directory_if_not_exist "$home_dir/Videos"
+    
+    # Give full permissions to the nix.conf file
+    echo "experimental-features  = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
+    chmod 757 "$config_dir/nix.conf" # Set full access (read and write) for user, group, and others
 else
-  echo "Failed to retrieve non-root user and group information."
-  exit 1
+    echo "Failed to retrieve non-root user and group information."
+    exit 1
 fi
 
 # -----------------------------------------------------------------------------------
@@ -117,7 +117,7 @@ sudo flatpak update -y
 echo "Updating cache, this will take a while..."
 
 # Install Flatpak apps
-packages=(    
+packages=(
     com.sindresorhus.Caprine
     org.kde.kweather
 )
@@ -134,9 +134,24 @@ done
 
 # Double check for the latest Flatpak updates and remove Flatpak cruft
 sudo flatpak update -y
-sudo flatpak uninstall --unused --delete-data -y
+# sudo flatpak uninstall --unused --delete-data -y
+# echo -e "\033[33mhi tolga\033[0m"
 
-echo "Software install complete..."
+# List all flatpak
+echo "Show Flatpak info:"
+su - "$USER" -c "flatpak remote-list"
+echo ""
+
+echo -e "\033[33mCheck all runtimes installed\033[0m"
+flatpak list --runtime
+echo ""
+
+echo "List flatpak's installed"
+flatpak list --app
+echo ""
+
+notify-send --app-name="DONE" "Flatpak setup for: $(whoami)" "$(flatpak list --app)" -u normal
+echo "Flatpak Software install complete..."
 
 # -----------------------------------------------------------------------------------
 #  Create some SMB user and group
@@ -144,8 +159,8 @@ echo "Software install complete..."
 
 # Function to read user input and prompt for input
 prompt_input() {
-  read -p "$1" value
-  echo "$value"
+    read -p "$1" value
+    echo "$value"
 }
 
 # Create user/group
@@ -166,9 +181,8 @@ echo -e "\nContinuing..."
 read -r -n 1 -s -t 1
 
 # Create and configure the shared folder
-
 sudo mkdir -p "$shared_folder"
-sudo chgrp samba "$shared_folder"
+sudo chgrp "$sambagroup" "$shared_folder"
 sudo chmod 0757 "$shared_folder"
 
 # Pause and continue
@@ -194,9 +208,6 @@ sudo mkdir -p /var/lib/samba/usershares
 sudo chown "$username:sambashares" /var/lib/samba/usershares
 sudo chmod 1770 /var/lib/samba/usershares
 
-# Restore SELinux context for the usershares directory
-sudo restorecon -R /var/lib/samba/usershares
-
 # Add the user to the sambashares group
 sudo gpasswd sambashares -a "$username"
 
@@ -207,3 +218,18 @@ sudo chmod 0757 "/home/$username"
 sudo nix-channel --update
 sudo nixos-rebuild switch
 sudo nix-store --optimise
+
+
+cd $HOME
+make-executable
+my-nix
+mylist
+neofetch
+cd /etc/nixos
+make-executable
+notify-send --app-name="DONE" "Basic setup for: $(whoami)" "Completed: 
+Press ctrl+c to exit the matrix
+Tolga Erok. 
+¯\_(ツ)_/¯
+" -u normal
+cmatrix

@@ -46,6 +46,7 @@
       tldr
       tree
       vim
+      gnome.zenity
 
       # XDG Utilities
       xdg-launch
