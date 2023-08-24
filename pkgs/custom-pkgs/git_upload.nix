@@ -21,6 +21,7 @@ let
 
     # Configure pull to always rebase
     git config pull.rebase true
+    git rm --cached .gitignore
 
     # Add some tweaks
     git config --global core.compression 9
