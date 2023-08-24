@@ -219,6 +219,17 @@ sudo nix-channel --update
 sudo nixos-rebuild switch
 sudo nix-store --optimise
 
+# -----
+# Install wps fonts
+# -------------------
+
+wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip 
+unzip WPS-FONTS.zip -d /usr/share/fonts
+
+# ---‐‐------
+# make locations executable 
+# --------------------------------
+
 cd $HOME
 make-executable
 my-nix
