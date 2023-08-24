@@ -11,7 +11,8 @@ let
 
     config_files="/etc/nixos"
     work_tree="/etc/nixos"
-
+    start_time=$(date +%s)
+    
     # Check if the remote URL is set to SSH
     remote_url=$(git remote get-url origin)
 
@@ -70,7 +71,10 @@ let
     # Display Global settings
     git config --global --list
 
-    # End of script
+    end_time=$(date +%s)
+    time_taken=$((end_time - start_time))
+
+    notify-send --app-name="Git-upload Timer" "Gitup Execution Complete" "Time taken: $time_taken seconds" -u normal
 
   '';
 

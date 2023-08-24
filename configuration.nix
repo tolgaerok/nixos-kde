@@ -18,7 +18,7 @@
 
   imports = [
 
-    ./custom-pkgs
+    
     ./hardware-configuration
     ./nix
     ./pkgs

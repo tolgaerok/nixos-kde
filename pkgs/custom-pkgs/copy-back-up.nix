@@ -13,6 +13,8 @@ let
     MOUNT_OPTIONS="credentials=/etc/nixos/hardware-configuration/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
     SOURCE_DIR="/etc/nixos/"
 
+    start_time=$(date +%s)
+
     # Function to unmount smb share
     perform_unmount() {
         sudo umount -f /mnt/*
@@ -60,7 +62,11 @@ let
     perform_unmount
 
     echo "Copy process completed." | ${pkgs.cowsay}/bin/cowsay | ${pkgs.lolcat}/bin/lolcat
+    
+    end_time=$(date +%s)
+    time_taken=$((end_time - start_time))
 
+    notify-send --app-name="Copy Timer" "Copy to server Complete" "Time taken: $time_taken seconds" -u normal
 
   '';
 
