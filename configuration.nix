@@ -93,12 +93,18 @@
     description = "tolga erok";
     uid = 1000;
     extraGroups = [
+      "adbusers"
       "audio"
+      "corectrl"
       "disk"
       "input"
       "lp"
+      "mongodb"
+      "mysql"
+      "network"
       "network"
       "networkmanager"
+      "postgres"
       "power"
       "scanner"
       "sound"
