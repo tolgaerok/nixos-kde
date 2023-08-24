@@ -4,6 +4,8 @@
   #---------------------------------------------------------------------
   # Nvidia drivers - NixOS wiki and help from David Turcotte.
   # (https://davidturcotte.com)
+  #
+  # Runs well on my GPU: NVIDIA GeForce GT 1030/PCIe/SSE2
   #---------------------------------------------------------------------
   hardware = {
     nvidia = {
