@@ -38,5 +38,9 @@ time_taken=$((end_time - start_time))
 
 notify-send --app-name="Script Timer" "Script Execution Complete" "Time taken: $time_taken seconds" -u normal
 
+# Change directory to the SETUP directory
+cd /SETUP
+
+# Run the script PART-B-WITH-SUDO.sh with superuser privileges
 sudo ./PART-B-WITH-SUDO.sh
 
