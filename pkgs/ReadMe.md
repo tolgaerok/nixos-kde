@@ -18,7 +18,7 @@ Tolga Erok
 
 I've curated a collection of essential packages that you can conveniently install on your NixOS system with a single command: `sudo nixos-rebuild switch`. These carefully selected programs cover a wide range of categories, from archive utilities and multimedia tools to programming languages, office suites, and system utilities. By including these packages, I've aimed to enhance your NixOS experience and make your system feel more complete. Whether you're a developer, content creator, or everyday user, these additions offer a well-rounded toolkit that's ready for immediate use. Simply run the command, and enjoy the convenience and functionality that these packages bring to your NixOS environment.
 
-# Archive Utilities
+# *Archive Utilities*
 - atool:  A command-line tool for managing file archives.
 - gzip:   A compression utility.
 - lz4:     A fast compression algorithm.
@@ -33,45 +33,45 @@ I've curated a collection of essential packages that you can conveniently instal
 - zip: A compression and file packaging utility.
 - zstd: A fast lossless compression algorithm.
 
-# Database related
+# *Database related*
 - dbeaver: A universal database tool for developers and database administrators.
 - pgmodeler: A PostgreSQL database modeler.
 - sqlitebrowser: A graphical interface for managing SQLite databases.
 
-# Desktop accessories
+# *Desktop accessories*
 - deepin.deepin-calculator: The Deepin Calculator.
 
-# Disc burner
+# *Disc burner*
 - brasero: A CD/DVD burning application.
 
-# Downloading Videos and Files
+# *Downloading Videos and Files*
 - clipgrab: A video downloader and converter.
 - wget: A command-line utility to retrieve files from the web.
 
-# File Sharing & Network
+# *File Sharing & Network*
 - samba4Full: An SMB/CIFS file, print, and login server.
 - cifs-utils: Utilities for mounting and managing CIFS shares.
 
-# File Transfer:
+# *File Transfer:*
 - filezilla: A fast and reliable FTP, FTPS, and SFTP client.
 - libfilezilla: A small and modern C++ library for working with the FileZilla project.
 - rsync: A fast and versatile file copying tool.
 - transmission-gtk: A GTK-based BitTorrent client.
 
-# Github related
+# *Github related*
 - gitFull: A distributed version control system.
 - gitlab: A web-based Git repository manager.
 - hut: A command-line GitHub utility.
 
-# Media and Entertainment:
+# *Media and Entertainment:*
 - vlc: A multimedia player and framework.
 - youtube-dl: A command-line program to download videos from YouTube and other sites.
 
-# Messaging and Communication:
+# *Messaging and Communication:*
 - discord: A voice, video, and text communication platform.
 - whatsapp-for-linux: WhatsApp Web client for Linux.
 
-# Miscellaneous:
+# *Miscellaneous:*
 - cowsay: A configurable talking cow.
 - fish: A user-friendly command-line shell.
 - flatpak: A software utility for software deployment and application virtualization.
@@ -80,7 +80,7 @@ I've curated a collection of essential packages that you can conveniently instal
 - libsForQt5.kweathercore: KDE weather core library.
 - lolcat: A colorful text formatter for terminal output.
 
-# Multimedia Utilities
+# *Multimedia Utilities*
 - audacity: A digital audio editor and recording application.
 - ffmpeg: A multimedia framework to decode, encode, and transcode multimedia files.
 - ffmpegthumbnailer: A lightweight video thumbnailer.
@@ -97,54 +97,54 @@ I've curated a collection of essential packages that you can conveniently instal
 - simplescreenrecorder: A feature-rich screen recorder.
 - video-trimmer: A tool to trim video clips.
 
-# Network Utilities
+# *Network Utilities*
 - doppler: A wireless file transfer tool.
 - ookla-speedtest: A tool to test internet connection speed.
 
-# Office suite
+# *Office suite*
 - wpsoffice: WPS Office Suite, a Microsoft Office-compatible office suite.
 
-# Picture Editors
+# *Picture Editors*
 - gimp-with-plugins: The GNU Image Manipulation Program with additional plugins.
 
-# Picture manger
+# *Picture manger*
 - digikam: An advanced digital photo management application.
 - shotwell: A digital photo organizer.
 
-# Programming Languages and Tools:
+# *Programming Languages and Tools:*
 - scala-cli: A Scala command-line tool.
 - python311Full: Python 3.11 with full package set.
 
-# Remote Access & Deployment
+# *Remote Access & Deployment*
 - heroku: A cloud platform for deploying, managing, and scaling apps.
 - openssh: OpenSSH remote connectivity tools.
 - powershell: A task automation and configuration management framework.
 - sshpass: A tool for non-interactive password authentication with SSH.
 - teamviewer: A remote control and desktop sharing software.
 
-# Scientific computing
+# *Scientific computing*
 - julia: A high-level, high-performance programming language for technical computing.
 
-# Scanning and Image Viewing
+# *Scanning and Image Viewing*
 - nsxiv: A simple image viewer.
 - sane-backends: Scanner access software.
 - scanbd: A scanner button daemon.
 - sxiv: A simple X image viewer.
 
-# Shell Enhancements and Utilities:
+# *Shell Enhancements and Utilities:*
 - rPackages.fontawesome: A font and toolkit for icons.
 - zsh: A popular shell with advanced scripting capabilities.
 - zsh-autosuggestions: Fish-like autosuggestions for Zsh.
 - zsh-syntax-highlighting: Fish-like syntax highlighting for Zsh.
 
-# system tools
+# *system tools*
 - isoimagewriter: A tool to write NixOS installation images to USB drives.
 - keepassxc: A cross-platform password manager.
 - media-downloader: A utility to download media content from the internet.
 - testdisk-qt: A tool to recover lost partitions and make non-booting disks bootable again.
 - ventoy-full: A tool to create bootable USB drives for ISO files.
 
-# Terminal Utilities
+# *Terminal Utilities*
 - asunder: A graphical CD ripper and encoder.
 - bashInteractive: An interactive shell for Bash.
 - cmatrix: A console matrix screensaver.
@@ -180,16 +180,16 @@ I've curated a collection of essential packages that you can conveniently instal
 - vim: A highly configurable text editor.
 - gnome.zenity: Display dialog boxes from shell scripts.
 
-# Text Editors
+# *Text Editors*
 - kate: A feature-rich text editor for the KDE desktop environment.
 - libkate: A Kate-like editor for KPart applications.
 - libsForQt5.kate: The KDE advanced text editor, Kate.
 - vim: A highly configurable text editor.
 
-# USB and Device Utilities
+# *USB and Device Utilities*
 - usbutils: Tools for working with USB devices.
 
-# Utilities
+# *Utilities*
 - bat: A cat clone with syntax highlighting.
 - cliphist: A clipboard history manager.
 - dialog: A utility to create dialog boxes.
@@ -206,37 +206,37 @@ I've curated a collection of essential packages that you can conveniently instal
 - vscode-extensions.mkhl.direnv: direnv extension for Visual Studio Code.
 - vscode-extensions.brettm12345.nixfmt-vscode: nixfmt extension for Visual Studio Code.
 
-# Web Browsers:
+# *Web Browsers:*
 - firefox: A popular open-source web browser.
 - google-chrome: Google Chrome web browser.
 
-# XDG Utilities
+# *XDG Utilities*
 - xdg-desktop-portal-gtk: A GTK implementation of the xdg-desktop-portal backend.
 - xdg-utils: A set of tools for desktop integration.
 
-# XDG and File Managers
+# *XDG and File Managers*
 - xdg-launch: A command-line tool to run desktop files.
 - xfce.thunar: A modern file manager for the Xfce desktop environment.
 
-# Other Miscellaneous Programs
+# *Other Miscellaneous Programs*
 - blueberry: A Bluetooth configuration tool.
 - efibootmgr: A tool to manipulate the EFI Boot Manager.
 - gum: A GTK user metrics.
 - krusader: A twin-panel file manager.
 - libsForQt5.kweather: KDE weather library.
 
-# Libraries
+# *Libraries*
 - libarchive: A library to access, create, and manipulate archive files.
 - libbtbb: A Bluetooth baseband library.
 - libnotify: A library for sending desktop notifications.
 - libkate: A Kate-like editor for KPart applications.
 
-# Disk Utilities
+# *Disk Utilities*
 - gparted: A GNOME partition editor.
 - hw-probe: A tool to probe for hardware, check operability, and find drivers.
 - ntfs3g: A read-write NTFS driver for FUSE.
 
-# Terminal Utilities
+# *Terminal Utilities*
 - asunder: A graphical CD ripper and encoder.
 - bashInteractive: An interactive shell for Bash.
 - cmatrix: A console matrix screensaver.
@@ -272,16 +272,16 @@ I've curated a collection of essential packages that you can conveniently instal
 - vim: A highly configurable text editor.
 - gnome.zenity: Display dialog boxes from shell scripts.
 
-# Text Editors
+# *Text Editors*
 - kate: A feature-rich text editor for the KDE desktop environment.
 - libkate: A Kate-like editor for KPart applications.
 - libsForQt5.kate: The KDE advanced text editor, Kate.
 - vim: A highly configurable text editor.
 
-# USB and Device Utilities
+# *USB and Device Utilities*
 - usbutils: Tools for working with USB devices.
 
-# Utilities
+# *Utilities*
 - bat: A cat clone with syntax highlighting.
 - cliphist: A clipboard history manager.
 - dialog: A utility to create dialog boxes.
@@ -289,7 +289,8 @@ I've curated a collection of essential packages that you can conveniently instal
 - fzf: A command-line fuzzy finder.
 - direnv: A shell extension for managing environment variables.
 - graalvm17-ce: GraalVM Community Edition, a polyglot runtime.
-- mosh: A remote terminal application.
+- mosh:
+--   A remote terminal application.
 - nix-direnv: An environment variable manager for Nix.
 - nixfmt: A formatter for Nix code.
 - nixos-option: A tool to search for options in Nixpkgs.
@@ -298,26 +299,26 @@ I've curated a collection of essential packages that you can conveniently instal
 - vscode-extensions.mkhl.direnv: direnv extension for Visual Studio Code.
 - vscode-extensions.brettm12345.nixfmt-vscode: nixfmt extension for Visual Studio Code.
 
-# Web Browsers:
+# *Web Browsers:*
 - firefox: A popular open-source web browser.
 - google-chrome: Google Chrome web browser.
 
-# XDG Utilities
+# *XDG Utilities*
 - xdg-desktop-portal-gtk: A GTK implementation of the xdg-desktop-portal backend.
 - xdg-utils: A set of tools for desktop integration.
 
-# XDG and File Managers
+# *XDG and File Managers*
 - xdg-launch: A command-line tool to run desktop files.
 - xfce.thunar: A modern file manager for the Xfce desktop environment.
 
-# Other Miscellaneous Programs
+# *Other Miscellaneous Programs*
 - blueberry: A Bluetooth configuration tool.
 - efibootmgr: A tool to manipulate the EFI Boot Manager.
 - gum: A GTK user metrics.
 - krusader: A twin-panel file manager.
 - libsForQt5.kweather: KDE weather library.
 
-# Libraries
+# *Libraries*
 - libarchive: A library to access, create, and manipulate archive files.
 - libbtbb: A Bluetooth baseband library.
 - libnotify: A library for sending desktop notifications.
