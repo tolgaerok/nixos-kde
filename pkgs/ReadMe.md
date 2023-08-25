@@ -1,8 +1,28 @@
+# *`My NixOs 23.05 packages`*
+```sh
+Tolga Erok
+14/6/2023
+```
+<div align="left">
+  <table style="border-collapse: collapse; width: 100%; border: none;">
+    <tr>
+     <td align="center" style="border: none;">
+        <a href="https://nixos.org/">
+          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 100%;">
+          <br>NixOS
+        </a>
+      </td>     
+    </tr>
+  </table>
+</div>
+
+I've curated a collection of essential packages that you can conveniently install on your NixOS system with a single command: `sudo nixos-rebuild switch`. These carefully selected programs cover a wide range of categories, from archive utilities and multimedia tools to programming languages, office suites, and system utilities. By including these packages, I've aimed to enhance your NixOS experience and make your system feel more complete. Whether you're a developer, content creator, or everyday user, these additions offer a well-rounded toolkit that's ready for immediate use. Simply run the command, and enjoy the convenience and functionality that these packages bring to your NixOS environment.
+
 # Archive Utilities
-- atool: A command-line tool for managing file archives.
-- gzip: A compression utility.
-- lz4: A fast compression algorithm.
-- lzip: A lossless data compressor.
+- atool:  A command-line tool for managing file archives.
+- gzip:   A compression utility.
+- lz4:     A fast compression algorithm.
+- lzip:     A lossless data compressor.
 - lzo: A data compression algorithm.
 - lzop: A file compressor using the LZO algorithm.
 - p7zip: A file archiver with high compression ratios.
