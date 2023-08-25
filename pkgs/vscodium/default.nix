@@ -1,13 +1,13 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   environment = {
-    systemPackages = with pkgs; [
-      (
-        vscode-with-extensions.override {
-<<<<<<< HEAD
+    systemPackages = with pkgs;
+      [
+        (vscode-with-extensions.override {
+
           vscode = vscodium;
-=======
+
           vscode = vscode;
->>>>>>> 9c78c88 ((ツ)_/¯ Update @ 9:35 PM)
+
           vscodeExtensions = with vscode-extensions;
             [
               b4dm4n.vscode-nixpkgs-fmt
@@ -35,17 +35,14 @@
               streetsidesoftware.code-spell-checker
               tyriar.sort-lines
               yzhang.markdown-all-in-one
-            ]
-            ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-              {
-                name = "language-julia";
-                publisher = "julialang";
-                version = "1.48.1";
-                sha256 = "986d9e38e8ad54f424d65889eb8bbd20035298e863431a69da3ed5a72e1dcb54";
-              }
-            ];
-        }
-      )
-    ];
+            ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+              name = "language-julia";
+              publisher = "julialang";
+              version = "1.48.1";
+              sha256 =
+                "986d9e38e8ad54f424d65889eb8bbd20035298e863431a69da3ed5a72e1dcb54";
+            }];
+        })
+      ];
   };
 }
