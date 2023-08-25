@@ -4,6 +4,9 @@
 
     # Configuration for  Services 
 
+    # ./power-profiles-daemon   # Uncomment for laptops
+    # ./thermald                # Uncomment for laptops
+    # ./tlp                     # Uncomment for laptops
     ./envfs
     ./fstrim
     ./mysql
@@ -13,6 +16,6 @@
     ./udisks2
     ./xdg-portal
     ./xserver
-
+    
   ];
 }
