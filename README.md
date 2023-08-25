@@ -39,6 +39,93 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 
 ![1](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/ae14cea8-dae9-4ea9-842d-7232e62ca9ff)
 
+## Settings
+
+### Hardware
+
+Hardware | Enable | Description
+:------------ | :---------- | :----------
+`driSupport` | `true` | Enable accelerated OpenGL rendering through the Direct Rendering Interface (DRI).
+`driSupport32Bit` | `true` | On 64-bit systems, whether to support Direct Rendering for 32-bit applications.
+`plymouth` | `false` | Enable Plymouth boot splash screen.
+`sane` | `false` | Enable support for SANE scanners.
+`brscan4` | `false` | Automatically register the "brscan4" sane backend and bring configuration files to their expected location.
+
+### Programs
+
+Programs | Enable | Description
+:------------ | :---------- | :----------
+`adb` | `true` | Whether to configure system to use Android Debug Bridge (adb).
+`command-not-found` | `true` | Whether interactive shells should show which Nix package (if any) provides a missing command.
+`dconf` | `true` | Enable dconf.
+`firefox` | `true` | Enable the Firefox web browser.
+`fish` | `true` | Whether to configure fish as an interactive shell.
+`git` | `true` | Enable git.
+`gnupg.agent` | `true` | Enables GnuPG agent with socket-activation for every user session.
+`java` | `true` | Install and setup the Java development kit.
+`kdeconnect` | `true` | Enable kdeconnect.
+`mtr` | `true` | Whether to add mtr to the global environment and configure a setcap wrapper for it.
+`partition-manager` | `true` | Enable KDE Partition Manager.
+`corectrl` | `false` | Enable A tool to overclock amd graphics cards and processors.
+`htop` | `false` | Enable htop process monitor.
+`steam` | `false` | Enable steam.
+
+### Services
+
+Service | Enable | Description
+:------------ | :---------- | :----------
+`fstrim` | `true` | Enable periodic SSD TRIM of mounted partitions in background.
+`mysql` | `true` | Enable MySQL server (MariaDB).
+`pipewire` | `true` | Enable pipewire service.
+`postgresql` | `true` | Enable PostgreSQL Server.
+`power-profiles-daemon` | `false` | DBus daemon that allows changing system behavior based upon user-selected power profiles.
+`printing` | `true` | Enable printing support through the CUPS daemon.
+`redis` | `true` | An open source, advanced key-value store.
+`sddm` | `true` | Enable sddm as the display manager.
+`udev` | `true` | Enable udev.
+`udisks2` | `true` | DBus service that allows applications to query and manipulate storage devices.
+`xserver` | `true` | Enable the X server.
+`avahi` | `false` | Allows Avahi clients to use Avahi's service discovery facilities.
+`mongodb` | `false` | Enable MongoDB Server.
+`metabase` | `false` | Enable Metabase service.
+`openssh` | `false` | OpenSSH secure shell daemon, which allows secure remote logins.
+`thermald` | `false` | Enable thermald, the temperature management daemon.
+`tlp` | `false` | Enable the TLP power management daemon.
+
+### System
+
+System | Enable | Description
+:------------ | :---------- | :----------
+`allowUnfree` | `true` | The configuration of the Nix Packages collection to allow unfree packages.
+`auto-optimise-store` | `true` | Replaces files in the store that have identical contents with hard links to a single copy.
+`bluetooth` | `true` | Enable support for Bluetooth.
+`doas` | `true` | Enable the doas command, which allows non-root users to execute commands as root.
+`firewall` | `false` | This is a simple stateful firewall that blocks connection attempts to unauthorised TCP or UDP ports on this machine.
+`networkmanager` | `true` | Obtain an IP address and other configuration for all network interfaces that are not manually configured.
+`nix.gc.automatic` | `true` | Automatically run the garbage collector at a specific time.
+`nix.optimise` | `true` | Automatically run the nix store optimiser at a specific time.
+`powerManagement` | `false` | Enable power management. This includes support for suspend-to-RAM and powersave features on laptops.
+`rtkit` | `true` | Enable the RealtimeKit system service, which hands out realtime scheduling priority to user processes on demand.
+`useTmpfs` | `true` | Whether to mount a tmpfs on /tmp during boot.
+`zramSwap` | `true` | Enable in-memory compressed devices and swap space provided by the zram kernel module.
+`allowReboot` | `false` | Reboot the system into the new generation instead of a switch.
+`autoUpgrade` | `false` | Whether to periodically upgrade NixOS to the latest version.
+`documentation.doc` | `false` | Whether to install documentation distributed in packages' /share/doc.
+`documentation.info` | `false` | Whether to install info pages and the info command. This also includes "info" outputs.
+`documentation.nixos` | `false` | Whether to install NixOS's own documentation.
+`iwd` | `false` | Enable iwd.
+`oomd` | `false` | Whether to disable the systemd-oomd OOM killer.
+`pulseaudio` | `false` | Enable the PulseAudio sound server.
+`useOSProber` | `true` | If set to true, append entries for other OSs detected by os-prober.
+`xdg.portal.lxqt` | `false` | Enable the desktop portal for the LXQt desktop environment.
+`xdg.portal.wlr` | `false` | Enable desktop portal for wlroots-based desktops.
+
+### Virtualisation
+
+Virtualisation | Enable | Description
+:------------ | :---------- | :----------
+`docker` | `false` | This option enables docker, a daemon that manages linux containers.
+
 ## Conclusion
 
 In this blog post, I've highlighted some of the key components of my GitHub environment. From syncing my user home folder to developing scripts for mounting, unmounting, and suspending, to customizing my NixOS configuration file with Bluetooth variables and creating a script for common NixOS commands, these tools greatly enhance my productivity and simplify my workflow.
