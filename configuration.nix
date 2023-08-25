@@ -16,7 +16,7 @@
   # Import snippet files
   #---------------------------------------------------------------------
 
-  imports = [
+  imports = [         ###  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
 
     # ./hardware/gpu/intel/intel-laptop/intel-acceleration.nix  # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
     # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix     # NVIDIA stable for GT-710--

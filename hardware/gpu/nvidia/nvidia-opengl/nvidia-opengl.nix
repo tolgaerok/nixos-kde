@@ -16,8 +16,21 @@
       # Enable the nvidia settings menu
       nvidiaSettings = true;
 
+      # Enable power management (do not disable this unless you have a reason to).
+      # Likely to cause problems on laptops and with screen tearing if disabled.
+      powerManagement.enable = true;
+
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
+      # Optionally, you may need to select the appropriate driver version for your specific GPU.
+
+      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta
+      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable
+      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta
+
+      # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
+      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340
+      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390
     };
 
     # Direct Rendering Infrastructure (DRI) support, both for 32-bit and 64-bit, and 
@@ -42,5 +55,5 @@
 
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
   services.xserver.videoDrivers = [ "nvidia" ];
-  
+
 }
