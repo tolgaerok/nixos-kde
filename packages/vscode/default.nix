@@ -56,7 +56,7 @@
               formulahendry.auto-close-tag
               formulahendry.auto-rename-tag
               foxundermoon.shell-format
-              gio00.fish
+              # gio00.fish
               GitHub.codespaces
               GitHub.copilot
               GitHub.github-vscode-theme
