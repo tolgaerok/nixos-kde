@@ -3,7 +3,7 @@
 {
   # Aliases for FISH console
   programs = {
-    command-not-found.enable = false;
+    # command-not-found.enable = false;
 
     # Personal Fish configuration
     fish = {

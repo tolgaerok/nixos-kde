@@ -7,7 +7,9 @@
     # ./power-profiles-daemon   # Uncomment for laptops
     # ./thermald                # Uncomment for laptops
     # ./tlp                     # Uncomment for laptops
+    ./dbus
     ./envfs
+    ./flat-pak
     ./fstrim
     ./mysql
     ./printer

@@ -6,7 +6,7 @@
 
 {
   programs = {
-    command-not-found.enable = false;
+    # command-not-found.enable = false;
 
     # Add Konsole (bash) aliases
     bash = {
