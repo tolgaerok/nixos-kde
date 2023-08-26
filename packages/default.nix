@@ -50,7 +50,7 @@
     # System tools
     #---------------------------------------------------------------------
 
-    # ./andriod
+    ./andriod
     ./misc
     ./tools            # isoimagewriter, keepassxc, media-downloader, testdisk-qt, ventoy-full
     ./utilities

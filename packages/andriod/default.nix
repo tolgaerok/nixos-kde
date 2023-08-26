@@ -4,9 +4,9 @@
     systemPackages = with pkgs; [
 
       # Andriod Utilities     
-      adbfs-rootless
+      # adbfs-rootless
+      # haskellPackages.adb
       android-tools
-      haskellPackages.adb
       
     ];
   };
