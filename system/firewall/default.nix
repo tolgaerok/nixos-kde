@@ -2,7 +2,7 @@
 
   networking = {
 
-    enableIPv6 = false;
+    enableIPv6 = true;
     hostName = "Tolga-NixOS";
     networkmanager.enable = true;
 
