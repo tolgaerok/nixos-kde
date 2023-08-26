@@ -5,7 +5,7 @@
 
 # Source and destination information
 DEST_DIR="/run/media/tolga/Medicat/Backup/"
-SOURCE_DIR="/home/tolga/TEST"
+SOURCE_DIR="/home/tolga/TEST/"
 
 start_time=$(date +%s)
 
