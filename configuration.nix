@@ -16,7 +16,7 @@
   # Import snippet files
   #---------------------------------------------------------------------
 
-  imports = [         ###  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
+  imports = [ # ##  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
 
     # ./hardware/gpu/intel/intel-laptop/intel-acceleration.nix  # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
     # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix     # NVIDIA stable for GT-710--
@@ -37,19 +37,6 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-
-  #---------------------------------------------------------------------
-  # SysRQ for is rebooting their machine properly if it freezes
-  # SOURCE: https://oglo.dev/tutorials/sysrq/index.html
-  #---------------------------------------------------------------------
-
-  boot.kernel.sysctl."kernel.sysrq" = 1;
-
-  #---------------------------------------------------------------------
-  # Kernel Configuration
-  #---------------------------------------------------------------------
-
-  boot.kernel.sysctl."vm.swappiness" = 1;
 
   #---------------------------------------------------------------------
   # Time Zone and Locale
@@ -117,24 +104,6 @@
     ];
     packages = [ pkgs.home-manager ];
   };
-
-  #---------------------------------------------------------------------
-  # Systemd tmpfiles configuration for user's home directory
-  #---------------------------------------------------------------------
-
-  #systemd.user.tmpfiles.rules = [
-  #  "d /home/tolga/Development/NixOS 0755 tolga users - -"
-  # "d /home/tolga/Xcripts 0755 tolga users - -"
-  # "d /home/tolga/Syncthing 0755 tolga users - -"
-
-  #];
-
-  #---------------------------------------------------------------------
-  # Provide a graphical Bluetooth manager for desktop environments
-  #---------------------------------------------------------------------
-
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
 
   #---------------------------------------------------------------------  
   # Automatic system upgrades, automatically reboot after an upgrade if 

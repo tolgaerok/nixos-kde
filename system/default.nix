@@ -8,6 +8,8 @@
 
   imports = [
 
+    ./bluetooth
+    ./boot-kernel
     ./documentation
     ./env
     ./firewall
