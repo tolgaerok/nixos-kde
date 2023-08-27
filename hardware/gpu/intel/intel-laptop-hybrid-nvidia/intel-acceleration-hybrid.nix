@@ -13,13 +13,17 @@
   # ---------------------------------------------------------------------
   # Enable Intel GPU in NixOS
   # ---------------------------------------------------------------------
-  hardware = { i915.enable = true; };
+  # hardware = { i915.enable = true; };
+
+  services.xserver = {
+    videoDrivers = [ "intel" ]; # Enable Intel graphics driver
+  };
 
   # $ nix-shell -p pciutils --run "lspci -nn | grep VGA"
   # 00:02.0 VGA compatible controller [0300]: Intel Corporation Alder Lake-UP3 GT2 [Iris Xe Graphics] [8086:46a8] (rev 0c)
   # In this example, "46a8" is the device ID. You can then add this to your configuration and reboot:
   # boot.kernelParams = [ "i915.force_probe=<device ID>" ];
-  
+
   # ---------------------------------------------------------------------
   # Power management
   # ---------------------------------------------------------------------
@@ -120,7 +124,34 @@
   # Optionally, you may need to select the appropriate driver version for your specific GPU.
   # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
+  # nvidia-drm.modeset=1 is required for some wayland # ---------------------------------------------------------------------
+  # Use this snippet if you have Hybrid graphics. Many laptops have both 
+  # a dedicated and a discrete GPU {Nvidia & Intel}
+  # ---------------------------------------------------------------------
+
+  #specialisation = {
+  #nvidia.configuration = {
+  # Nvidia Configuration
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.opengl.enable = true;
+
+  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
   # nvidia-drm.modeset=1 is required for some wayland compositors, e.g. sway
+  # hardware.nvidia.modesetting.enable = true;
+
+  # hardware.nvidia.prime = {
+  #   sync.enable = true;
+
+  #   # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
+  #   nvidiaBusId = "PCI:1:0:0";
+
+  #   # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
+  #   intelBusId = "PCI:0:2:0";
+  # };
+  #};
+  #};compositors, e.g. sway
   # hardware.nvidia.modesetting.enable = true;
 
   # hardware.nvidia.prime = {

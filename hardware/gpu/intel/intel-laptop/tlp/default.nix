@@ -26,6 +26,20 @@
 
         START_CHARGE_THRESH_BAT0 = 40;
         STOP_CHARGE_THRESH_BAT0 = 50;
+
+        # ---------------------------------------------------------------------
+        # Use this instead if laptop runs HOT under tlp
+        # Tell tlp to always run in battery mode
+        # ---------------------------------------------------------------------
+
+        #services.tlp = {
+        #  enable = true;
+        #  settings = {
+        #    TLP_DEFAULT_MODE = "BAT";
+        #    TLP_PERSISTENT_DEFAULT = 1;
+        #  };
+        #};
+
       };
     };
   };
