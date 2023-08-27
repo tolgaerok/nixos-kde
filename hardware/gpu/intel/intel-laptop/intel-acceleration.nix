@@ -10,12 +10,15 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  # ---------------------------------------------------------------------
+  
+# ---------------------------------------------------------------------
   # Enable Intel GPU in NixOS
   # ---------------------------------------------------------------------
-  hardware = { i915.enable = true; };
+  services.xserver = {
+    videoDrivers = [ "intel" ]; # Enable Intel graphics driver
+  };
 
-  # ---------------------------------------------------------------------
+
   # Power management
   # ---------------------------------------------------------------------
   powerManagement.enable = true;
