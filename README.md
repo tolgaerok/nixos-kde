@@ -17,7 +17,7 @@ Tolga Erok
 </div> 
 
 <a name="index"></a>
-# - [Index](#index)
+# [Index](#index)
 
 - ***Custom configuration***
   - [Kernel Optimization](#kernel-optimization)
