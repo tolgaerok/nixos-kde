@@ -3,9 +3,9 @@
 start_time=$(date +%s)
 
 # Paths
-script_folder="/etc/nixos/scripts"
+script_folder="/etc/nixos/SETUP/scripts"
 script_dest="/home/$(whoami)"
-wallpapers_src="/etc/nixos/wallpapers"
+wallpapers_src="/etc/nixos/SETUP/wallpapers"
 wallpapers_dest="/home/$(whoami)/Pictures"
 
 # Create destination folders if they don't exist
