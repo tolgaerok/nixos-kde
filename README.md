@@ -173,36 +173,25 @@ Happy coding! 😄
 
 ## *`How to run?`*
 
-1. Make sure `git` is usable. If not, *add it into your environment.systemPackages in configuration.nix:*
-   - Execute `sudo nixos-rebuild switch` in your terminal afterward.
+1. Open Terminal, type:
 
 ```sh
-Terminal: nix-shell -p git
-Terminal: nix-shell -p git-extras
-Terminal: nix-shell -p gitFull
+# Clone NixOS Configuration Repository and Apply Permissions
 
-or add into your configuration.nix file
-
-# Nix package collection (pkgs) that you want to include in the system environment.
-  environment.systemPackages = with pkgs; [    
-    git
-    git-extras
-];
-
-```
-
-2. Open Terminal, type:
-
-```sh
+# Step 1: Install basic git, clone my NixOS repository and move into the cloned directory
+nix-shell -p git
 git clone https://github.com/tolgaerok/nixos.git
-cd ./nixos
-```
+cd nixos
 
-3. Copy either or all files into your /etc/nixos directory:
-   - *configuration.nix*
-   - *hardware-configuration.nix*  - Change to suit to you `UUID`
-   - *bluetooth.service*
-   - *smb-secrets*
+# Step 2: Copy the contents of the cloned "nixos" folder to /etc/nixos
+# Note: Exclude the hidden .git folder
+sudo rsync -av --exclude='.git' ./* /etc/nixos
+
+# Step 3: Set appropriate ownership and permissions
+sudo chown -R $(whoami):$(id -gn) /etc/nixos
+sudo chmod -R 750 /etc/nixos
+
+```
     
 Execute `sudo nixos-rebuild switch` in your terminal afterward.
 
