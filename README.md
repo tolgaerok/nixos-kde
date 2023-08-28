@@ -17,8 +17,8 @@ Tolga Erok
 </div> 
 
 <a name="index"></a>
-# **Index:**
-- [Index](#index)
+# - [Index](#index)
+
 - **Custom configuration**
   - [Kernel Optimization](#kernel-optimization)
   - [Custom nixos configuration](#Custom-nixos-configuration)
@@ -28,9 +28,11 @@ Tolga Erok
   - [Programs](#programs)
   - [Services](#services)
   - [System](#System)
-  - [Virtualisation](#Virtualisation) 
+  - [Virtualisation](#Virtualisation)
+  
 - **How to section**
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
+  
 - **Configuring GPU Drivers in my NixOS**
   - [Configuring GPU ](#Clone-NixOS)**
 
