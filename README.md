@@ -16,10 +16,13 @@ Tolga Erok
   </table>
 </div> 
 
+<a name="index"></a>
 # **Index:**
+- [Index](#index)
 - [Kernel Optimization](#kernel-optimization)
 - [Custom nixos configuration](#Custom-nixos-configuration)
-- [Section 3](#section-3)
+
+- 
 - - [Section 3](#section-3)
   - - [Section 3](#section-3)
 
@@ -64,6 +67,8 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
     "vm.vfs_cache_pressure" = 50;             # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
   };
 ```
+Back to [Index](#index)
+
 ## Syncing User Home Folder to a Specified Destination
 
 One of the key scripts I've developed is a custom synchronization script. This script allows me to effortlessly sync my user home folder to a specified destination. By running this script, I can ensure that all my important files and configurations are backed up and accessible from any location. This is particularly helpful when I switch machines or need to restore my settings after a fresh installation.
