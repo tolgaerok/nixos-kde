@@ -306,7 +306,7 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
      ```
    - **Using Kate Text Editor:**
      ```
-     sudo kate /etc/nixos/configuration.nix
+     kate /etc/nixos/configuration.nix
      ```
 
 2. **Locate GPU Driver Options:**
