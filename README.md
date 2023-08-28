@@ -22,9 +22,8 @@ Tolga Erok
 - [Kernel Optimization](#kernel-optimization)
 - [Custom nixos configuration](#Custom-nixos-configuration)
 
-- 
-- - [Section 3](#section-3)
-  - - [Section 3](#section-3)
+- [Hardware](#hardware)
+- [Section 3](#section-3)
 
 # *`Pre-production release !!`*
 I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
@@ -87,6 +86,7 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 <a name="Custom-nixos-configuration"></a>
 # **Custom nixos configuration:**
 
+<a name="hardware"></a>
 ### Hardware
 
 Hardware | Enable | Description
@@ -318,13 +318,21 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
 
 3. **Choose Your GPU Driver:**
 
-   Depending on your hardware, you can choose the appropriate GPU driver option. Each option is followed by a brief description of its use case. Comment out (add `#` at the beginning of the line) the lines for GPU drivers you don't need. For example, if you have an Intel GPU, comment out the lines related to NVIDIA drivers.
+   Depending on your hardware, you can choose the appropriate GPU driver option. Each option is followed by a brief description of its use case. Comment out (add `#` at the beginning of the line) the lines for GPU drivers you don't need. For   example, if you have an Intel GPU, comment out the lines related to NVIDIA drivers.
+   
+    *For example, if you have an Intel GPU and want to use the Intel driver, it should look like:*
+   
+    ```
+    ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
+    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ```
 
-4. **Save and Apply Changes:**
+5. **Save and Apply Changes:**
 
-   After making your choice, save the changes to the `configuration.nix` file. If you used nano, press `Ctrl + O` to write the changes and then `Ctrl + X` to exit. If you used Kate, simply close the editor.
+   After making your choice, save the changes to the `configuration.nix` file. If you used *nano*, press `Ctrl + O` to write the changes and then `Ctrl + X` to exit. If you used *Kate*, simply close the editor.
 
-5. **Update Configuration:**
+6. **Update Configuration:**
 
    Apply the changes by rebuilding the NixOS configuration:
    
