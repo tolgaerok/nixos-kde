@@ -271,7 +271,7 @@ If you're using the command line or terminal, you can open the `configuration.ni
   - **To open the `configuration.nix` file using the `nano` text editor, type the following command:**
 
    ```
-   sudo nano /etc/nixos/configuration.nix
+   nano /etc/nixos/configuration.nix
    ```
 
   - **This will open the `configuration.nix` file in the `nano` editor, allowing you to make changes. Navigate to the appropriate location and add or modify the lines as needed.**
@@ -285,7 +285,7 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
   - **To open the `configuration.nix` file using `Kate`, type the following command:**
 
    ```
-   sudo kate /etc/nixos/configuration.nix
+   kate /etc/nixos/configuration.nix
    ```
 
   - **This will open the `configuration.nix` file in the `Kate` editor. You can navigate to the desired location and make changes directly in the graphical interface.**
