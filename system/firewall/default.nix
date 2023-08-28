@@ -5,7 +5,7 @@
     enableIPv6 = true;
 
     # What to display on other platform's network browsers
-    hostName = "Tolga-NixOS";
+    hostName = "nixos";
     networkmanager.enable = true;
 
     # Configure firewall to your likings:
