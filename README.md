@@ -17,9 +17,20 @@ Tolga Erok
 </div>
 
 # *`Pre-production release !!`*
+I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
 
-I've curated a collection of essential packages that you can conveniently install on your NixOS system with a single command: `sudo nixos-rebuild switch`. These carefully selected programs cover a wide range of categories, from archive utilities and multimedia tools to programming languages, office suites, and system utilities. By including these packages, I've aimed to enhance your NixOS experience and make your system feel more complete. Whether you're a developer, content creator, or everyday user, these additions offer a well-rounded toolkit that's ready for immediate use. Simply run the command, and enjoy the convenience and functionality that these packages bring to your NixOS environment.
+These carefully selected programs cover a wide range of categories, from:
 
+-     archive utilities 
+-     multimedia tools 
+-     programming languages
+-     office suites
+-     system utilities
+- And more [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md)
+
+By including these packages, I've aimed to enhance your NixOS experience and make your system feel more complete. Whether you're a developer, content creator, or everyday user, these additions offer a well-rounded toolkit that's ready for immediate use. Simply run the command, and enjoy the convenience and functionality that these packages bring to your NixOS environment.
+
+![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
 
 ## *`Enhancing User Experience through Kernel Optimization`*
 
@@ -56,7 +67,7 @@ To streamline my workflow, I've also developed a set of personal scripts that as
 
 As an enthusiast of NixOS, a powerful Linux distribution with a declarative approach to system configuration, I've created a custom configuration file tailored to my needs. In this file, I've set specific variables related to Bluetooth devices. By configuring these variables, I can easily manage my Bluetooth devices and ensure a seamless experience.
 
-![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
+
 
 
 ## Calling Common NixOS Commands with a Custom Script
