@@ -88,6 +88,7 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 # **Custom nixos configuration:**
 
 ### Hardware
+
 Back to [Index](#index)
 
 Hardware | Enable | Description
@@ -99,7 +100,6 @@ Hardware | Enable | Description
 `brscan4` | `false` | Automatically register the "brscan4" sane backend and bring configuration files to their expected location.
 
 ### Programs
-Back to [Index](#index)
 
 Programs | Enable | Description
 :------------ | :---------- | :----------
@@ -118,8 +118,9 @@ Programs | Enable | Description
 `htop` | `false` | Enable htop process monitor.
 `steam` | `false` | Enable steam.
 
-### Services
 Back to [Index](#index)
+
+### Services
 
 Service | Enable | Description
 :------------ | :---------- | :----------
@@ -141,8 +142,9 @@ Service | Enable | Description
 `thermald` | `false` | Enable thermald, the temperature management daemon.
 `tlp` | `false` | Enable the TLP power management daemon.
 
-### System
 Back to [Index](#index)
+
+### System
 
 System | Enable | Description
 :------------ | :---------- | :----------
@@ -170,8 +172,9 @@ System | Enable | Description
 `xdg.portal.lxqt` | `false` | Enable the desktop portal for the LXQt desktop environment.
 `xdg.portal.wlr` | `false` | Enable desktop portal for wlroots-based desktops.
 
-### Virtualisation
 Back to [Index](#index)
+
+### Virtualisation
 
 Virtualisation | Enable | Description
 :------------ | :---------- | :----------
