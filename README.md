@@ -234,32 +234,7 @@ sudo chmod -R 750 /etc/nixos
 sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 ```
 ## Step 4: 
-*Copy the following command and paste it into your terminal to automate the edit process into the `configuration.nix` file using the awk command:*
-```
-import_line_number=$(grep -n 'imports = \[' /etc/nixos/configuration.nix | cut -d ':' -f 1)
-
-new_lines=(
-  "  # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq"
-  "  # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--"
-  "  # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++"
-  "  ./hardware-configuration.nix"
-  "  ./nix"
-  "  ./packages"
-  "  ./programs"
-  "  ./services"
-  "  ./system"
-)
-
-awk -v lines="$(printf "%s\n" "${new_lines[@]}")" -v line_num="$import_line_number" \
-  'NR == line_num + 1 { printf lines "\n"; } { print; }' /etc/nixos/configuration.nix > temp_config.nix
-
-mv temp_config.nix /etc/nixos/configuration.nix
-```
-*This command will insert the new lines just after the line containing imports = [ in the configuration.nix file.*
-
-After running the command, your `configuration.nix` file will be updated. You can check the changes using a text editor or a terminal-based text viewer.
-
-If you're using the command line or terminal, you can open the `configuration.nix` file using a text editor called `nano`. Here's how:
+**If you're using the command line or terminal, you can open the `configuration.nix` file using a text editor called `nano`. Here's how:**
 
   - **Open a terminal on your NixOS system.**
 
@@ -284,6 +259,29 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
    ```
 
   - **This will open the `configuration.nix` file in the `Kate` editor. You can navigate to the desired location and make changes directly in the graphical interface.**
+    
+### Locate the imports section in the file. It will look like this: ###
+
+  ```
+  imports =
+  [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+```
+### Add the desired lines just before the closing square bracket ]. Make sure to maintain the indentation. Here's how it should look after adding the lines: ###
+```
+imports = [ 
+   # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
+   # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ./hardware-configuration.nix
+    ./nix
+    ./packages
+    ./programs
+    ./services
+    ./system
+  ];
+```
 
   - **After making your changes, save the file using the appropriate option in the `Kate` menu.**
 
@@ -312,18 +310,25 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
 
 2. **Locate GPU Driver Options:**
 
-   In the `configuration.nix` file, scroll down until you find the `imports = [` section. This section is usually located near the beginning of the file and looks like:
+   After successfully adding the required lines from **Step 4**, in the `configuration.nix` file, scroll down until you find the `imports = [` section. This section is usually located near the beginning of the file and should looks like this now:
    
-   ```nix
-   imports = [
-     ./hardware-configuration.nix
-     # Other imports...
-   ];
+   ```
+   imports = [ 
+   # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
+   # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ./hardware-configuration.nix
+    ./nix
+    ./packages
+    ./programs
+    ./services
+    ./system
+    ];
    ```
 
-   Beneath the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
+   The top few lines in the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
    
-   ```nix
+   ```
    # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
@@ -336,10 +341,18 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
     *For example, if you have an Intel GPU and want to use the Intel driver, it should look like:*
    
     ```
+   imports = [ 
     ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
-    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
-    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ```
+   # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
+   # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ./hardware-configuration.nix
+    ./nix
+    ./packages
+    ./programs
+    ./services
+    ./system
+    ];
+   ```
 
 5. **Save and Apply Changes:**
 
@@ -352,10 +365,12 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    ```
    sudo nixos-rebuild switch
    ```
-
-   This command will update your system with the new GPU driver configuration.
-
 By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
+
+This command will update your system with the new GPU driver configuration. Or if this is your first rebuild from this repository, the required files and services will now start to install.
+
+*If this is your forst rebuild along with the GPU driver selection, the overall process WILL take some time, so, grab a cuppa and enjoy the ride!*
+
 
 #
 ## Conclusion
