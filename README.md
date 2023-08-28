@@ -34,7 +34,7 @@ Tolga Erok
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
   
 - **Configuring GPU Drivers in my NixOS**
-  - [Configuring GPU ](#Clone-NixOS)**
+  - [Configuring GPU ](#GPU)**
 
 # *`Pre-production release !!`*
 I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
@@ -132,6 +132,7 @@ Programs | Enable | Description
 
 Back to [Index](#index)
 
+<a name="services"></a>
 ### Services
 
 Service | Enable | Description
@@ -156,6 +157,7 @@ Service | Enable | Description
 
 Back to [Index](#index)
 
+<a name="System"></a>
 ### System
 
 System | Enable | Description
@@ -186,6 +188,7 @@ System | Enable | Description
 
 Back to [Index](#index)
 
+<a name="Virtualisation"></a>
 ### Virtualisation
 
 Virtualisation | Enable | Description
@@ -209,6 +212,7 @@ Happy coding! 😄
 - press F4 
 
 # 
+<a name="Clone-NixOs"></a>
 # Clone NixOS Configuration Repository and Apply Permissions
 
 ## Step 1: 
@@ -293,6 +297,7 @@ Keep in mind that `nano` is a terminal-based text editor, while `Kate` is a grap
 Back to [Index](#index)
 
 #
+<a name="GPU"></a>
 # Configuring GPU Drivers in NixOS
 
 If you're looking to configure GPU drivers on your NixOS system, follow these steps to choose the appropriate driver based on your hardware:
