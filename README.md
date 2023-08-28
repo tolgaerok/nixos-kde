@@ -38,19 +38,32 @@ Tolga Erok
   - [Configuring GPU ](#GPU)
 
 # *`Pre-production release !!`*
-I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
 
-These carefully selected programs cover a wide range of categories, from:
+Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!
 
-- **archive utilities**
-- **multimedia tools** 
-- **programming languages**
-- **office suites**
-- **system utilities**
+Greetings fellow **NixOS** users! If you're a proud owner of a system equipped desktop with a Nvidia or a laptop with Intel GPU drivers, and your heart beats for the sleekness of KDE Plasma, then this custom configuration has been meticulously crafted with you in mind. My ongoing commitment to updates and fixes ensures that your experience remains top-notch.
 
+It's important to note that, for the time being, I've chosen to disable Wayland in favor of prioritizing Plasma 5 and X11 integration. This emphasis guarantees a seamless and stable experience within the KDE Plasma ecosystem.
 
+Now, let's dive into the exciting lineup I have prepared for you. With just a single command – `sudo nixos-rebuild switch` – you'll unlock a treasure trove of meticulously chosen packages that will transform your NixOS journey.
 
-By including these packages, I've aimed to enhance your NixOS experience and make your system feel more complete. Whether you're a developer, content creator, or everyday user, these additions offer a well-rounded toolkit that's ready for immediate use. Simply run the command, and enjoy the convenience and functionality that these packages bring to your NixOS environment.
+What exactly does this collection encompass, you ask? Well, it's a finely curated selection of essential software, spanning a diverse array of categories. I've got you covered with:
+
+- **Archive utilities to effortlessly handle compression and decompression tasks.**
+- **Multimedia tools that pave the way for a vibrant and immersive audio-visual experience.**
+- **Programming languages to fuel your coding endeavors and innovation.**
+- **Office suites that facilitate productivity, organization, and creativity.**
+- **System utilities that provide essential maintenance and management capabilities.**
+  
+You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
+
+These handpicked packages aren't just a random assortment; they're designed to amplify your NixOS adventure, making your system feel complete and your activities seamless. Whether you're crafting code, crafting content, or simply navigating daily tasks, this selection equips you with a versatile toolkit ready for immediate utilization.
+
+So, why the wait? Execute the command, and watch as these packages weave their magic into your NixOS environment. My dedication to providing you with an enriched and functional experience shines through each and every package choice.
+
+Embrace this pre-production release as a sneak peek into the exciting journey ahead. I'm thrilled to have you on board as we explore the NixOS realm together, enhancing and refining the KDE Plasma experience with every step.
+
+Stay tuned for ongoing updates, improvements, and further customization that will ensure your NixOS setup remains at the forefront of innovation and performance. Your adventure with NixOS and KDE Plasma starts here – with a configuration built  an enthusiast, for enthusiasts.
 
 ![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
 
