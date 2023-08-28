@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
 
-# Kernel tweaks
-# Control how and when data is written from memory to disk, 
-# which can have an impact on system performance and responsiveness.  
+
+# Control how and when data is written from memory to disk, which can have an impact on system performance and responsiveness.  
 # useful for optimizing memory usage, disk writeback behavior, network settings, and other low-level kernel behaviors.
 
+
+# Kernel tweaks
 {
   boot.kernel.sysctl = {
     "kernel.sysrq" = 1;                       # SysRQ for is rebooting their machine properly if it freezes: SOURCE: https://oglo.dev/tutorials/sysrq/index.html
