@@ -11,6 +11,7 @@
       libsForQt5.kweather
       libsForQt5.kweathercore
       lolcat                  # "lolcat" for colorful output
+      variety
 
     ];
   };
