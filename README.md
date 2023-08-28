@@ -19,21 +19,21 @@ Tolga Erok
 <a name="index"></a>
 # - [Index](#index)
 
-- **Custom configuration**
+- ***Custom configuration***
   - [Kernel Optimization](#kernel-optimization)
   - [Custom nixos configuration](#Custom-nixos-configuration)
      
-- **Enabled / Disabled services**
+- ***Enabled / Disabled services***
   - [Hardware](#hardware)
   - [Programs](#programs)
   - [Services](#services)
   - [System](#System)
   - [Virtualisation](#Virtualisation)
   
-- **How to section**
+- ***How to section***
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
   
-- **Configuring GPU Drivers in my NixOS**
+- ***Configuring GPU Drivers in my NixOS***
   - [Configuring GPU ](#GPU)
 
 # *`Pre-production release !!`*
