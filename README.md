@@ -18,8 +18,10 @@ Tolga Erok
 
 # **Index:**
 - [Kernel Optimization](#kernel-optimization)
-- [Section 2](#section-2)
+- [Custom nixos configuration](#Custom-nixos-configuration)
 - [Section 3](#section-3)
+- - [Section 3](#section-3)
+  - - [Section 3](#section-3)
 
 # *`Pre-production release !!`*
 I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
@@ -39,9 +41,8 @@ By including these packages, I've aimed to enhance your NixOS experience and mak
 ![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
 
 
-
-## *`Enhancing User Experience through Kernel Optimization`*
 <a name="kernel-optimization"></a>
+## *`Enhancing User Experience through Kernel Optimization`*
 In the pursuit of an even smoother computing journey, I've delved into the realm of kernel optimization. By fine-tuning how data flows from memory to disk, we can wield significant influence over the performance and responsiveness of our systems. These adjustments aren't just about technical tweaks; they're about crafting an environment that elevates our user experience.
 
 Imagine having the ability to optimize memory usage, fine-tune disk writeback behavior, and even tailor network settings. These kernel tweaks transcend the mundane, offering a deeper level of control over the low-level aspects of our system's behavior. Through this journey of exploration and customization, we're not just configuring a machine; we're sculpting an environment that responds to our needs and aspirations.
@@ -78,6 +79,7 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 
 ![1](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/ae14cea8-dae9-4ea9-842d-7232e62ca9ff)
 
+<a name="Custom-nixos-configuration"></a>
 # **Custom nixos configuration:**
 
 ### Hardware
