@@ -199,23 +199,29 @@ Virtualisation | Enable | Description
 Back to [Index](#index)
 
 
-
+#
 # *`How to section`*
 
-1. *Open*
-- home directory
-- press F4 
-
-# 
 <a name="Clone-NixOs"></a>
 # Clone NixOS Configuration Repository and Apply Permissions
 
+*Open Dolphin and go to your:*
+```
+  - home directory
+  - press F4 
+```
+
 ## Step 1: 
 *Install basic git, clone my NixOS repository and move into the cloned directory*
-```sh
-nix-shell -p git
-git clone https://github.com/tolgaerok/nixos.git
-cd nixos
+```
+Step 1:
+  nix-shell -p git
+
+Step 2:
+  git clone https://github.com/tolgaerok/nixos.git
+
+Step 3:
+  cd nixos
 ```
 
 ## Step 2: 
@@ -227,8 +233,11 @@ sudo rsync -av --exclude='.git' ./* /etc/nixos
 ## Step 3: 
 *Set appropriate ownership and permissions*
 ```
-sudo chown -R $(whoami):$(id -gn) /etc/nixos
-sudo chmod -R 750 /etc/nixos
+Step 1:
+  sudo chown -R $(whoami):$(id -gn) /etc/nixos
+
+Step 2:
+  sudo chmod -R 750 /etc/nixos
 ```
 ## Backup your original configuration.nix file
 ```
