@@ -34,7 +34,7 @@ Tolga Erok
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
   
 - **Configuring GPU Drivers in my NixOS**
-  - [Configuring GPU ](#GPU)**
+  - [Configuring GPU ](#GPU)
 
 # *`Pre-production release !!`*
 I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
