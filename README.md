@@ -21,19 +21,25 @@ I've carefully curated a collection of essential packages that you can effortles
 
 These carefully selected programs cover a wide range of categories, from:
 
--     archive utilities 
--     multimedia tools 
--     programming languages
--     office suites
--     system utilities
-- And more [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md)
+- **archive utilities**
+- **multimedia tools** 
+- **programming languages**
+- **office suites**
+- **system utilities**
+
+
 
 By including these packages, I've aimed to enhance your NixOS experience and make your system feel more complete. Whether you're a developer, content creator, or everyday user, these additions offer a well-rounded toolkit that's ready for immediate use. Simply run the command, and enjoy the convenience and functionality that these packages bring to your NixOS environment.
 
 ![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
 
-## *`Enhancing User Experience through Kernel Optimization`*
+- [Kernel Optimization](#section-1)
+- [Section 2](#section-2)
+- [Section 3](#section-3)
 
+
+## *`Enhancing User Experience through Kernel Optimization`*
+<a name="Kernel Optimization"></a>
 In the pursuit of an even smoother computing journey, I've delved into the realm of kernel optimization. By fine-tuning how data flows from memory to disk, we can wield significant influence over the performance and responsiveness of our systems. These adjustments aren't just about technical tweaks; they're about crafting an environment that elevates our user experience.
 
 Imagine having the ability to optimize memory usage, fine-tune disk writeback behavior, and even tailor network settings. These kernel tweaks transcend the mundane, offering a deeper level of control over the low-level aspects of our system's behavior. Through this journey of exploration and customization, we're not just configuring a machine; we're sculpting an environment that responds to our needs and aspirations.
@@ -63,12 +69,6 @@ One of the key scripts I've developed is a custom synchronization script. This s
 
 To streamline my workflow, I've also developed a set of personal scripts that assist me with mounting, unmounting, and suspending operations. These scripts automate common tasks, saving me time and effort in managing external drives or suspending my system when I step away. By executing these scripts, I can perform these operations with just a single command, making my workflow more efficient.
 
-## Custom NixOS Configuration File with Bluetooth Variables
-
-As an enthusiast of NixOS, a powerful Linux distribution with a declarative approach to system configuration, I've created a custom configuration file tailored to my needs. In this file, I've set specific variables related to Bluetooth devices. By configuring these variables, I can easily manage my Bluetooth devices and ensure a seamless experience.
-
-
-
 
 ## Calling Common NixOS Commands with a Custom Script
 
@@ -76,7 +76,7 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 
 ![1](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/ae14cea8-dae9-4ea9-842d-7232e62ca9ff)
 
-## Settings
+# **Custom nixos configuration:**
 
 ### Hardware
 
@@ -171,33 +171,152 @@ If you're interested in exploring these scripts or incorporating them into your 
 
 Happy coding! 😄
 
-## *`How to run?`*
+# *`How to section`*
 
-1. Open Terminal, type:
+1. *Open*
+- home directory
+- press F4 
 
-```sh
+# 
 # Clone NixOS Configuration Repository and Apply Permissions
 
-# Step 1: Install basic git, clone my NixOS repository and move into the cloned directory
+## Step 1: 
+*Install basic git, clone my NixOS repository and move into the cloned directory*
+```sh
 nix-shell -p git
 git clone https://github.com/tolgaerok/nixos.git
 cd nixos
+```
 
-# Step 2: Copy the contents of the cloned "nixos" folder to /etc/nixos
-# Note: Exclude the hidden .git folder
+## Step 2: 
+*Copy the contents of the cloned "nixos" folder to /etc/nixos*
+*Note: This will exclude the hidden .git folder*
+```
 sudo rsync -av --exclude='.git' ./* /etc/nixos
-
-# Step 3: Set appropriate ownership and permissions
+```
+## Step 3: 
+*Set appropriate ownership and permissions*
+```
 sudo chown -R $(whoami):$(id -gn) /etc/nixos
 sudo chmod -R 750 /etc/nixos
-
 ```
-    
-Execute `sudo nixos-rebuild switch` in your terminal afterward.
-
-```sh
-sudo nixos-rebuild switch
+## Backup your original configuration.nix file
 ```
+sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+```
+## Step 4: 
+*Copy the following command and paste it into your terminal to automate the edit process into the `configuration.nix` file using the awk command:*
+```
+import_line_number=$(grep -n 'imports = \[' /etc/nixos/configuration.nix | cut -d ':' -f 1)
+
+new_lines=(
+  "  # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq"
+  "  # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--"
+  "  # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++"
+  "  ./nix"
+  "  ./packages"
+  "  ./programs"
+  "  ./services"
+  "  ./system"
+)
+
+awk -v lines="$(printf "%s\n" "${new_lines[@]}")" -v line_num="$import_line_number" \
+  'NR == line_num + 1 { printf lines "\n"; } { print; }' /etc/nixos/configuration.nix > temp_config.nix
+
+mv temp_config.nix /etc/nixos/configuration.nix
+```
+*This command will insert the new lines just after the line containing imports = [ in the configuration.nix file.*
+
+After running the command, your `configuration.nix` file will be updated. You can check the changes using a text editor or a terminal-based text viewer.
+
+If you're using the command line or terminal, you can open the `configuration.nix` file using a text editor called `nano`. Here's how:
+
+  - **Open a terminal on your NixOS system.**
+
+  - **To open the `configuration.nix` file using the `nano` text editor, type the following command:**
+
+   ```
+   sudo nano /etc/nixos/configuration.nix
+   ```
+
+  - **This will open the `configuration.nix` file in the `nano` editor, allowing you to make changes. Navigate to the appropriate location and add or modify the lines as needed.**
+
+  - **After making your changes, press `Ctrl` + `O` to save the changes, then press `Enter`. To exit `nano`, press `Ctrl` + `X`.**
+
+If you prefer to use the graphical text editor `Kate`, you can follow these steps:
+
+  - **Open a terminal on your NixOS system.**
+
+  - **To open the `configuration.nix` file using `Kate`, type the following command:**
+
+   ```
+   sudo kate /etc/nixos/configuration.nix
+   ```
+
+  - **This will open the `configuration.nix` file in the `Kate` editor. You can navigate to the desired location and make changes directly in the graphical interface.**
+
+  - **After making your changes, save the file using the appropriate option in the `Kate` menu.**
+
+Keep in mind that `nano` is a terminal-based text editor, while `Kate` is a graphical text editor. You can choose the one that you're more comfortable with. Additionally, when using graphical editors like `Kate`, be sure to launch them with `sudo` to have the necessary permissions to edit system files.
+
+
+#
+# Configuring GPU Drivers in NixOS
+
+If you're looking to configure GPU drivers on your NixOS system, follow these steps to choose the appropriate driver based on your hardware:
+
+1. **Open `configuration.nix` File:**
+
+   Open a terminal and navigate to your NixOS configuration directory. Use either of the following methods to open the `configuration.nix` file:
+
+   - **Using nano:**
+     ```
+     sudo nano /etc/nixos/configuration.nix
+     ```
+   - **Using Kate Text Editor:**
+     ```
+     sudo kate /etc/nixos/configuration.nix
+     ```
+
+2. **Locate GPU Driver Options:**
+
+   In the `configuration.nix` file, scroll down until you find the `imports = [` section. This section is usually located near the beginning of the file and looks like:
+   
+   ```nix
+   imports = [
+     # Other imports...
+   ];
+   ```
+
+   Beneath the `imports = [` line, you will find the GPU driver options section. It will look like this:
+   
+   ```nix
+   # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
+   # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+   ```
+
+3. **Choose Your GPU Driver:**
+
+   Depending on your hardware, you can choose the appropriate GPU driver option. Each option is followed by a brief description of its use case. Comment out (add `#` at the beginning of the line) the lines for GPU drivers you don't need. For example, if you have an Intel GPU, comment out the lines related to NVIDIA drivers.
+
+4. **Save and Apply Changes:**
+
+   After making your choice, save the changes to the `configuration.nix` file. If you used nano, press `Ctrl + O` to write the changes and then `Ctrl + X` to exit. If you used Kate, simply close the editor.
+
+5. **Update Configuration:**
+
+   Apply the changes by rebuilding the NixOS configuration:
+   
+   ```
+   sudo nixos-rebuild switch
+   ```
+
+   This command will update your system with the new GPU driver configuration.
+
+By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
+#
+
 
 ## *Other repositories in my git hub:*
 
