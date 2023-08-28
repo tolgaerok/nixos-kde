@@ -37,6 +37,19 @@ Tolga Erok
 - ***Configuring GPU Drivers in my NixOS***
   - [Configuring GPU ](#GPU)
 
+- ***Enhancing User Profile Permissions***
+  - [Configuring Profile Permissions](#tweak-profile)
+
+- ***Enhancing Audio settings***
+  - [Configuring Audio settings](#audio)
+ 
+- ***Enhancing System settings***
+  - [Configuring core System settings](#system-enchance)
+
+- ***Final step***
+  - [Execute nixos-rebuild switch](#rebuild)
+    
+
 # *`Pre-production release !!`*
 
 Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!
@@ -379,20 +392,159 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
 5. **Save and Apply Changes:**
 
    After making your choice, save the changes to the `configuration.nix` file. If you used *nano*, press `Ctrl + O` to write the changes and then `Ctrl + X` to exit. If you used *Kate*, simply close the editor.
-
-6. **Update Configuration:**
-
-   Apply the changes by rebuilding the NixOS configuration:
    
+By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
+
+Back to [Index](#index)
+
+#
+<a name="tweak-profile"></a>
+# Elevating Your NixOS Experience: Enhancing User Profile Permissions
+
+Welcome to the realm of NixOS customization! As you navigate the intricacies of your NixOS system, you might find the need to empower your user profile with enhanced permissions, allowing you to seamlessly interact with various components of the platform. By following these steps, you'll empower your user-profile with an enriched profile that includes extended permissions and group memberships. 
+
+*Here's how you can achieve just that:*
+
+1. **Open `configuration.nix` File:**
+
+   Open a terminal and navigate to your NixOS configuration directory. Use either of the following methods to open the `configuration.nix` file:
+
+   - **Using nano:**
+     ```
+     sudo nano /etc/nixos/configuration.nix
+     ```
+   - **Using Kate Text Editor:**
+     ```
+     kate /etc/nixos/configuration.nix
+     ```
+
+2. **Locate Your User Profile Section**
+
+Within the `configuration.nix` file, you'll discover a section dedicated to your user profile. This portion, often resembling the following structure, encapsulates your user-specific settings:
+
+```
+users.users.username = {
+  isNormalUser = true;
+  description = "User's Full Name";
+  extraGroups = [ "wheel" "networkmanager" ];
+};
+```
+
+3. **Enhance Your Profile's Capabilities**
+
+It's here that the magic unfolds. After the `description` line in your user profile section, you'll introduce a set of configurations designed to amplify your permissions and enrich your interactions within NixOS. 
+Simply copy & paste where the indicators are:
+
+```
+users.users.username = {
+  isNormalUser = true;
+  description = "User's Full Name";
+
+  homeMode = "0755";        # <-----  Copy from here
+  uid = 1000;  # Replace with your specific UID
+  extraGroups = [
+    "adbusers"
+    "audio"
+    "corectrl"
+    "disk"
+    "input"
+    "lp"
+    "mongodb"
+    "mysql"
+    "network"
+    "networkmanager"
+    "postgres"
+    "power"
+    "scanner"
+    "sound"
+    "systemd-journal"
+    "users"
+    "video"
+    "wheel"      
+  ];
+  packages = [ pkgs.home-manager ];   # <-----  To here
+
+};
+
+```
+
+These lines of code not only bestow you with enhanced permissions, but they also extend your access to specific groups that define various aspects of NixOS functionality. With the inclusion of `pkgs.home-manager`, your configuration takes a step towards seamless management of your user settings.
+
+Back to [Index](#index)
+
+#
+<a name="audio"></a> 
+### Enhancing Your Audio Experience: Seamless Configuration**
+
+To elevate your NixOS audio environment, effortlessly integrate this configuration snippet `beneath` your user profile section. 
+
+1. **Swift Copy-Paste**
+
+Simply copy this snippet below your user profile section in your `configuration.nix` file. 
+
+```
+# --------------------------------------------------------------------
+# Audio Configuration
+# --------------------------------------------------------------------
+
+hardware.pulseaudio.enable = false;
+security.rtkit.enable = true;
+sound.enable = true;
+
+services.pipewire = {
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  jack.enable = true;
+  pulse.enable = true;
+  wireplumber.enable = true;
+};
+```
+
+By disabling hardware pulseaudio, you streamline your audio experience. Security.rtkit adds real-time audio processing, boosting performance. Enabling sound readies your audio framework. Services.pipewire harmonizes alsa, jack, pulseaudio, and wireplumber for a comprehensive audio ecosystem.
+
+Back to [Index](#index)
+
+<a name="system-enchance"></a> 
+#
+**System Enhancements**
+
+To effortlessly amplify your NixOS system, consider integrating this snippet below the audio configuration. It’s a quick process that will bring a host of automatic upgrades and system enhancements into play:
+
+```
+# --------------------------------------------------------------------
+# Automated System Enhancements
+# --------------------------------------------------------------------
+
+# Enable automatic system upgrades and reboots if necessary
+system.autoUpgrade.enable = true;
+# system.autoUpgrade.allowReboot = true;
+system.copySystemConfiguration = true;
+systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+```
+
+This simple snippet wields great power. It introduces automatic system upgrades and, if required, seamless reboots. By enabling `system.autoUpgrade`, you let your NixOS stay up to date effortlessly. With `system.copySystemConfiguration`, system enhancements become a part of your experience. The `systemd.extraConfig` adds a touch of efficiency to stop sequences.
+
+1. **Swift Copy-Paste**
+
+Integrating the above snippet is as swift as its enhancements. Just copy the snippet beneath your audio configuration in your `configuration.nix` file. 
+
+Back to [Index](#index)
+
+#
+<a name="rebuild"></a>
+# nixos-rebuild switch
+
+After adding all the configurations above, save the `configuration.nix` file. To apply the changes, execute the following command in your terminal:
+
    ```
    sudo nixos-rebuild switch
    ```
-By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
 
-This command will update your system with the new GPU driver configuration. Or if this is your first rebuild from this repository, the required files and services will now start to install.
+This command will update your system with the new GPU driver, audio, system and user profile configurations. If this is your first rebuild from this repository, the required files and services will now start to install.
 
-*If this is your forst rebuild along with the GPU driver selection, the overall process WILL take some time, so, grab a cuppa and enjoy the ride!*
+*If this is your first rebuild along with the GPU driver selection, the overall process WILL take some time, so, grab a cuppa and enjoy the ride!*
 
+Back to [Index](#index)
 
 #
 ## Conclusion
