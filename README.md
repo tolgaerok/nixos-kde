@@ -197,13 +197,7 @@ Virtualisation | Enable | Description
 
 Back to [Index](#index)
 
-## Conclusion
 
-In this blog post, I've highlighted some of the key components of my GitHub environment. From syncing my user home folder to developing scripts for mounting, unmounting, and suspending, to customizing my NixOS configuration file with Bluetooth variables and creating a script for common NixOS commands, these tools greatly enhance my productivity and simplify my workflow.
-
-If you're interested in exploring these scripts or incorporating them into your own environment, feel free to check out my GitHub repository. I hope you find them useful and they inspire you to create your own custom solutions to enhance your development experience!
-
-Happy coding! 😄
 
 # *`How to section`*
 
@@ -360,6 +354,15 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    This command will update your system with the new GPU driver configuration.
 
 By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
+
+#
+## Conclusion
+
+In this blog post, I've highlighted some of the key components of my GitHub environment. From syncing my user home folder to developing scripts for mounting, unmounting, and suspending, to customizing my NixOS configuration file with Bluetooth variables and creating a script for common NixOS commands, these tools greatly enhance my productivity and simplify my workflow.
+
+If you're interested in exploring these scripts or incorporating them into your own environment, feel free to check out my GitHub repository. I hope you find them useful and they inspire you to create your own custom solutions to enhance your development experience!
+
+Happy coding! 😄
 
 Back to [Index](#index)
 #
