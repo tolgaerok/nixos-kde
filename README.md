@@ -19,11 +19,22 @@ Tolga Erok
 <a name="index"></a>
 # **Index:**
 - [Index](#index)
-- [Kernel Optimization](#kernel-optimization)
-- [Custom nixos configuration](#Custom-nixos-configuration)
+- **Custom configuration**
+  - [Kernel Optimization](#kernel-optimization)
+  - [Custom nixos configuration](#Custom-nixos-configuration)
+  - 
+- **Enabled / Disabled services**
+  - [Hardware](#hardware)
+  - [Programs](#programs)
+  - [Services](#services)
+  - [System](#System)
+  - [Virtualisation](#Virtualisation)
+  - 
+- **How to section**
+  - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
 
-- [Hardware](#hardware)
-- [Section 3](#section-3)
+- **Configuring GPU Drivers in my NixOS**
+  - [Configuring GPU ](#Clone-NixOS)**
 
 # *`Pre-production release !!`*
 I've carefully curated a collection of essential packages that you can effortlessly install on your NixOS system using a single command: `sudo nixos-rebuild switch`. You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
@@ -99,6 +110,7 @@ Hardware | Enable | Description
 
 Back to [Index](#index)
 
+<a name="programs"></a>
 ### Programs
 
 Programs | Enable | Description
