@@ -40,9 +40,6 @@ Tolga Erok
 - ***Enhancing User Profile Permissions***
   - [Configuring Profile Permissions](#tweak-profile)
 
-- ***Enhancing Audio settings***
-  - [Configuring Audio settings](#audio)
- 
 - ***Enhancing System settings***
   - [Configuring core System settings](#system-enchance)
 
@@ -469,38 +466,6 @@ users.users.username = {
 ```
 
 These lines of code not only bestow you with enhanced permissions, but they also extend your access to specific groups that define various aspects of NixOS functionality. With the inclusion of `pkgs.home-manager`, your configuration takes a step towards seamless management of your user settings.
-
-Back to [Index](#index)
-
-#
-<a name="audio"></a> 
-### Enhancing Your Audio Experience: Seamless Configuration**
-
-To elevate your NixOS audio environment, effortlessly integrate this configuration snippet `beneath` your user profile section. 
-
-1. **Swift Copy-Paste**
-
-Simply copy this snippet below your user profile section in your `configuration.nix` file. 
-
-```
-# --------------------------------------------------------------------
-# Audio Configuration
-# --------------------------------------------------------------------
-
-hardware.pulseaudio.enable = false;
-security.rtkit.enable = true;
-sound.enable = true;
-
-services.pipewire = {
-  alsa.enable = true;
-  alsa.support32Bit = true;
-  jack.enable = true;
-  pulse.enable = true;
-  wireplumber.enable = true;
-};
-```
-
-By disabling hardware pulseaudio, you streamline your audio experience. Security.rtkit adds real-time audio processing, boosting performance. Enabling sound readies your audio framework. Services.pipewire harmonizes alsa, jack, pulseaudio, and wireplumber for a comprehensive audio ecosystem.
 
 Back to [Index](#index)
 
