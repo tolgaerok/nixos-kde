@@ -88,6 +88,7 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 # **Custom nixos configuration:**
 
 ### Hardware
+Back to [Index](#index)
 
 Hardware | Enable | Description
 :------------ | :---------- | :----------
@@ -98,6 +99,7 @@ Hardware | Enable | Description
 `brscan4` | `false` | Automatically register the "brscan4" sane backend and bring configuration files to their expected location.
 
 ### Programs
+Back to [Index](#index)
 
 Programs | Enable | Description
 :------------ | :---------- | :----------
@@ -117,6 +119,7 @@ Programs | Enable | Description
 `steam` | `false` | Enable steam.
 
 ### Services
+Back to [Index](#index)
 
 Service | Enable | Description
 :------------ | :---------- | :----------
@@ -139,6 +142,7 @@ Service | Enable | Description
 `tlp` | `false` | Enable the TLP power management daemon.
 
 ### System
+Back to [Index](#index)
 
 System | Enable | Description
 :------------ | :---------- | :----------
@@ -167,6 +171,7 @@ System | Enable | Description
 `xdg.portal.wlr` | `false` | Enable desktop portal for wlroots-based desktops.
 
 ### Virtualisation
+Back to [Index](#index)
 
 Virtualisation | Enable | Description
 :------------ | :---------- | :----------
@@ -268,6 +273,7 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
 
 Keep in mind that `nano` is a terminal-based text editor, while `Kate` is a graphical text editor. You can choose the one that you're more comfortable with. Additionally, when using graphical editors like `Kate`, be sure to launch them with `sudo` to have the necessary permissions to edit system files.
 
+Back to [Index](#index)
 
 #
 # Configuring GPU Drivers in NixOS
@@ -324,6 +330,8 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    This command will update your system with the new GPU driver configuration.
 
 By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
+
+Back to [Index](#index)
 #
 
 
@@ -366,4 +374,4 @@ By following these steps, you can easily configure GPU drivers on your NixOS sys
 </div>
 </div>
 
-
+Back to [Index](#index)
