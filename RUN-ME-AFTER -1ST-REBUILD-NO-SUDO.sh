@@ -1,10 +1,11 @@
+#!/usr/bin/env bash
 #!/bin/bash
 start_time=$(date +%s)
 
 # Paths
-script_folder="/etc/nixos/scripts"
+script_folder="/etc/nixos/SETUP/scripts"
 script_dest="/home/$(whoami)"
-wallpapers_src="/etc/nixos/wallpapers"
+wallpapers_src="/etc/nixos/SETUP/wallpapers"
 wallpapers_dest="/home/$(whoami)/Pictures"
 
 # Create destination folders if they don't exist
@@ -39,7 +40,7 @@ time_taken=$((end_time - start_time))
 notify-send --app-name="Script Timer" "Script Execution Complete" "Time taken: $time_taken seconds" -u normal
 
 # Change directory to the SETUP directory
-cd /SETUP
+cd SETUP
 
 nix-channel --update nixos
 nix-env -u '*'
@@ -48,4 +49,3 @@ nix-shell -p cifs-utils
 
 # Run the script PART-B-WITH-SUDO.sh with superuser privileges
 sudo ./PART-B-WITH-SUDO.sh
-
