@@ -89,8 +89,6 @@ To further simplify my interactions with NixOS, I've developed a custom script t
 
 ### Hardware
 
-Back to [Index](#index)
-
 Hardware | Enable | Description
 :------------ | :---------- | :----------
 `driSupport` | `true` | Enable accelerated OpenGL rendering through the Direct Rendering Interface (DRI).
@@ -98,6 +96,8 @@ Hardware | Enable | Description
 `plymouth` | `false` | Enable Plymouth boot splash screen.
 `sane` | `false` | Enable support for SANE scanners.
 `brscan4` | `false` | Automatically register the "brscan4" sane backend and bring configuration files to their expected location.
+
+Back to [Index](#index)
 
 ### Programs
 
@@ -179,6 +179,8 @@ Back to [Index](#index)
 Virtualisation | Enable | Description
 :------------ | :---------- | :----------
 `docker` | `false` | This option enables docker, a daemon that manages linux containers.
+
+Back to [Index](#index)
 
 ## Conclusion
 
