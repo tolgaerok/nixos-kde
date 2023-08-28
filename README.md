@@ -22,17 +22,15 @@ Tolga Erok
 - **Custom configuration**
   - [Kernel Optimization](#kernel-optimization)
   - [Custom nixos configuration](#Custom-nixos-configuration)
-  - 
+     
 - **Enabled / Disabled services**
   - [Hardware](#hardware)
   - [Programs](#programs)
   - [Services](#services)
   - [System](#System)
-  - [Virtualisation](#Virtualisation)
-  - 
+  - [Virtualisation](#Virtualisation) 
 - **How to section**
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
-
 - **Configuring GPU Drivers in my NixOS**
   - [Configuring GPU ](#Clone-NixOS)**
 
