@@ -242,6 +242,7 @@ new_lines=(
   "  # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq"
   "  # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--"
   "  # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++"
+  "  ./hardware-configuration.nix"
   "  ./nix"
   "  ./packages"
   "  ./programs"
