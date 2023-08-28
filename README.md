@@ -1,6 +1,7 @@
 # *`My NixOs 23.05 environment`*
 ```sh
 Tolga Erok
+(ツ)_/¯ 
 14/6/2023
 ```
 <div align="left">
