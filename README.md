@@ -316,11 +316,12 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    
    ```nix
    imports = [
+     ./hardware-configuration.nix
      # Other imports...
    ];
    ```
 
-   Beneath the `imports = [` line, you will find the GPU driver options section. It will look like this:
+   Beneath the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
    
    ```nix
    # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
