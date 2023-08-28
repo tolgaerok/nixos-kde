@@ -76,7 +76,7 @@ So, why the wait? Execute the command, and watch as these packages weave their m
 
 Embrace this pre-production release as a sneak peek into the exciting journey ahead. I'm thrilled to have you on board as we explore the NixOS realm together, enhancing and refining the KDE Plasma experience with every step.
 
-Stay tuned for ongoing updates, improvements, and further customization that will ensure your NixOS setup remains at the forefront of innovation and performance. Your adventure with NixOS and KDE Plasma starts here – with a configuration built  an enthusiast, for enthusiasts.
+Stay tuned for ongoing updates, improvements, and further customization that will ensure your NixOS setup remains at the forefront of innovation and performance. Your adventure with NixOS and KDE Plasma starts here – with a configuration built from an enthusiast, for enthusiasts.
 
 ![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
 
