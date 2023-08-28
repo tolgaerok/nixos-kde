@@ -236,7 +236,7 @@ Step 1:
   sudo chown -R $(whoami):$(id -gn) /etc/nixos
 
 Step 2:
-  sudo chmod -R 750 /etc/nixos
+  sudo chmod -R 777 /etc/nixos
 ```
 ## Backup your original configuration.nix file
 ```
