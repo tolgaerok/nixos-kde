@@ -52,7 +52,7 @@ Tolga Erok
 
 # *`Pre-production release !!`*
 
-Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!
+Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!
 
 Greetings fellow **NixOS** users! If you're a proud owner of a system equipped desktop with a Nvidia or a laptop with Intel GPU drivers, and your heart beats for the sleekness of KDE Plasma, then this custom configuration has been meticulously crafted with you in mind. My ongoing commitment to updates and fixes ensures that your experience remains top-notch.
 
