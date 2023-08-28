@@ -198,11 +198,10 @@ Virtualisation | Enable | Description
 
 Back to [Index](#index)
 
-
-#
-# *`How to section`*
-
 <a name="Clone-NixOs"></a>
+
+# *`How to section`*
+#
 # Clone NixOS Configuration Repository and Apply Permissions
 
 *Open Dolphin and go to your:*
