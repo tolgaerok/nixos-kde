@@ -31,7 +31,7 @@ Tolga Erok
   - [System](#System)
   - [Virtualisation](#Virtualisation)
   
-- ***How to section***
+- ***How to section:***
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
   
 - ***Configuring GPU Drivers in my NixOS***

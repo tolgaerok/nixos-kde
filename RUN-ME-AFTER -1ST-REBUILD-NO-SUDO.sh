@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Personal nixos post set-up
+# Personal nixos post set-up!
 # Tolga Erok. ¯\_(ツ)_/¯
 # 20/8/23.
 
