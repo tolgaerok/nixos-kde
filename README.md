@@ -241,10 +241,10 @@ Step 1: Install git
   nix-env -iA nixos.git
 
 Step 2: Download my repository
-  https://github.com/tolgaerok/nixos/archive/refs/heads/main.zip
+  wget https://github.com/tolgaerok/nixos/archive/refs/heads/main.zip
 
-  *Note: Due to security reasons, github made it hard to clone*
-   git clone https://github.com/tolgaerok/nixos.git
+  **Note: Due to security reasons, github made it hard to clone**
+     git clone https://github.com/tolgaerok/nixos.git
 
 Step 3: Unzip the downloaded file
   unzip main.zip
