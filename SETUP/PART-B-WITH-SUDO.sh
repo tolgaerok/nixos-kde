@@ -245,4 +245,4 @@ Press ctrl+c to exit the matrix
 Tolga Erok.
 ¯\_(ツ)_/¯
 " -u normal
-
+exit 1
