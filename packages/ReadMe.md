@@ -246,7 +246,7 @@ I've curated a collection of essential packages that you can conveniently instal
 #
 
 ## *Other repositories in my git hub:*
-#
+
 <div align="center">
   <table style="border-collapse: collapse; width: 100%; border: none;">
     <tr>
@@ -265,9 +265,11 @@ I've curated a collection of essential packages that you can conveniently instal
     </tr>
   </table>
 </div>
+
 #
 ## *My Stats:*
-#
+
+
 <div align="center">
 
 <div style="text-align: center;">
