@@ -3,6 +3,7 @@
 # Tolga Erok
 # 14/7/2023
 # Post Nixos setup
+# ¯\_(ツ)_/¯
 
 # -----------------------------------------------------------------------------------
 # Check if Script is Run as Root
@@ -225,6 +226,7 @@ export NIXPKGS_ALLOW_INSECURE=1
 
 # Rebuild system
 sudo nix-channel --update
+nix-env -u '*'
 sudo nixos-rebuild switch
 sudo nix-store --optimise
 
@@ -246,7 +248,8 @@ rm WPS-FONTS.zip.*
 
 cd $HOME && make-executable
 my-nix && mylist && neofetch
-cd /etc/nixos && make-executable
+cd /etc/nixos
+make-executable
 
 notify-send --icon=ktimetracker --app-name="DONE" "Basic setup for: $SUDO_USER" "Completed:
 
@@ -254,4 +257,15 @@ Tolga Erok.
 (ツ)_/¯
 Time taken: $time_taken
 " -u normal
+
+# Test alittle
+wps
+et
+shotwell
+Fish
+vscode
+sublime4
+vlc
+
+
 exit 1
