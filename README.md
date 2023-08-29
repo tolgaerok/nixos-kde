@@ -235,16 +235,21 @@ Back to [Index](#index)
 ```
 
 ## Step 1: 
-*Install basic git, clone my NixOS repository and move into the cloned directory*
+*Install basic git, download my NixOS.zip repository, unzip, open nixos-main folder*
 ```
-Step 1:
-  nix-shell -p git
+Step 1: Install git
+  nix-env -iA nixos.git
 
-Step 2:
-  git clone https://github.com/tolgaerok/nixos.git
+Step 2: Download my repository
+  https://github.com/tolgaerok/nixos/archive/refs/heads/main.zip
 
-Step 3:
-  cd nixos
+  *Note: Due to security reasons, github made it hard to clone*
+   git clone https://github.com/tolgaerok/nixos.git
+
+Step 3: Unzip the downloaded file
+  unzip main.zip
+  cd nixos-main
+
 ```
 
 ## Step 2: 
