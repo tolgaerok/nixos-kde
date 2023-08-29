@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
-#!/bin/bash
+
+# Personal nixos post set-up
+# Tolga Erok. ¯\_(ツ)_/¯
+# 20/8/23.
+
 start_time=$(date +%s)
+current_dir=$(pwd)
+clear
 
 # Install notify agents
 nix-env -iA nixos.libnotify
@@ -59,15 +65,13 @@ time_taken=$((end_time - start_time))
 notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete" "Time taken: $time_taken seconds" -u normal
 
 # Change directory to the SETUP directory
-cd SETUP
+cd /etc/nixos/SETUP
 
 # Change the permissions of location
 sudo chmod -R o+rw /etc/nixos/
 
-nix-channel --update nixos
-nix-env -u '*'
-nix-shell -p samba4Full
-nix-shell -p cifs-utils
-
 # Run the script PART-B-WITH-SUDO.sh with superuser privileges
 sudo ./PART-B-WITH-SUDO.sh
+
+# Return to the original directory
+cd "$current_dir"
