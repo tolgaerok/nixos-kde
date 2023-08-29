@@ -5,7 +5,7 @@
     enableIPv6 = true;
 
     # What to display on other platform's network browsers
-    hostName = "nixos";
+    # hostName = "nixos";   # Conflicts with default user setting in their configuration.nix
     networkmanager.enable = true;
 
     # Configure firewall to your likings:
