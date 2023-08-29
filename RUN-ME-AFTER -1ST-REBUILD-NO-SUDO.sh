@@ -3,6 +3,8 @@
 start_time=$(date +%s)
 
 # Paths
+font_folder="/etc/nixos/SETUP/fonts"
+font_dest="/home/$(whoami)"
 script_folder="/etc/nixos/SETUP/scripts"
 script_dest="/home/$(whoami)"
 wallpapers_src="/etc/nixos/SETUP/wallpapers"
