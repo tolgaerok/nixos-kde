@@ -61,6 +61,9 @@ notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete"
 # Change directory to the SETUP directory
 cd SETUP
 
+# Change the permissions of location
+sudo chmod -R o+rw /etc/nixos/
+
 nix-channel --update nixos
 nix-env -u '*'
 nix-shell -p samba4Full
