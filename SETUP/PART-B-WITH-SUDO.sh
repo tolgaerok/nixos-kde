@@ -221,12 +221,17 @@ sudo nix-channel --update
 sudo nixos-rebuild switch
 sudo nix-store --optimise
 
-# -----
+# -------------------
 # Install wps fonts
 # -------------------
 
+sudo mkdir -p ~/.local/share/fonts
 wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip 
-unzip WPS-FONTS.zip -d /usr/share/fonts
+unzip -o WPS-FONTS.zip -d ~/.local/share/fonts
+sudo fc-cache -f -v
+rm WPS-FONTS.zip
+rm WPS-FONTS.zip.*
+
 
 # ---‐‐------
 # make locations executable 
