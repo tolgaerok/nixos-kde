@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   environment = {
     systemPackages = with pkgs; [
-      # libreoffice
+      # libreoffice-fresh
       # libreoffice-qt
       qownnotes
       zotero

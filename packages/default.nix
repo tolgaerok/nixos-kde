@@ -40,11 +40,11 @@
     # Desktop
     #---------------------------------------------------------------------
 
-    ./internet        # clipgrab, wget, discord, whatsapp-for-linux, FF, Chrome
+    ./internet        # clipgrab, wget, discord, whatsapp-for-linux, telegram, element, FF, Chrome
     ./networking      # samba4Full, clif-utilities, teamviewer, openssh, sshpass, iwd
     ./screensaver
     ./wps
-    ./libreoffice-various     # libreoffice, libreoffice-qt, qownnotes, zotero
+    ./libreoffice-various     # libreoffice-fresh qownnotes, zotero
 
     #---------------------------------------------------------------------
     # System tools
