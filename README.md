@@ -50,30 +50,30 @@ Tolga Erok
 
 # Table of Contents
 
-- [Custom Configuration](#custom-configuration)
+- ***Custom Configuration***
   - [Kernel Optimization](#kernel-optimization)
   - [Custom NixOS Configuration](#custom-nixos-configuration)
   
-- [Enabled / Disabled Services](#enabled-disabled-services)
+- ***Enabled / Disabled Services***
   - [Hardware](#hardware)
   - [Programs](#programs)
   - [Services](#services)
   - [System](#system)
   - [Virtualisation](#virtualisation)
  
-- [How To](#how-to)
+- ***How To***
   - [Clone NixOS & Edit (Custom)](#clone-nixos)
   
-- [Configuring GPU Drivers](#configuring-gpu-drivers)
+- ***Configuring GPU Drivers***
   - [Configuring GPU](#gpu)
   
-- [Enhancing User Profile Permissions](#enhancing-user-profile-permissions)
+- ***Enhancing User Profile Permissions***
   - [Tweak Profile Permissions](#tweak-profile)
   
-- [Enhancing System Settings](#enhancing-system-settings)
+- ***Enhancing System Settings]***
   - [Configuring Core System Settings](#system-enhance)
   
-- [Final Step](#final-step)
+- ***Final Step]***
   - [Execute `nixos-rebuild switch`](#rebuild)
   
 [Back to Top](#)
@@ -137,6 +137,7 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
   };
 ```
 Back to [Index](#index)
+[Back to Top](#)
 
 ## Syncing User Home Folder to a Specified Destination
 
