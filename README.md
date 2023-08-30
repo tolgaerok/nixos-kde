@@ -18,7 +18,7 @@ Tolga Erok
 </div> 
 
 <a name="index"></a>
-# [Index](#index)
+# Table of Contents
 
 - ***Custom configuration***
   - [Kernel Optimization](#kernel-optimization)
@@ -45,38 +45,7 @@ Tolga Erok
 
 - ***Final step***
   - [Execute nixos-rebuild switch](#rebuild)
- 
 
-
-# Table of Contents
-
-- ***Custom Configuration***
-  - [Kernel Optimization](#kernel-optimization)
-  - [Custom NixOS Configuration](#custom-nixos-configuration)
-  
-- ***Enabled / Disabled Services***
-  - [Hardware](#hardware)
-  - [Programs](#programs)
-  - [Services](#services)
-  - [System](#system)
-  - [Virtualisation](#virtualisation)
- 
-- ***How To***
-  - [Clone NixOS & Edit (Custom)](#clone-nixos)
-  
-- ***Configuring GPU Drivers***
-  - [Configuring GPU](#gpu)
-  
-- ***Enhancing User Profile Permissions***
-  - [Tweak Profile Permissions](#tweak-profile)
-  
-- ***Enhancing System Settings]***
-  - [Configuring Core System Settings](#system-enhance)
-  
-- ***Final Step]***
-  - [Execute `nixos-rebuild switch`](#rebuild)
-  
-[Back to Top](#)
 
 
     
@@ -136,7 +105,7 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
     "vm.vfs_cache_pressure" = 50;             # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
   };
 ```
-Back to [Index](#index)
+
 [Back to Top](#)
 
 ## Syncing User Home Folder to a Specified Destination
@@ -168,7 +137,7 @@ Hardware | Enable | Description
 `sane` | `false` | Enable support for SANE scanners.
 `brscan4` | `false` | Automatically register the "brscan4" sane backend and bring configuration files to their expected location.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 <a name="programs"></a>
 ### Programs
@@ -190,7 +159,7 @@ Programs | Enable | Description
 `htop` | `false` | Enable htop process monitor.
 `steam` | `false` | Enable steam.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 <a name="services"></a>
 ### Services
@@ -215,7 +184,7 @@ Service | Enable | Description
 `thermald` | `false` | Enable thermald, the temperature management daemon.
 `tlp` | `false` | Enable the TLP power management daemon.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 <a name="System"></a>
 ### System
@@ -246,7 +215,7 @@ System | Enable | Description
 `xdg.portal.lxqt` | `false` | Enable the desktop portal for the LXQt desktop environment.
 `xdg.portal.wlr` | `false` | Enable desktop portal for wlroots-based desktops.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 <a name="Virtualisation"></a>
 ### Virtualisation
@@ -255,7 +224,7 @@ Virtualisation | Enable | Description
 :------------ | :---------- | :----------
 `docker` | `false` | This option enables docker, a daemon that manages linux containers.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 <a name="Clone-NixOs"></a>
 
@@ -360,7 +329,7 @@ imports = [
 
 Keep in mind that `nano` is a terminal-based text editor, while `Kate` is a graphical text editor. You can choose the one that you're more comfortable with. Additionally, when using graphical editors like `Kate`, be sure to launch them with `sudo` to have the necessary permissions to edit system files.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 #
 <a name="GPU"></a>
@@ -433,7 +402,7 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    
 By following these steps, you can easily configure GPU drivers on your NixOS system according to your hardware setup. Remember to regularly check for updates and changes in the driver options based on your hardware requirements.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 #
 <a name="tweak-profile"></a>
@@ -508,7 +477,7 @@ users.users.username = {
 
 These lines of code not only bestow you with enhanced permissions, but they also extend your access to specific groups that define various aspects of NixOS functionality. With the inclusion of `pkgs.home-manager`, your configuration takes a step towards seamless management of your user settings.
 
-Back to [Index](#index)
+[Back to Top](#)
 
 <a name="system-enchance"></a> 
 #
@@ -534,7 +503,7 @@ This simple snippet wields great power. It introduces automatic system upgrades 
 
 Integrating the above snippet is as swift as its enhancements. Just copy the snippet beneath your audio configuration in your `configuration.nix` file. 
 
-Back to [Index](#index)
+[Back to Top](#)
 
 #
 <a name="rebuild"></a>
@@ -550,7 +519,7 @@ This command will update your system with the new GPU driver, audio, system and 
 
 *If this is your first rebuild along with the GPU driver selection, the overall process WILL take some time, so, grab a cuppa and enjoy the ride!*
 
-Back to [Index](#index)
+[Back to Top](#)
 
 #
 ## Conclusion
@@ -561,7 +530,7 @@ If you're interested in exploring these scripts or incorporating them into your 
 
 Happy coding! 😄
 
-Back to [Index](#index)
+[Back to Top](#)
 #
 
 
