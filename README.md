@@ -50,25 +50,31 @@ Tolga Erok
 
 # Table of Contents
 
-- [Index](#index)
-- [Custom Configuration](#custom-configuration)
+ [](#index)
+- [Custom Configuration](#)
   - [Kernel Optimization](#kernel-optimization)
   - [Custom NixOS Configuration](#custom-nixos-configuration)
-- [Enabled / Disabled Services](#enabled-disabled-services)
+  - 
+- [Enabled / Disabled Services](#)
   - [Hardware](#hardware)
   - [Programs](#programs)
   - [Services](#services)
   - [System](#system)
   - [Virtualisation](#virtualisation)
-- [How To](#how-to)
-  - [Clone NixOS & Edit (Custom) `configuration.nix`](#clone-nixos)
-- [Configuring GPU Drivers](#configuring-gpu-drivers)
+  - 
+- [How To](#)
+  - [Clone NixOS & Edit (Custom)](#clone-nixos)
+  - 
+- [Configuring GPU Drivers](#)
   - [Configuring GPU](#gpu)
-- [Enhancing User Profile Permissions](#enhancing-user-profile-permissions)
+  - 
+- [Enhancing User Profile Permissions](#)
   - [Tweak Profile Permissions](#tweak-profile)
-- [Enhancing System Settings](#enhancing-system-settings)
+  - 
+- [Enhancing System Settings](#)
   - [Configuring Core System Settings](#system-enhance)
-- [Final Step](#final-step)
+  - 
+- [Final Step](#)
   - [Execute `nixos-rebuild switch`](#rebuild)
 
     
