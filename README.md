@@ -45,6 +45,32 @@ Tolga Erok
 
 - ***Final step***
   - [Execute nixos-rebuild switch](#rebuild)
+ 
+
+
+# Table of Contents
+
+- [Index](#index)
+- [Custom Configuration](#custom-configuration)
+  - [Kernel Optimization](#kernel-optimization)
+  - [Custom NixOS Configuration](#custom-nixos-configuration)
+- [Enabled / Disabled Services](#enabled-disabled-services)
+  - [Hardware](#hardware)
+  - [Programs](#programs)
+  - [Services](#services)
+  - [System](#system)
+  - [Virtualisation](#virtualisation)
+- [How To](#how-to)
+  - [Clone NixOS & Edit (Custom) `configuration.nix`](#clone-nixos)
+- [Configuring GPU Drivers](#configuring-gpu-drivers)
+  - [Configuring GPU](#gpu)
+- [Enhancing User Profile Permissions](#enhancing-user-profile-permissions)
+  - [Tweak Profile Permissions](#tweak-profile)
+- [Enhancing System Settings](#enhancing-system-settings)
+  - [Configuring Core System Settings](#system-enhance)
+- [Final Step](#final-step)
+  - [Execute `nixos-rebuild switch`](#rebuild)
+
     
 
 # *`Pre-production release !!`*
