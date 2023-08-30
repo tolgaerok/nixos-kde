@@ -9,7 +9,7 @@ let
         
     # Destination information
     DEST_DIR="/mnt/smb-rsync/"
-    SERVER_IP="192.168.0.20"
+    SERVER_IP="192.168.0.11"
     MOUNT_OPTIONS="credentials=/etc/nixos/system/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
     SOURCE_DIR="/etc/nixos/"
 
@@ -66,7 +66,7 @@ let
     end_time=$(date +%s)
     time_taken=$((end_time - start_time))
 
-    notify-send --app-name="Copy Timer" "Copy to server Complete" "Time taken: $time_taken seconds" -u normal
+    notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete" "Time taken: $time_taken seconds" -u normal
 
   '';
 
