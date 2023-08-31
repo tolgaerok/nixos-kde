@@ -27,13 +27,23 @@ wallpapers_src="/etc/nixos/SETUP/wallpapers"
 wallpapers_dest="/home/$(whoami)/Pictures"
 
 # Create destination folders if they don't exist
-mkdir -p "$font_dest"
+
+# Check if font_dest exists
+if [ -d "$font_dest" ]; then
+
+    # Copy contents of font_folder into font_dest
+    cp -r "$font_folder"/* "$font_dest/"
+    echo "Contents of $font_folder copied to $font_dest"
+    notify-send --icon=font-collection --app-name="DONE" "Fonts folder copied into $(whoami)" "$font_dest" -u normal
+else
+    echo "$font_dest does not exist. Creating it..."
+    mkdir -p "$font_dest"
+    cp -r "$font_folder"/* "$font_dest/"
+    echo "Contents of $font_folder copied to $font_dest"
+fi
+
 mkdir -p "$script_dest"
 mkdir -p "$wallpapers_dest"
-
-# Move the fonts folder and its contents
-cp -r "$font_folder" "$font_dest"
-notify-send --icon=font-collection --app-name="DONE" "Fonts folder copied into $(whoami)" "$font_dest" -u normal
 
 # Move the scripts folder and its contents
 cp -r "$script_folder" "$script_dest"
