@@ -44,15 +44,15 @@
 # When you want to ensure that cached memory is released more aggressively for other applications.
 
 # CALCULATIONS: ( Schooling )
-# 1 MB (megabyte) = 1,048,576 bytes
-# To convert bytes to megabytes, divide the number of bytes by 1,048,576.
+# 1 MB (megabyte) = 1048576 bytes
+# To convert bytes to megabytes, divide the number of bytes by 1048576.
 
 # Here's how the calculations work for the values provided:
 # For "vm.dirty_background_bytes":
-# 16,777,216 bytes ÷ 1,048,576 bytes/MB = 16 MB
+# 16777216 bytes ÷ 1048576 bytes/MB = 16 MB
 
 # For "vm.dirty_bytes":
-# 50,331,648 bytes ÷ 1,048,576 bytes/MB = 48 MB
+# 50331648 bytes ÷ 1048576 bytes/MB = 48 MB
 
 # These calculations provide the approximate size in megabytes for the specified values.
 
