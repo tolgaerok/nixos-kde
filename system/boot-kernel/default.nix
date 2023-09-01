@@ -14,6 +14,6 @@
   # reduce unnecessary swapping of data between RAM and disk
   # ---------------------------------------------------------------------
 
-  boot.kernel.sysctl."vm.swappiness" = 1;
+  boot.kernel.sysctl."vm.swappiness" = 10;
 
 }

@@ -53,6 +53,8 @@
         60450
         # Custom port
         22000
+        # For gnomecast server
+        8010
       ];
 
       allowedUDPPorts = [ # DNS
@@ -65,6 +67,9 @@
         22000
         # Custom port
         21027
+        # For device discovery
+        5353
+
       ];
 
       #--------------------------------------------------------------------- 

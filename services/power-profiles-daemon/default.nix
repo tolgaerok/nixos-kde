@@ -6,7 +6,7 @@
 }: {
   services = {
     power-profiles-daemon = {
-      enable = true;
+      enable = false;
     };
   };
 }
