@@ -18,7 +18,8 @@
       joypixels.acceptLicense = true;
 
       # Allow insecure or old pkgs - Help from nix package manager
-      permittedInsecurePackages = [ "openssl-1.1.1v" "python-2.7.18.6" ];
+      permittedInsecurePackages =
+        [ "openssl-1.1.1v" "python-2.7.18.6" "qtwebkit-5.212.0-alpha4" ];
     };
   };
 }
