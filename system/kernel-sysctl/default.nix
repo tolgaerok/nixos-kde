@@ -24,8 +24,15 @@
   };
 
 }
+# Values explained:
+# "vm.vfs_cache_pressure" = 50; Adjust vfs_cache_pressure (0-1000)
 
-# "vm.vfs_cache_pressure" = 50;               # Adjust vfs_cache_pressure (0-1000)
+# 4GB RAM:  50 - 60 [ Lower values like 50 or 60 can be a good starting point for systems with 4GB of RAM to retain data in cache for improved file system access times ]
+# 8GB RAM:  60 - 80 [ Values around 60 to 80 are reasonable for 8GB of RAM, as you can still afford to keep more data in cache for better performance ]
+# 16GB RAM: 70 - 80 [ Lower values like 70 or 80 can be used to keep data in cache longer for systems with 16GB of RAM ]
+# 32GB RAM: 80 - 90 [ Values around 80 or 90 are suitable for systems with 32GB of RAM, allowing more data to stay in cache ]
+# 64GB RAM or More: 90 - 100 [ Lower values like 90 or 100 can minimize cache eviction for systems with very high memory, such as 64GB or more ]
+
 # Low Values (e.g., 10-100):
 # Situations where you have a lot of available RAM.
 # When you want to optimize filesystem access times by keeping more data in cache.
@@ -35,3 +42,20 @@
 # Systems with limited RAM resources.
 # Servers or virtual machines where memory availability is critical.
 # When you want to ensure that cached memory is released more aggressively for other applications.
+
+# CALCULATIONS: ( Schooling )
+# 1 MB (megabyte) = 1,048,576 bytes
+# To convert bytes to megabytes, divide the number of bytes by 1,048,576.
+
+# Here's how the calculations work for the values provided:
+# For "vm.dirty_background_bytes":
+# 16,777,216 bytes ÷ 1,048,576 bytes/MB = 16 MB
+
+# For "vm.dirty_bytes":
+# 50,331,648 bytes ÷ 1,048,576 bytes/MB = 48 MB
+
+# These calculations provide the approximate size in megabytes for the specified values.
+
+# The values "vm.dirty_background_bytes" and "vm.dirty_bytes" control how much dirty data (data that has been modified but not yet written to disk) 
+# can accumulate in the system's cache before it's flushed to disk. Lowering these values, as done here, results in more frequent disk writes, 
+# which can be useful when you need data to be quickly written to a USB drive.
