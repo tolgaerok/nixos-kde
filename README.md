@@ -1,4 +1,6 @@
-# *`My NixOs 23.05 environment, KDE & Nvidia GT-1030`*
+
+# `My NixOs 23.05 environment, KDE & Nvidia GT-1030`
+
 
 
 <table style="border-collapse: collapse; width: 100%; border: none;">
