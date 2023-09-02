@@ -1,21 +1,28 @@
-# *`My NixOs 23.05 environment`*
+# *`My NixOs 23.05 environment, KDE & Nvidia GT-1030`*
+
+
+<table style="border-collapse: collapse; width: 100%; border: none;">
+  <tr>
+    <td align="center" style="border: none;">
+      <a href="https://nixos.org/">
+        <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 100%;">
+        <br>NixOS
+      </a>
+    </td>
+    <td align="center" style="border: none;">
+      <img src="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884" alt="Screenshot">
+    </td>
+  </tr>
+</table>
+
 ```sh
 Tolga Erok
 (ツ)_/¯ 
 14/6/2023 
 ```
-<div align="left">
-  <table style="border-collapse: collapse; width: 100%; border: none;">
-    <tr>
-     <td align="center" style="border: none;">
-        <a href="https://nixos.org/">
-          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 100%;">
-          <br>NixOS
-        </a>
-      </td>     
-    </tr>
-  </table>
-</div> 
+
+
+
 
 <a name="index"></a>
 # Table of Contents
@@ -68,7 +75,7 @@ What exactly does this collection encompass, you ask? Well, it's a finely curate
 - **Office suites that facilitate productivity, organization, and creativity.**
 - **System utilities that provide essential maintenance and management capabilities.**
   
-You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/41ad9b1ac3eeedf8de3cdeeb559acf3cb5913186/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
+You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/main/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
 
 These handpicked packages aren't just a random assortment; they're designed to amplify your NixOS adventure, making your system feel complete and your activities seamless. Whether you're crafting code, crafting content, or simply navigating daily tasks, this selection equips you with a versatile toolkit ready for immediate utilization.
 
@@ -78,7 +85,7 @@ Embrace this pre-production release as a sneak peek into the exciting journey ah
 
 Stay tuned for ongoing updates, improvements, and further customization that will ensure your NixOS setup remains at the forefront of innovation and performance. Your adventure with NixOS and KDE Plasma starts here – with a configuration built from an enthusiast, for enthusiasts.
 
-![Screenshot_20230610_144645](https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884)
+
 
 
 <a name="kernel-optimization"></a>
@@ -105,6 +112,7 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
     "vm.vfs_cache_pressure" = 50;             # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
   };
 ```
+Detailed information right [here](https://github.com/tolgaerok/nixos/blob/main/system/kernel-sysctl/default.nix).
 
 [Back to Top](#)
 
