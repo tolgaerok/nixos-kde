@@ -129,7 +129,7 @@
     # Set Permissions:                          chmod 700 ~/.ssh
     #                                           chmod 600 ~/.ssh/authorized_keys
     # Copy the Public Key Entry:                ssh-rsa bla bla bla== your_email@example.com
-    # Replace your_email@example.com 
+    #                                           Replace your_email@example.com 
 
   };
 
