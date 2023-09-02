@@ -31,8 +31,7 @@ esac
 
 # Function to display the menu
 function display_menu() {
-    # echo -e "${COLOR}"
-    echo -e "${BLUE}Select an option: ${NC}"
+    echo -e "${BLUE}Select an option:${NC}"
     echo -e "--------------------------------\n"
     echo "1) SSH to Windows 11"
     echo -e "2) SSH to ${ORANGE}Ubuntu${NC} Server"
@@ -70,16 +69,38 @@ function ssh_command_retry() {
     clear
 }
 
-# Main loop
-while true; do
+check_internet_connection() {
+    echo -e "${YELLOW}[*]${NC} Checking Internet Connection .."
+    echo ""
 
-    display_menu
-    echo -e "${COLOR}┌──($USER㉿$HOST)-[$(pwd)]"
-    choice=$1
-    if [[ ! $choice =~ ^[0-6]+$ ]]; then
-        read -p "└─$>>" choice
+    if curl -s -m 10 https://www.google.com > /dev/null || curl -s -m 10 https://www.github.com > /dev/null; then
+        echo -e "${GREEN}[✔]${NC} Network connection is OK ${GREEN}[✔]${NC}"
+    else
+        echo -e "${RED}[✘]${NC} Network connection is not available ${RED}[✘]${NC}"
     fi
 
+    echo ""
+    sleep 1
+    echo -e "${YELLOW}[*]${NC} Executing menu ..."
+    sleep 2
+    clear
+}
+
+# Call the function to check internet connection
+check_internet_connection
+
+# Main loop
+while true; do
+    display_menu
+    echo -e "${YELLOW}┌──($USER㉿$HOST)-[$(pwd)]${NC}"
+
+    choice=$1
+    if [[ ! $choice =~ ^[0-6]+$ ]]; then
+        echo -n -e "${YELLOW}└─\$>>${NC} "
+        read choice
+    fi
+
+    echo ""
     clear
 
     case $choice in
