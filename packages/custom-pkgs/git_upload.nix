@@ -75,7 +75,12 @@ let
     end_time=$(date +%s)
     time_taken=$((end_time - start_time))
 
-    notify-send --app-name="Git-upload Timer" "Gitup Execution Complete" "Time taken: $time_taken seconds" -u normal
+    notify-send --icon=ktimetracker --app-name="DONE" "Upload for: $SUDO_USER" "Completed:
+
+    Tolga Erok.
+    (ツ)_/¯
+    Time taken: $time_taken
+    " -u normal
 
   '';
 
