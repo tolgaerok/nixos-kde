@@ -251,7 +251,26 @@ Virtualisation | Enable | Description
   - home directory
   - press F4 
 ```
+*Advanced users:*
+If your confident with the use of the termnal, you can simply copy and paste the following and hit return. Or if you want to learn
+and get a feel for some manaul steps, skip this and go to *Step 1*:
+```
+# Tolga Erok
+# 14/7/2023
+# Post Nixos setup!
+# ¯\_(ツ)_/¯
 
+cd $HOME
+nix-env -iA nixos.git
+git clone https://github.com/tolgaerok/nixos.git
+cd nixos
+sudo rsync -av --exclude='.git' ./* /etc/nixos
+sudo chown -R $(whoami):$(id -gn) /etc/nixos
+sudo chmod -R 777 /etc/nixos
+sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+kate /etc/nixos/configuration.nix
+export NIXPKGS_ALLOW_INSECURE=1
+```
 ## Step 1: 
 *Install basic git, download my NixOS.zip repository, unzip, open nixos-main folder*
 
@@ -265,9 +284,8 @@ git clone https://github.com/tolgaerok/nixos.git
 ```
 Step 3: Unzip the downloaded file
 ```
-  cd nixos-main
+  cd nixos
 ```
-
 ## Step 2: 
 *Copy the contents of the cloned "nixos" folder to /etc/nixos*
 *Note: This will exclude the hidden .git folder*
@@ -328,7 +346,7 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
 ### Add the desired lines just before the closing square bracket ]. Make sure to maintain the indentation. Here's how it should look after adding the lines: ###
 ```
 imports = [ 
-   # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   # ./hardware/gpu/intel/intel-laptop                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./hardware-configuration.nix
@@ -340,7 +358,7 @@ imports = [
   ];
 
 # Including this
-nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
 
 ```
 
@@ -375,7 +393,7 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    
 ```
 imports = [ 
-   # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   # ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./hardware-configuration.nix
@@ -387,13 +405,13 @@ imports = [
   ];
 
 # Including this
-nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
 ```
 
    The top few lines in the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
    
    ```
-   # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   # ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
    ```
@@ -405,7 +423,7 @@ nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
     *For example, if you have an Intel GPU and want to use the Intel driver, it should look like:*
 ```
    imports = [ 
-   ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./hardware-configuration.nix
@@ -417,7 +435,7 @@ nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
   ];
 
 # Including this
-nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
 ```
 
 5. **Save and Apply Changes:**
