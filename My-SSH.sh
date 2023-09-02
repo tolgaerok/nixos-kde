@@ -46,7 +46,7 @@ function display_menu() {
 
 # Function to handle invalid input
 function invalid_input() {
-    echo "Invalid input. Please choose a valid option."
+    echo -e "${RED}[✘]${NC} Invalid input. Please choose a valid option."
     sleep 1
     clear
 }
@@ -56,17 +56,17 @@ function ssh_command_retry() {
     local host=$1
     local command=$2
     local retries=2
-    local delay=5
+    local delay=1
 
     for ((i = 1; i <= retries; i++)); do
         ssh -q tolga@"$host" "$command" && return 0
-        echo -e "${RED}Failed to connect to $host. Retrying...${NC}"
+        echo -e "${RED}[✘]${NC} Failed to connect to $host. Retrying..."
         sleep "$delay"
     done
 
-    echo -e "${RED}Unable to execute SSH command: $command${NC}"
+    echo -e "${RED}[✘]${NC} Unable to execute SSH command: $command\n"
     sleep 2
-    clear
+    
 }
 
 check_internet_connection() {
@@ -124,7 +124,7 @@ while true; do
             ;;
 
         0)
-            echo -e "${GREEN}Quitting the script.${NC}"
+            echo -e "${RED}[✘]${NC} Quitting the script.${NC}"
             break
             ;;
         *)
