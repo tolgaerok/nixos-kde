@@ -2,7 +2,6 @@
 # `My NixOs 23.05 environment, KDE & Nvidia GT-1030`
 
 
-
 <table style="border-collapse: collapse; width: 100%; border: none;">
   <tr>
     <td align="center" style="border: none;">
@@ -22,46 +21,50 @@ Tolga Erok
 (ツ)_/¯ 
 14/6/2023 
 ```
+#
+**Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!**
+#
 
-
-
-
-<a name="index"></a>
 # Table of Contents
 
-- ***Custom configuration***
-  - [Kernel Optimization](#kernel-optimization)
-  - [Custom nixos configuration](#Custom-nixos-configuration)
+**Custom configuration**
+:------------------- |
+*[[ ✔ ]  Kernel Optimization](#kernel-optimization)* |
+*[[ ✔ ]  Custom nixos configuration](#Custom-nixos-configuration)* |
      
-- ***Enabled / Disabled services***
-  - [Hardware](#hardware)
-  - [Programs](#programs)
-  - [Services](#services)
-  - [System](#System)
-  - [Virtualisation](#Virtualisation)
+**Enabled / Disabled services**
+:------------------- |
+*[[ ✔ ]  Hardware](#hardware)* |
+*[[ ✔ ]  Programs](#programs)* |
+*[[ ✔ ]  Services](#services)* |
+*[[ ✔ ]  System](#System)* |
+*[[ ✔ ]  Virtualisation](#Virtualisation)* |
   
-- ***How to section:***
-  - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
+**How to section:**
+:------------------- |
+*[[ ✔ ]  Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)* |
   
-- ***Configuring GPU Drivers in my NixOS***
-  - [Configuring GPU ](#GPU)
+**Configuring GPU Drivers in my NixOS**
+:------------------- |
+*[[ ✔ ]  Configuring GPU ](#GPU)* |
 
-- ***Enhancing User Profile Permissions***
-  - [Configuring Profile Permissions](#tweak-profile)
+**Enhancing User Profile Permissions**
+:------------------- |
+*[[ ✔ ]  Configuring Profile Permissions](#tweak-profile)* |
 
-- ***Enhancing System settings***
-  - [Configuring core System settings](#system-enchance)
+**Enhancing System settings** 
+:------------------- |
+*[[ ✔ ]  Configuring core System settings](#system-enchance)* |
 
-- ***Final step***
-  - [Execute nixos-rebuild switch](#rebuild)
-
-
+**Final step**
+:------------------- |
+*[[ ✔ ]  Execute nixos-rebuild switch](#rebuild)* |
 
     
 
 # *`Pre-production release !!`*
 
-Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!
+
 
 Greetings fellow **NixOS** users! If you're a proud owner of a system equipped desktop with a Nvidia or a laptop with Intel GPU drivers, and your heart beats for the sleekness of KDE Plasma, then this custom configuration has been meticulously crafted with you in mind. My ongoing commitment to updates and fixes ensures that your experience remains top-notch.
 
@@ -114,7 +117,8 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
     "vm.vfs_cache_pressure" = 50;             # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
   };
 ```
-Detailed information right [here](https://raw.githubusercontent.com/tolgaerok/nixos/main/system/kernel-sysctl/default.nix).
+Detailed information ─>> [here](https://raw.githubusercontent.com/tolgaerok/nixos/main/system/kernel-sysctl/default.nix).
+
 
 [Back to Top](#)
 
