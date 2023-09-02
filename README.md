@@ -112,7 +112,7 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
     "vm.vfs_cache_pressure" = 50;             # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
   };
 ```
-Detailed information right [here](https://github.com/tolgaerok/nixos/blob/main/system/kernel-sysctl/default.nix).
+Detailed information right [here](https://raw.githubusercontent.com/tolgaerok/nixos/main/system/kernel-sysctl/default.nix).
 
 [Back to Top](#)
 
