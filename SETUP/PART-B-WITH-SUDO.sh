@@ -227,8 +227,9 @@ sudo chmod 0757 "/home/$username"
 export NIXPKGS_ALLOW_INSECURE=1
 
 # Rebuild system
+echo "There will be a very LONG delay here, checking for updates..."
 sudo nix-channel --update
-nix-env -u '*'
+nix-env -u '*'              # Could posibly delete this line
 sudo nixos-rebuild switch
 sudo nix-store --optimise
 
@@ -264,10 +265,13 @@ Time taken: $time_taken
 wps
 et
 shotwell
-Fish
 vscode
 sublime4
 vlc
 
+clear && read -p "Finished... press enter to end"
+clear && read -p "Press enter then control + c to exit next screen "
+cmatrix
+clear 
 
 exit 1
