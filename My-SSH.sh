@@ -38,7 +38,7 @@ function display_menu() {
     echo -e "3) SSH to ${BLUE}NixOs${NC}"
     echo -e "4) SSH to ${CYAN}Toshiba${NC} Laptop"
     echo -e "5) SSH to ThinClient ${GREEN}Mint21${NC}"
-    echo -e "6) ${WHITE}MariaDB   ${NC}"
+    echo -e "6) ${WHITE}MariaDB on ${ORANGE}Ubuntu${NC} Server  ${NC}"
 
     echo -e "\n--------------------------------"
     echo -e "0)${RED} Quit\n ${NC}"
