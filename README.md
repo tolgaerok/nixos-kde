@@ -22,37 +22,44 @@ Tolga Erok
 (ツ)_/¯ 
 14/6/2023 
 ```
-
-
-
+#
+**Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!**
+#
 
 <a name="index"></a>
 # Table of Contents
 
-- ***Custom configuration***
+***Custom configuration***
+:-------------------
   - [Kernel Optimization](#kernel-optimization)
   - [Custom nixos configuration](#Custom-nixos-configuration)
      
-- ***Enabled / Disabled services***
+***Enabled / Disabled services***
+:-------------------
   - [Hardware](#hardware)
   - [Programs](#programs)
   - [Services](#services)
   - [System](#System)
   - [Virtualisation](#Virtualisation)
   
-- ***How to section:***
+***How to section:***
+:-------------------
   - [Clone NixOS & edit (custom) configuration.nix](#Clone-NixOS)
   
-- ***Configuring GPU Drivers in my NixOS***
+***Configuring GPU Drivers in my NixOS***
+:-------------------
   - [Configuring GPU ](#GPU)
 
-- ***Enhancing User Profile Permissions***
+***Enhancing User Profile Permissions***
+:-------------------
   - [Configuring Profile Permissions](#tweak-profile)
 
-- ***Enhancing System settings***
+***Enhancing System settings***
+:-------------------
   - [Configuring core System settings](#system-enchance)
 
-- ***Final step***
+***Final step***
+:-------------------
   - [Execute nixos-rebuild switch](#rebuild)
 
 
@@ -61,7 +68,7 @@ Tolga Erok
 
 # *`Pre-production release !!`*
 
-Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!
+
 
 Greetings fellow **NixOS** users! If you're a proud owner of a system equipped desktop with a Nvidia or a laptop with Intel GPU drivers, and your heart beats for the sleekness of KDE Plasma, then this custom configuration has been meticulously crafted with you in mind. My ongoing commitment to updates and fixes ensures that your experience remains top-notch.
 
