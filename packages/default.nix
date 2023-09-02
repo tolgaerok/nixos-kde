@@ -35,6 +35,7 @@
     ./custom-pkgs     # My personal system-wide pkgs
     ./devlopment
     ./julia
+    # ./vscodium
     
     #---------------------------------------------------------------------
     # Desktop
