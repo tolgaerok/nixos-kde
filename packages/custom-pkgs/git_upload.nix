@@ -76,9 +76,8 @@ let
     time_taken=$((end_time - start_time))
 
     notify-send --icon=ktimetracker --app-name="DONE" "Upload for: $SUDO_USER" "Completed:
-
-    Tolga Erok.
-    (ツ)_/¯
+    
+        (ツ)_/¯
     Time taken: $time_taken
     " -u normal
 
