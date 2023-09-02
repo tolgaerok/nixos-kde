@@ -36,6 +36,7 @@
         # LDAP
         389
         # MySQL/MariaDB
+        3307
         3306
         # NFS
         2049

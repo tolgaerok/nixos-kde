@@ -42,6 +42,7 @@ create_directory_if_not_exist() {
         echo "Created directory: $1"
         chown "$user_name":"$group_name" "$1"
         chmod 755 "$1"  # Set read and execute permissions for user, group, and others
+        make-executable
     fi
 }
 
@@ -52,6 +53,7 @@ update_directory_permissions() {
         if [ "$perm" != "755" ]; then
             echo "Updating permissions of existing directory: $1"
             chmod 755 "$1"
+            make-executable
         fi
     fi
 }
@@ -71,10 +73,10 @@ group_id=$(id -g "$SUDO_USER")
 if [ -n "$user_name" ] && [ -n "$group_name" ]; then
     home_dir="/home/$user_name"
     config_dir="$home_dir/.config/nix"
-
+    
     create_directory_if_not_exist "$home_dir"
     create_directory_if_not_exist "$config_dir"
-
+    
     # Directories to create and set permissions
     directories=(
         "$home_dir/Documents"
@@ -84,11 +86,11 @@ if [ -n "$user_name" ] && [ -n "$group_name" ]; then
         "$home_dir/Templates"
         "$home_dir/Videos"
     )
-
+    
     for dir in "${directories[@]}"; do
         create_directory_if_not_exist "$dir"
     done
-
+    
     # Update directory permissions
     update_directory_permissions "$home_dir/Documents"
     update_directory_permissions "$home_dir/Music"
@@ -96,10 +98,10 @@ if [ -n "$user_name" ] && [ -n "$group_name" ]; then
     update_directory_permissions "$home_dir/Public"
     update_directory_permissions "$home_dir/Templates"
     update_directory_permissions "$home_dir/Videos"
-
+    
     # Set ownership for directories
     sudo chown -R "$user_name":"$group_name" "$home_dir"
-
+    
     # Give full permissions to the nix.conf file
     echo "experimental-features  = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
     chmod 644 "$config_dir/nix.conf"  # Set read permissions for user, group, and others
@@ -235,7 +237,7 @@ sudo nix-store --optimise
 # -------------------
 
 sudo mkdir -p ~/.local/share/fonts
-wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip 
+wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip
 unzip -o WPS-FONTS.zip -d ~/.local/share/fonts
 sudo fc-cache -vf ~/.local/share/fonts
 sudo fc-cache -f -v
@@ -243,7 +245,7 @@ rm WPS-FONTS.zip
 rm WPS-FONTS.zip.*
 
 # ---‐‐---------------------------
-# make locations executable 
+# make locations executable
 # --------------------------------
 
 cd $HOME && make-executable
