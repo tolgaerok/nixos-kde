@@ -254,20 +254,18 @@ Virtualisation | Enable | Description
 
 ## Step 1: 
 *Install basic git, download my NixOS.zip repository, unzip, open nixos-main folder*
-```
+
 Step 1: Install git
-  nix-env -iA nixos.git
-
-Step 2: Download my repository
-  wget https://github.com/tolgaerok/nixos/archive/refs/heads/main.zip
-
-  **Note: Due to security reasons, github made it hard to clone**
-     git clone https://github.com/tolgaerok/nixos.git
-
+```
+nix-env -iA nixos.git
+```
+Step 2: Clone my repository  
+```
+git clone https://github.com/tolgaerok/nixos.git
+```
 Step 3: Unzip the downloaded file
-  unzip main.zip
+```
   cd nixos-main
-
 ```
 
 ## Step 2: 
@@ -278,12 +276,14 @@ sudo rsync -av --exclude='.git' ./* /etc/nixos
 ```
 ## Step 3: 
 *Set appropriate ownership and permissions*
-```
-Step 1:
-  sudo chown -R $(whoami):$(id -gn) /etc/nixos
 
+Step 1:
+```
+sudo chown -R $(whoami):$(id -gn) /etc/nixos
+```
 Step 2:
-  sudo chmod -R 777 /etc/nixos
+```
+sudo chmod -R 777 /etc/nixos
 ```
 ## Backup your original configuration.nix file
 ```
@@ -318,6 +318,7 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
     
 ### Locate the imports section in the file. It will look like this: ###
 
+*This is the default layout on new install*
   ```
   imports =
   [ # Include the results of the hardware scan.
@@ -337,6 +338,10 @@ imports = [
     ./services
     ./system
   ];
+
+# Including this
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+
 ```
 
   - **After making your changes, save the file using the appropriate option in the `Kate` menu.**
@@ -368,8 +373,8 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
 
    After successfully adding the required lines from **Step 4**, in the `configuration.nix` file, scroll down until you find the `imports = [` section. This section is usually located near the beginning of the file and should looks like this now:
    
-   ```
-   imports = [ 
+```
+imports = [ 
    # ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
@@ -379,8 +384,11 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
     ./programs
     ./services
     ./system
-    ];
-   ```
+  ];
+
+# Including this
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+```
 
    The top few lines in the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
    
@@ -395,10 +403,9 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    Depending on your hardware, you can choose the appropriate GPU driver option. Each option is followed by a brief description of its use case. Comment out (add `#` at the beginning of the line) the lines for GPU drivers you don't need. For   example, if you have an Intel GPU, comment out the lines related to NVIDIA drivers.
    
     *For example, if you have an Intel GPU and want to use the Intel driver, it should look like:*
-   
-    ```
+```
    imports = [ 
-    ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+   ./hardware/gpu/intel/intel-laptop/                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./hardware-configuration.nix
@@ -407,8 +414,11 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
     ./programs
     ./services
     ./system
-    ];
-   ```
+  ];
+
+# Including this
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+```
 
 5. **Save and Apply Changes:**
 
@@ -499,6 +509,8 @@ These lines of code not only bestow you with enhanced permissions, but they also
 
 To effortlessly amplify your NixOS system, consider integrating this snippet below the audio configuration. It’s a quick process that will bring a host of automatic upgrades and system enhancements into play:
 
+*Note: Do not over write or leave out `system.stateVersion = "23.05";`*
+
 ```
 # --------------------------------------------------------------------
 # Automated System Enhancements
@@ -526,6 +538,7 @@ Integrating the above snippet is as swift as its enhancements. Just copy the sni
 After adding all the configurations above, save the `configuration.nix` file. To apply the changes, execute the following command in your terminal:
 
    ```
+   export NIXPKGS_ALLOW_INSECURE=1
    sudo nixos-rebuild switch
    ```
 
