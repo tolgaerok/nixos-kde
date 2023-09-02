@@ -1,26 +1,42 @@
 #!/bin/bash
 
 # Tolga Erok
-# Rsnc to USB 
+# Rsync to USB
 
-# Source and destination information
-DEST_DIR="/run/media/tolga/Medicat/Backup/"
-SOURCE_DIR="/home/tolga/TEST/"
+# Function to display prompt
+
+# Initialize the TEXT variable
+TEXT=""
+
+custom_prompt() {
+    echo "Enter the $1 directory (e.g., $TEXT):"
+    echo "┌──($USER@$HOST)-[$(pwd)]"
+    read -p "└─\$>> " $2
+    echo ""
+}
+
+# Prompt for source directory
+TEXT="/etc/nixos/"
+custom_prompt "source" SOURCE_DIR
+
+# Prompt for destination directory
+TEXT="/run/media/tolga/Medicat/Live_Operating_Systems/Linux/Nixos/"
+custom_prompt "destination" DEST_DIR
 
 start_time=$(date +%s)
 
 # Function to perform rsync
 perform_rsync_usb() {
     # Rsync
-    echo -e "\e[1;34mSyncing $SOURCE_DIR/ to $DEST_DIR ..."
+    echo "Syncing $SOURCE_DIR/ to $DEST_DIR ..."
     rsync -avz --progress --partial --bwlimit=500M --no-compress --no-relative --hard-links --update --stats "$SOURCE_DIR/" "$DEST_DIR"
-    echo -e "Finished syncing $SOURCE_DIR/ to $DEST_DIR" | cowsay | lolcat
+    echo "Finished syncing $SOURCE_DIR/ to $DEST_DIR"
     sleep 1
     echo
-    
+
     end_time=$(date +%s)
     time_taken=$((end_time - start_time))
-    
+
     notify-send --app-name="Script Timer" "Script Execution Complete" "Time taken: $time_taken seconds" -u normal
 }
 

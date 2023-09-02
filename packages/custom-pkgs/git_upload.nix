@@ -75,7 +75,7 @@ let
     end_time=$(date +%s)
     time_taken=$((end_time - start_time))
 
-    notify-send --icon=ktimetracker --app-name="DONE" "Upload for: $SUDO_USER" "Completed:
+    notify-send --icon=ktimetracker --app-name="DONE" "Uploaded " "Completed:
     
         (ツ)_/¯
     Time taken: $time_taken
