@@ -1,39 +1,69 @@
 
 # `My NixOs 23.05 environment, KDE & Nvidia GT-1030`
 
-
-<table style="border-collapse: collapse; width: 100%; border: none;">
+<table style="border-collapse: collapse; width: 100%;">
   <tr>
-    <td align="center" style="border: none;">
-      <a href="https://nixos.org/">
-        <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 100%;">
-        <br>NixOS
-      </a>
-    </td>
     <td align="center" style="border: none;">
       <img src="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884" alt="Screenshot">
     </td>
   </tr>
 </table>
 
-| Device      | Specification                                           |
-| :----------- | ------------------------------------------------------- |
-| BLUE-TOOTH  | REALTEK 5G                                     |
-| CPU         | Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell) |
-| GPU         | NVIDIA GeForce GT 1030/PCIe/SSE2                   |
-| MODEL       | HP EliteDesk 800 G1 SFF                             |
-| MOTHERBOARD | Intel® Q87                                       |
-| NETWORK     | Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz  |
-| RAM         | 28 GB DDR3                                          |
-| SATA        | SAMSUNG SSD 870 EVO 500GB                           |
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <td style="border: none; width: 30%;" valign="top">
+      <div align="center">
+        <a href="https://nixos.org/">
+          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 100%;">
+          <br>NixOS
+        </a>
+      </div>
+    </td>
+    <td style="border: none; width: 70%;">
+      <table>
+        <tr>
+          <th align="left">Device</th>
+          <th align="left">Specification</th>
+        </tr>
+        <tr>
+          <td>BLUE-TOOTH</td>
+          <td>REALTEK 5G</td>
+        </tr>
+        <tr>
+          <td>CPU</td>
+          <td>Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell)</td>
+        </tr>
+        <tr>
+          <td>GPU</td>
+          <td>NVIDIA GeForce GT 1030/PCIe/SSE2</td>
+        </tr>
+        <tr>
+          <td>MODEL</td>
+          <td>HP EliteDesk 800 G1 SFF</td>
+        </tr>
+        <tr>
+          <td>MOTHERBOARD</td>
+          <td>Intel® Q87</td>
+        </tr>
+        <tr>
+          <td>NETWORK</td>
+          <td>Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz</td>
+        </tr>
+        <tr>
+          <td>RAM</td>
+          <td>28 GB DDR3</td>
+        </tr>
+        <tr>
+          <td>SATA</td>
+          <td>SAMSUNG SSD 870 EVO 500GB</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
 
 
-
-```sh
-Tolga Erok
-(ツ)_/¯ 
-14/6/2023 
-```
 #
 **Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!**
 #
