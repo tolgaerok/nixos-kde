@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Personal SSH script
+# Personal SSH script.
 # Tolga Erok. ¯\_(ツ)_/¯
 # 2/9/23
 
