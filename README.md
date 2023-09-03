@@ -144,7 +144,7 @@ In the pursuit of an even smoother computing journey, I've delved into the realm
 
 Imagine having the ability to optimize memory usage, fine-tune disk writeback behavior, and even tailor network settings. These kernel tweaks transcend the mundane, offering a deeper level of control over the low-level aspects of our system's behavior. Through this journey of exploration and customization, we're not just configuring a machine; we're sculpting an environment that responds to our needs and aspirations.
 
-```bash
+```nix
 {
   boot.kernel.sysctl = {
     "kernel.sysrq" = 1;                       # SysRQ for is rebooting their machine properly if it freezes: SOURCE: https://oglo.dev/tutorials/sysrq/index.html
@@ -322,7 +322,7 @@ export NIXPKGS_ALLOW_INSECURE=1
 *Install basic git, download my NixOS.zip repository, unzip, open nixos-main folder*
 
 Step 1: Install git
-```php
+```nix
 nix-env -iA nixos.git
 ```
 Step 2: Clone my repository  
@@ -384,14 +384,14 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
 ### Locate the imports section in the file. It will look like this: ###
 
 *This is the default layout on new install*
-  ```bash
+ ```nix
   imports =
   [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 ```
 ### Add the desired lines just before the closing square bracket ]. Make sure to maintain the indentation. Here's how it should look after adding the lines: ###
-```bash
+```nix
 imports = [ 
    # ./hardware/gpu/intel/intel-laptop                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
@@ -438,7 +438,7 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
 
    After successfully adding the required lines from **Step 4**, in the `configuration.nix` file, scroll down until you find the `imports = [` section. This section is usually located near the beginning of the file and should looks like this now:
    
-```bash
+```nix
 imports = [ 
    # ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
@@ -457,7 +457,7 @@ nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
 
    The top few lines in the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
    
-   ```bash
+   ```nix
    # ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
@@ -468,7 +468,7 @@ nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
    Depending on your hardware, you can choose the appropriate GPU driver option. Each option is followed by a brief description of its use case. Comment out (add `#` at the beginning of the line) the lines for GPU drivers you don't need. For   example, if you have an Intel GPU, comment out the lines related to NVIDIA drivers.
    
     *For example, if you have an Intel GPU and want to use the Intel driver, it should look like:*
-```bash
+```nix
    imports = [ 
    ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
@@ -518,7 +518,7 @@ Welcome to the realm of NixOS customization! As you navigate the intricacies of 
 
 Within the `configuration.nix` file, you'll discover a section dedicated to your user profile. This portion, often resembling the following structure, encapsulates your user-specific settings:
 
-```bash
+```nix
 users.users.username = {
   isNormalUser = true;
   description = "User's Full Name";
@@ -531,7 +531,7 @@ users.users.username = {
 It's here that the magic unfolds. After the `description` line in your user profile section, you'll introduce a set of configurations designed to amplify your permissions and enrich your interactions within NixOS. 
 Simply copy & paste where the indicators are:
 
-```bash
+```nix
 users.users.username = {
   isNormalUser = true;
   description = "User's Full Name";
@@ -576,7 +576,7 @@ To effortlessly amplify your NixOS system, consider integrating this snippet bel
 
 *Note: Do not over write or leave out `system.stateVersion = "23.05";`*
 
-```bash
+```nix
 # --------------------------------------------------------------------
 # Automated System Enhancements
 # --------------------------------------------------------------------
@@ -602,7 +602,7 @@ Integrating the above snippet is as swift as its enhancements. Just copy the sni
 
 After adding all the configurations above, save the `configuration.nix` file. To apply the changes, execute the following command in your terminal:
 
-   ```bash
+   ```nix
    export NIXPKGS_ALLOW_INSECURE=1
    sudo nixos-rebuild switch
    ```
