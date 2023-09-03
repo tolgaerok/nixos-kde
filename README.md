@@ -1,4 +1,3 @@
-
 # `My NixOs 23.05 environment, KDE & Nvidia GT-1030`
 
 <table style="border-collapse: collapse; width: 100%;">
@@ -65,9 +64,11 @@
 
 
 #
-**Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!**
-#
+```javascript
+Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!
 
+```
+#
 # Table of Contents
 
 **Custom configuration**
@@ -116,13 +117,13 @@ It's important to note that, for the time being, I've chosen to disable Wayland 
 Now, let's dive into the exciting lineup I have prepared for you. With just a single command – `sudo nixos-rebuild switch` – you'll unlock a treasure trove of meticulously chosen packages that will transform your NixOS journey.
 
 What exactly does this collection encompass, you ask? Well, it's a finely curated selection of essential software, spanning a diverse array of categories. I've got you covered with:
-
-- **Archive utilities to effortlessly handle compression and decompression tasks.**
-- **Multimedia tools that pave the way for a vibrant and immersive audio-visual experience.**
-- **Programming languages to fuel your coding endeavors and innovation.**
-- **Office suites that facilitate productivity, organization, and creativity.**
-- **System utilities that provide essential maintenance and management capabilities.**
-  
+```javascript
+- Archive utilities to effortlessly handle compression and decompression tasks.
+- Multimedia tools that pave the way for a vibrant and immersive audio-visual experience.
+- Programming languages to fuel your coding endeavors and innovation.
+- Office suites that facilitate productivity, organization, and creativity.
+- System utilities that provide essential maintenance and management capabilities.
+```  
 You'll find my selection of handpicked packages available right [here](https://github.com/tolgaerok/nixos/blob/main/packages/ReadMe.md). All of them will be conveniently installed on your NixOS.
 
 These handpicked packages aren't just a random assortment; they're designed to amplify your NixOS adventure, making your system feel complete and your activities seamless. Whether you're crafting code, crafting content, or simply navigating daily tasks, this selection equips you with a versatile toolkit ready for immediate utilization.
@@ -142,7 +143,8 @@ Stay tuned for ongoing updates, improvements, and further customization that wil
 In the pursuit of an even smoother computing journey, I've delved into the realm of kernel optimization. By fine-tuning how data flows from memory to disk, we can wield significant influence over the performance and responsiveness of our systems. These adjustments aren't just about technical tweaks; they're about crafting an environment that elevates our user experience.
 
 Imagine having the ability to optimize memory usage, fine-tune disk writeback behavior, and even tailor network settings. These kernel tweaks transcend the mundane, offering a deeper level of control over the low-level aspects of our system's behavior. Through this journey of exploration and customization, we're not just configuring a machine; we're sculpting an environment that responds to our needs and aspirations.
-```
+
+```bash
 {
   boot.kernel.sysctl = {
     "kernel.sysrq" = 1;                       # SysRQ for is rebooting their machine properly if it freezes: SOURCE: https://oglo.dev/tutorials/sysrq/index.html
@@ -160,6 +162,7 @@ Imagine having the ability to optimize memory usage, fine-tune disk writeback be
     "vm.vfs_cache_pressure" = 50;             # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
   };
 ```
+
 Detailed information ─>> [here](https://raw.githubusercontent.com/tolgaerok/nixos/main/system/kernel-sysctl/default.nix).
 
 
@@ -297,7 +300,8 @@ Virtualisation | Enable | Description
 *Advanced users:*
 If your confident with the use of the termnal, you can simply copy and paste the following and hit return. Or if you want to learn
 and get a feel for some manaul steps, skip this and go to *Step 1*:
-```
+
+```bash
 # Tolga Erok
 # 14/7/2023
 # Post Nixos setup!
@@ -318,36 +322,36 @@ export NIXPKGS_ALLOW_INSECURE=1
 *Install basic git, download my NixOS.zip repository, unzip, open nixos-main folder*
 
 Step 1: Install git
-```
+```php
 nix-env -iA nixos.git
 ```
 Step 2: Clone my repository  
-```
+```bash
 git clone https://github.com/tolgaerok/nixos.git
 ```
 Step 3: Unzip the downloaded file
-```
+```bash
   cd nixos
 ```
 ## Step 2: 
 *Copy the contents of the cloned "nixos" folder to /etc/nixos*
 *Note: This will exclude the hidden .git folder*
-```
+```bash
 sudo rsync -av --exclude='.git' ./* /etc/nixos
 ```
 ## Step 3: 
 *Set appropriate ownership and permissions*
 
 Step 1:
-```
+```bash
 sudo chown -R $(whoami):$(id -gn) /etc/nixos
 ```
 Step 2:
-```
+```bash
 sudo chmod -R 777 /etc/nixos
 ```
 ## Backup your original configuration.nix file
-```
+```bash
 sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 ```
 ## Step 4: 
@@ -357,7 +361,7 @@ sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
 
   - **To open the `configuration.nix` file using the `nano` text editor, type the following command:**
 
-   ```
+   ```bash
    nano /etc/nixos/configuration.nix
    ```
 
@@ -371,7 +375,7 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
 
   - **To open the `configuration.nix` file using `Kate`, type the following command:**
 
-   ```
+   ```bash
    kate /etc/nixos/configuration.nix
    ```
 
@@ -380,14 +384,14 @@ If you prefer to use the graphical text editor `Kate`, you can follow these step
 ### Locate the imports section in the file. It will look like this: ###
 
 *This is the default layout on new install*
-  ```
+  ```bash
   imports =
   [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 ```
 ### Add the desired lines just before the closing square bracket ]. Make sure to maintain the indentation. Here's how it should look after adding the lines: ###
-```
+```bash
 imports = [ 
    # ./hardware/gpu/intel/intel-laptop                     # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
@@ -401,7 +405,7 @@ imports = [
   ];
 
 # Including this
-nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
 
 ```
 
@@ -422,11 +426,11 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
    Open a terminal and navigate to your NixOS configuration directory. Use either of the following methods to open the `configuration.nix` file:
 
    - **Using nano:**
-     ```
+     ```bash
      sudo nano /etc/nixos/configuration.nix
      ```
    - **Using Kate Text Editor:**
-     ```
+     ```bash
      kate /etc/nixos/configuration.nix
      ```
 
@@ -434,7 +438,7 @@ If you're looking to configure GPU drivers on your NixOS system, follow these st
 
    After successfully adding the required lines from **Step 4**, in the `configuration.nix` file, scroll down until you find the `imports = [` section. This section is usually located near the beginning of the file and should looks like this now:
    
-```
+```bash
 imports = [ 
    # ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
@@ -448,12 +452,12 @@ imports = [
   ];
 
 # Including this
-nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
 ```
 
    The top few lines in the `imports = [ ... ]` line, you will find the GPU driver options section. It will look like this:
    
-   ```
+   ```bash
    # ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
    # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
@@ -464,7 +468,7 @@ nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
    Depending on your hardware, you can choose the appropriate GPU driver option. Each option is followed by a brief description of its use case. Comment out (add `#` at the beginning of the line) the lines for GPU drivers you don't need. For   example, if you have an Intel GPU, comment out the lines related to NVIDIA drivers.
    
     *For example, if you have an Intel GPU and want to use the Intel driver, it should look like:*
-```
+```bash
    imports = [ 
    ./hardware/gpu/intel/intel-laptop                      # INTEL GPU with (Open-GL), tlp and auto-cpufreq
    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix  # NVIDIA stable for GT-710--
@@ -478,7 +482,7 @@ nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
   ];
 
 # Including this
-nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
+nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
 ```
 
 5. **Save and Apply Changes:**
@@ -502,11 +506,11 @@ Welcome to the realm of NixOS customization! As you navigate the intricacies of 
    Open a terminal and navigate to your NixOS configuration directory. Use either of the following methods to open the `configuration.nix` file:
 
    - **Using nano:**
-     ```
+     ```bash
      sudo nano /etc/nixos/configuration.nix
      ```
    - **Using Kate Text Editor:**
-     ```
+     ```bash
      kate /etc/nixos/configuration.nix
      ```
 
@@ -514,7 +518,7 @@ Welcome to the realm of NixOS customization! As you navigate the intricacies of 
 
 Within the `configuration.nix` file, you'll discover a section dedicated to your user profile. This portion, often resembling the following structure, encapsulates your user-specific settings:
 
-```
+```bash
 users.users.username = {
   isNormalUser = true;
   description = "User's Full Name";
@@ -527,7 +531,7 @@ users.users.username = {
 It's here that the magic unfolds. After the `description` line in your user profile section, you'll introduce a set of configurations designed to amplify your permissions and enrich your interactions within NixOS. 
 Simply copy & paste where the indicators are:
 
-```
+```bash
 users.users.username = {
   isNormalUser = true;
   description = "User's Full Name";
@@ -572,7 +576,7 @@ To effortlessly amplify your NixOS system, consider integrating this snippet bel
 
 *Note: Do not over write or leave out `system.stateVersion = "23.05";`*
 
-```
+```bash
 # --------------------------------------------------------------------
 # Automated System Enhancements
 # --------------------------------------------------------------------
@@ -598,7 +602,7 @@ Integrating the above snippet is as swift as its enhancements. Just copy the sni
 
 After adding all the configurations above, save the `configuration.nix` file. To apply the changes, execute the following command in your terminal:
 
-   ```
+   ```bash
    export NIXPKGS_ALLOW_INSECURE=1
    sudo nixos-rebuild switch
    ```
