@@ -13,8 +13,7 @@
       "update.mode" = "none";
       # "extensions.autoUpdate" = false; # This stuff fixes vscode freaking out when theres an update
 
-      "editor.fontFamily" =
-        "'Iosevka Comfy', 'SymbolsNerdFont', 'monospace', monospace";
+      "editor.fontFamily" = "'Iosevka Comfy', 'SymbolsNerdFont', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.minimap.enabled" = true;
       "vsicons.dontShowNewVersionMessage" = true;
