@@ -4,7 +4,7 @@
 
     # Configuration for  intel gpu acceleration & tlp
     ./cpu-frequency
-    ./intel-acceleration
+    ./intel-acceleration/test.nix
     ./tlp
     
   ];
