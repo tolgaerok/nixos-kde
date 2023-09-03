@@ -30,7 +30,8 @@ Options:
 "
 
 COLOR_NUM=$((RANDOM % 7))
-# Assign a color variable based on the random number
+
+# Assign a color variable based on the RANDOM number
 case $COLOR_NUM in
     0) COLOR=$RED;;
     1) COLOR=$GREEN;;
@@ -39,6 +40,7 @@ case $COLOR_NUM in
     4) COLOR=$CYAN;;
     5) COLOR=$ORANGE;;
     *) COLOR=$WHITE;;
+
 esac
 
 # Function to check port 22
