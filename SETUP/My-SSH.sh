@@ -29,6 +29,16 @@ case $COLOR_NUM in
     *) COLOR=$WHITE;;
 esac
 
+# Function to check port 22
+function check_port22() {
+    if pgrep sshd > /dev/null; then
+        echo -e "${GREEN}[✔]${NC} SSH service is running on port 22\n"
+    else
+        echo -e "${RED}[✘]${NC} SSH service is not running on port 22. Install and enable SSHD service.\n"
+    fi
+}
+
+
 # Function to display the menu
 function display_menu() {
     echo -e "${BLUE}Select an option:${NC}"
@@ -39,7 +49,7 @@ function display_menu() {
     echo -e "4) SSH to ${CYAN}Toshiba${NC} Laptop"
     echo -e "5) SSH to ThinClient ${GREEN}Mint21${NC}"
     echo -e "6) ${WHITE}MariaDB on ${ORANGE}Ubuntu${NC} Server  ${NC}"
-
+    
     echo -e "\n--------------------------------"
     echo -e "0)${RED} Quit\n ${NC}"
 }
@@ -57,28 +67,30 @@ function ssh_command_retry() {
     local command=$2
     local retries=2
     local delay=1
-
+    
     for ((i = 1; i <= retries; i++)); do
-        ssh -q tolga@"$host" "$command" && return 0
+        ssh -q "tolga@$host" "$command" && {
+            echo -e "${GREEN}[✔]${NC} Connected to $host successfully"
+            return 0
+        }
         echo -e "${RED}[✘]${NC} Failed to connect to $host. Retrying..."
         sleep "$delay"
     done
-
+    
     echo -e "${RED}[✘]${NC} Unable to execute SSH command: $command\n"
     sleep 2
-    
 }
 
 check_internet_connection() {
     echo -e "${YELLOW}[*]${NC} Checking Internet Connection .."
     echo ""
-
+    
     if curl -s -m 10 https://www.google.com > /dev/null || curl -s -m 10 https://www.github.com > /dev/null; then
         echo -e "${GREEN}[✔]${NC} Network connection is OK ${GREEN}[✔]${NC}"
     else
         echo -e "${RED}[✘]${NC} Network connection is not available ${RED}[✘]${NC}"
     fi
-
+    
     echo ""
     sleep 1
     echo -e "${YELLOW}[*]${NC} Executing menu ..."
@@ -93,42 +105,44 @@ check_internet_connection
 while true; do
     display_menu
     echo -e "${YELLOW}┌──($USER㉿$HOST)-[$(pwd)]${NC}"
-
-    choice=$1
-    if [[ ! $choice =~ ^[0-6]+$ ]]; then
-        echo -n -e "${YELLOW}└─\$>>${NC} "
-        read choice
-    fi
-
+    
+    choice=""
+    echo -n -e "${YELLOW}└─\$>>${NC} "
+    read choice
+    
     echo ""
     clear
-
+    
     case $choice in
         1)
+            check_port22
             ssh_command_retry "192.168.0.20" ""
-            ;;
+        ;;
         2)
+            check_port22
             ssh_command_retry "192.168.0.11" ""
-            ;;
+        ;;
         3)
+            check_port22
             ssh_command_retry "192.168.0.13" ""
-            ;;
+        ;;
         4)
+            check_port22
             ssh_command_retry "192.168.0.3" ""
-            ;;
+        ;;
         5)
+            check_port22
             ssh_command_retry "192.168.0.8" ""
-            ;;
+        ;;
         6)
             mysql -h 192.168.0.11 -P 3306 -u tolga -p
-            ;;
-
+        ;;
         0)
             echo -e "${RED}[✘]${NC} Quitting the script.${NC}"
             break
-            ;;
+        ;;
         *)
             invalid_input
-            ;;
+        ;;
     esac
 done
