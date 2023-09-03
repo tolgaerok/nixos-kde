@@ -17,6 +17,18 @@ WHITE='\e[1;37m'
 ORANGE='\e[1;93m'
 NC='\e[0m'
 
+# Help text
+help_text="Personal script (beta)
+
+Usage: ./script.sh [OPTIONS]
+
+Options:
+--help              Show this help message
+--ubuntuserver      SSH to Ubuntu Server
+
+
+"
+
 COLOR_NUM=$((RANDOM % 7))
 # Assign a color variable based on the random number
 case $COLOR_NUM in
@@ -49,7 +61,7 @@ function display_menu() {
     echo -e "4) SSH to ${CYAN}Toshiba${NC} Laptop"
     echo -e "5) SSH to ThinClient ${GREEN}Mint21${NC}"
     echo -e "6) ${WHITE}MariaDB on ${ORANGE}Ubuntu${NC} Server  ${NC}"
-    
+
     echo -e "\n--------------------------------"
     echo -e "0)${RED} Quit\n ${NC}"
 }
@@ -66,8 +78,8 @@ function ssh_command_retry() {
     local host=$1
     local command=$2
     local retries=2
-    local delay=1
-    
+    local delay=0
+
     for ((i = 1; i <= retries; i++)); do
         ssh -q "tolga@$host" "$command" && {
             echo -e "${GREEN}[✔]${NC} Connected to $host successfully"
@@ -76,7 +88,7 @@ function ssh_command_retry() {
         echo -e "${RED}[✘]${NC} Failed to connect to $host. Retrying..."
         sleep "$delay"
     done
-    
+
     echo -e "${RED}[✘]${NC} Unable to execute SSH command: $command\n"
     sleep 2
 }
@@ -84,13 +96,13 @@ function ssh_command_retry() {
 check_internet_connection() {
     echo -e "${YELLOW}[*]${NC} Checking Internet Connection .."
     echo ""
-    
+
     if curl -s -m 10 https://www.google.com > /dev/null || curl -s -m 10 https://www.github.com > /dev/null; then
         echo -e "${GREEN}[✔]${NC} Network connection is OK ${GREEN}[✔]${NC}"
     else
         echo -e "${RED}[✘]${NC} Network connection is not available ${RED}[✘]${NC}"
     fi
-    
+
     echo ""
     sleep 1
     echo -e "${YELLOW}[*]${NC} Executing menu ..."
@@ -98,21 +110,50 @@ check_internet_connection() {
     clear
 }
 
+# Function to display help text
+function show_help() {
+  echo -e "$help_text"
+}
+
 # Call the function to check internet connection
-check_internet_connection
+# check_internet_connection
+
+# Function to handle command-line options
+function handle_options() {
+    case "$1" in
+        --help)
+            show_help
+            exit 0
+        ;;
+        --checkport)
+            check_port22
+            exit 0
+        ;;
+        --ubuntuserver)
+            check_port22
+            ssh_command_retry "192.168.0.11" ""
+            # exit 0
+        ;;
+        *)
+        ;;
+    esac
+}
+
+# Call the function to handle command-line options
+handle_options "$1"
 
 # Main loop
 while true; do
     display_menu
     echo -e "${YELLOW}┌──($USER㉿$HOST)-[$(pwd)]${NC}"
-    
+
     choice=""
     echo -n -e "${YELLOW}└─\$>>${NC} "
     read choice
-    
+
     echo ""
     clear
-    
+
     case $choice in
         1)
             check_port22
