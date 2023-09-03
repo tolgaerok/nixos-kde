@@ -13,11 +13,17 @@
         DisableFirefoxAccounts = true;
         DisableFirefoxStudies = true;
         DisablePocket = true;
-        DisableTelemetry = true;
+        DisableTelemetry = true;        
+        DontCheckDefaultBrowser = true;
+        NoDefaultBookmarks = true;
+        PasswordManagerEnabled = true;
 
         FirefoxHome = {
+          Highlights = false;
           Pocket = false;
+          Search = true;
           Snippets = false;
+          TopSites = false;
         };
 
         UserMessaging = {
@@ -57,16 +63,21 @@
         }];
 
         settings = {
-          "dom.security.https_only_mode" = true;
           "browser.download.panel.shown" = true;
+          "dom.security.https_only_mode" = true;
+          "general.smoothScroll" = true;
           "identity.fxaccounts.enabled" = false;
+          "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
           "signon.rememberSignons" = false;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
 
-        userChrome = ''
-          /* some css */                        
-        '';
-
+        # userChrome = ''
+        #   /* some css */                        
+        # '';
+        # modified theme from https://github.com/Bali10050/FirefoxCSS
+        userChrome = builtins.readFile ./userChrome.css;
+        userContent = builtins.readFile ./userContent.css;
       };
     };
     # };

@@ -39,6 +39,7 @@
         3307
         3306
         # NFS
+        111
         2049
         # PostgreSQL
         5432
@@ -56,6 +57,8 @@
         22000
         # For gnomecast server
         8010
+        80
+        8888
       ];
 
       allowedUDPPorts = [ # DNS
