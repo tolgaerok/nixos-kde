@@ -16,6 +16,19 @@
   </tr>
 </table>
 
+| Device      | Specification                                           |
+| :----------- | ------------------------------------------------------- |
+| BLUE-TOOTH  | REALTEK 5G                                     |
+| CPU         | Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell) |
+| GPU         | NVIDIA GeForce GT 1030/PCIe/SSE2                   |
+| MODEL       | HP EliteDesk 800 G1 SFF                             |
+| MOTHERBOARD | Intel® Q87                                       |
+| NETWORK     | Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz  |
+| RAM         | 28 GB DDR3                                          |
+| SATA        | SAMSUNG SSD 870 EVO 500GB                           |
+
+
+
 ```sh
 Tolga Erok
 (ツ)_/¯ 
