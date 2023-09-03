@@ -116,7 +116,7 @@ function show_help() {
 }
 
 # Call the function to check internet connection
-# check_internet_connection
+check_internet_connection
 
 # Function to handle command-line options
 function handle_options() {
