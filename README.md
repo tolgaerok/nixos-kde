@@ -1,4 +1,8 @@
-# `My NixOs 23.05 environment, KDE & Nvidia GT-1030`
+<div align="center">
+  <h1 style="font-size: 24px; color: blue;">My NixOs 23.05 environment, KDE & Nvidia GT-1030</h1>
+</div>
+
+
 
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
@@ -9,13 +13,16 @@
 </table>
 
 
+
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
     <td style="border: none; width: 30%;" valign="top">
-      <div align="center">
-        <a href="https://nixos.org/">
-          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 100%;">
-          <br>NixOS
+      <div align="center">        
+          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 45%;">
+          <img src="https://github.com/tolgaerok/nixos/assets/110285959/fa785dec-f839-43f2-9e03-58adb73d12c3" alt="HP" style="width: 45%;">
+          <a href="https://nixos.org/">
+          <br>
+          NixOS
         </a>
       </div>
     </td>
@@ -64,11 +71,7 @@
 
 
 #
-```javascript
-Introducing a Tailored Configuration for KDE Plasma Enthusiasts with Nvidia and Intel GPU Drivers on NixOS!!
 
-```
-#
 # Table of Contents
 
 **Custom configuration**
