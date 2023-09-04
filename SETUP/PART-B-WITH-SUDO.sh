@@ -24,8 +24,25 @@ fi
 # Set some variables & functions
 # -----------------------------------------------------------------------------------
 
+RED='\e[1;31m'
+GREEN='\e[1;32m'
+YELLOW='\e[1;33m'
+BLUE='\e[1;34m'
+CYAN='\e[1;36m'
+WHITE='\e[1;37m'
+ORANGE='\e[1;93m'
+NC='\e[0m'
+
 # Location of private samba folder
 shared_folder="/home/NixOs-KDE"
+
+# Install notify agents
+nix-env -iA nixos.libnotify
+nix-env -iA nixos.notify-desktop
+
+# Install Samba
+nix-env -iA nixos.cifs-utils
+nix-env -iA nixos.samba4Full
 
 # Define user and group IDs here
 user_id=$(id -u "$SUDO_USER")
@@ -177,20 +194,13 @@ echo "
 Time to create smb user & group
 "
 
-# Prompt for the desired username and group for Samba
-sambausername=$(prompt_input $'\nEnter the USERNAME to add to Samba: ')
-sambagroup=$(prompt_input $'\nEnter the GROUP name to add username to Samba: ')
-
-# Create Samba user and group
-sudo groupadd "$sambagroup"
-sudo useradd -m "$sambausername"
-sudo smbpasswd -a "$sambausername"
-sudo usermod -aG "$sambagroup" "$sambausername"
+create-smb-user
 
 # Pause and continue
-echo -e "
-Continuing..."
+echo -e "${GREEN}[✔]${NC} SMB user and Samba group added\n"
 read -r -n 1 -s -t 1
+
+clear
 
 # Create and configure the shared folder
 sudo mkdir -p "$shared_folder"
@@ -226,17 +236,16 @@ sudo chmod 0757 "/home/$username"
 # Recheck to allow insecure packages
 export NIXPKGS_ALLOW_INSECURE=1
 
+clear
+
 # Rebuild system
-echo "There will be a very LONG delay here, checking for updates..."
-sudo nix-channel --update
-nix-env -u '*'              # Could posibly delete this line
-sudo nixos-rebuild switch
-sudo nix-store --optimise
+
+nixos-update
 
 # -------------------
 # Install wps fonts
 # -------------------
-
+clear && echo -e "${GREEN}[✔]${NC} Installing custom fonts for ${BLUE} WPS${NC}\n"
 sudo mkdir -p ~/.local/share/fonts
 wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip
 unzip -o WPS-FONTS.zip -d ~/.local/share/fonts
@@ -248,30 +257,22 @@ rm WPS-FONTS.zip.*
 # ---‐‐---------------------------
 # make locations executable
 # --------------------------------
-
-cd $HOME && make-executable
+clear && echo -e "${GREEN}[✔]${NC} Almost finished\n"
+cd $HOME
+mse
 my-nix && mylist && neofetch
-cd /etc/nixos
-make-executable
-
-notify-send --icon=ktimetracker --app-name="DONE" "Basic setup for: $SUDO_USER" "Completed:
-
-Tolga Erok.
-(ツ)_/¯
-Time taken: $time_taken
-" -u normal
+sudo chmod -R 777 /etc/nixos
 
 # Test alittle
 wps
 et
 shotwell
-vscode
-sublime4
-vlc
 
-clear && read -p "Finished... press enter to end"
-clear && read -p "Press enter then control + c to exit next screen "
+clear && echo -e "${GREEN}[✔]${NC} Setup finished\n"
+clear && read -p "Press enter then control + c on next screen to exit cmatrix..."
+
 cmatrix
-clear 
+
+clear
 
 exit 1

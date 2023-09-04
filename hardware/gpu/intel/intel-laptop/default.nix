@@ -3,9 +3,9 @@
   imports = [
 
     # Configuration for  intel gpu acceleration & tlp
+    # ./tlp
     ./cpu-frequency
-    ./intel-acceleration/test.nix
-    ./tlp
+    ./intel-acceleration.nix
     
   ];
 }

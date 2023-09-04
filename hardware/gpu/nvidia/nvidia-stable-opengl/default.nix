@@ -22,12 +22,7 @@
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      # Optionally, you may need to select the appropriate driver version for your specific GPU.
-
-      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta
-      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable
-      # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta
-
+      
       # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390

@@ -9,7 +9,7 @@ let
 
         # Source and destination information
         DEST_DIR="/mnt/smb-rsync/"
-        SERVER_IP="192.168.0.11"
+        SERVER_IP="192.168.0.20"
         SOURCE_DIR="/etc/nixos/"
         start_time=$(date +%s)
 

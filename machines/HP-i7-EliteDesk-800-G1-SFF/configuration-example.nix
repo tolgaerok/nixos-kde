@@ -18,10 +18,10 @@
 
   imports = [ # ##  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
 
-    # ./hardware/gpu/intel/intel-laptop/                        # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
-    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix     # NVIDIA stable for GT-710--
-    ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix       # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./hardware-configuration.nix    
+    # ./hardware/gpu/intel/intel-laptop/                                       # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
+    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix                    # NVIDIA stable for GT-710--
+    ./hardware/gpu/nvidia/nvidia-stable-opengl                                 # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ./hardware-configuration.nix
     ./nix
     ./packages
     ./programs
@@ -115,7 +115,8 @@
     packages = [ pkgs.home-manager ];
 
     # mkpasswd -m sha-512
-    hashedPassword = "$6$yn6swk2CdH.7MJu/$GtdPxLNz0kyNmDXZ7FsCNVKvgd16Lk3xxp5AGxzq/ojyM6uderrA5SSTYz4Y8cvu97BHi7mCg6pB8zfhlUjHd.";
+    hashedPassword =
+      "$6$yn6swk2CdH.7MJu/$GtdPxLNz0kyNmDXZ7FsCNVKvgd16Lk3xxp5AGxzq/ojyM6uderrA5SSTYz4Y8cvu97BHi7mCg6pB8zfhlUjHd.";
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvVHo9LMvIwrgm1Go89hsQy4tMpE5dsftxdJuqdrf99 kingtolga@gmail.com"
@@ -143,5 +144,11 @@
   system.copySystemConfiguration = true;
   system.stateVersion = "23.05";
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+
+  #---------------------------------------------------------------------
+  # Switch to most recent kernel available
+  #---------------------------------------------------------------------
+
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
 }
