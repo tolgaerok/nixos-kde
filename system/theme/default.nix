@@ -41,7 +41,6 @@
   };
 
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences".button-layout =
-      "''"; # Hides top-bar buttons
+    "org/gnome/desktop/wm/preferences".button-layout = "''"; # Hides top-bar buttons
   };
 }

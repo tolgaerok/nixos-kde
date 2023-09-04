@@ -16,7 +16,7 @@
     ./fonts
     ./kernel-sysctl     # kernel tweaks
     ./network
-
+    # ./theme    # GNOME THEME?
   ];
 
 }
