@@ -81,6 +81,11 @@ cd /etc/nixos/SETUP
 sudo chmod -R o+rw /etc/nixos/
 
 # Run the script PART-B-WITH-SUDO.sh with superuser privileges
+
+# yellow='\033[1;33m'  # Define yellow color
+# reset='\033[0m'      # Reset text color
+# sudo echo -e "${yellow}[!]${reset}[Running Part (B) ...]" && sudo konsole -T "Post setup for $user_name " -geometry 1099x530 -e "/etc/nixos/SETUP/My-SSH.sh"
+
 sudo ./PART-B-WITH-SUDO.sh
 
 # Return to the original directory

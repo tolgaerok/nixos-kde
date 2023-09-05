@@ -171,7 +171,7 @@ while true; do
         ;;
         4)
             check_port22
-            ssh_command_retry "192.168.0.3" ""
+            ssh_command_retry "192.168.0.5" ""
         ;;
         5)
             check_port22
