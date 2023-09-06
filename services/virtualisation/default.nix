@@ -14,7 +14,7 @@
   programs.dconf.enable = true;
 
   # Add user to libvirtd group
-  users.users.tolga.extraGroups = [ "libvirtd" ];
+  # users.users.tolga.extraGroups = [ "libvirtd" ];
 
   # Install necessary packages
   environment.systemPackages = with pkgs; [
