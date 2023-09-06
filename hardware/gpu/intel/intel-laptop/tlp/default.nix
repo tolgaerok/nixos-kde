@@ -12,6 +12,8 @@
       enable = false;
       settings = {
 
+        # These events will be called automatically when tlp package is installed located in:  hardware/gpu/intel/intel-laptop/laptop-packages/default.nix
+
         CPU_BOOST_ON_AC = 1;
         CPU_BOOST_ON_BAT = 0;
         CPU_SCALING_GOVERNOR_ON_AC = "schedutil";
