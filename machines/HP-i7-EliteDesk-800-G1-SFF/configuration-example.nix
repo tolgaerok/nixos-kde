@@ -31,7 +31,7 @@
   ];
 
   # Including this
-#  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+  #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
 
   #---------------------------------------------------------------------
   # Bootloader and System Settings
