@@ -8,23 +8,25 @@
   nixpkgs = {
     config = {
       # Allow Unfree Packages
-      allowUnfree = true;
       allowBroken = true;
+      allowUnfree = true;
 
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       #allowUnfreePredicate = _: true;
 
       allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) [
-          "steam-run"
+          "nvidia-settings"
+          "nvidia-x11"
+          "spotify"
           "steam"
           "steam-original"
+          "steam-run"
           "vscode"
-          "spotify"
-          "nvidia-x11"
-          "nvidia-settings"
+
           # they got fossed recently so idk
           "Anytype"
+
         ];
 
       # Accept the joypixels license
@@ -64,17 +66,17 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      stdenv.cc.cc
-      openssl
       curl
       glib
-      util-linux
       glibc
       icu
+      libsecret
       libunwind
       libuuid
+      openssl
+      stdenv.cc.cc
+      util-linux
       zlib
-      libsecret
 
       # graphical
       freetype

@@ -19,6 +19,8 @@
     ./udisks2
     ./xdg-portal
     ./xserver
-    
+    # ./virtualisation           # BETA NEEDS TESTING
+
+
   ];
 }
