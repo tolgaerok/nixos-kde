@@ -22,7 +22,7 @@
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       package = config.boot.kernelPackages.nvidiaPackages.stable;
-      
+
       # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390
@@ -39,9 +39,10 @@
       extraPackages = with pkgs; [
 
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        libvdpau-va-gl
+        nvidia-vaapi-driver
         vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
-        libvdpau-va-gl
         vulkan-validation-layers
 
       ];
@@ -50,5 +51,20 @@
 
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  environment.variables = {
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
+  environment.systemPackages = with pkgs; [
+  
+    clinfo
+    virtualglLib
+    vulkan-loader
+    vulkan-tools
+    
+  ];
 
 }

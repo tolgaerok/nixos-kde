@@ -47,4 +47,19 @@
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  environment.variables = {
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
+  environment.systemPackages = with pkgs; [
+
+    clinfo
+    virtualglLib
+    vulkan-loader
+    vulkan-tools
+
+  ];
+
 }

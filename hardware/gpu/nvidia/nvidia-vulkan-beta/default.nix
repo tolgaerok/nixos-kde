@@ -21,8 +21,9 @@
       powerManagement.enable = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
-      
+      hardware.nvidia.package =
+        config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
+
       # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390
@@ -48,8 +49,22 @@
     };
   };
 
-  # Tell Xorg to use the nvidia driver (also valid for Wayland)
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  environment.variables = {
+    GBM_BACKEND = "nvidia-drm";
+    LIBVA_DRIVER_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+  };
+
+  environment.systemPackages = with pkgs; [
+
+    clinfo
+    virtualglLib
+    vulkan-loader
+    vulkan-tools
+
+  ];
 
 }
 
