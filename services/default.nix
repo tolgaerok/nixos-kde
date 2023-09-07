@@ -8,6 +8,7 @@
     # ./thermald                # Uncomment for laptops
     # ./tlp                     # Uncomment for laptops
     # ./virtualisation           # BETA NEEDS TESTING
+    #./plasma
     ./avahi
     ./bluetooth-manager
     ./dbus
@@ -23,7 +24,6 @@
     ./udisks2
     ./xdg-portal
     ./xserver
-
 
   ];
 }

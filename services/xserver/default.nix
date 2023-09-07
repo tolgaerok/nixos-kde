@@ -21,11 +21,21 @@
 
     desktopManager = { plasma5.enable = true; };
 
-    displayManager.sddm = {
-      enable = true;
-      autoNumlock = true;
+    displayManager = {
+      sddm = {
+        enable = true;
+        autoNumlock = true;
 
+        settings = {
+          Theme = {
+            CursorTheme = "breeze_cursors";
+            iconTheme = "yaru-remix-theme";
+          };
+        };
+        
+        theme = "breeze";
+
+      };
     };
-
   };
 }

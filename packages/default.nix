@@ -43,10 +43,12 @@
     #---------------------------------------------------------------------
 
     ./internet                # clipgrab, wget, discord, whatsapp-for-linux, telegram, element, FF, Chrome
+    ./libreoffice-various     # libreoffice-fresh qownnotes, zotero
     ./networking              # samba4Full, clif-utilities, teamviewer, openssh, sshpass, iwd
+    ./plasma
+    ./theme-packages
     ./screensaver
     ./wps
-    ./libreoffice-various     # libreoffice-fresh qownnotes, zotero
 
     #---------------------------------------------------------------------
     # System tools

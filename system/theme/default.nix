@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ config, desktop, pkgs, lib, ... }:
+
+{
   gtk = {
     enable = true;
 
@@ -31,7 +33,6 @@
       package = pkgs.adwaita-qt;
     };
   };
-
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaDark;
     name = "Catppuccin-Mocha-Dark-Cursors";
@@ -40,7 +41,8 @@
     x11.enable = true;
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/wm/preferences".button-layout = "''"; # Hides top-bar buttons
-  };
+  # dconf.settings = {
+  #  "org/gnome/desktop/wm/preferences".button-layout =
+  #    "''"; # Hides top-bar buttons
+  #};
 }
