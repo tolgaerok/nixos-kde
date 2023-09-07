@@ -59,6 +59,8 @@
         8010
         80
         8888
+        #wsdd
+        5357
       ];
 
       allowedUDPPorts = [ # DNS
@@ -73,9 +75,11 @@
         21027
         # For device discovery
         5353
+        # wsdd
+        3702
 
       ];
-
+ 
       #--------------------------------------------------------------------- 
       # Adding a rule to the iptables firewall to allow NetBIOS name 
       # resolution traffic on UDP port 137

@@ -7,39 +7,6 @@
   #---------------------------------------------------------------------
 
   services.samba-wsdd.enable = true;
-  networking.firewall.allowedTCPPorts = [ 5357 ]; # wsdd
-  networking.firewall.allowedUDPPorts = [ 3702 ]; # wsdd
-
-  #---------------------------------------------------------------------
-  # mDNS - This part may be optional for your needs, but I find it makes 
-  # browsing in Dolphin easier, and it makes connecting from a local Mac possible.
-  #---------------------------------------------------------------------
-
-  services.avahi = {
-    enable = true;
-    nssmdns = true;
-    publish = {
-      addresses = true;
-      domain = true;
-      hinfo = true;
-      userServices = true;
-      workstation = true;
-      enable = true;
-    };
-    extraServiceFiles = {
-      smb = ''
-        <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
-        <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
-        <service-group>
-          <name replace-wildcards="yes">%h</name>
-          <service>
-            <type>_smb._tcp</type>
-            <port>445</port>
-          </service>
-        </service-group>
-      '';
-    };
-  };
 
   #---------------------------------------------------------------------
   # Samba Configuration - NixOS wiki

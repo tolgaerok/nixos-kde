@@ -28,9 +28,11 @@ in {
       # use binary cache, its not gentoo
       builders-use-substitutes = true;
       max-jobs = "auto";
+
       # continue building derivations if one fails
       keep-going = true;
       log-lines = 20;
+      
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
