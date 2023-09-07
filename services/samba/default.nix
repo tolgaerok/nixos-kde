@@ -28,7 +28,7 @@
       hosts deny = 0.0.0.0/0
 
       # Set the minimum SMB protocol version on the client end
-      # Allow accessing old SMB protocols (SMB1 - COREPLUS)
+      # Allow accessing old SMB protocols (SMB1++ = COREPLUS)
       client min protocol = COREPLUS
 
       # Store additional metadata or attributes associated with files or directories on the file system.
