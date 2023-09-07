@@ -8,6 +8,8 @@
 
   imports = [
 
+    # ./blocker
+    # ./theme    # GNOME THEME?
     #./boot-kernel
     ./bluetooth
     ./documentation
@@ -16,7 +18,7 @@
     ./fonts
     ./kernel-sysctl     # kernel tweaks
     ./network
-    # ./theme    # GNOME THEME?
+    
   ];
 
 }

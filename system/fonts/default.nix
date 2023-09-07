@@ -58,14 +58,12 @@
 
     fontconfig = {
       antialias = true;
+
       defaultFonts = {
         emoji = [ "Joypixels" "Noto Color Emoji" ];
-
         monospace = [ "FiraCode Nerd Font Mono" "SauceCodePro Nerd Font Mono" ];
-
-        sansSerif = [ "Work Sans" "Fira Sans" "FiraGO" "Lexend" "Noto Color Emoji" ];
-
-        serif = [ "Source Serif" "Noto Serif" "Noto Color Emoji" ];
+        sansSerif = [ "Work Sans" "Fira Sans" "FiraGO" ];
+        serif = [ "Source Serif" ];
       };
 
       enable = true;

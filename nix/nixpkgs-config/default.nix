@@ -36,6 +36,7 @@
       permittedInsecurePackages =
         [ "qtwebkit-5.212.0-alpha4" "openssl-1.1.1v" ];
     };
+
   };
 
   programs = {
@@ -61,6 +62,12 @@
       enable = true;
       package = pkgs.jre;
     };
+
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+
   };
 
   programs.nix-ld = {

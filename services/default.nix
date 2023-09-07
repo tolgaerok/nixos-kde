@@ -15,6 +15,7 @@
     ./flat-pak
     ./fstrim
     ./mysql
+    ./openssh
     ./printer
     ./samba
     ./scanner
