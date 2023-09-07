@@ -33,7 +33,7 @@
 
       # Store additional metadata or attributes associated with files or directories on the file system.
       ea support = yes
-      
+
       # Serving files to Mac clients while maintaining compatibility with macOS-specific features and behaviors
       fruit:metadata = stream
       fruit:model = Macmini
