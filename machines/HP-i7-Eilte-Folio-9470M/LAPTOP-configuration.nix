@@ -9,7 +9,7 @@
 
     # ./hardware/gpu/nvidia/nvidia-opengl/nvidia-opengl.nix    # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix    # NVIDIA stable for GT-710--
-    ./hardware/gpu/intel/intel-laptop                          # INTEL GPU with (Open-GL), tlp and auto-cpufreq
+    ./hardware/gpu/intel/intel-laptop # INTEL GPU with (Open-GL), tlp and auto-cpufreq
     ./hardware-configuration.nix
     ./nix
     ./packages
@@ -19,7 +19,8 @@
   ];
 
   # Including this
-  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
+  nixpkgs.config.permittedInsecurePackages =
+    [ "openssl-1.1.1u" "openssl-1.1.1v" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

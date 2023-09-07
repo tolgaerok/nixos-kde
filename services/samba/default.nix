@@ -31,6 +31,18 @@
       # Allow accessing old SMB protocols (SMB1 - COREPLUS)
       client min protocol = COREPLUS
 
+      # Store additional metadata or attributes associated with files or directories on the file system.
+      ea support = yes
+      
+      # Serving files to Mac clients while maintaining compatibility with macOS-specific features and behaviors
+      fruit:metadata = stream
+      fruit:model = Macmini
+      fruit:veto_appledouble = no
+      fruit:posix_rename = yes
+      fruit:zero_file_id = yes
+      fruit:wipe_intentionally_left_blank_rfork = yes
+      fruit:delete_empty_adfiles = yes
+
       guest account = nobody
       map to guest = bad user
             
