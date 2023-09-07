@@ -24,6 +24,6 @@
     ./udisks2
     ./xdg-portal
     ./xserver
-
+   # ./virtualisation 
   ];
 }
