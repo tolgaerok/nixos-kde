@@ -18,10 +18,11 @@
 
   imports = [ # ##  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
 
-    # ./hardware/gpu/intel/intel-laptop/                                       # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
-    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix                    # NVIDIA stable for GT-710--
-    ./hardware/gpu/nvidia/nvidia-stable-opengl                                 # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    # ./core
+    # ./hardware/gpu/intel/intel-laptop/                                        # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
+    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix                     # NVIDIA stable for GT-710--
     ./hardware-configuration.nix
+    ./hardware/gpu/nvidia/nvidia-stable-opengl                                  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./nix
     ./packages
     ./programs
@@ -31,7 +32,8 @@
   ];
 
   # Including this
-  #nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
+  nixpkgs.config.permittedInsecurePackages =
+    [ "openssl-1.1.1u" "openssl-1.1.1v" ];
 
   #---------------------------------------------------------------------
   # Bootloader and System Settings
