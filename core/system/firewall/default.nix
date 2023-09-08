@@ -61,9 +61,20 @@
         8888
         #wsdd
         5357
+        # Open KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        }
       ];
 
-      allowedUDPPorts = [ # DNS
+      allowedUDPPorts = [
+        # Open KDE Connect
+        {
+          from = 1714;
+          to = 1764;
+        }
+        # DNS
         53
         # NetBIOS Name Service
         137
@@ -79,7 +90,7 @@
         3702
 
       ];
- 
+
       #--------------------------------------------------------------------- 
       # Adding a rule to the iptables firewall to allow NetBIOS name 
       # resolution traffic on UDP port 137

@@ -13,7 +13,7 @@
         DisableFirefoxAccounts = true;
         DisableFirefoxStudies = true;
         DisablePocket = true;
-        DisableTelemetry = true;        
+        DisableTelemetry = true;
         DontCheckDefaultBrowser = true;
         NoDefaultBookmarks = true;
         PasswordManagerEnabled = true;
@@ -63,13 +63,20 @@
         }];
 
         settings = {
+          
           "browser.download.panel.shown" = true;
           "dom.security.https_only_mode" = true;
           "general.smoothScroll" = true;
+          "gfx.webrender.all" = true;
+          "gfx.webrender.enabled" = true;
           "identity.fxaccounts.enabled" = false;
+          "layers.acceleration.force-enabled" = true;
+          "layout.css.backdrop-filter.enabled" = true;
           "media.videocontrols.picture-in-picture.video-toggle.enabled" = false;
           "signon.rememberSignons" = false;
+          "svg.context-properties.content.enabled" = true;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
         };
 
         # userChrome = ''
