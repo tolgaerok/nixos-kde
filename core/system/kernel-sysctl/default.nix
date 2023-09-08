@@ -18,8 +18,8 @@
     "vm.dirty_background_bytes" = 16777216; # 16 MB data that has been modified in memory and needs to be written to disk
     "vm.dirty_bytes" = 50331648;            # 48 MB data that has been modified in memory and needs to be written to disk
     "vm.min_free_kbytes" = 65536;           # Minimum free memory for safety (in KB), can help prevent memory exhaustion situations
-    "vm.swappiness" = 30;                   # how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM,
-    "vm.vfs_cache_pressure" = 75;           # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
+    "vm.swappiness" = 15;                   # how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM,
+    "vm.vfs_cache_pressure" = 70;           # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
     
   };
 

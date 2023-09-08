@@ -4,16 +4,16 @@
 
   environment = {
     systemPackages = with pkgs; [
+      #layan-gtk-theme
+      #layan-kde
+      #nordzy-cursor-theme
+      #nordzy-icon-theme
+      #qogir-theme
+      #tela-icon-theme
+      #theme-jade1
       catppuccin-kvantum
-      layan-gtk-theme
-      layan-kde
-      nordzy-cursor-theme
-      nordzy-icon-theme
       papirus-folders
       papirus-icon-theme
-      qogir-theme
-      tela-icon-theme
-      theme-jade1
       yaru-remix-theme
       yaru-theme
     ];

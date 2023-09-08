@@ -6,7 +6,7 @@
 
   programs = {
     dconf = { enable = true; };
-    kdeconnect = { enable = true; };
+    # kdeconnect = { enable = true; };
     mtr = { enable = true; };
   };
 }

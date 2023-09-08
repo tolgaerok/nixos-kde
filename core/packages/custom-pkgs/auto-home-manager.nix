@@ -4,6 +4,9 @@ let
 
   auto-home-manager = pkgs.writeScriptBin "auto-home-manager" ''
     #!/bin/sh
+    # Personal home-manager auto installer
+    # Tolga Erok. ¯\_(ツ)_/¯
+    # 8/8/2023
 
     ################################################################################
     ##                                                                            ##
