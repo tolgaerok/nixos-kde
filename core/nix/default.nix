@@ -10,6 +10,7 @@ in {
 
     ./dconf
     ./nixpkgs-config
+    ./user-profile
 
   ];
 

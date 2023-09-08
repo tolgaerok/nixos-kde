@@ -7,6 +7,7 @@
     #---------------------------------------------------------------------
 
     # ./trimmgenerations.nix
+    ./auto-home-manager.nix
     ./copy-back-up.nix
     ./create-smb-user.nix
     ./git_upload.nix
@@ -15,11 +16,10 @@
     ./my-nix-commands.nix
     ./my-pkgs.nix
     ./rsync-back-up.nix
-    ./rsync-home-to-server.nix    
+    ./rsync-home-to-server.nix
     ./unmounter.nix
     ./update.nix
-    
-    
+
   ];
 
 }

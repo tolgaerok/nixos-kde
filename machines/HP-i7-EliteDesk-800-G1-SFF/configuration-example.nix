@@ -18,16 +18,16 @@
 
   imports = [ # ##  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
 
-    # ./core
-    # ./hardware/gpu/intel/intel-laptop/                                        # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
-    # ./hardware/gpu/nvidia/nvidia-stable/nvidia-stable.nix                     # NVIDIA stable for GT-710--
+    # ./core/gpu/intel/intel-laptop/                                        # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
+    # ./core/gpu/nvidia/nvidia-stable/nvidia-stable.nix                     # NVIDIA stable for GT-710--
+    #./nix
+    #./packages
+    #./programs
+    #./services
+    #./system
+    ./core
+    ./core/gpu/nvidia/nvidia-stable-opengl                                  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./hardware-configuration.nix
-    ./hardware/gpu/nvidia/nvidia-stable-opengl                                  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./nix
-    ./packages
-    ./programs
-    ./services
-    ./system
 
   ];
 
