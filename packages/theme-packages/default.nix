@@ -1,4 +1,8 @@
 { pkgs, ... }: {
 
-  environment.systemPackages = [ pkgs.yaru-remix-theme ];
+  # Theme systemPackages
+
+  environment = {
+    systemPackages = with pkgs; [ yaru-remix-theme catppuccin-kvantum ];
+  };
 }

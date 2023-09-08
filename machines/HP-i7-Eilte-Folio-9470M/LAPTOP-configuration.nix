@@ -23,8 +23,9 @@
     [ "openssl-1.1.1u" "openssl-1.1.1v" ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.consoleMode = "auto";
+  boot.loader.systemd-boot.enable = true;
 
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;

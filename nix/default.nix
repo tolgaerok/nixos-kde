@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, inputs', ... }:
+{ config, pkgs, lib, inputs, stdenv, ... }:
 
 let
 
@@ -32,7 +32,7 @@ in {
       # continue building derivations if one fails
       keep-going = true;
       log-lines = 20;
-      
+
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
@@ -57,9 +57,19 @@ in {
     };
 
     gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
+
+      # Cleanup un-refrenced packages in the Nix store older than 30 days
+      automatic = lib.mkDefault true;
+      dates = lib.mkDefault "weekly";
+      options = lib.mkDefault "--delete-older-than 30d";
+
     };
+
   };
+  # trim deleted blocks from ssd
+  services.fstrim.enable = lib.mkDefault true;
+
+  services.sshd.enable = lib.mkDefault true;
+  # services.fwupd.enable = lib.mkDefault true;
+
 }
