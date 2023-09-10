@@ -2,7 +2,7 @@
   programs.vscode = {
     enable = true;
     extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
+      # bbenoist.nix
       catppuccin.catppuccin-vsc
       mkhl.direnv
       vscode-icons-team.vscode-icons
