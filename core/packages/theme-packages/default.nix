@@ -11,6 +11,7 @@
       #qogir-theme
       #tela-icon-theme
       #theme-jade1
+      # arc-kde-theme
       catppuccin-kvantum
       papirus-folders
       papirus-icon-theme
