@@ -11,12 +11,11 @@
   };
 
   # Update microcode when available
-  hardware.cpu.intel.updateMicrocode =
-    config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
 
   # Enable Intel GPU in NixOS
   services.xserver = {
-    videoDrivers = [ "modesetting" ]; # Enable Intel graphics driver
+    videoDrivers = [ "intel" ]; # Use the dedicated Intel driver
   };
 
   # Additional kernel parameters
@@ -32,8 +31,8 @@
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel # LIBVA_DRIVER_NAME=i965 (better for Firefox/Chromium)
+      intel-media-driver
+      vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
     ];
@@ -42,44 +41,25 @@
   # Power management
   powerManagement.enable = true;
 
-  boot.initrd.availableKernelModules = [ "thinkpad_acpi" ];
-  services.power-profiles-daemon.enable = false;
-
   # CPU performance scaling
   services.thermald.enable = true;
 
-  # Configure auto-cpufreq
-  services.auto-cpufreq.enable = true;
-  services.auto-cpufreq.settings = {
-    battery = {
-      governor = "powersave";
-      turbo = "never";
-    };
-    charger = {
-      governor = "performance";
-      turbo = "auto";
-    };
+  # Disable auto-cpufreq to prevent conflicts
+  services.auto-cpufreq.enable = false;
 
-  };
-
-  # Enable TLP for better power management
-  services.tlp.enable = false;
+  # Enable TLP for better power management with Schedutil governor
+  services.tlp.enable = true;
 
   services.tlp.settings = {
-
-    # CPU_BOOST_ON_BAT = "0";
-    # CPU_BOOST_ON_AC = "0";
-    # CPU_SCALING_GOVERNOR_ON_AC = schedutil;
-    # CPU_SCALING_GOVERNOR_ON_BAT = schedutil;
-    CPU_BOOST_ON_AC = 1;
+    CPU_BOOST_ON_AC = 0;
     CPU_BOOST_ON_BAT = 0;
     CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
-    CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+    CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
     CPU_MAX_PERF_ON_AC = 85;
     CPU_MAX_PERF_ON_BAT = 75;
     CPU_MIN_PERF_ON_BAT = 0;
-    CPU_SCALING_GOVERNOR_ON_AC = "powersave";
-    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+    CPU_SCALING_GOVERNOR_ON_AC = "schedutil"; # Adjust as needed
+    CPU_SCALING_GOVERNOR_ON_BAT = "schedutil"; # Adjust as needed
     NATACPI_ENABLE = 1;
     RUNTIME_PM_ON_AC = "on";
     RUNTIME_PM_ON_BAT = "auto";
@@ -91,8 +71,9 @@
     TPACPI_ENABLE = 1;
     TPSMAPI_ENABLE = 1;
     WOL_DISABLE = "Y";
-
   };
+}
+
 
   # services.blueman.enable = lib.mkForce false;
 
