@@ -11,7 +11,8 @@
   };
 
   # Update microcode when available
-  hardware.cpu.intel.updateMicrocode = config.hardware.enableRedistributableFirmware;
+  hardware.cpu.intel.updateMicrocode =
+    config.hardware.enableRedistributableFirmware;
 
   # Enable Intel GPU in NixOS
   services.xserver = {
@@ -20,11 +21,11 @@
 
   # Additional kernel parameters
   boot.kernelParams = [
-    "i915.fastboot=1"
-    "i915.modeset=1"
+    "i915.enable_dc=1"
     "i915.enable_fbc=1"
     "i915.enable_psr=1"
-    "i915.enable_dc=1"
+    "i915.modeset=1"
+    # "i915.fastboot=1"    
   ];
 
   # Hardware video acceleration and compatibility for Intel GPUs
@@ -51,13 +52,13 @@
   services.tlp.enable = true;
 
   services.tlp.settings = {
-    CPU_BOOST_ON_AC = 0;
+    CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;
     CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
     CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
-    CPU_MAX_PERF_ON_AC = 85;
+    CPU_MAX_PERF_ON_AC = 99;
     CPU_MAX_PERF_ON_BAT = 75;
-    CPU_MIN_PERF_ON_BAT = 0;
+    CPU_MIN_PERF_ON_BAT = 75;
     CPU_SCALING_GOVERNOR_ON_AC = "schedutil"; # Adjust as needed
     CPU_SCALING_GOVERNOR_ON_BAT = "schedutil"; # Adjust as needed
     NATACPI_ENABLE = 1;
@@ -66,14 +67,12 @@
     SCHED_POWERSAVE_ON_BAT = 1;
     SOUND_POWER_SAVE_ON_AC = 0;
     SOUND_POWER_SAVE_ON_BAT = 1;
-    START_CHARGE_THRESH_BAT0 = 100;
-    STOP_CHARGE_THRESH_BAT0 = 100;
+    START_CHARGE_THRESH_BAT0 = 40;
+    STOP_CHARGE_THRESH_BAT0 = 80;
     TPACPI_ENABLE = 1;
     TPSMAPI_ENABLE = 1;
     WOL_DISABLE = "Y";
   };
-}
-
 
   # services.blueman.enable = lib.mkForce false;
 

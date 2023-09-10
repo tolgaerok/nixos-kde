@@ -16,23 +16,16 @@
   # Import snippet files
   #---------------------------------------------------------------------
 
-  imports = [ # ##  ONLY UNCOMMENT THE ./hardware GPU YOU WANT  ###
+  imports = [
 
-    # ./core/gpu/intel/intel-laptop/                                        # INTEL GPU with (Open-GL), tlp and auto-cpufreq     
-    # ./core/gpu/nvidia/nvidia-stable/nvidia-stable.nix                     # NVIDIA stable for GT-710--
-    #./nix
-    #./packages
-    #./programs
-    #./services
-    #./system
+    ./EliteDesk-800-G1-hardware-configuration.nix
     ./core
-    ./core/gpu/nvidia/nvidia-stable-opengl                                  # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./hardware-configuration.nix
+    ./core/gpu/nvidia/nvidia-stable-opengl # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
 
   ];
 
   # Including this
-  # nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" "openssl-1.1.1v" ];
+  nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1v" ];
 
   #---------------------------------------------------------------------
   # Bootloader and System Settings
