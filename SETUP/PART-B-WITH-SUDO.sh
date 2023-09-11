@@ -211,6 +211,8 @@ sudo mkdir -p "$shared_folder"
 sudo chgrp "$sambagroup" "$shared_folder"
 sudo chmod 0757 "$shared_folder"
 sudo chown "$username:users" "$shared_folder" -R
+sudo chown -R $(whoami):$(id -gn) "$shared_folder"
+sudo chmod -R 777 "$shared_folder"
 
 # Configure Samba Filesharing Plugin for a user
 echo -e "\nCreate and configure the Samba Filesharing Plugin..."
