@@ -6,10 +6,10 @@
     systemPackages = with pkgs; [
 
       # Fonts and Shell
-      rPackages.fontawesome
-      zsh
-      zsh-autosuggestions
-      zsh-syntax-highlighting
+      #rPackages.fontawesome
+      #zsh
+      #zsh-autosuggestions
+      #zsh-syntax-highlighting
 
     ];
   };

@@ -11,7 +11,7 @@
 # -----------------------------------------------------------------------------------
 
 # control how the script behaves when certain conditions are met
-set -eux
+
 
 # Fix nixos horrible allowance to custom packages
 export NIXPKGS_ALLOW_INSECURE=1

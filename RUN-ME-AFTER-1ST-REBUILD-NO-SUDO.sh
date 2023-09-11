@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+
 #!/run/current-system/sw/bin/bash
 
 # Personal nixos post set-up!
@@ -6,7 +6,7 @@
 # 20/8/23.
 
 # control how the script behaves when certain conditions are met
-set -eux
+#set -eux
 
 start_time=$(date +%s)
 current_dir=$(pwd)
