@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#!/run/current-system/sw/bin/bash
 
 # Tolga Erok
 # 14/7/2023
@@ -206,6 +207,7 @@ clear
 sudo mkdir -p "$shared_folder"
 sudo chgrp "$sambagroup" "$shared_folder"
 sudo chmod 0757 "$shared_folder"
+sudo chown "$username:users" "$shared_folder" -R
 
 # Configure Samba Filesharing Plugin for a user
 echo -e "\nCreate and configure the Samba Filesharing Plugin..."

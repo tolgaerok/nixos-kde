@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#!/run/current-system/sw/bin/bash
 
 # Personal nixos post set-up!
 # Tolga Erok. ¯\_(ツ)_/¯
