@@ -9,24 +9,25 @@
     enable = true;
     xdgOpenUsePortal = true;
 
-    lxqt = {
-      enable = false;
-      styles = with pkgs;
-        with libsForQt5; [
-          qtstyleplugin-kvantum
-          breeze-qt5
-          qtcurve
-        ];
-    };
+    # lxqt = {
+    #   enable = false;
+    #   styles = with pkgs;
+    #     with libsForQt5; [
+    #       qtstyleplugin-kvantum
+    #       breeze-qt5
+    #       qtcurve
+    #     ];
+    # };
 
     # Turn Wayland off
-    wlr = { enable = false; };
+    # wlr = { enable = false; };
 
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-kde
-      xdg-desktop-portal-wlr
-    ];
+    extraPortals = with pkgs;
+      [
+        #  xdg-desktop-portal-gtk
+        #  xdg-desktop-portal-wlr
+        xdg-desktop-portal-kde
+      ];
 
   };
 

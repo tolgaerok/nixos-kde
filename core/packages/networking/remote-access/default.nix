@@ -10,12 +10,12 @@
   environment = {
     systemPackages = with pkgs; [
       # Remote Access & Deployment
+      # nomachine-client
+      # openssh    
       heroku
-      openssh    
       powershell
       sshpass
       teamviewer 
-      # nomachine-client
     ];
   };
 

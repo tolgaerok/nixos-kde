@@ -58,8 +58,8 @@
     # anal sex is good because it works on all species"
     # - sun tzu
     java = {
-      enable = true;
-      package = pkgs.jre;
+      enable = false;
+    #  package = pkgs.jre;
     };
 
     direnv = {
@@ -79,7 +79,7 @@
       libsecret
       libunwind
       libuuid
-      openssl
+      # openssl
       stdenv.cc.cc
       util-linux
       zlib

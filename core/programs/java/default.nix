@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs = {
     java = {
-      enable = true;
+      enable = false;
     };
   };
 }
