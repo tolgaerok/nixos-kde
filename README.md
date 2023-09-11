@@ -69,6 +69,47 @@
   </tr>
 </table>
 
+### 1. Clone
+```bash
+# Tolga Erok
+# 14/7/2023
+# Post Nixos setup!
+# ¯\_(ツ)_/¯
+
+cd $HOME
+nix-env -iA nixos.git
+git clone https://github.com/tolgaerok/nixos.git
+cd nixos
+sudo rsync -av --exclude='.git' ./* /etc/nixos
+sudo chown -R $(whoami):$(id -gn) /etc/nixos
+sudo chmod -R 777 /etc/nixos
+sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+export NIXPKGS_ALLOW_INSECURE=1
+```
+
+### 2. Create symlink for this host or the machine you prefer
+```bash
+sudo ln -s nixos /etc/nixos
+ln -s nixos/machines/HP-i7-EliteDesk-800-G1-SFF/EliteDesk-800-G1-configuration.nix
+sudo nixos-rebuilt swich --upgrade
+```
+
+### nixpkgs
+home-manager
+```bash
+# Clone repo into source dir
+mkdir -p ~/s
+cd ~/s
+git clone git@github.com:NelsonJeppesen/nix-lifestyle.git
+
+mkdir -p ~/.config
+ln -s ~/s/nix-lifestyle/home-manager ~/.config/home-manager
+
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+
+nix-shell '<home-manager>' -A install
+```
 
 #
 
