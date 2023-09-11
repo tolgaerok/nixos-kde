@@ -4,25 +4,30 @@
 
 
 
-<table style="border-collapse: collapse; width: 100%;">
-  <tr>
-    <td align="center" style="border: none;">
-      <img src="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884" alt="Screenshot">
-    </td>
-  </tr>
-</table>
 
+<div align="center">
+  <table style="border-collapse: collapse; width: 100%; border: none;">
+    <tr>
+     <td align="center" style="border: none;">
+        <a href="https://nixos.org/">
+          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 150%;">
+          <br>NixOS
+          <td align="center">
+          <img src="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884" alt="Screenshot">
+        </td>
+        </a>
+      </td>     
+    </tr>
+  </table>
+</div>
 
 
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
     <td style="border: none; width: 30%;" valign="top">
-      <div align="center">        
-          <img src="https://flathub.org/img/distro/nixos.svg" alt="NixOS" style="width: 45%;">
-          <img src="https://github.com/tolgaerok/nixos/assets/110285959/fa785dec-f839-43f2-9e03-58adb73d12c3" alt="HP" style="width: 45%;">
-          <a href="https://nixos.org/">
-          <br>
-          NixOS
+      <div align="center">  
+          <img src="https://github.com/tolgaerok/nixos/assets/110285959/fa785dec-f839-43f2-9e03-58adb73d12c3" alt="HP" style="width: 60%;">
+          <br>          
         </a>
       </div>
     </td>
