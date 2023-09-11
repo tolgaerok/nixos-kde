@@ -38,7 +38,16 @@ ORANGE='\e[1;93m'
 NC='\e[0m'
 
 # Location of private samba folder
-shared_folder="/home/NixOs-KDE"
+shared_folder="/home/NixOs"
+
+# Create and configure the shared folder
+sudo mkdir -p "$shared_folder"
+sudo chgrp "$sambagroup" "$shared_folder"
+sudo chmod 0757 "$shared_folder"
+sudo chown "$username:users" "$shared_folder" -R
+sudo chown -R $(whoami):$(id -gn) "$shared_folder"
+sudo chmod -R 777 "$shared_folder"
+
 
 # Install notify agents
 nix-env -iA nixos.libnotify
@@ -206,13 +215,6 @@ read -r -n 1 -s -t 1
 
 clear
 
-# Create and configure the shared folder
-sudo mkdir -p "$shared_folder"
-sudo chgrp "$sambagroup" "$shared_folder"
-sudo chmod 0757 "$shared_folder"
-sudo chown "$username:users" "$shared_folder" -R
-sudo chown -R $(whoami):$(id -gn) "$shared_folder"
-sudo chmod -R 777 "$shared_folder"
 
 # Configure Samba Filesharing Plugin for a user
 echo -e "\nCreate and configure the Samba Filesharing Plugin..."
