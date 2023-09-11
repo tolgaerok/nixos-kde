@@ -35,4 +35,11 @@ in {
       options = "--delete-older-than 30d";
     };
   };
+
+  # trim deleted blocks from ssd
+  services.fstrim.enable = true;
+
+  services.sshd.enable = true;
+
+  # services.fwupd.enable = true;
 }

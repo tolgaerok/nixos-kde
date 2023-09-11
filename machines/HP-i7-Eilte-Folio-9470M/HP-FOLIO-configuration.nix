@@ -33,7 +33,7 @@
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos";
+  networking.hostName = "Folio_Laptop";
 
   # Enable networking
   networking.networkmanager.enable = true;

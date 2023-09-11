@@ -16,9 +16,9 @@
     ./env
     ./firewall
     ./fonts
-    ./kernel-sysctl     # kernel tweaks
+    ./kernel-sysctl # kernel tweaks
     ./network
-    
+
   ];
 
 }

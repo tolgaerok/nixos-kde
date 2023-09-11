@@ -4,8 +4,6 @@
 
     enableIPv6 = true;
 
-    # What to display on other platform's network browsers
-    # hostName = "nixos";   # Conflicts with default user setting in their configuration.nix
     networkmanager.enable = true;
 
     # Configure firewall to your likings:
@@ -36,8 +34,8 @@
         # LDAP
         389
         # MySQL/MariaDB
-        3307
         3306
+        3307
         # NFS
         111
         2049
@@ -56,8 +54,8 @@
         # Custom port
         22000
         # For gnomecast server
-        8010
         80
+        8010
         8888
         #wsdd
         5357
