@@ -15,7 +15,7 @@
     "sdhci_pci"
     "aesni_intel"
   ];
-  boot.initrd.kernelModules = [ "i915" ];
+  boot.initrd.kernelModules = [  ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
