@@ -1,8 +1,16 @@
 { pkgs, inputs, ... }:
 
 {
-  # Web Browsers:
-  environment = { systemPackages = with pkgs; [ firefox google-chrome ]; };
+  # Web Browsers & Plasma plasma-integration add-ons
+  environment = {
+    systemPackages = with pkgs; [
+      firefox
+      google-chrome
+      kdeplasma-addons
+      plasma-browser-integration
+      plasma-integration
+    ];
+  };
 
   programs = {
     firefox = {
@@ -63,7 +71,7 @@
         }];
 
         settings = {
-          
+
           "browser.download.panel.shown" = true;
           "dom.security.https_only_mode" = true;
           "general.smoothScroll" = true;
