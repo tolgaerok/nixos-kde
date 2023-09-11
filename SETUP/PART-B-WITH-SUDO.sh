@@ -10,6 +10,9 @@
 # Check if Script is Run as Root
 # -----------------------------------------------------------------------------------
 
+# control how the script behaves when certain conditions are met
+set -eux
+
 # Fix nixos horrible allowance to custom packages
 export NIXPKGS_ALLOW_INSECURE=1
 
@@ -276,5 +279,17 @@ clear && read -p "Press enter then control + c on next screen to exit cmatrix...
 cmatrix
 
 clear
+
+# -------------- Not tested use at own risk --------------# 
+# 
+# GREEN='\e[1;32m'
+# nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+# nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+# nixos-rebuild switch --upgrade
+# nix-store --gc
+# clear && echo -e "${GREEN}[✔]${NC} Unstable branch and nixpkgs activated\n"
+# 
+# -------------- Not tested use at own risk --------------# 
+
 
 exit 1

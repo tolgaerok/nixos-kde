@@ -5,6 +5,9 @@
 # Tolga Erok. ¯\_(ツ)_/¯
 # 20/8/23.
 
+# control how the script behaves when certain conditions are met
+set -eux
+
 start_time=$(date +%s)
 current_dir=$(pwd)
 clear
