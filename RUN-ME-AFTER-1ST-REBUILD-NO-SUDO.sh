@@ -34,7 +34,7 @@ wallpapers_dest="/home/$(whoami)/Pictures"
 
 # Check if font_dest exists
 if [ -d "$font_dest" ]; then
-
+    
     # Copy contents of font_folder into font_dest
     cp -r "$font_folder"/* "$font_dest/"
     echo "Contents of $font_folder copied to $font_dest"

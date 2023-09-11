@@ -280,16 +280,16 @@ cmatrix
 
 clear
 
-# -------------- Not tested use at own risk --------------# 
-# 
+# -------------- Not tested use at own risk --------------#
+#
 # GREEN='\e[1;32m'
 # nix-channel --add https://nixos.org/channels/nixos-unstable nixos
 # nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 # nixos-rebuild switch --upgrade
 # nix-store --gc
 # clear && echo -e "${GREEN}[✔]${NC} Unstable branch and nixpkgs activated\n"
-# 
-# -------------- Not tested use at own risk --------------# 
+#
+# -------------- Not tested use at own risk --------------#
 
 
 exit 1
