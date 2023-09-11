@@ -4,11 +4,11 @@
   # Web Browsers & Plasma plasma-integration add-ons
   environment = {
     systemPackages = with pkgs; [
+      # kdeplasma-addons
+      # plasma-integration
       firefox
       google-chrome
-      kdeplasma-addons
       plasma-browser-integration
-      plasma-integration
     ];
   };
 

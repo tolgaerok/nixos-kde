@@ -22,7 +22,10 @@ let
     backup_filename=$(date +"%a,%l:%M%p")
 
     # Zip the contents of /etc/nixos without the folder structure
-    zip -r "$backup_folder/$backup_subfolder/$backup_filename.zip" /etc/nixos/*
+    # zip -r "$backup_folder/$backup_subfolder/$backup_filename.zip" /etc/nixos/*
+    # Zip the contents of /etc/nixos excluding the "NIXOS-ARCHIVES" folder
+    zip -r "$backup_folder/$backup_subfolder/$backup_filename.zip" /etc/nixos/* -x "/etc/nixos/NIXOS-ARCHIVES/*"
+
 
     echo "Backup completed and stored in $backup_folder/$backup_subfolder/$backup_filename.zip"
 

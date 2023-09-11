@@ -10,6 +10,16 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
+  # For Laptop
+  libinput = {
+    enable = true;
+    touchpad.tapping = false;
+    touchpad.naturalScrolling = true;
+    touchpad.scrollMethod = "twofinger";
+    touchpad.disableWhileTyping = true;
+    touchpad.clickMethod = "clickfinger";
+  };
+
   # Update microcode when available
   hardware.cpu.intel.updateMicrocode =
     config.hardware.enableRedistributableFirmware;
@@ -21,11 +31,11 @@
 
   # Additional kernel parameters
   boot.kernelParams = [
-    "i915.enable_dc=1"
-    "i915.enable_fbc=1"
-    "i915.enable_psr=1"
-    "i915.modeset=1"
-    # "i915.fastboot=1"    
+    #  "i915.enable_dc=1"
+    #  "i915.enable_fbc=1"
+    #  "i915.enable_psr=1"
+    #  "i915.modeset=1"
+    #  "i915.fastboot=1"    
   ];
 
   # Hardware video acceleration and compatibility for Intel GPUs

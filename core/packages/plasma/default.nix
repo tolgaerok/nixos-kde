@@ -16,7 +16,7 @@
       # integration
       kaccounts-integration
       kaccounts-providers
-      kio-gdrive
+      # kio-gdrive
     ];
   };
 }
