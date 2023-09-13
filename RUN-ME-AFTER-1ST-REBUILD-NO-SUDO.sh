@@ -1,4 +1,4 @@
-
+#!/usr/bin/env bash
 #!/run/current-system/sw/bin/bash
 
 # Personal nixos post set-up!
@@ -7,6 +7,20 @@
 
 # control how the script behaves when certain conditions are met
 #set -eux
+
+RED='\e[1;31m'
+GREEN='\e[1;32m'
+YELLOW='\e[1;33m'
+BLUE='\e[1;34m'
+CYAN='\e[1;36m'
+WHITE='\e[1;37m'
+ORANGE='\e[1;93m'
+NC='\e[0m'
+
+if [ "$(id -u)" -eq 0 ]; then
+  echo -e "\n${RED}[✘]${NC} ${YELLOW} ERROR! ${NC} $(basename "$0") should be run as a ${GREEN}regular${NC} user\n"
+  exit 1
+fi
 
 start_time=$(date +%s)
 current_dir=$(pwd)
@@ -58,9 +72,9 @@ cp -r "$wallpapers_src" "$wallpapers_dest"
 notify-send --icon=litedesktop --app-name="DONE" "Wallpaper folder moved into $(whoami)" "$wallpapers_dest" -u normal
 
 # Set permissions for the destination folders and their contents
-chmod -R +x "$font_dest"
-chmod -R +x "$script_dest"
-chmod -R +w "$wallpapers_dest"
+chmod -R u+rw "$font_dest"
+chmod -R u+rw "$script_dest"
+chmod -R u+rw "$wallpapers_dest"
 
 # Get user and group of the current user
 user_name=$(whoami)
