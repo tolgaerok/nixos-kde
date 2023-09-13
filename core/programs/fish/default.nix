@@ -74,7 +74,7 @@
 
         # fun stuff
         icons = "sxiv -t /home/tolga/Pictures/icons";
-        wp = "sxiv -t /home/tolga/Pictures/Wallpapers";
+        wp = "sxiv -t /home/tolga/Pictures/wallpapers";
 
         # file access
         cp = "cp -riv";
