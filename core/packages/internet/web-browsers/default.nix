@@ -101,3 +101,20 @@
   nixpkgs.config.firefox.enablePlasmaBrowserIntegration = true;
 
 }
+# NOTE: 
+# FireFox custom CSS files
+# Enable toolkit.legacyUserProfileCustomizations.stylesheets
+#   Go to about:config
+#   Click on „Accept the Risk and Continue”
+#   Doubleclick on toolkit.legacyUserProfileCustomizations.stylesheets if it isn't already enabled to true:
+#   Copy the CSS in your profiles chrome folder
+#   Go to about:profiles
+#   Find your profile -- ( „This is the profile in use and it cannot be deleted.” )
+#     Open the profiles root directory
+#     Create a folder called chrome
+#     Copy the preferred  
+#     userChrome.css 
+#         and  
+#     userContent.css 
+#       in there
+#   Restart Firefox
