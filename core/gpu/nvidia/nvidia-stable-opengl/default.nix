@@ -59,12 +59,15 @@
   };
 
   environment.systemPackages = with pkgs; [
-  
+
     clinfo
+    gwe
+    nvtop-amd
+    nvtop-nvidia
     virtualglLib
     vulkan-loader
     vulkan-tools
-    
+
   ];
 
 }
