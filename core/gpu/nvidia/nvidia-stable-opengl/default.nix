@@ -60,9 +60,9 @@
 
   environment.systemPackages = with pkgs; [
 
+    # nvtop-amd
     clinfo
     gwe
-    # nvtop-amd
     nvtop-nvidia
     virtualglLib
     vulkan-loader
