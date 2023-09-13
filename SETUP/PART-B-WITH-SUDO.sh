@@ -12,17 +12,8 @@
 
 # control how the script behaves when certain conditions are met
 
-
 # Fix nixos horrible allowance to custom packages
 export NIXPKGS_ALLOW_INSECURE=1
-
-# For fun
-start_time=$(date +%s)
-
-if [ "$(id -u)" -ne 0 ]; then
-    echo "This script must be run as root."
-    exit 1
-fi
 
 # -----------------------------------------------------------------------------------
 # Set some variables & functions
@@ -37,17 +28,27 @@ WHITE='\e[1;37m'
 ORANGE='\e[1;93m'
 NC='\e[0m'
 
-# Location of private samba folder
-shared_folder="/home/NixOs"
+# For fun
+start_time=$(date +%s)
 
-# Create and configure the shared folder
-sudo mkdir -p "$shared_folder"
-sudo chgrp "$sambagroup" "$shared_folder"
-sudo chmod 0757 "$shared_folder"
-sudo chown "$username:users" "$shared_folder" -R
-sudo chown -R $(whoami):$(id -gn) "$shared_folder"
-sudo chmod -R 777 "$shared_folder"
+if [ "$(id -u)" -ne 0 ]; then
+    echo -e "${RED}[✘]${NC} This script must be run as root."
+    exit 1
+fi
+# Create user/group
+echo -e "${GREEN}[✔]${NC} Time to create smb user & group
+"
+sleep 2
 
+create-smb-user
+
+clear
+
+# Pause and continue
+echo -e "${GREEN}[ 🎃 ]${NC} SMB user and Samba group added\n"
+read -r -n 1 -s -t 1
+
+clear
 
 # Install notify agents
 nix-env -iA nixos.libnotify
@@ -57,6 +58,10 @@ nix-env -iA nixos.notify-desktop
 nix-env -iA nixos.cifs-utils
 nix-env -iA nixos.samba4Full
 
+# -----------------------------------------------------------------------------------
+# Get user id and group id
+# -----------------------------------------------------------------------------------
+
 # Define user and group IDs here
 user_id=$(id -u "$SUDO_USER")
 group_id=$(id -g "$SUDO_USER")
@@ -65,13 +70,25 @@ group_id=$(id -g "$SUDO_USER")
 user_name=$(id -un "$user_id")
 group_name=$(getent group "$group_id" | cut -d: -f1)
 
+echo -e "${GREEN} ¯\_(ツ)_/¯ ${NC} User info of: ${BLUE} "$user_name" ${NC}\n"
+
+# Display user information
+echo -e "${GREEN}User Information${NC}"
+echo -e "${BLUE}Username:${NC} $user_name"
+echo -e "${BLUE}User ID:${NC} $user_id"
+echo -e "${BLUE}Group Name:${NC} $group_name"
+echo -e "${BLUE}Group ID:${NC} $group_id"
+
+sleep 3
+
 # Function to create directories if they don't exist and set permissions
 create_directory_if_not_exist() {
     if [ ! -d "$1" ]; then
         mkdir -p "$1"
-        echo "Created directory: $1"
+        echo -e "${GREEN}[✔]${NC} Created directory: $1"
         chown "$user_name":"$group_name" "$1"
-        chmod 755 "$1"  # Set read and execute permissions for user, group, and others
+        chmod 755 "$1" # Set read and execute permissions for user, group, and others
+        sleep 2
         make-executable
     fi
 }
@@ -81,20 +98,14 @@ update_directory_permissions() {
     if [ -d "$1" ]; then
         perm=$(stat -c "%a" "$1")
         if [ "$perm" != "755" ]; then
-            echo "Updating permissions of existing directory: $1"
+            echo -e "${GREEN}[✔]${NC} Updating permissions of existing directory: $1"
             chmod 755 "$1"
+            sleep 2
             make-executable
+
         fi
     fi
 }
-
-# -----------------------------------------------------------------------------------
-# Get user id and group id
-# -----------------------------------------------------------------------------------
-
-# Get the user and group IDs of the currently logged-in user
-user_id=$(id -u "$SUDO_USER")
-group_id=$(id -g "$SUDO_USER")
 
 # -----------------------------------------------------------------------------------
 #  Create some directories and set permissions
@@ -103,10 +114,12 @@ group_id=$(id -g "$SUDO_USER")
 if [ -n "$user_name" ] && [ -n "$group_name" ]; then
     home_dir="/home/$user_name"
     config_dir="$home_dir/.config/nix"
-    
+
+    # Define function create_directory_if_not_exist and update_directory_permissions here or source them
+
     create_directory_if_not_exist "$home_dir"
     create_directory_if_not_exist "$config_dir"
-    
+
     # Directories to create and set permissions
     directories=(
         "$home_dir/Documents"
@@ -116,11 +129,13 @@ if [ -n "$user_name" ] && [ -n "$group_name" ]; then
         "$home_dir/Templates"
         "$home_dir/Videos"
     )
-    
+
     for dir in "${directories[@]}"; do
         create_directory_if_not_exist "$dir"
+        echo -e "${GREEN} ¯\_(ツ)_/¯ ${NC} Creating folders: /home/${BLUE}$dir${NC}\n"
+        sleep 1
     done
-    
+
     # Update directory permissions
     update_directory_permissions "$home_dir/Documents"
     update_directory_permissions "$home_dir/Music"
@@ -128,15 +143,15 @@ if [ -n "$user_name" ] && [ -n "$group_name" ]; then
     update_directory_permissions "$home_dir/Public"
     update_directory_permissions "$home_dir/Templates"
     update_directory_permissions "$home_dir/Videos"
-    
+
     # Set ownership for directories
     sudo chown -R "$user_name":"$group_name" "$home_dir"
-    
+
     # Give full permissions to the nix.conf file
     echo "experimental-features  = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
-    chmod 644 "$config_dir/nix.conf"  # Set read permissions for user, group, and others
+    chmod 644 "$config_dir/nix.conf" # Set read permissions for user, group, and others
 else
-    echo "Failed to retrieve non-root user and group information."
+    echo -e "${RED}[✘]${NC} Failed to retrieve non-root user and group information."
     exit 1
 fi
 
@@ -144,8 +159,7 @@ fi
 # Flatpak section
 # -----------------------------------------------------------------------------------
 
-echo "
-Install Flatpak apps...
+echo -e "${GREEN}[✔]${NC} Install Flatpak apps...
 "
 
 # Enable Flatpak
@@ -154,8 +168,7 @@ if ! flatpak remote-list | grep -q "flathub"; then
 fi
 
 # Update Flatpak
-echo "
-Updating cache, this will take a while...
+echo -e "${GREEN}[✔]${NC} Updating cache, this will take a while...
 "
 sudo flatpak update -y
 
@@ -176,7 +189,7 @@ for package in "${packages[@]}"; do
 done
 
 # List all flatpak
-echo "Show Flatpak info:"
+echo -e "${GREEN}[✔]${NC} Show Flatpak info:"
 su - "$USER" -c "flatpak remote-list"
 echo ""
 
@@ -186,7 +199,7 @@ echo -e "
 flatpak list --runtime
 echo ""
 
-echo "
+echo -e "${GREEN}[✔]${NC} 
 List of flatpak's installed on system:
 "
 flatpak list --app
@@ -202,25 +215,18 @@ prompt_input() {
     echo "$value"
 }
 
-# Create user/group
-echo "
-Time to create smb user & group
-"
-
-create-smb-user
-
-# Pause and continue
-echo -e "${GREEN}[✔]${NC} SMB user and Samba group added\n"
-read -r -n 1 -s -t 1
-
 clear
-
 
 # Configure Samba Filesharing Plugin for a user
 echo -e "\nCreate and configure the Samba Filesharing Plugin..."
 
 # Prompt for the desired username to configure Samba Filesharing Plugin
-username=$(prompt_input $'\nEnter the username to configure Samba Filesharing Plugin for: ')
+echo -e "${GREEN}[ 🎃 ]${NC} Enter the username to configure Samba Filesharing Plugin for:"
+echo ""
+echo -e "${YELLOW}┌──($(whoami)@$(hostname))-[$(pwd)]${NC}"
+echo -n -e "${YELLOW}└─\$>>${NC} "
+read username
+echo ""
 
 # Set umask value
 umask 0002
@@ -250,11 +256,15 @@ clear
 # Rebuild system
 
 nixos-update
+clear && echo -e "${GREEN}[✔]${NC} System updated\n"
+sleep 2
 
 # -------------------
 # Install wps fonts
 # -------------------
 clear && echo -e "${GREEN}[✔]${NC} Installing custom fonts for ${BLUE} WPS${NC}\n"
+sleep 1
+echo -e "\n${GREEN}[✔]${NC} Downloading custom fonts for ${BLUE} WPS${NC}\n"
 sudo mkdir -p ~/.local/share/fonts
 wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip
 unzip -o WPS-FONTS.zip -d ~/.local/share/fonts
@@ -274,7 +284,6 @@ sudo chmod -R 777 /etc/nixos
 
 # Test alittle
 wps
-et
 shotwell
 
 clear && echo -e "${GREEN}[✔]${NC} Setup finished\n"
@@ -294,6 +303,5 @@ clear
 # clear && echo -e "${GREEN}[✔]${NC} Unstable branch and nixpkgs activated\n"
 #
 # -------------- Not tested use at own risk --------------#
-
 
 exit 1
