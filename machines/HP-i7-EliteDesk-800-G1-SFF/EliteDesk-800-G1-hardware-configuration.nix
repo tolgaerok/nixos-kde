@@ -7,21 +7,24 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [
-    "ahci"
-    "ehci_pci"
-    "sd_mod"
-    "sr_mod"
-    "uas"
-    "usb_storage"
-    "usbhid"
-    "xhci_pci"
-  ];
-
-  boot.extraModulePackages = [ ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "mitigations=off" ];
+  boot = {
+    extraModulePackages = [ ];
+    initrd.kernelModules = [ "nvidia" ];
+    kernelModules = [ "kvm-intel" "nvidia" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [ "mitigations=off" ];
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
+    initrd.availableKernelModules = [
+      "ahci"
+      "ehci_pci"
+      "sd_mod"
+      "sr_mod"
+      "uas"
+      "usb_storage"
+      "usbhid"
+      "xhci_pci"
+    ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c83419e5-4b12-478a-8771-4e5b6a964ffb";
@@ -43,7 +46,7 @@
         "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
       vers = "3.1.1";
       cacheOpts = "cache=loose";
-      credentialsPath = "/etc/nixos/system/network/smb-secrets";
+      credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
     in [
       "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},vers=${vers},${cacheOpts}"
     ];
