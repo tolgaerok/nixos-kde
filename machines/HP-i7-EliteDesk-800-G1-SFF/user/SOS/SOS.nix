@@ -72,7 +72,7 @@
     # Create new password =>    mkpasswd -m sha-512
     # Password = sos
     hashedPassword =
-      "$6$JqHo60zkbI93byZo$qfa5tmBHnHHgb8O2SIgzhv8L8BIbvIRoBVC.ALWJUgeQjqRqB/0Qf29jhUOT2Mky4UmdBS.i1Fbh38vn0C1w9.";
+      "$6$e3D/IsOy5iY5AeBx$ton91TEBWHri2EgTVarHisoEAhQhN8voekYYjWiTBB/aQK775POZpGcJYP/XnHcX5F1HCvAF1C7TldHnTNEmc1";
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOvVHo9LMvIwrgm1Go89hsQy4tMpE5dsftxdJuqdrf99 kingtolga@gmail.com"

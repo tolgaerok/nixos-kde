@@ -21,7 +21,7 @@
     securityType = "user";
     extraConfig = ''
       workgroup = WORKGROUP
-      server string = NixOs-stoat
+      server string = HP_G800_NixOs_stoat
       # netbios name = smb-NixOs23
       security = user
       hosts allow = 192.168.0. 127.0.0.1 localhost
@@ -72,7 +72,7 @@
       # Public Share
       #---------------------------------------------------------------------
 
-      NixOs23_Public = {
+      HP-G800_Public = {
         path = "/home/tolga/Public";
         comment = "Public Share";
         browseable = true;
@@ -89,7 +89,7 @@
       # Private Share
       #---------------------------------------------------------------------
 
-      NixOs23_Private = {
+      HP-G800_Private = {
         path = "/home/NixOs";
         comment = "Private Share";
         browseable = true;
