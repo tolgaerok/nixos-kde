@@ -83,7 +83,7 @@
 
 cd $HOME
 nix-env -iA nixos.git
-git clone https://github.com/tolgaerok/nixos.git
+git clone https://github.com/tolgaerok/nixos-kde.git
 cd nixos
 sudo rsync -av --exclude='.git' ./* /etc/nixos
 sudo chown -R $(whoami):$(id -gn) /etc/nixos
@@ -105,9 +105,9 @@ home-manager
 # Clone repo into source dir
 mkdir -p ~/s
 cd ~/s
-git clone https://github.com/tolgaerok/nixos.git
+git clone https://github.com/tolgaerok/nixos-kde.git
 mkdir -p ~/.config
-ln -s ~/s/nix-lifestyle/home-manager ~/.config/home-manager
+ln -s ~/s/nixos-kde/home-manager ~/.config/home-manager
 
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
