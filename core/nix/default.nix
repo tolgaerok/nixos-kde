@@ -8,9 +8,9 @@ in {
 
   imports = [
 
+    # ./user-profile
     ./dconf
     ./nixpkgs-config
-    ./user-profile
   ];
 
   # Nix-specific settings and garbage collection options - Mostly research from NixOS wiki
