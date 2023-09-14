@@ -105,8 +105,7 @@ home-manager
 # Clone repo into source dir
 mkdir -p ~/s
 cd ~/s
-git clone git@github.com:NelsonJeppesen/nix-lifestyle.git
-
+git clone https://github.com/tolgaerok/nixos.git
 mkdir -p ~/.config
 ln -s ~/s/nix-lifestyle/home-manager ~/.config/home-manager
 
