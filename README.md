@@ -96,7 +96,7 @@ export NIXPKGS_ALLOW_INSECURE=1
 ```bash
 sudo ln -s nixos /etc/nixos
 ln -s nixos/machines/HP-i7-EliteDesk-800-G1-SFF/EliteDesk-800-G1-configuration.nix
-sudo nixos-rebuilt swich --upgrade
+sudo nixos-rebuild switch --upgrade
 ```
 
 ### nixpkgs
@@ -652,7 +652,7 @@ After adding all the configurations above, save the `configuration.nix` file. To
 
    ```nix
    export NIXPKGS_ALLOW_INSECURE=1
-   sudo nixos-rebuild switch
+   sudo nixos-rebuild switch --upgrade
    ```
 
 This command will update your system with the new GPU driver, audio, system and user profile configurations. If this is your first rebuild from this repository, the required files and services will now start to install.
