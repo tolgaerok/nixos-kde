@@ -88,7 +88,7 @@
   };
 
   #---------------------------------------------------------------------
-  # Back up nixos folder every 1 min (testing)
+  # Back up nixos folder every 59 min 
   #---------------------------------------------------------------------
   services.cron = {
     enable = true;
