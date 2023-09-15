@@ -43,7 +43,7 @@
     firefox
     kate
     espeak-classic
-    
+
     # thunderbird
   ];
 
