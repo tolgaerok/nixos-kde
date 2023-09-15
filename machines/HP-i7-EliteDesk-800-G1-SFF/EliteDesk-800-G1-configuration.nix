@@ -40,11 +40,12 @@
   #---------------------------------------------------------------------
 
   environment.systemPackages = with pkgs; [
+    
+    appimage-run
+    espeak-classic
     firefox
     kate
-    espeak-classic
 
-    # thunderbird
   ];
 
   #---------------------------------------------------------------------
@@ -106,6 +107,7 @@
   #---------------------------------------------------------------------
 
   nixpkgs.config.allowUnfree = true;
+  environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
 
   #---------------------------------------------------------------------
   # Automatic system upgrades, automatically reboot after an upgrade if
