@@ -285,6 +285,7 @@ clear && echo -e "${GREEN}[✔]${NC} Almost finished\n"
 cd $HOME
 mse
 my-nix && mylist && neofetch
+sudo chown -R $(whoami):$(id -gn) /etc/nixos
 sudo chmod -R 777 /etc/nixos
 
 # Test alittle
