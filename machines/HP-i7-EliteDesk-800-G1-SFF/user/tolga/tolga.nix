@@ -92,7 +92,11 @@
   #---------------------------------------------------------------------
   services.cron = {
     enable = true;
-    systemCronJobs = [ "*/1 * * * * copy-backup-nix >> /home/tolga/test.log" ];
+    systemCronJobs = [
+
+      "*/1 * * * * nixos-archive >> /home/tolga/test.log"
+
+    ];
   };
 }
 

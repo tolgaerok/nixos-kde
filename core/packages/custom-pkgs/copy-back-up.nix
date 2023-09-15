@@ -8,9 +8,9 @@ let
     # Tolga Erok
         
     # Destination information
-    DEST_DIR="/mnt/smb-rsync/"
+    DEST_DIR="/mnt/nixos_share/"
     SERVER_IP="192.168.0.11"
-    MOUNT_OPTIONS="credentials=/etc/nixos/system/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
+    MOUNT_OPTIONS="credentials=/etc/nixos/core/system/network/smb-secrets,uid=$USER,gid=samba,vers=3.1.1,cache=loose,file_mode=0777,dir_mode=0777"
     SOURCE_DIR="/etc/nixos/"
 
     start_time=$(date +%s)
