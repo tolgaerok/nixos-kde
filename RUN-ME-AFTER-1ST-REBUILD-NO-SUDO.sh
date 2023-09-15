@@ -22,13 +22,13 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# nix-shell -p # espeak-classic
+# nix-shell -p espeak-classic
 start_time=$(date +%s)
 current_dir=$(pwd)
 clear
 
 #nix-shell -p # espeak-classic
-# espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
+espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
 
 # Install notify agents
 nix-env -iA nixos.libnotify
@@ -93,7 +93,7 @@ chown -R "$user_name":"$user_group" "$font_dest"
 chown -R "$user_name":"$user_group" "$script_dest"
 chown -R "$user_name":"$user_group" "$wallpapers_dest"
 
-## espeak -v # espeak -v en-us+m7 -s 165 "Scripts, fonts! and wallpapers! have been moved! to your home directory! and permissions set."
+espeak -v en-us+m7 -s 165 "Scripts, fonts! and wallpapers! have been moved! to your home directory! and permissions set."
 echo "Scripts, fonts and wallpapers folders have been moved to your home directory and permissions set."
 
 end_time=$(date +%s)
