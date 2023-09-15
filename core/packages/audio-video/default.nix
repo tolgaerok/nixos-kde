@@ -4,6 +4,7 @@
     systemPackages = with pkgs; [
 
       # Multimedia Utilities
+      # pulseaudioFull
       audacity
       ffmpeg
       ffmpegthumbnailer
@@ -16,7 +17,6 @@
       mplayer
       mpv
       ocamlPackages.gstreamer
-      pulseaudioFull
       simplescreenrecorder
       video-trimmer
 

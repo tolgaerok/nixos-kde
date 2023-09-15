@@ -1,4 +1,4 @@
-{ config, pkgs, stdenv, lib, ... }:
+{ username, config, pkgs, stdenv, lib, ... }:
 
 #---------------------------------------------------------------------
 # Tolga Erok
@@ -33,27 +33,44 @@
   #---------------------------------------------------------------------
 
   networking.hostName = "HP-G800"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  #---------------------------------------------------------------------
+  # Prevent fragmentation and reassembly, which can improve network performance
+  #---------------------------------------------------------------------
+
+  networking.networkmanager.connectionConfig = {
+    "ethernet.mtu" = 1462;
+    "wifi.mtu" = 1462;
+  };
 
   #---------------------------------------------------------------------
   # Install a couple of basic, off the bat pkgs
   #---------------------------------------------------------------------
 
   environment.systemPackages = with pkgs; [
-    
+
     appimage-run
     espeak-classic
     firefox
     kate
 
+    #-----------------------------------------------------------------  
+    # Extra Audio packages
+    #-----------------------------------------------------------------
+
+    alsa-utils
+    pavucontrol
+    pulseaudio
+    pulsemixer
+
   ];
 
-  #---------------------------------------------------------------------
-  # Include insecure packages
-  #---------------------------------------------------------------------
+  # --------------------------------------------------------------------
+  # Permit Insecure Packages
+  # --------------------------------------------------------------------
 
   nixpkgs.config.permittedInsecurePackages =
-    [ "openssl-1.1.1u" "openssl-1.1.1v" ];
+    [ "openssl-1.1.1u" "openssl-1.1.1v" "electron-12.2.3" ];
 
   #---------------------------------------------------------------------
   # Enable networking
@@ -81,10 +98,11 @@
   services.printing.enable = true;
 
   # --------------------------------------------------------------------
-  # Audio
+  # Audio and extra audio packages
   #---------------------------------------------------------------------
 
   hardware.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
   sound.enable = true;
 
@@ -106,8 +124,8 @@
   # Allow unfree packages
   #---------------------------------------------------------------------
 
-  nixpkgs.config.allowUnfree = true;
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
+  nixpkgs.config.allowUnfree = true;
 
   #---------------------------------------------------------------------
   # Automatic system upgrades, automatically reboot after an upgrade if
