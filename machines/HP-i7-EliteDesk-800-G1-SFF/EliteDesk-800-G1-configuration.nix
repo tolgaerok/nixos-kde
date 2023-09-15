@@ -1,5 +1,13 @@
 { config, pkgs, stdenv, lib, ... }:
 
+#---------------------------------------------------------------------
+# Tolga Erok
+# 10/6/2023
+# My personal NIXOS KDE configuration 
+# 
+# ¯\_(ツ)_/¯
+#---------------------------------------------------------------------
+
 {
 
   imports = [
@@ -12,48 +20,63 @@
 
   ];
 
-  #nix.nixPath =
-  #  [ "nixpkgs=https://nixos.org/channels/nixos-unstable/nixexprs.tar.xz" ];
-  # Set the Nixpkgs channel to 'nixos-unstable'.
-  # Set the Nixpkgs channel to 'nixos-unstable'.
-  # nixpkgs.config = {
-  #   packageOverrides = pkgs: {
-  #     unstable = import <nixos-unstable> {
-  #      inherit pkgs;
-  #      config = config.nixpkgs.config;
-  #    };
-  #  };
-  #};
-
+  #---------------------------------------------------------------------
   # Bootloader.
+  #---------------------------------------------------------------------
+
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
+  #---------------------------------------------------------------------
+  # Name of your pc to appear on the Network
+  #---------------------------------------------------------------------
+
   networking.hostName = "HP-G800"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  #---------------------------------------------------------------------
+  # Install a couple of basic, off the bat pkgs
+  #---------------------------------------------------------------------
 
   environment.systemPackages = with pkgs; [
     firefox
     kate
+    espeak-classic
+    
     # thunderbird
   ];
 
-  # Including this
+  #---------------------------------------------------------------------
+  # Include insecure packages
+  #---------------------------------------------------------------------
+
   nixpkgs.config.permittedInsecurePackages =
     [ "openssl-1.1.1u" "openssl-1.1.1v" ];
 
+  #---------------------------------------------------------------------
   # Enable networking
+  #---------------------------------------------------------------------
+
   networking.networkmanager.enable = true;
 
+  #---------------------------------------------------------------------
   # Enable the X11 windowing system.
+  #---------------------------------------------------------------------
+
   services.xserver.enable = true;
 
+  #---------------------------------------------------------------------
   # Enable the KDE Plasma Desktop Environment.
+  #---------------------------------------------------------------------
+
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
+  #---------------------------------------------------------------------
   # Enable CUPS to print documents.
+  #---------------------------------------------------------------------
+
   services.printing.enable = true;
 
   # --------------------------------------------------------------------
@@ -72,10 +95,16 @@
     wireplumber.enable = true;
   };
 
+  #---------------------------------------------------------------------
   # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  #---------------------------------------------------------------------
 
+  services.xserver.libinput.enable = true;
+
+  #---------------------------------------------------------------------
   # Allow unfree packages
+  #---------------------------------------------------------------------
+
   nixpkgs.config.allowUnfree = true;
 
   #---------------------------------------------------------------------
@@ -84,13 +113,13 @@
   #---------------------------------------------------------------------
 
   # system.autoUpgrade.allowReboot = true;  # Very annoying .
-
   system.autoUpgrade.enable = true;
   system.copySystemConfiguration = true;
   system.stateVersion = "23.05";
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+
   #---------------------------------------------------------------------
-  # Switch to most recent kernel available
+  # Enable memory compression for faster processing and less SSD usage
   #---------------------------------------------------------------------
 
   zramSwap.enable = true;

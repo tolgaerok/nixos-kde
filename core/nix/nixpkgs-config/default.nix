@@ -12,7 +12,7 @@
       allowUnfree = true;
 
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      #allowUnfreePredicate = _: true;
+      # allowUnfreePredicate = _: true;
 
       allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) [
@@ -59,7 +59,7 @@
     # - sun tzu
     java = {
       enable = false;
-    #  package = pkgs.jre;
+      #  package = pkgs.jre;
     };
 
     direnv = {

@@ -4,6 +4,7 @@
   #---------------------------------------------------------------------
   # X11 and KDE Plasma
   #---------------------------------------------------------------------
+  
   services.xserver = {
     enable = true;
     layout = "au";
@@ -15,15 +16,6 @@
       sddm = {
         enable = true;
         autoNumlock = true;
-
-        #  settings = {
-        #   Theme = {
-        #      CursorTheme = "breeze_cursors";
-        #      iconTheme = "yaru-remix-theme";
-        #    };
-        #  };
-
-        #  theme = "breeze";
 
       };
     };

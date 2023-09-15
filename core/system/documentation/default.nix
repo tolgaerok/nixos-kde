@@ -5,11 +5,11 @@
   # Disable or remove local documentations for faster rebuilding
   documentation = {
 
-    enable = true;
+    enable = false;
     dev.enable = false;
     doc.enable = false;
     info.enable = false;
-    man.enable = true;
+    man.enable = false;
     nixos.enable = false;
 
   };
