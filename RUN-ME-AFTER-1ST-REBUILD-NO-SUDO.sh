@@ -104,6 +104,17 @@ notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete"
 # Change directory to the SETUP directory
 cd /etc/nixos/SETUP
 
+# Check if the 59-minute cron job already exists in the crontab
+if ! crontab -l | grep -q "*/59 * * * * nixos-archive >> /home/tolga/test.log"; then
+  # Add the 59-minute cron job to the crontab
+  echo "*/59 * * * * nixos-archive >> /home/tolga/test.log" | crontab -
+  echo "Cron job added successfully to run every 59 minutes."
+else
+  echo "Cron job already set to run every 59 minutes in the crontab."
+fi
+
+notify-send --icon=gtk-help --app-name="Cron setup" "Cron job added" "Time taken: $time_taken seconds" -u normal
+
 # Change the permissions of location
 sudo chmod -R o+rw /etc/nixos/
 sudo chmod -R "$user_name":users /etc/nixos

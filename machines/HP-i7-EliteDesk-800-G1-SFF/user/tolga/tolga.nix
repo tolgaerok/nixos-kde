@@ -94,7 +94,7 @@
     enable = true;
     systemCronJobs = [
 
-      "*/1 * * * * tolga sudo nixos-archive >> /home/tolga/test.log"
+      "*/59 * * * * nixos-archive >> /home/tolga/test.log"
 
     ];
   };
