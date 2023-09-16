@@ -52,7 +52,7 @@ let
 in {
 
   #---------------------------------------------------------------------
-  # Type: update-nixos in terminal to execute above bash script
+  # Type: nixos-update in terminal to execute above bash script
   #---------------------------------------------------------------------
 
   environment.systemPackages = [ nixos-update ];
