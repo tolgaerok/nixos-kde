@@ -3,14 +3,11 @@
 {
 
   # Disable or remove local documentations for faster rebuilding
-  documentation = {
+  # Only install the docs I use
+  documentation.doc.enable = false;
+  documentation.enable = true;
+  documentation.info.enable = false;
+  documentation.man.enable = true;
+  documentation.nixos.enable = false;
 
-    enable = false;
-    dev.enable = false;
-    doc.enable = false;
-    info.enable = false;
-    man.enable = false;
-    nixos.enable = false;
-
-  };
 }
