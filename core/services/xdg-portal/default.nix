@@ -5,29 +5,15 @@
   # XDG Desktop Portal integration
   # ------------------------------------------
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-
-    lxqt = {
-      enable = false;
-      styles = with pkgs;
-        with libsForQt5; [
-          qtstyleplugin-kvantum
-          breeze-qt5
-          qtcurve
-        ];
-    };
-
-    # Turn Wayland off
-    wlr = { enable = false; };
-
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-kde
-      xdg-desktop-portal-wlr
-    ];
-
-  };
+  environment.systemPackages = with pkgs; [
+    libportal-qt5
+    libsForQt5.bismuth
+    libsForQt5.discover
+    libsForQt5.kaccounts-integration
+    libsForQt5.kaccounts-providers
+    libsForQt5.kio-gdrive
+    libsForQt5.packagekit-qt
+    libsForQt5.qt5.qtgraphicaleffects
+  ];
 
 }
