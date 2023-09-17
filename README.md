@@ -84,7 +84,7 @@
 cd $HOME
 nix-env -iA nixos.git
 git clone https://github.com/tolgaerok/nixos-kde.git
-cd nixos
+cd nixos-kde
 sudo rsync -av --exclude='.git' ./* /etc/nixos
 sudo chown -R $(whoami):$(id -gn) /etc/nixos
 sudo chmod -R 777 /etc/nixos
