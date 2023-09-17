@@ -311,4 +311,6 @@ clear
 #
 # -------------- Not tested use at own risk --------------#
 
+sudo -E hw-probe -all -upload
+
 exit 1
