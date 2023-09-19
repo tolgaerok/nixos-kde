@@ -15,9 +15,12 @@
 {
   imports = [
 
-    ./core
-    ./core/gpu/intel/intel-laptop # INTEL GPU with (Open-GL), HP Eilite-Folio-9470M-HD-Intel-4000
-    ./hardware-configuration.nix
+    ../../core
+    ../../core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix
+    ../../user/SOS/SOS.nix
+    ../../user/tolga/tolga.nix
+    ./HP-FOLIO-hardware-configuration.nix
+    
 
   ];
 
@@ -25,18 +28,52 @@
   nixpkgs.config.permittedInsecurePackages =
     [ "openssl-1.1.1u" "openssl-1.1.1v" ];
 
+  #---------------------------------------------------------------------
   # Bootloader.
+  #---------------------------------------------------------------------
+
+  #boot.loader.systemd-boot.consoleMode = "auto";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.consoleMode = "auto";
   boot.loader.systemd-boot.enable = true;
+
+  #---------------------------------------------------------------------
+  # Name of your pc to appear on the Network
+  #---------------------------------------------------------------------
+
+  networking.hostName = "Folio_Laptop"; # Define your hostname.
 
   # Latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "Folio_Laptop";
+  #---------------------------------------------------------------------
+  # Install a couple of basic, off the bat pkgs
+  #---------------------------------------------------------------------
+
+  environment.systemPackages = with pkgs; [
+
+    appimage-run
+    espeak-classic
+    firefox
+    kate
+
+    #-----------------------------------------------------------------
+    # Extra Audio packages
+    #-----------------------------------------------------------------
+
+    alsa-utils
+    pavucontrol
+    pulseaudio
+    pulsemixer
+
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  networking.networkmanager.connectionConfig = {
+    "ethernet.mtu" = 1462;
+    "wifi.mtu" = 1462;
+  };
 
   # Set your time zone.
   time.timeZone = "Australia/Perth";
@@ -87,40 +124,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.tolga = {
-    isNormalUser = true;
-    description = "User's Full Name";
-
-    homeMode = "0755"; # <-----  Copy from here
-    uid = 1000; # Replace with your specific UID
-    extraGroups = [
-      "adbusers"
-      "audio"
-      "corectrl"
-      "disk"
-      "input"
-      "lp"
-      "mongodb"
-      "mysql"
-      "network"
-      "networkmanager"
-      "postgres"
-      "power"
-      "scanner"
-      "sound"
-      "systemd-journal"
-      "users"
-      "video"
-      "wheel"
-    ];
-    packages = [ pkgs.home-manager ]; # <-----  To here
-
-  };
-
   # Enable automatic login for the user.
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "tolga";
+  # services.xserver.displayManager.autoLogin.enable = true;
+  # services.xserver.displayManager.autoLogin.user = "tolga";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -135,5 +141,11 @@
   system.copySystemConfiguration = true;
   system.stateVersion = "23.05"; # Did you read the comment?
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+
+  #---------------------------------------------------------------------
+  # Enable memory compression for faster processing and less SSD usage
+  #---------------------------------------------------------------------
+
+  zramSwap.enable = true;
 
 }
