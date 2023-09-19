@@ -72,7 +72,7 @@
       # Public Share
       #---------------------------------------------------------------------
 
-      HP_G800_Public = {
+      Tolga_NixOS_Public = {
         path = "/home/tolga/Public";
         comment = "Public Share";
         browseable = true;
@@ -89,7 +89,7 @@
       # Private Share
       #---------------------------------------------------------------------
 
-      HP_G800_Private = {
+      Tolga_NixOS_Private = {
         path = "/home/NixOs";
         comment = "Private Share";
         browseable = true;
