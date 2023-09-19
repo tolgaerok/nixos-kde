@@ -13,13 +13,13 @@
   imports = [
 
     #---------------------------------------------------------------------
-    # Laptop
+    # Laptop: HP-i7-Eilte-Folio-9470M
     #---------------------------------------------------------------------
 
     # ./machines/HP-i7-Eilte-Folio-9470M/HP-FOLIO-configuration.nix
 
     #---------------------------------------------------------------------
-    # Main machine
+    # Main machine: HP-i7-EliteDesk-800-G1-SFF
     #---------------------------------------------------------------------
 
     ./machines/HP-i7-EliteDesk-800-G1-SFF/EliteDesk-800-G1-configuration.nix
