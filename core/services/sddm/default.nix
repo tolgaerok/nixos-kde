@@ -40,11 +40,11 @@ let
   # SDDM theme selector
   # ------------------------------------------
 
-  theme = "breeze";                   # <==== Default ssdm them for kde
+  # theme = "breeze"; # <==== Default ssdm them for kde
   # theme = themes.abstractdark;
-  # theme = themes.aerial;
-  # theme = themes.deepin;
   # theme = themes.delicious;
+  # theme = themes.solarized;
+  theme = themes.chili;
 
   themeName = if customTheme then theme.pkg.name else theme;
 
@@ -93,7 +93,7 @@ let
         themeIni = [{
           section = "Theme";
           key = "FacesDir";
-          value = ./faces;
+          value = /etc/nixos/SETUP/profile-pics/tolga.face.icon;
         }];
       };
       deps = with pkgs; [ ];
@@ -136,7 +136,9 @@ let
         themeIni = [{
           section = "General";
           key = "background";
-          value = ./assets/space.mp4;
+          # value = ./assets/space.mp4;
+          value = "";
+
         }];
       };
       deps = with pkgs; [ qt5.qtmultimedia ];
@@ -237,7 +239,7 @@ in {
   services.xserver.displayManager.sddm.theme = themeName;
   services.xserver.displayManager.sddm.settings = {
     General = { InputMethod = " "; };
-    #    Theme = { FacesDir = "/etc/nixos/xserver/sddm-themes/faces"; };
+    Theme = { FacesDir = "/etc/nixos/SETUP/profile-pics/"; };
   };
 
   #  services.xserver.desktopManager.plasma5.enable = true;

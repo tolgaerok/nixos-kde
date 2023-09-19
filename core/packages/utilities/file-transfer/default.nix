@@ -10,6 +10,7 @@
       libfilezilla
       rsync 
       transmission-gtk
+      zsync
 
     ];
   };
