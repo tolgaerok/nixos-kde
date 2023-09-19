@@ -8,12 +8,12 @@
       # bat
       # cliphist
       # fastfetch
+      # wayland-utils
       dialog
       doas
       fx
       fzf
-      wayland-utils
-      wl-clipboard
+      
 
     ];
   };

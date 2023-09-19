@@ -3,8 +3,8 @@
     systemPackages = with pkgs; [
       # libreoffice-fresh
       # libreoffice-qt
-      qownnotes
-      zotero
+      # qownnotes
+      # zotero
     ];
   };
 }

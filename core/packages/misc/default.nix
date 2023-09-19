@@ -12,7 +12,7 @@
       lolcat # "lolcat" for colorful output
       variety
 
-      papirus-icon-theme
+      
       themechanger
 
     ];

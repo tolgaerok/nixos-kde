@@ -14,9 +14,9 @@
       quazip
 
       # integration
-      kaccounts-integration
-      kaccounts-providers
       # kio-gdrive
+      # kaccounts-integration
+      # kaccounts-providers
     ];
   };
 }

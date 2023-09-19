@@ -4,8 +4,8 @@
     systemPackages = with pkgs; [
 
       # Network Utilities
-      doppler
-      ookla-speedtest
+      # doppler
+      # ookla-speedtest
       
     ];
   };

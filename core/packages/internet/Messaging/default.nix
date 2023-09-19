@@ -3,8 +3,10 @@
   # Messaging and Communication:
   environment = {
     systemPackages = with pkgs; [
-      discord
+
+      # discord
       whatsapp-for-linux
+      
     ];
   };
 }

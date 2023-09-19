@@ -11,13 +11,13 @@
       usbutils
 
       # XDG and File Managers
-      xdg-desktop-portal-gtk
-      xfce.thunar
+      # xdg-desktop-portal-gtk
+      # xfce.thunar
 
       # Other Miscellaneous Programs
       blueberry
       efibootmgr
-      gum
+      gum           # https://github.com/charmbracelet/gum
       krusader
     ];
   };

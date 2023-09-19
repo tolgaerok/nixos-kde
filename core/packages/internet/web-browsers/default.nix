@@ -194,8 +194,8 @@
         #   /* some css */                        
         # '';
         # modified theme from https://github.com/Bali10050/FirefoxCSS
-        userChrome = builtins.readFile ./userChrome.css;
-        userContent = builtins.readFile ./userContent.css;
+        # userChrome = builtins.readFile ./userChrome.css;
+        # userContent = builtins.readFile ./userContent.css;
       };
     };
     # };
