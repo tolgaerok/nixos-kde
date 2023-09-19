@@ -56,6 +56,7 @@
 
     # ./ventoy-full
     ./andriod
+    ./backup                  # restic, restique, borgfs, borg
     ./misc
     ./openssl
     ./tools                   # isoimagewriter, keepassxc, media-downloader, testdisk-qt, ventoy-full
