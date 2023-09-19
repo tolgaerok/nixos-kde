@@ -22,8 +22,6 @@ let
     backup_filename=$(date +"%a,%l:%M%p")
 
     # Zip the contents of /etc/nixos without the folder structure
-    # zip -r "$backup_folder/$backup_subfolder/$backup_filename.zip" /etc/nixos/*
-    # Zip the contents of /etc/nixos excluding the "NIXOS-ARCHIVES" folder
     zip -r "$backup_folder/$backup_subfolder/$backup_filename.zip" /etc/nixos/* -x "/etc/nixos/NIXOS-ARCHIVES/*"
 
 
@@ -33,10 +31,34 @@ let
   '';
 
 in {
-
   #---------------------------------------------------------------------
   # Type: nixos-archive in terminal to execute above bash script
   #---------------------------------------------------------------------
 
   environment.systemPackages = [ nixos-archive ];
+
+  #---------------------------------------------------------------------
+  # Create systemd for this package
+  #---------------------------------------------------------------------
+
+  #services.cron = {
+  #  enable = true;
+  #  systemCronJobs = [
+  #    "*/59 * * * * ${nixos-archive}/bin/nixos-archive >> /home/tolga/test.log"
+  #  ];
+
+  systemd = {
+    services.nixos-archive = {
+      path = [ nixos-archive ];
+      script = "nixos-archive";
+      description = "NixOS backups";
+      serviceConfig.Type = "oneshot";
+    };
+
+    timers.nixos-archive = {
+      description = "Run nixos-archive hourly";
+      timerConfig.OnCalendar = "hourly";
+    };
+
+  };
 }
