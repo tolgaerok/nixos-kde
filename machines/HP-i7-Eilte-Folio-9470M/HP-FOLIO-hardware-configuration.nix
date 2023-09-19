@@ -6,26 +6,19 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ehci_pci"
-    "ahci"
-    "usb_storage"
-    "sd_mod"
-    "sdhci_pci"
-    "aesni_intel"
-  ];
-  boot.initrd.kernelModules = [  ];
+  boot.initrd.availableKernelModules =
+    [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/d5917573-8842-4d1b-943d-abe559e119e3";
+    device = "/dev/disk/by-uuid/73429928-8d51-40f2-b634-5db0727d0253";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/EFA6-57FD";
+    device = "/dev/disk/by-uuid/29C0-CD1C";
     fsType = "vfat";
   };
 
@@ -41,14 +34,14 @@
         "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
       vers = "3.1.1";
       cacheOpts = "cache=loose";
-      credentialsPath = "/etc/nixos/system/network/smb-secrets";
+      credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
     in [
       "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},vers=${vers},${cacheOpts}"
     ];
   };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/a2274bf2-1f64-40d4-a88f-25020230f843"; }];
+    [{ device = "/dev/disk/by-uuid/07ba5707-fb12-4c52-aa38-6a2c8525d5b0"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
