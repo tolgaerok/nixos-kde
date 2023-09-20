@@ -165,8 +165,24 @@ fi
 notify-send --icon=gtk-help --app-name="Cron setup" "Cron job added" "Time taken: $time_taken seconds" -u normal
 
 # Change the permissions of location
-sudo chmod -R o+rw /etc/nixos/
-sudo chmod -R "$user_name":users /etc/nixos
+# sudo chmod -R o+rw /etc/nixos/
+# sudo chmod -R "$user_name":users /etc/nixos
+
+# Get the current user and their primary group
+current_user=$(whoami)
+current_user_group=$(id -gn)
+
+echo "Current user: $current_user"
+echo "Current user's primary group: $current_user_group"
+
+# Change ownership to the current user and their primary group
+sudo chown -R $current_user:$current_user_group /etc/nixos
+
+# Make all files executable
+sudo find /etc/nixos -type f -exec chmod +x {} +
+
+# Set appropriate directory permissions
+sudo chmod -R 750 /etc/nixos
 
 # Run the script PART-B-WITH-SUDO.sh with superuser privileges
 
