@@ -19,7 +19,7 @@
     ../../user/tolga/tolga.nix
 
   ];
-  services.gvfs.enable = true;
+
   #---------------------------------------------------------------------
   # Bootloader.
   #---------------------------------------------------------------------
@@ -77,6 +77,13 @@
   #---------------------------------------------------------------------
 
   networking.networkmanager.enable = true;
+
+  #---------------------------------------------------------------------
+  # Enhances file access capabilities for applications, including network 
+  # file systems (SFTP, SMB, FTP), archive handling, and more.
+  #---------------------------------------------------------------------
+
+  services.gvfs.enable = true;
 
   #---------------------------------------------------------------------
   # Enable the X11 windowing system.

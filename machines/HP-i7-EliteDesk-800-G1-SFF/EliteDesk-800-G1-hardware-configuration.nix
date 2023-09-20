@@ -85,4 +85,18 @@
 
   # kernelPackages = pkgs.linuxPackages-rt_latest;
 
+  #---------------------------------------------------------------------
+  # NTFS Support
+  #---------------------------------------------------------------------
+
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  #---------------------------------------------------------------------
+  # Enable memory compression for faster processing and less SSD usage
+  #---------------------------------------------------------------------
+
+  zramSwap.enable = true;
+  zramSwap.memoryMax = 4294967296;
+  zramSwap.memoryPercent = 20;
+
 }
