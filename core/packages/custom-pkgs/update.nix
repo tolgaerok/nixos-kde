@@ -20,15 +20,20 @@ let
 
     echo -e "\e[1;31m[✘]\e[0m\e[1;33m There will be a very LONG delay here, checking for updates...\e[0m\n"
     sudo nix-channel --update
+
     echo -e "\e[1;32m[✔]\e[0m Checking updates for system and installed programs...\n"
     nix-env -u '*'
+
+    sudo nixos-rebuild switch --upgrade
     sudo nixos-rebuild switch
 
     clear && echo -e "\e[1;32m[✔]\e[0m Optimizing system...\n"
     sudo nix-store --optimise
+
     clear && echo -e "\e[1;32m[✔]\e[0m Checking updates for installed flatpak programs...\n"
     sudo flatpak update -y
     sleep 2
+    
     clear && echo -e "\e[1;32m[✔]\e[0m System update's and optimization completed:\e[0m\n"
 
     echo "Your nix info:"
