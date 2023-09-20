@@ -120,7 +120,7 @@ echo -e "${BLUE}User ID:${NC} $user_id"
 echo -e "${BLUE}Group Name:${NC} $group_name"
 echo -e "${BLUE}Group ID:${NC} $group_id"
 
-sleep 3
+sleep 2
 
 # -----------------------------------------------------------------------------------
 # Function to create directories if they don't exist and set permissions
@@ -132,7 +132,7 @@ create_directory_if_not_exist() {
         echo -e "${GREEN}[✔]${NC} Created directory: $1"
         chown "$user_name":"$group_name" "$1"
         chmod 755 "$1" # Set read and execute permissions for user, group, and others
-        sleep 2
+        sleep 1
         make-executable
     fi
 }
@@ -147,7 +147,7 @@ update_directory_permissions() {
         if [ "$perm" != "755" ]; then
             echo -e "${GREEN}[✔]${NC} Updating permissions of existing directory: $1"
             chmod 755 "$1"
-            sleep 2
+            sleep 1
             make-executable
 
         fi
