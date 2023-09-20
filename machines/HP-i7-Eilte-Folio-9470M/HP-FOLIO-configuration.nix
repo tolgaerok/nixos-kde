@@ -20,6 +20,7 @@
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
     ./HP-FOLIO-hardware-configuration.nix
+    ./boot
 
   ];
 
@@ -29,14 +30,6 @@
 
   nixpkgs.config.permittedInsecurePackages =
     [ "openssl-1.1.1u" "openssl-1.1.1v" "electron-12.2.3" ];
-
-  #---------------------------------------------------------------------
-  # Bootloader.
-  #---------------------------------------------------------------------
-
-  #boot.loader.systemd-boot.consoleMode = "auto";
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.enable = true;
 
   #---------------------------------------------------------------------
   # Name of your pc to appear on the Network
@@ -185,10 +178,6 @@
   system.stateVersion = "23.05";
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 
-  #---------------------------------------------------------------------
-  # Enable memory compression for faster processing and less SSD usage
-  #---------------------------------------------------------------------
 
-  zramSwap.enable = true;
 
 }
