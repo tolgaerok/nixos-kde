@@ -9,6 +9,7 @@
 
     ./custom-pkgs
     ./flatpak
+    ./internet
     ./packages.nix
 
   ];

@@ -4,6 +4,8 @@
   # My personal software collection
   # ---------------------------------------------------------------------
 
+  services.teamviewer.enable = true;
+
   environment = {
     systemPackages = with pkgs; [
 
