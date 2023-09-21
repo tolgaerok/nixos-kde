@@ -83,7 +83,7 @@
   # file systems (SFTP, SMB, FTP), archive handling, and more.
   #---------------------------------------------------------------------
 
-  services.gvfs.enable = true;
+  # services.gvfs.enable = true;
 
   #---------------------------------------------------------------------
   # Enable the X11 windowing system.
