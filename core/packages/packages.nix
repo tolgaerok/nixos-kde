@@ -100,7 +100,7 @@
       nix-direnv
       nixfmt
       nixos-option
-      vscode            # conflicts with vscode-with-extensions as this is just a stand alone
+      vscode                          # conflicts with vscode-with-extensions as this is just a stand alone
       vscode-extensions.brettm12345.nixfmt-vscode
       vscode-extensions.mkhl.direnv
 
@@ -115,7 +115,7 @@
       # Programming Languages and Tools:
       # ---------------------------------------------------------------------
       scala-cli
-      python311Full     # idle3.11 python3.11-config idle python3-config pydoc pydoc3 pydoc3.11 idle3 2to3-3.11 2to3 python3.11 python3 python-config python
+      python311Full                 # idle3.11 python3.11-config idle python3-config pydoc pydoc3 pydoc3.11 idle3 2to3-3.11 2to3 python3.11 python3 python-config python
       python311Packages.pip
 
       # ---------------------------------------------------------------------
@@ -164,13 +164,13 @@
       # Miscellaneous:
       # ---------------------------------------------------------------------
 
-      cowsay        # fortune | cowsay -f tux   fortune | cowsay -e ^^    fortune | cowsay | lolcat
+      cowsay                      # fortune | cowsay -f tux   fortune | cowsay -e ^^    fortune | cowsay | lolcat
       fish
       flatpak
-      fortune       # unstr rot strfile fortune
+      fortune                     # unstr rot strfile fortune
       libsForQt5.kweather
       libsForQt5.kweathercore
-      lolcat        # "lolcat" for colorful output
+      lolcat                      # "lolcat" for colorful output
       themechanger
       variety
 
@@ -227,50 +227,50 @@
       kdiff3
       kgpg
       krename
-      libsForQt5.qt5.qttools      # qhelpgenerator linguist qtplugininfo qdistancefieldgenerator pixeltool qcollectiongenerator assistant qtdiag qdbusviewer lupdate qtpaths qtattributionsscanner lconvert designer lupdate-pro lrelease qdbus lprodump lrelease-pro
-      libsForQt5.quazip           # quazip
-      qt6.qttools                 # assistant qtplugininfo qdbus lrelease linguist qtdiag6 qtdiag qdbusviewer qdistancefieldgenerator pixeltool lconvert lupdate designer
-      qt6Packages.quazip          # quazip
+      libsForQt5.qt5.qttools        # qhelpgenerator linguist qtplugininfo qdistancefieldgenerator pixeltool qcollectiongenerator assistant qtdiag qdbusviewer lupdate qtpaths qtattributionsscanner lconvert designer lupdate-pro lrelease qdbus lprodump lrelease-pro
+      libsForQt5.quazip             # quazip
+      qt6.qttools                   # assistant qtplugininfo qdbus lrelease linguist qtdiag6 qtdiag qdbusviewer qdistancefieldgenerator pixeltool lconvert lupdate designer
+      qt6Packages.quazip            # quazip
 
       # ---------------------------------------------------------------------
       # xscreensaver
       # ---------------------------------------------------------------------
 
-      xscreensaver                # xscreensaver-demo xscreensaver-settings xscreensaver xscreensaver-command
+      xscreensaver                  # xscreensaver-demo xscreensaver-settings xscreensaver xscreensaver-command
 
       # ---------------------------------------------------------------------
       # system tools
       # ---------------------------------------------------------------------
 
-      isoimagewriter              # isoimagewriter
-      keepassxc                   # keepassxc keepassxc-cli keepassxc-proxy
-      media-downloader            # media-downloader
-      testdisk-qt                 # testdisk photorec fidentify qphotorec
-      ventoy-full                 # ventoy   ventoy-persistent   ventoy-web   ventoy-plugson   ventoy-extend-persistent
+      isoimagewriter                # isoimagewriter
+      keepassxc                     # keepassxc keepassxc-cli keepassxc-proxy
+      media-downloader              # media-downloader
+      testdisk-qt                   # testdisk photorec fidentify qphotorec
+      ventoy-full                   # ventoy   ventoy-persistent   ventoy-web   ventoy-plugson   ventoy-extend-persistent
 
       # ---------------------------------------------------------------------
       # USB and Device Utilities
       # ---------------------------------------------------------------------
 
-      usbutils                    # usb-devices lsusb.py lsusb usbhid-dump
+      usbutils                      # usb-devices lsusb.py lsusb usbhid-dump
 
       # ---------------------------------------------------------------------
       # Other Miscellaneous Programs
       # ---------------------------------------------------------------------
 
-      blueberry                   # blueberry-tray blueberry
-      efibootmgr                  # efibootdump efibootmgr
-      gum                         # gum https://github.com/charmbracelet/gum
-      krusader                    # krusader
+      blueberry                     # blueberry-tray blueberry
+      efibootmgr                    # efibootdump efibootmgr
+      gum                           # gum https://github.com/charmbracelet/gum
+      krusader                      # krusader
 
       # ---------------------------------------------------------------------
       # Libraries
       # ---------------------------------------------------------------------
 
-      libarchive                  # bsdtar bsdcpio bsdcat
+      libarchive                    # bsdtar bsdcpio bsdcat
       libbtbb
-      libnotify                   # Desktop Notify agent example: notify-send --icon=fcitx --app-name="DONE" "Fonts folder copied into $(whoami)" "$font_dest" -u normal
-      notify-desktop              # Desktop Notify agent example: notify-desktop --icon=call-start "Incoming call"   SOURCE: https://github.com/nowrep/notify-desktop/tree/master
+      libnotify                     # Desktop Notify agent example: notify-send --icon=fcitx --app-name="DONE" "Fonts folder copied into $(whoami)" "$font_dest" -u normal
+      notify-desktop                # Desktop Notify agent example: notify-desktop --icon=call-start "Incoming call"   SOURCE: https://github.com/nowrep/notify-desktop/tree/master
 
       # ---------------------------------------------------------------------
       # File Transfer:
@@ -287,7 +287,7 @@
       # ---------------------------------------------------------------------
 
       gparted
-      hw-probe            # sudo -E hw-probe -all -upload
+      hw-probe                      # sudo -E hw-probe -all -upload
       ntfs3g
 
       # ---------------------------------------------------------------------
@@ -305,7 +305,7 @@
       figlet
       htop
       imagemagick
-      inotify-tools       # inotifywait   inotifywatch    https://github.com/inotify-tools/inotify-tools/wiki
+      inotify-tools                 # inotifywait   inotifywatch    https://github.com/inotify-tools/inotify-tools/wiki
       isoimagewriter
       less
       lf
@@ -327,7 +327,7 @@
       tldr
       tree
       vim
-      gnome.zenity        # For notifications and code dialogs
+      gnome.zenity                  # For notifications and code dialogs
 
       # ---------------------------------------------------------------------
       # XDG Utilities
