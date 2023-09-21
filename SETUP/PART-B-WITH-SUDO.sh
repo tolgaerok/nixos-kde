@@ -18,10 +18,11 @@ original_user_id=$1
 
 if [ "$(id -u)" -ne 0 ]; then
     echo -e "${RED}[✘]${NC} This script must be run as root."
+    exit 1
 else
     echo -e "${GREEN}[✔]${NC}PASSED: Logged as root, continuing...\n"
     sleep 2
-    exit 1
+    
 fi
 
 # -----------------------------------------------------------------------------------
