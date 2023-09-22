@@ -241,6 +241,7 @@ notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete"
 make-executable
 
 # Change directory to the SETUP directory
+cd $HOME && make-executable
 cd /etc/nixos/ && make-executable
 cd /etc/nixos/SETUP && make-executable
 
@@ -259,8 +260,8 @@ notify-send --icon=gtk-help --app-name="Cron setup" "Cron job added" "Time taken
 current_user=$(whoami)
 current_user_group=$(id -gn)
 
-echo "Current user: $current_user"
-echo "Current user's primary group: $current_user_group"
+echo "Current user: $current_user" && sleep 1
+echo "Current user's primary group: $current_user_group" && sleep 1
 
 # Change ownership to the current user and their primary group
 sudo chown -R $current_user:$current_user_group /etc/nixos

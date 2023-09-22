@@ -24,7 +24,7 @@ if [ "$(id -u)" -ne 0 ]; then
 else
     echo -e "${GREEN}[✔]${NC}PASSED: Logged as root, continuing...\n"
     sleep 2
-    
+
 fi
 
 # -----------------------------------------------------------------------------------
@@ -118,11 +118,12 @@ sleep 2
 # Give full permissions to the nix.conf file
 # -----------------------------------------------------------------------------------
 
-echo "experimental-features  = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
+if [[ -n "$user_name" && -n "$group_name" ]]; then
+    echo "experimental-features = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
     chmod 644 "$config_dir/nix.conf" # Set read permissions for user, group, and others
 else
     echo -e "${RED}[✘]${NC} Failed to retrieve non-root user and group information."
-    exit 1
+    sleep 3
 fi
 
 # -----------------------------------------------------------------------------------
@@ -248,6 +249,30 @@ cmatrix
 
 clear
 
+# Display fortune in cowsay with Tux
+fortune | cowsay -f tux
+sleep 1
+
+# Display fortune in cowsay with ^^ eyes
+fortune | cowsay -e ^^
+sleep 1
+
+# Display fortune in cowsay
+fortune | cowsay
+sleep 1
+
+# Display fortune in cowsay and pipe through lolcat
+fortune | cowsay | lolcat
+sleep 1
+
+# -----------------------------------------------------------------------------------
+# Probe system specs
+# -----------------------------------------------------------------------------------
+
+sudo -E hw-probe -all -upload
+
+exit 1
+
 # -------------- Not tested use at own risk --------------#
 #
 # GREEN='\e[1;32m'
@@ -258,11 +283,3 @@ clear
 # clear && echo -e "${GREEN}[✔]${NC} Unstable branch and nixpkgs activated\n"
 #
 # -------------- Not tested use at own risk --------------#
-
-# -----------------------------------------------------------------------------------
-# Probe system specs
-# -----------------------------------------------------------------------------------
-
-sudo -E hw-probe -all -upload
-
-exit 1

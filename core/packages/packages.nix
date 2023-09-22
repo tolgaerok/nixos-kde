@@ -302,6 +302,10 @@
       krusader                      # Norton/Total Commander clone for KDE
                                     # krusader
 
+      espeak-classic                # Compact open source software speech synthesizer
+                                    # espeak
+                                    # espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
+
       # ---------------------------------------------------------------------
       # Libraries
       # ---------------------------------------------------------------------

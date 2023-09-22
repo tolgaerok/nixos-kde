@@ -23,7 +23,7 @@ in {
           # You may also need to configure Git to use your SSH key globally
           # (outside of this NixOS configuration).
           # See the note below for instructions.
-          signingKey = "~/.ssh/id_ed25519.pub";
+          signingKey = "ssh-ed25519";
         };
 
         #init = { defaultBranch = "main"; };
