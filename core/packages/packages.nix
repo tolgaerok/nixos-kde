@@ -178,6 +178,7 @@
                                      # ex: $ fortune | cowsay -f tux  
                                      #     $ fortune | cowsay -e ^^   
                                      #     $ fortune | cowsay | lolcat
+                                     
       fish                           # Smart and user-friendly command line shell
       flatpak                        # Linux application sandboxing and distribution framework
       fortune                        # unstr rot strfile fortune
@@ -340,7 +341,7 @@
       imagemagick                   # A software suite to create, edit, compose, or convert bitmap images
 
       inotify-tools                 # A set of command-line programs providing a simple interface to inotify.
-                                    # # inotifywait   inotifywatch
+                                    # inotifywait   inotifywatch
                                     # Source:  https://github.com/inotify-tools/inotify-tools/wiki
 
       gnome.zenity                  # Tool to display dialogs from the commandline and shell scripts
