@@ -167,7 +167,7 @@
       # Scientific computing
       # ---------------------------------------------------------------------
 
-      julia
+      # julia                         # Scientific computing       https://docs.julialang.org/en/v1/
 
       # ---------------------------------------------------------------------
       # Miscellaneous:
@@ -242,13 +242,16 @@
       libsForQt5.kgpg                # A KDE based interface for GnuPG, a powerful encryption utility
       krename
       libsForQt5.qt5.qttools        # A cross-platform application framework for C++        
-                                    # qhelpgenerator linguist qtplugininfo qdistancefieldgenerator pixeltool qcollectiongenerator assistant qtdiag qdbusviewer lupdate qtpaths qtattributionsscanner lconvert designer lupdate-pro lrelease qdbus lprodump lrelease-pro
+                                    # qhelpgenerator linguist qtplugininfo qdistancefieldgenerator pixeltool 
+                                    # qcollectiongenerator assistant qtdiag qdbusviewer lupdate qtpaths 
+                                    # qtattributionsscanner lconvert designer lupdate-pro lrelease qdbus lprodump lrelease-pro
       
       libsForQt5.quazip             # Provides access to ZIP archives from Qt 5 programs
                                     # quazip
 
-      qt6.qttools                   # # A cross-platform application framework for C++
-                                    # assistant qtplugininfo qdbus lrelease linguist qtdiag6 qtdiag qdbusviewer qdistancefieldgenerator pixeltool lconvert lupdate designer
+      qt6.qttools                   # A cross-platform application framework for C++
+                                    # assistant qtplugininfo qdbus lrelease linguist qtdiag6 qtdiag qdbusviewer 
+                                    # qdistancefieldgenerator pixeltool lconvert lupdate designer
       
       qt6Packages.quazip            # Provides access to ZIP archives from Qt programs
                                     # quazip
