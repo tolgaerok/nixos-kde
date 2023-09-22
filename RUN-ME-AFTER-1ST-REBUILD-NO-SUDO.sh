@@ -1,3 +1,5 @@
+#!/usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
 #!/usr/bin/env bash
 #!/run/current-system/sw/bin/bash
 
@@ -6,7 +8,7 @@
 # 20/8/23.
 
 # control how the script behaves when certain conditions are met
-#set -eux
+# set -eux
 
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -27,6 +29,9 @@ start_time=$(date +%s)
 current_dir=$(pwd)
 clear
 
+# First etc/nixos backup
+nixos-archive
+
 #nix-shell -p # espeak-classic
 espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
 
@@ -34,11 +39,73 @@ espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! 
 nix-env -iA nixos.libnotify
 nix-env -iA nixos.notify-desktop
 
-# espeak -v en+m7 -s 165 "Copying!   fonts!    wallpapers!   and    creating!  the!   basic!   setup! for   your     system. " --punct=","
+espeak -v en+m7 -s 165 "Copying!   fonts!    wallpapers!   and    creating!  the!   basic!   setup! for   your     system. " --punct=","
 
-# Install Samba
-nix-env -iA nixos.cifs-utils
-nix-env -iA nixos.samba4Full
+# -----------------------------------------------------------------------------------
+# Flatpak section
+# -----------------------------------------------------------------------------------
+
+echo -e "${GREEN}[✔]${NC} Install Flatpak apps..\n"
+
+# -----------------------------------------------------------------------------------
+# Enable Flatpak
+# -----------------------------------------------------------------------------------
+
+if ! flatpak remote-list | grep -q "flathub"; then
+  sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+else
+  echo -e "${GREEN}[✔]${NC} Flatpak enabled...\n"
+  sleep 2
+fi
+
+# -----------------------------------------------------------------------------------
+# Update Flatpak
+# -----------------------------------------------------------------------------------
+
+echo -e "${GREEN}[✔]${NC} Updating cache, this will take a while..\n"
+sudo flatpak update -y
+
+# -----------------------------------------------------------------------------------
+# Install Flatpak apps
+# -----------------------------------------------------------------------------------
+
+packages=(
+  com.sindresorhus.Caprine
+  org.kde.kweather
+)
+
+# -----------------------------------------------------------------------------------
+# Install each package if not already installed
+# -----------------------------------------------------------------------------------
+
+for package in "${packages[@]}"; do
+  if ! flatpak list | grep -q "$package"; then
+    echo "Installing $package..."
+    sudo flatpak install -y flathub "$package"
+  else
+    echo "$package is already installed. Skipping..."
+  fi
+done
+
+# -----------------------------------------------------------------------------------
+# List all flatpak
+# -----------------------------------------------------------------------------------
+
+echo -e "${GREEN}[✔]${NC} Show Flatpak info:"
+su - "$USER" -c "flatpak remote-list"
+echo ""
+
+echo -e "
+\033[33mChecking all runtimes installed: \033[0m
+"
+flatpak list --runtime
+echo ""
+
+echo -e "${GREEN}[✔]${NC} 
+List of flatpak's installed on system:
+"
+flatpak list --app
+echo ""
 
 # Paths
 font_folder="/etc/nixos/SETUP/fonts"
@@ -51,8 +118,6 @@ wallpapers_src="/etc/nixos/SETUP/wallpapers"
 wallpapers_dest="/home/$(whoami)/Pictures"
 
 # Create destination folders if they don't exist
-
-# espeak -s 165 "Copying! fonts! wallpapers! " --punct=","
 
 # Check if font_dest exists
 if [ -d "$font_dest" ]; then
@@ -141,8 +206,31 @@ eval "$command \"$script\""
 
 echo "Desktop Wallpaper set successfully."
 sleep1
+clear
 
-espeak -v en-us+m7 -s 165 "Scripts, fonts! and wallpapers! have been moved! to your home directory! and permissions set."
+# Create directories in the user's home directory
+
+mkdir -p ~/Desktop
+mkdir -p ~/Documents
+mkdir -p ~/Downloads
+mkdir -p ~/Pictures
+mkdir -p ~/Music
+mkdir -p ~/Videos
+mkdir -p ~/Public
+mkdir -p ~/Templates
+
+# Optional: Create hidden directories and files
+mkdir -p ~/.config
+mkdir -p ~/.ssh
+
+# Optional: Create user-specific configuration files
+touch ~/.bash_profile
+touch ~/.bashrc
+touch ~/.profile
+
+echo "Directories and configuration files created successfully."
+
+espeak -v en-us+m7 -s 165 "Scripts! fonts! and! wallpapers! have been! moved! to your home! directory! and permissions set!"
 echo "Scripts, fonts and wallpapers folders have been moved to your home directory and permissions set."
 
 end_time=$(date +%s)
@@ -150,8 +238,11 @@ time_taken=$((end_time - start_time))
 
 notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete" "Time taken: $time_taken seconds" -u normal
 
+make-executable
+
 # Change directory to the SETUP directory
-cd /etc/nixos/SETUP
+cd /etc/nixos/ && make-executable
+cd /etc/nixos/SETUP && make-executable
 
 # Check if the 59-minute cron job already exists in the crontab
 if ! crontab -l | grep -q "*/59 * * * * nixos-archive >> /home/tolga/test.log"; then
@@ -163,10 +254,6 @@ else
 fi
 
 notify-send --icon=gtk-help --app-name="Cron setup" "Cron job added" "Time taken: $time_taken seconds" -u normal
-
-# Change the permissions of location
-# sudo chmod -R o+rw /etc/nixos/
-# sudo chmod -R "$user_name":users /etc/nixos
 
 # Get the current user and their primary group
 current_user=$(whoami)

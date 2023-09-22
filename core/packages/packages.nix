@@ -182,12 +182,19 @@
       fish                           # Smart and user-friendly command line shell
       flatpak                        # Linux application sandboxing and distribution framework
       fortune                        # unstr rot strfile fortune
+      libsForQt5.kdenetwork-filesharing
       libsForQt5.kweather
       libsForQt5.kweathercore
       lolcat                         # A rainbow version of cat for colorful output                         
                                      # "lolcat" for colorful output
       themechanger                   # A theme changing utility for Linux
       variety                        # A wallpaper manager for Linux systems
+      jp2a                           # A small utility that converts JPG images to ASCII
+                                     # curl -sSL -o /tmp/deb-logo.png https://github.com/tolgaerok/Debian-tolga/raw/main/WALLPAPERS/deb-logo.png
+                                     # Resize the image to 101x85
+                                     # convert /tmp/deb-logo.png -resize 101x98 /tmp/deb-logo-resized.png
+                                     # Display the Debian ASCII art logo as the background
+                                     # jp2a --background=light --colors --width="$(tput cols)" /tmp/deb-logo-resized.png
 
       # ---------------------------------------------------------------------
       # Media and Entertainment:
@@ -195,7 +202,7 @@
 
       vlc                            # Cross-platform media player and streaming server
       youtube-dl                     # Command-line tool to download videos from YouTube.com and other sites
-
+      
       # ---------------------------------------------------------------------
       # Picture manger
       # ---------------------------------------------------------------------
