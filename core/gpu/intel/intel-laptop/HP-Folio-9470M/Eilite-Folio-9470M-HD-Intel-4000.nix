@@ -13,11 +13,11 @@
   # For Laptop
   libinput = {
     enable = true;
-    touchpad.tapping = false;
+    touchpad.clickMethod = "clickfinger";
+    touchpad.disableWhileTyping = true;
     touchpad.naturalScrolling = true;
     touchpad.scrollMethod = "twofinger";
-    touchpad.disableWhileTyping = true;
-    touchpad.clickMethod = "clickfinger";
+    touchpad.tapping = true;
   };
 
   # Update microcode when available
@@ -51,6 +51,7 @@
 
   # Power management
   powerManagement.enable = true;
+  services.upower.enable = true;
 
   # CPU performance scaling
   services.thermald.enable = true;
@@ -62,6 +63,8 @@
   services.tlp.enable = true;
 
   services.tlp.settings = {
+
+    AHCI_RUNTIME_PM_ON_BAT= "auto";
     CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;
     CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
@@ -82,8 +85,13 @@
     TPACPI_ENABLE = 1;
     TPSMAPI_ENABLE = 1;
     WOL_DISABLE = "Y";
+
   };
 
   # services.blueman.enable = lib.mkForce false;
+
+  environment.systemPackages = [ pkgs.acpi ];
+  hardware.bluetooth.powerOnBoot = false;
+  networking.networkmanager.wifi.powersave = true;
 
 }
