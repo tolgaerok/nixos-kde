@@ -102,13 +102,13 @@
       # ---------------------------------------------------------------------
 
       # sublime4
-      direnv
-      graalvm17-ce
-      mosh
-      nix-direnv
-      nixfmt
+      direnv                          # A shell extension that manages your environment
+      graalvm17-ce                    # High-Performance Polyglot VM
+      mosh                            # Mobile shell (ssh replacement)
+      nix-direnv                      # A fast, persistent use_nix implementation for direnv
+      nixfmt                          # An opinionated formatter for Nix
       nixos-option
-      vscode                          # conflicts with vscode-with-extensions as this is just a stand alone
+      vscode                          
       vscode-extensions.brettm12345.nixfmt-vscode
       vscode-extensions.mkhl.direnv
 
@@ -178,7 +178,7 @@
                                      # ex: $ fortune | cowsay -f tux  
                                      #     $ fortune | cowsay -e ^^   
                                      #     $ fortune | cowsay | lolcat
-                                     
+
       fish                           # Smart and user-friendly command line shell
       flatpak                        # Linux application sandboxing and distribution framework
       fortune                        # unstr rot strfile fortune
