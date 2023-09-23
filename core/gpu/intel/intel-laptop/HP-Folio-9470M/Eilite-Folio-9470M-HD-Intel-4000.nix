@@ -10,14 +10,23 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  # For Laptop
-  libinput = {
-    enable = true;
-    touchpad.clickMethod = "clickfinger";
-    touchpad.disableWhileTyping = true;
-    touchpad.naturalScrolling = true;
-    touchpad.scrollMethod = "twofinger";
-    touchpad.tapping = true;
+  #---------------------------------------------------------------------
+  # Configure keymap in X11 windowing system.
+  #---------------------------------------------------------------------
+  services.xserver = {
+    layout = "au";
+    xkbVariant = "";
+    libinput = {
+      enable = true;
+      touchpad.tapping = false;
+      touchpad.naturalScrolling = true;
+      touchpad.scrollMethod = "twofinger";
+      touchpad.disableWhileTyping = true;
+      touchpad.clickMethod = "clickfinger";
+    };
+
+    exportConfiguration = true;
+
   };
 
   # Update microcode when available
@@ -52,6 +61,9 @@
   # Power management
   powerManagement.enable = true;
   services.upower.enable = true;
+  environment.systemPackages = [ pkgs.acpi ];
+  hardware.bluetooth.powerOnBoot = false;
+  networking.networkmanager.wifi.powersave = true;
 
   # CPU performance scaling
   services.thermald.enable = true;
@@ -64,7 +76,7 @@
 
   services.tlp.settings = {
 
-    AHCI_RUNTIME_PM_ON_BAT= "auto";
+    AHCI_RUNTIME_PM_ON_BAT = "auto";
     CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;
     CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
@@ -89,9 +101,5 @@
   };
 
   # services.blueman.enable = lib.mkForce false;
-
-  environment.systemPackages = [ pkgs.acpi ];
-  hardware.bluetooth.powerOnBoot = false;
-  networking.networkmanager.wifi.powersave = true;
 
 }
