@@ -61,12 +61,14 @@ with lib;
   };
 
   #---------------------------------------------------------------------
-  # Power management
+  # Power management & Analyze power consumption on Intel-based laptops
   #---------------------------------------------------------------------
-  environment.systemPackages = [ pkgs.acpi ];
+  environment.systemPackages = [ pkgs.acpi pkgs.powertop ];
   hardware.bluetooth.powerOnBoot = false;
   networking.networkmanager.wifi.powersave = true;
   powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+  services.power-profiles-daemon.enable = false;
   services.upower.enable = true;
 
   #---------------------------------------------------------------------
