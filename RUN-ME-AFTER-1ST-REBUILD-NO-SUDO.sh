@@ -24,13 +24,6 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# -----------------------------------------------------------------------------------
-# Install some  agents
-# -----------------------------------------------------------------------------------
-nix-env -iA nixos.libnotify
-nix-env -iA nixos.notify-desktop
-nix-shell -p espeak-classic
-
 start_time=$(date +%s)
 current_dir=$(pwd)
 clear
