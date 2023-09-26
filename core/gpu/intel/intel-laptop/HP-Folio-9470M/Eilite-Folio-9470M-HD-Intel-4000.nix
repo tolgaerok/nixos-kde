@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
 
+with lib;
+
 ###############################################################################
 ##      Works Well on HP Eilite Folio 9470M i7-3667u x 4 HD Intel GPU 4000   ##
 ###############################################################################
@@ -8,6 +10,11 @@
   # Laptop configuration
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+
+  services = {
+    kmscon.hwRender = true;
+    kmscon.enable = false;
   };
 
   #---------------------------------------------------------------------
@@ -35,7 +42,7 @@
 
   # Enable Intel GPU in NixOS
   services.xserver = {
-    videoDrivers = [ "intel" ]; # Use the dedicated Intel driver
+    videoDrivers = [ "modesetting" ]; # Use the dedicated Intel driver
   };
 
   # Additional kernel parameters
@@ -55,6 +62,7 @@
       vaapiIntel
       vaapiVdpau
       libvdpau-va-gl
+      intel-gmmlib
     ];
   };
 
@@ -79,8 +87,8 @@
     AHCI_RUNTIME_PM_ON_BAT = "auto";
     CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;
-    CPU_ENERGY_PERF_POLICY_ON_AC = "balance_power";
-    CPU_ENERGY_PERF_POLICY_ON_BAT = "balance_power";
+    CPU_ENERGY_PERF_POLICY_ON_AC = "ondemand";
+    CPU_ENERGY_PERF_POLICY_ON_BAT = "ondemand";
     CPU_MAX_PERF_ON_AC = 99;
     CPU_MAX_PERF_ON_BAT = 75;
     CPU_MIN_PERF_ON_BAT = 75;

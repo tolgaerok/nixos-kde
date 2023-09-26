@@ -9,17 +9,13 @@
   boot = {
     loader = {
 
-      # grub.device = "nodev";
-      # grub.efiSupport = true;
-      # grub.enable = true;
-      # grub.useOSProber = true;
       efi.canTouchEfiVariables = true;
       systemd-boot.enable = true;
 
     };
 
     initrd.systemd.enable = true;
-    kernelParams = [ "quiet" ];
+    kernelParams = [ "quiet" "intel_pstate=ondemand" ];
     plymouth.enable = true;
     plymouth.theme = "breeze";
 

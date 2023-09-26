@@ -1,10 +1,12 @@
-{ config, pkgs, lib, ... }: {
+{ config, options, lib, pkgs, ... }: {
 
   networking = {
 
     enableIPv6 = true;
 
     networkmanager.enable = true;
+
+    # services.samba-wsdd.enable = true; # make shares visible for windows 10 clients
 
     # Configure firewall to your likings:
     firewall = {
@@ -57,7 +59,7 @@
         80
         8010
         8888
-        #wsdd
+        # wsdd : samba 
         5357
         # Open KDE Connect
         {
@@ -79,11 +81,11 @@
         # NetBIOS Datagram Service
         138
         # Syncthing port
-        22000                
+        22000
         21027
         # For device discovery
         5353
-        # wsdd
+        # wsdd : samba 
         3702
 
       ];
