@@ -24,21 +24,26 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
-# nix-shell -p espeak-classic
+# -----------------------------------------------------------------------------------
+# Install some  agents
+# -----------------------------------------------------------------------------------
+nix-env -iA nixos.libnotify
+nix-env -iA nixos.notify-desktop
+nix-shell -p espeak-classic
+
 start_time=$(date +%s)
 current_dir=$(pwd)
 clear
 
+# -----------------------------------------------------------------------------------
 # First etc/nixos backup
+# -----------------------------------------------------------------------------------
 nixos-archive
 
-#nix-shell -p # espeak-classic
+# -----------------------------------------------------------------------------------
+# He's ALIVE!!
+# -----------------------------------------------------------------------------------
 espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
-
-# Install notify agents
-nix-env -iA nixos.libnotify
-nix-env -iA nixos.notify-desktop
-
 espeak -v en+m7 -s 165 "Copying!   fonts!    wallpapers!   and    creating!  the!   basic!   setup! for   your     system. " --punct=","
 
 # -----------------------------------------------------------------------------------
@@ -238,14 +243,18 @@ time_taken=$((end_time - start_time))
 
 notify-send --icon=ktimetracker --app-name="Post set-up" "Basic set-up Complete" "Time taken: $time_taken seconds" -u normal
 
+# -----------------------------------------------------------------------------------
+# Make scripts and nix files executable in varioud directories
+# -----------------------------------------------------------------------------------
 make-executable
-
-# Change directory to the SETUP directory
 cd $HOME && make-executable
 cd /etc/nixos/ && make-executable
 cd /etc/nixos/SETUP && make-executable
 
-# Check if the 59-minute cron job already exists in the crontab
+# -----------------------------------------------------------------------------------
+# Check if the 59-minute cron job already exists in the crontab, if not add
+# ability to backup /etc/nixos every 59 mins
+# -----------------------------------------------------------------------------------
 if ! crontab -l | grep -q "*/59 * * * * nixos-archive >> /home/tolga/test.log"; then
   # Add the 59-minute cron job to the crontab
   echo "*/59 * * * * nixos-archive >> /home/tolga/test.log" | crontab -
