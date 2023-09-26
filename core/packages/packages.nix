@@ -182,7 +182,7 @@
       fish                           # Smart and user-friendly command line shell
       flatpak                        # Linux application sandboxing and distribution framework
       fortune                        # unstr rot strfile fortune
-      libsForQt5.kdenetwork-filesharing
+      # libsForQt5.kdenetwork-filesharing
       libsForQt5.kweather
       libsForQt5.kweathercore
       lolcat                         # A rainbow version of cat for colorful output                         
@@ -242,12 +242,13 @@
       # KDE Plasma tools
       # ---------------------------------------------------------------------
 
+      
       kdiff3                         # Compares and merges 2 or 3 files or directories
-      libsForQt5.ark                 # Graphical file compression/decompression utility
-      libsForQt5.filelight           # Disk usage statistics
-      libsForQt5.kate                # Advanced text editor
-      libsForQt5.kcalc               # Scientific calculator
-      libsForQt5.kgpg                # A KDE based interface for GnuPG, a powerful encryption utility
+      ark                 # Graphical file compression/decompression utility
+      filelight           # Disk usage statistics
+      kate                # Advanced text editor
+      kcalc               # Scientific calculator
+      kgpg                # A KDE based interface for GnuPG, a powerful encryption utility
       krename
       libsForQt5.qt5.qttools        # A cross-platform application framework for C++        
                                     # qhelpgenerator linguist qtplugininfo qdistancefieldgenerator pixeltool 
