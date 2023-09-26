@@ -50,8 +50,8 @@
     firefox
     kate
 
-    direnv
-    nix-direnv
+    # direnv
+    # nix-direnv
 
     #-----------------------------------------------------------------
     # Extra Audio packages
@@ -62,9 +62,6 @@
     pulsemixer
 
   ];
-
-  services.direnv.enable = true;
-  services."nix-direnv".enable = true;
 
   #---------------------------------------------------------------------
   # Enable networking

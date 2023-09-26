@@ -2,59 +2,53 @@
 
 with lib;
 
-###############################################################################
-##      Works Well on HP Eilite Folio 9470M i7-3667u x 4 HD Intel GPU 4000   ##
-###############################################################################
+#---------------------------------------------------------------------
+#   Works Well on HP Eilite Folio 9470M i7-3667u x 4 HD Intel GPU 4000 
+#---------------------------------------------------------------------
 
 {
+  #---------------------------------------------------------------------
   # Laptop configuration
+  #---------------------------------------------------------------------
   nixpkgs.config.packageOverrides = pkgs: {
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
   services = {
     kmscon.hwRender = true;
-    kmscon.enable = false;
+    # kmscon.enable = false;
   };
 
   #---------------------------------------------------------------------
-  # Configure keymap in X11 windowing system.
+  # Configure keymap in X11 windowing system & Enable Intel GPU in NixOS
   #---------------------------------------------------------------------
   services.xserver = {
+    videoDrivers = [ "modesetting" ]; # Use the dedicated Intel driver
     layout = "au";
     xkbVariant = "";
-    libinput = {
-      enable = true;
-      touchpad.tapping = false;
-      touchpad.naturalScrolling = true;
-      touchpad.scrollMethod = "twofinger";
-      touchpad.disableWhileTyping = true;
-      touchpad.clickMethod = "clickfinger";
-    };
-
+    libinput.enable = true;
+    libinput.touchpad.tapping = false;
+    libinput.touchpad.naturalScrolling = true;
+    libinput.touchpad.scrollMethod = "twofinger";
+    libinput.touchpad.disableWhileTyping = true;
+    libinput.touchpad.clickMethod = "clickfinger";
     exportConfiguration = true;
-
   };
 
+  #---------------------------------------------------------------------
   # Update microcode when available
+  #---------------------------------------------------------------------
   hardware.cpu.intel.updateMicrocode =
     config.hardware.enableRedistributableFirmware;
 
-  # Enable Intel GPU in NixOS
-  services.xserver = {
-    videoDrivers = [ "modesetting" ]; # Use the dedicated Intel driver
-  };
-
+  #---------------------------------------------------------------------
   # Additional kernel parameters
-  boot.kernelParams = [
-    #  "i915.enable_dc=1"
-    #  "i915.enable_fbc=1"
-    #  "i915.enable_psr=1"
-    #  "i915.modeset=1"
-    #  "i915.fastboot=1"    
-  ];
+  #---------------------------------------------------------------------
+  boot.kernelParams = [ "intel_pstate=ondemand" ];
 
+  #---------------------------------------------------------------------
   # Hardware video acceleration and compatibility for Intel GPUs
+  #---------------------------------------------------------------------
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
@@ -66,20 +60,28 @@ with lib;
     ];
   };
 
+  #---------------------------------------------------------------------
   # Power management
-  powerManagement.enable = true;
-  services.upower.enable = true;
+  #---------------------------------------------------------------------
   environment.systemPackages = [ pkgs.acpi ];
   hardware.bluetooth.powerOnBoot = false;
   networking.networkmanager.wifi.powersave = true;
+  powerManagement.enable = true;
+  services.upower.enable = true;
 
+  #---------------------------------------------------------------------
   # CPU performance scaling
+  #---------------------------------------------------------------------
   services.thermald.enable = true;
 
+  #---------------------------------------------------------------------
   # Disable auto-cpufreq to prevent conflicts
+  #---------------------------------------------------------------------
   services.auto-cpufreq.enable = false;
 
+  #---------------------------------------------------------------------
   # Enable TLP for better power management with Schedutil governor
+  #---------------------------------------------------------------------
   services.tlp.enable = true;
 
   services.tlp.settings = {

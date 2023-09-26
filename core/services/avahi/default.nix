@@ -11,14 +11,17 @@
   services.avahi = {
     enable = true;
     nssmdns = true;
+    openFirewall = true;
+
     publish = {
       addresses = true;
       domain = true;
+      enable = true;
       hinfo = true;
       userServices = true;
       workstation = true;
-      enable = true;
     };
+
     extraServiceFiles = {
       smb = ''
         <?xml version="1.0" standalone='no'?><!--*-nxml-*-->
