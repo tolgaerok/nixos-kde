@@ -14,9 +14,9 @@
 
     ../../core
     ../../core/gpu/nvidia/nvidia-stable-opengl # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./EliteDesk-800-G1-hardware-configuration.nix
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
+    ./EliteDesk-800-G1-hardware-configuration.nix
 
   ];
 

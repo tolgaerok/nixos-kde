@@ -12,12 +12,12 @@
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
   boot = {
+    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     extraModulePackages = [ ];
     initrd.kernelModules = [ "nvidia" ];
     kernelModules = [ "kvm-intel" "nvidia" ];
     kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "mitigations=off" ];
-    blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     initrd.availableKernelModules = [
       "ahci"
       "ehci_pci"
