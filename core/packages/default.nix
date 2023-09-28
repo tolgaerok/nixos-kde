@@ -7,6 +7,7 @@
 
   imports = [
 
+    # ./plasma-manager/plasma-config.nix
     ./custom-pkgs
     ./flatpak
     ./internet
