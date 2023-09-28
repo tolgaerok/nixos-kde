@@ -24,7 +24,7 @@
       # Likely to cause problems on laptops and with screen tearing if disabled.
       #---------------------------------------------------------------------
 
-      powerManagement.enable = true;
+      powerManagement.enable = true; # Fix Suspend issue
 
       #---------------------------------------------------------------------
       # Optionally, you may need to select the appropriate driver version for your specific GPU.

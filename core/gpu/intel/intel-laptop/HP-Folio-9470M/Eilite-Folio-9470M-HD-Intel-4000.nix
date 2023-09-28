@@ -24,7 +24,7 @@ with lib;
   #---------------------------------------------------------------------
   services.xserver = {
     videoDrivers = [ "modesetting" ]; # Use the dedicated Intel driver
-    layout = "au";
+    # layout = "au";
     xkbVariant = "";
     libinput.enable = true;
     libinput.touchpad.tapping = false;
@@ -66,10 +66,15 @@ with lib;
   environment.systemPackages = [ pkgs.acpi pkgs.powertop ];
   hardware.bluetooth.powerOnBoot = false;
   networking.networkmanager.wifi.powersave = true;
-  powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
   services.power-profiles-daemon.enable = false;
   services.upower.enable = true;
+
+  #---------------------------------------------------------------------
+  # Enable power management (do not disable this unless you have a reason to).
+  # Likely to cause problems on laptops and with screen tearing if disabled.
+  #---------------------------------------------------------------------
+  powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
 
   #---------------------------------------------------------------------
   # CPU performance scaling
