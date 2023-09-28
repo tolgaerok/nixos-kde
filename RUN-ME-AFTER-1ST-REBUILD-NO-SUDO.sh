@@ -1,14 +1,5 @@
-#!/usr/bin/env nix-shell
-#! nix-shell -i bash -p bash
 #!/usr/bin/env bash
-#!/run/current-system/sw/bin/bash
-
-# Personal nixos post set-up!
-# Tolga Erok. ¯\_(ツ)_/¯
-# 20/8/23.
-
-# control how the script behaves when certain conditions are met
-# set -eux
+set -x
 
 RED='\e[1;31m'
 GREEN='\e[1;32m'
@@ -24,6 +15,11 @@ if [ "$(id -u)" -eq 0 ]; then
   exit 1
 fi
 
+# -----------------------------------------------------------------------------------
+# Install some  agents
+# -----------------------------------------------------------------------------------
+
+
 start_time=$(date +%s)
 current_dir=$(pwd)
 clear
@@ -32,6 +28,7 @@ clear
 # First etc/nixos backup
 # -----------------------------------------------------------------------------------
 nixos-archive
+# -----------------------------------------------------------------------------------
 
 # -----------------------------------------------------------------------------------
 # He's ALIVE!!
