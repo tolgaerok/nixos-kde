@@ -52,11 +52,12 @@ with lib;
   hardware.opengl = {
     enable = true;
     extraPackages = with pkgs; [
+      intel-gmmlib
       intel-media-driver
+      intel-ocl
+      libvdpau-va-gl
       vaapiIntel
       vaapiVdpau
-      libvdpau-va-gl
-      intel-gmmlib
     ];
   };
 
