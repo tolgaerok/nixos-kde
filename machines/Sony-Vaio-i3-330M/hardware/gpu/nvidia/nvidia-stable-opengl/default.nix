@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }:
 
-with lib;
-
 {
   #---------------------------------------------------------------------
   # Nvidia drivers - NixOS wiki and help from David Turcotte.

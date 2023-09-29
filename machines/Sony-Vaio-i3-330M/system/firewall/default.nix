@@ -1,12 +1,12 @@
-{ config, options, lib, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
 
   networking = {
 
     enableIPv6 = true;
 
+    # What to display on other platform's network browsers
+    # hostName = "nixos";
     networkmanager.enable = true;
-
-    # services.samba-wsdd.enable = true; # make shares visible for windows 10 clients
 
     # Configure firewall to your likings:
     firewall = {
@@ -21,18 +21,26 @@
       #--------------------------------------------------------------------- 
 
       allowedTCPPorts = [
-        # FTP
-        21
+        # Docker
+        2375
         # DNS
         53
-        # HTTP
-        80
+        # FTP
+        21
         # HTTPS
         443
+        # HTTP
+        80
         # IMAP
         143
         # LDAP
         389
+        # MySQL/MariaDB
+        3306
+        # NFS
+        2049
+        # PostgreSQL
+        5432
         # Samba
         139
         445
@@ -40,58 +48,23 @@
         25
         # SSH
         22
-        # PostgreSQL
-        5432
-        # MySQL/MariaDB
-        3306
-        3307
-        # NFS
-        111
-        2049
-        # Docker
-        2375
-        # Syncthing port
-        22000
         # Transmission
         9091
         60450
-        # For gnomecast server
-        80
-        8010
-        8888
-        # wsdd : samba
-        5357
-        # Open KDE Connect
-        {
-          from = 1714;
-          to = 1764;
-        }
-        # Teamviewer
-        5938
+        # Custom port
+        22000
       ];
 
-      allowedUDPPorts = [
-        # DNS
+      allowedUDPPorts = [ # DNS
         53
         # NetBIOS Name Service
         137
         # NetBIOS Datagram Service
         138
-        # wsdd : samba
-        3702
-        # For device discovery
-        5353
-        # Syncthing port
-        21027
-        # Teamviewer
-        5938
-        # Open KDE Connect
-        {
-          from = 1714;
-          to = 1764;
-        }
-        # Syncthing port
+        # Custom port
         22000
+        # Custom port
+        21027
       ];
 
       #--------------------------------------------------------------------- 

@@ -179,7 +179,7 @@
                                      #     $ fortune | cowsay -e ^^   
                                      #     $ fortune | cowsay | lolcat
 
-      fish                           # Smart and user-friendly command line shell
+      # fish                           # Smart and user-friendly command line shell
       flatpak                        # Linux application sandboxing and distribution framework
       fortune                        # unstr rot strfile fortune
       # libsForQt5.kdenetwork-filesharing
@@ -391,6 +391,15 @@
 
       deepin.deepin-calculator      # An easy to use calculator for ordinary users
       wpsoffice                     # Office suite, formerly Kingsoft Office
+
+      #---------------------------------------------------------------------
+      # Office and Productivity:
+      #---------------------------------------------------------------------
+      
+      megasync          # Easy automated syncing between your computers and your MEGA Cloud Drive
+      onedrive          # A complete tool to interact with OneDrive on Linux
+      rclone            # Command line program to sync files and directories to and from major cloud storage
+      rclone-browser    # Graphical Frontend to Rclone written in Qt
 
     ];
   };
