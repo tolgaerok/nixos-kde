@@ -56,8 +56,8 @@
         # Fun stuff
         #---------------------------------------------------------------------
 
-        icons = "sxiv -t /home/tolga/Pictures/icons";
-        wp = "sxiv -t /home/tolga/Pictures/Wallpapers";
+        icons = "sxiv -t $HOME/Pictures/icons";
+        wp = "sxiv -t $HOME/Pictures/Wallpapers";
 
         #---------------------------------------------------------------------
         # File access
