@@ -107,18 +107,6 @@ echo -e "${BLUE}Group ID:${NC} $group_id"
 sleep 2
 
 # -----------------------------------------------------------------------------------
-# Give full permissions to the nix.conf file
-# -----------------------------------------------------------------------------------
-
-if [[ -n "$user_name" && -n "$group_name" ]]; then
-    echo "experimental-features = nix-command flakes" | sudo -u "$user_name" tee "$config_dir/nix.conf"
-    chmod 644 "$config_dir/nix.conf" # Set read permissions for user, group, and others
-else
-    echo -e "${RED}[✘]${NC} Failed to retrieve non-root user and group information."
-    sleep 3
-fi
-
-# -----------------------------------------------------------------------------------
 # Function to read user input and prompt for input
 # -----------------------------------------------------------------------------------
 
@@ -145,18 +133,6 @@ echo -e "${YELLOW}┌──($(whoami)@$(hostname))-[$(pwd)]${NC}"
 echo -n -e "${YELLOW}└─\$>>${NC} "
 read username
 echo ""
-
-# -----------------------------------------------------------------------------------
-# Set umask value
-# -----------------------------------------------------------------------------------
-
-umask 0002
-
-# -----------------------------------------------------------------------------------
-# Set permissions for the shared folder and parent directories (excluding hidden files and .cache directory)
-# -----------------------------------------------------------------------------------
-
-find "$shared_folder" -type d ! -path '/.' ! -path '/.cache' -exec chmod 0757 {} \; 2>/dev/null
 
 # -----------------------------------------------------------------------------------
 # Create the sambashares group if it doesn't exist
