@@ -19,7 +19,6 @@ fi
 # Install some  agents
 # -----------------------------------------------------------------------------------
 
-
 start_time=$(date +%s)
 current_dir=$(pwd)
 clear
@@ -96,7 +95,7 @@ echo -e "
 flatpak list --runtime
 echo ""
 
-echo -e "${GREEN}[✔]${NC} 
+echo -e "${GREEN}[✔]${NC}
 List of flatpak's installed on system:
 "
 flatpak list --app
@@ -176,14 +175,14 @@ wallpaper_file="wallpaper.jpg"
 # Check if the source image file exists
 if [ ! -f "$source_file" ]; then
   echo "Error: Source image file not found."
-  exit 1
+  sleep 2
 fi
 
 # Copy the image file to the picture folder
 cp "$source_file" "$picture_folder/$wallpaper_file"
 if [ $? -ne 0 ]; then
   echo "Failed to copy the image file to the picture folder."
-  exit 1
+  sleep 2
 fi
 
 # Set the wallpaper using KDE's command-line tool
@@ -262,22 +261,6 @@ current_user_group=$(id -gn)
 echo "Current user: $current_user" && sleep 1
 echo "Current user's primary group: $current_user_group" && sleep 1
 
-# Change ownership to the current user and their primary group
-sudo chown -R $current_user:$current_user_group /etc/nixos
-
-# Make all files executable
-sudo find /etc/nixos -type f -exec chmod +x {} +
-
-# Set appropriate directory permissions
-sudo chmod -R 750 /etc/nixos
-
-# Run the script PART-B-WITH-SUDO.sh with superuser privileges
-
-# yellow='\033[1;33m'  # Define yellow color
-# reset='\033[0m'      # Reset text color
-# sudo echo -e "${yellow}[!]${reset}[Running Part (B) ...]" && sudo konsole -T "Post setup for $user_name " -geometry 1099x530 -e "/etc/nixos/SETUP/My-SSH.sh"
-
-# espeak -s 165 "Initiating!   Part 2!   setup!   stand!       by!"
 sudo ./PART-B-WITH-SUDO.sh $(id -u)
 
 # Return to the original directory
