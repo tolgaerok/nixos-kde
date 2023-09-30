@@ -393,13 +393,17 @@
       wpsoffice                     # Office suite, formerly Kingsoft Office
 
       #---------------------------------------------------------------------
-      # Office and Productivity:
+      # New additions:
       #---------------------------------------------------------------------
       
       megasync          # Easy automated syncing between your computers and your MEGA Cloud Drive
       onedrive          # A complete tool to interact with OneDrive on Linux
       rclone            # Command line program to sync files and directories to and from major cloud storage
       rclone-browser    # Graphical Frontend to Rclone written in Qt
+      glances           # glances   : Cross-platform curses-based monitoring tool
+
+
+
 
     ];
   };
