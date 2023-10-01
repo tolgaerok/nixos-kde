@@ -66,6 +66,7 @@ sudo flatpak update -y
 packages=(
   com.sindresorhus.Caprine
   org.kde.kweather
+  org.fedoraproject.MediaWriter
 )
 
 # -----------------------------------------------------------------------------------
