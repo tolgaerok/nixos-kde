@@ -92,14 +92,10 @@
     description = "shaz mason";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      firefox kate espeak-classic glances
-      notify-desktop hw-probe inotify-tools
-      ripgrep ripgrep-all cowsay gum libnotify
-      fortune flatpak
 
-
-
-    #  thunderbird
+      cowsay gum libnotify firefox kate espeak-classic glances
+      fortune flatpak notify-desktop hw-probe inotify-tools ripgrep ripgrep-all
+   
     ];
   };
 
