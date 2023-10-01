@@ -27,7 +27,7 @@
   };
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/73429928-8d51-40f2-b634-5db0727d0253";
+    device = "/dev/disk/by-uuid/2251e0b4-fe3b-4cfd-b0c6-3b0e5a9bc96b";
     fsType = "ext4";
 
     #---------------------------------------------------------------------
@@ -42,33 +42,38 @@
       "nodiratime"
 
     ];
+
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/29C0-CD1C";
+    device = "/dev/disk/by-uuid/E73E-5FCA";
     fsType = "vfat";
   };
 
-  fileSystems."/mnt/nixos_share" = {
-    device = "//192.168.0.20/LinuxData/HOME/PROFILES/NIXOS-23-05/TOLGA/";
-    fsType = "cifs";
-    options = let
-      automountOpts =
-        "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,x-systemd.requires=network.target";
-      uid =
-        "1000"; # Replace with your actual user ID, use `id -u <YOUR USERNAME>` to get your user ID
-      gid =
-        "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
-      vers = "3.1.1";
-      cacheOpts = "cache=loose";
-      credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
-    in [
-      "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},vers=${vers},${cacheOpts}"
-    ];
-  };
+  fileSystems."/mnt/sambashare" =
+
+    {
+      device = "//192.168.0.20/LinuxData/HOME/PROFILES/NIXOS-23-05/TOLGA/";
+      fsType = "cifs";
+      options = let
+        automountOpts =
+          "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,x-systemd.requires=network.target";
+        uid =
+          "1000"; # Replace with your actual user ID, use `id -u <YOUR USERNAME>` to get your user ID
+        gid =
+          "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
+        vers = "3.1.1";
+        cacheOpts = "cache=loose";
+        credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
+
+      in [
+        "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},vers=${vers},${cacheOpts}"
+      ];
+
+    };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/07ba5707-fb12-4c52-aa38-6a2c8525d5b0"; }];
+    [{ device = "/dev/disk/by-uuid/60d7ba76-84fb-4252-9ec9-abd5fbe25db7"; }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
