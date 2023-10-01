@@ -6,15 +6,42 @@
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules =
-    [ "xhci_pci" "ehci_pci" "ahci" "usb_storage" "sd_mod" "sdhci_pci" ];
-  boot.extraModulePackages = [ ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot = {
+
+    extraModulePackages = [ ];
+    initrd.kernelModules = [ ];
+    kernelModules = [ "kvm-intel" ];
+    kernelParams = [ "mitigations=off" ];
+    initrd.availableKernelModules = [
+
+      "ahci"
+      "ehci_pci"
+      "sd_mod"
+      "sdhci_pci"
+      "uas"
+      "usb_storage"
+      "usbhid"
+      "xhci_pci"
+
+    ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/73429928-8d51-40f2-b634-5db0727d0253";
     fsType = "ext4";
+
+    #---------------------------------------------------------------------
+    # Optimize SSD
+    #---------------------------------------------------------------------
+    options = [
+
+      "data=ordered"
+      "discard"
+      "errors=remount-ro"
+      "noatime"
+      "nodiratime"
+
+    ];
   };
 
   fileSystems."/boot" = {
