@@ -12,6 +12,7 @@
     ./flatpak
     ./internet
     ./packages.nix
+    ./vm
 
   ];
 

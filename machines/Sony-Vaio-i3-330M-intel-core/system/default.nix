@@ -8,13 +8,13 @@
 
   imports = [
 
+    # ./kernel-sysctl     # kernel tweaks
     #./boot-kernel
     ./bluetooth
-    # ./documentation
+    ./documentation
     ./env
     ./firewall
     ./fonts
-    # ./kernel-sysctl     # kernel tweaks
     ./network
 
   ];

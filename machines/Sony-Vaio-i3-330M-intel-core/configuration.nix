@@ -5,16 +5,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./hardware/gpu/intel/intel-laptop/HD4000/default.nix
-      ./nix
-      ./packages
-      ./programs
-      ./services
-      ./system
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./hardware/gpu/intel/intel-laptop/HD4000/default.nix
+    ./nix
+    ./packages
+    ./programs
+    ./services
+    ./system
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -36,7 +35,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_AU.UTF-8";
-
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_AU.UTF-8";
@@ -90,12 +88,39 @@
   users.users.shaz = {
     isNormalUser = true;
     description = "shaz mason";
-    extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.bash;
+    extraGroups = [
+
+      "adbusers"
+      "disk"
+      "docker"
+      "libvirtd"
+      "networkmanager"
+      "networkmanager"
+      "samba"
+      "smb"
+      "udev"
+      "wheel"
+      "wheel"
+
+    ];
     packages = with pkgs; [
 
-      cowsay gum libnotify firefox kate espeak-classic glances
-      fortune flatpak notify-desktop hw-probe inotify-tools ripgrep ripgrep-all
-   
+      cowsay
+      gum
+      libnotify
+      firefox
+      kate
+      espeak-classic
+      glances
+      fortune
+      flatpak
+      notify-desktop
+      hw-probe
+      inotify-tools
+      ripgrep
+      ripgrep-all
+
     ];
   };
 
@@ -112,10 +137,11 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  ];
+  environment.systemPackages = with pkgs;
+    [
+      #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      #  wget
+    ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -142,7 +168,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-    #---------------------------------------------------------------------
+  #---------------------------------------------------------------------
   # Automatic system upgrades, automatically reboot after an upgrade if
   # necessary
   #---------------------------------------------------------------------
