@@ -10,6 +10,16 @@ with lib;
   # Runs well on my GPU: NVIDIA GeForce GT 1030/PCIe/SSE2
   #---------------------------------------------------------------------
 
+  imports = [
+
+    #---------------------------------------------------------------------
+    # Nvidia virtulation for Docker/Virtulization
+    #---------------------------------------------------------------------
+
+    #./nvidia-docker.nix
+
+  ];
+
   hardware = {
     nvidia = {
       modesetting.enable = true;
