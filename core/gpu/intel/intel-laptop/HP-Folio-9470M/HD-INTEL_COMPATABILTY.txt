@@ -1,0 +1,11 @@
+Compatibility Note:
+
+The Nix snippet (Eilite-Folio-9470M-HD-Intel-4000.nix) located in core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix is compatible with the following 
+laptops equipped with HD Mesa GPU:
+
+1. Apple MacBook Pro 9.2
+2. HP Elite Folio 9470M (i7 variant)
+3. HP ProBook 6460b
+4. Sony Vaio with Intel Core i3-330M
+
+Ensure that the respective hardware configurations match the requirements specified in the Nix snippet for seamless compatibility and optimal performance.
