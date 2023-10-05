@@ -13,12 +13,12 @@
   imports = [
 
     #---------------------------------------------------------------------
-    # Laptop: HP-i7-Eilte-Folio-9470M
+    # Laptop: HP-i7-3615QM x 4 -Eilte-Folio-9470M Intel HD Graphics 4000
     #---------------------------------------------------------------------
     # ./machines/HP-i7-Eilte-Folio-9470M/HP-FOLIO-configuration.nix
 
     #---------------------------------------------------------------------
-    # Main machine: HP-i7-EliteDesk-800-G1-SFF
+    # Main: HP-i7-4770 x 8 -EliteDesk-800-G1-SFF Nvidia GT-1030
     #---------------------------------------------------------------------
     ./machines/HP-i7-EliteDesk-800-G1-SFF/EliteDesk-800-G1-configuration.nix
 

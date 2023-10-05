@@ -6,15 +6,15 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
     ./core
+    ./hardware-configuration.nix
     ./user/tolga/tolga.nix
 
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.enable = true;
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "vm-nixos"; # Define your hostname.
