@@ -16,7 +16,8 @@
     ./env
     ./firewall
     ./fonts
-    ./kernel-sysctl # kernel tweaks
+    ./kernel-sysctl/SSD-28GB-default.nix       # kernel tweaks for laptop with SSD & 8GB RAM
+    # ./kernel-sysctl/SSD-default.nix               # kernel tweaks for laptop (General)
     ./network
 
   ];
