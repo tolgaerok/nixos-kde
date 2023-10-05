@@ -15,11 +15,13 @@
     ./mounter.nix
     ./my-nix-commands.nix
     ./my-pkgs.nix
+    ./nixos-archive.nix
+    ./nixos-post-setup.nix
+    ./nixos-tweak.nix
     ./rsync-back-up.nix
     ./rsync-home-to-server.nix
     ./unmounter.nix
     ./update.nix
-    ./nixos-archive.nix
 
   ];
 
