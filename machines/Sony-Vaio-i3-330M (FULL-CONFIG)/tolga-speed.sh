@@ -1,49 +1,65 @@
 #!/bin/bash
 
-# tolga
-# ./tolga-speed.sh sda
+    # Personal nixos-tweaker
+    # Tolga Erok. ¯\_(ツ)_/¯
+    # 5/10/23
 
-# -----------------------------------------------------
-# Check if the correct number of arguments is provided
-# -----------------------------------------------------
+    # Automatic detection of the primary device
+    device=$(lsblk -o NAME,TYPE -nr | awk '$2 == "disk" {print $1; exit}')
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <device>"
-    exit 1
-fi
+    # Check if a valid device was found
+    if [ -z "$device" ]; then
+        echo "No valid device found."
+        exit 1
+    fi
 
-device=$1
+    echo "Detected device: $device"
 
-# -----------------------------------------------------
-# Check if the device exists
-# -----------------------------------------------------
+    # Determine if the device is an SSD or HDD
+    if [[ $(cat "/sys/block/$device/queue/rotational") -eq 1 ]]; then
+        device_type="HDD"
 
-if [ ! -e "/sys/block/$device" ]; then
-    echo "Device $device not found."
-    exit 1
-fi
-# -----------------------------------------------------
-# Set the I/O scheduler to "deadline"
-# -----------------------------------------------------
+        # Set the I/O scheduler to "deadline" for HDDs
+        echo -e "\e[97mSetting I/O scheduler to 'deadline' for $device\e[0m"
+        echo "deadline" | sudo tee "/sys/block/$device/queue/scheduler"
 
-echo "Setting I/O scheduler to 'deadline' for $device"
-echo "deadline" | sudo tee "/sys/block/$device/queue/scheduler"
+        # Set block read-ahead buffer for HDDs
+        echo -e "\e[97mSetting block read-ahead buffer to 2048 for $device\e[0m"
+        sudo blockdev --setra 2048 "/dev/$device"
+    else
+        device_type="SSD"
 
-# -----------------------------------------------------
-# Set vm.dirty_ratio and vm.dirty_background_ratio
-# -----------------------------------------------------
+        # Set the I/O scheduler to "none" for SSDs
+        echo -e "\e[97mSetting I/O scheduler to 'none' for $device\e[0m"
+        echo "none" | sudo tee "/sys/block/$device/queue/scheduler"
 
-echo "Setting vm.dirty_ratio to 5"
-echo 5 | sudo tee /proc/sys/vm/dirty_ratio
+        # Enable TRIM (discard) for SSDs
+        echo -e "\e[97mEnabling TRIM for $device\e[0m"
+        sudo fstrim -v /
+    fi
 
-echo "Setting vm.dirty_background_ratio to 3"
-echo 3 | sudo tee /proc/sys/vm/dirty_background_ratio
+    # Get the total RAM
+    total_ram=$(free -m | awk '/^Mem:/{print $2}')
+    echo -e "\e[93mDetected RAM: $total_ram MB\e[0m"
 
-# -----------------------------------------------------
-# Set block read-ahead buffer
-# -----------------------------------------------------
+    # Set vm.dirty_ratio and vm.dirty_background_ratio based on RAM amount
+    if [ "$total_ram" -gt 64000 ]; then
+        swappiness=5
+    elif [ "$total_ram" -gt 32000 ]; then
+        swappiness=10
+    elif [ "$total_ram" -gt 16000 ]; then
+        swappiness=20
+    elif [ "$total_ram" -gt 8000 ]; then
+        swappiness=40
+    else
+        swappiness=60
+    fi
 
-echo "Setting block read-ahead buffer to 2048"
-sudo blockdev --setra 2048 "/dev/$device"
+    echo -e "\e[93mSetting swappiness to $swappiness\e[0m"
+    sudo sysctl -w vm.swappiness=$swappiness
 
-echo "Configuration completed for $device."
+    # Reload systemd services to apply swappiness changes
+    echo -e "\e[93mReloading systemd services for swappiness changes\e[0m"
+    sudo systemctl daemon-reload
+
+    echo "Configuration completed for $device (Device Type: $device_type)."
