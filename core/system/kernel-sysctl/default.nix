@@ -22,9 +22,17 @@
     "vm.min_free_kbytes" = 65536;               # Minimum free memory for safety (in KB), can help prevent memory exhaustion situations
     "vm.swappiness" = 10;                       # how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM,
     "vm.vfs_cache_pressure" = 80;               # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
+    
+    # SSD tweaks: These settings optimize disk write behavior by reducing delay and improving performance
+    "vm.dirty_background_ratio" = "5";          # Set the ratio of dirty memory at which background writeback starts (5%)
+    "vm.dirty_expire_centisecs" = "3000";       # Set the time at which dirty data is old enough to be eligible for writeout (3000 centiseconds)
+    "vm.dirty_ratio" = "10";                    # Set the ratio of dirty memory at which a process is forced to write out dirty data (10%)
+    "vm.dirty_time" = "0";                      # Disable dirty time accounting
+    "vm.dirty_writeback_centisecs" = "500";     # Set the interval between two consecutive background writeback passes (500 centiseconds)
+                  
   };
 
-}
+} 
 
 # -----------------------------------------------------------------
 # Summary of my configuration

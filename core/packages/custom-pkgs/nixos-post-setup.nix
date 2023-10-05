@@ -5,43 +5,29 @@ let
   nixos-post-setup = pkgs.writeScriptBin "nixos-post-setup" ''
     #!/usr/bin/env bash
 
-    set -x
+    # Personal nixos post setup
+    # Tolga Erok. ¯\_(ツ)_/¯
+    # 9/9/2023
 
-    RED='\e[1;31m'
-    GREEN='\e[1;32m'
-    YELLOW='\e[1;33m'
-    BLUE='\e[1;34m'
-    CYAN='\e[1;36m'
-    WHITE='\e[1;37m'
-    ORANGE='\e[1;93m'
-    NC='\e[0m'
-
-    if [ "$(id -u)" -eq 0 ]; then
-      echo -e "\n${RED}[✘]${NC} ${YELLOW} ERROR! ${NC} $(basename "$0") should be run as a ${GREEN}regular${NC} user\n"
-      exit 1
-    fi
+    # set -x
 
     # -----------------------------------------------------------------------------------
     # Install some  agents
     # -----------------------------------------------------------------------------------
-
     start_time=$(date +%s)
     current_dir=$(pwd)
     clear
 
     # -----------------------------------------------------------------------------------
     # First etc/nixos backup
-    # -----------------------------------------------------------------------------------
+    # 
     nixos-archive
-    # -----------------------------------------------------------------------------------
 
     # -----------------------------------------------------------------------------------
     # He's ALIVE!!
-    # -----------------------------------------------------------------------------------
+    # 
     espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
     espeak -v en+m7 -s 165 "Copying!   fonts!    wallpapers!   and    creating!  the!   basic!   setup! for   your     system. " --punct=","
-
-
 
     # Paths
     font_folder="/etc/nixos/SETUP/fonts"
@@ -80,9 +66,7 @@ let
     cp -r "$wallpapers_src" "$wallpapers_dest"
     notify-send --icon=litedesktop --app-name="DONE" "Wallpaper folder moved into $(whoami)" "$wallpapers_dest" -u normal
 
-
     # Create directories in the user's home directory
-
     mkdir -p ~/Desktop
     mkdir -p ~/Documents
     mkdir -p ~/Downloads
@@ -104,52 +88,6 @@ let
     notify-send --icon=litedesktop --app-name="DONE" "$(whoami) home folders created" " in $HOME" -u normal
     sleep 2
 
-    # Change Wallpaper
-    clear
-
-    echo "Setting up Desktop wallpaper"
-
-    # Get the script's folder path
-    script_folder="$(cd "$(dirname "${BASH_SOURCE [ 0 ]}")" && pwd)"
-
-    # Specify the source image file path
-    source_file="/etc/nixos/SETUP/wallpapers/arc-mountain.png"
-    #source_file="/etc/nixos/SETUP/wallpapers/nix.png"
-
-    # Specify the destination picture folder path
-    picture_folder="$HOME/Pictures"
-
-    # Specify the destination wallpaper file name
-    wallpaper_file="wallpaper.jpg"
-
-    # Check if the source image file exists
-    if [ ! -f "$source_file" ]; then
-      echo "Error: Source image file not found."
-      sleep 2
-    fi
-
-    # Copy the image file to the picture folder
-    cp "$source_file" "$picture_folder/$wallpaper_file"
-    if [ $? -ne 0 ]; then
-      echo "Failed to copy the image file to the picture folder."
-      sleep 2
-    fi
-
-    # Set the wallpaper using KDE's command-line tool
-    command="qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript"
-    script="
-    var allDesktops = desktops();
-    for (i=0;i<allDesktops.length;i++) {
-        d = allDesktops[i];
-        d.wallpaperPlugin = 'org.kde.image';
-        d.currentConfigGroup = Array('Wallpaper', 'org.kde.image', 'General');
-        d.writeConfig('Image', 'file://$picture_folder/$wallpaper_file');
-        d.writeConfig('FillMode', '2');
-    }"
-    eval "$command \"$script\""
-
-    echo "Desktop Wallpaper set successfully."
-    sleep1
     clear
     espeak -v en-us+m7 -s 165 "Scripts! fonts! and! wallpapers! have been! moved! to your home! directory! and permissions set!"
     echo "Scripts, fonts and wallpapers folders have been moved to your home directory and permissions set."
@@ -194,68 +132,44 @@ let
 
     original_user_id=$1
 
-    echo -e "${RED}[✘]${NC} This section must be run as root..."
+    echo -e "[✘] This section must be run as root..."
     sleep 1
 
     sudo nix-env -iA nixos.libnotify
-
-    # -----------------------------------------------------------------------------------
-    # -------------------- Check if Script is Run as Root -------------------------------
-    # -----------------------------------------------------------------------------------
-
-    if [ "$(id -u)" -ne 0 ]; then
-        echo -e "${RED}[✘]${NC} This section must be run as root."
-        exit 1
-    else
-        echo -e "${GREEN}[✔]${NC}PASSED: Logged as root, continuing...\n"
-        sleep 2
-
-        # -----------------------------------------------------------------------------------
-        # Install notify agents
-        # -----------------------------------------------------------------------------------
-        nix-env -iA nixos.libnotify
-        nix-env -iA nixos.notify-desktop
-        clear
-    fi
+    sudo nix-env -iA nixos.notify-desktop
 
     # -----------------------------------------------------------------------------------
     # Flatpak section
     # -----------------------------------------------------------------------------------
-
-    echo -e "${GREEN}[✔]${NC} Install Flatpak apps..\n"
+    echo -e "[✔] Install Flatpak apps..\n"
 
     # -----------------------------------------------------------------------------------
     # Enable Flatpak
     # -----------------------------------------------------------------------------------
-
     if ! flatpak remote-list | grep -q "flathub"; then
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     else
-      echo -e "${GREEN}[✔]${NC} Flatpak enabled...\n"
+      echo -e "[✔] Flatpak enabled...\n"
       sleep 2
     fi
 
     # -----------------------------------------------------------------------------------
     # Update Flatpak
     # -----------------------------------------------------------------------------------
-
-    echo -e "${GREEN}[✔]${NC} Updating cache, this will take a while..\n"
+    echo -e "[✔] Updating cache, this will take a while..\n"
     sudo flatpak update -y
 
     # -----------------------------------------------------------------------------------
     # Install Flatpak apps
     # -----------------------------------------------------------------------------------
-
-    flatpak install -y flathub com.sindresorhus.Caprine 
+    flatpak install -y flathub com.sindresorhus.Caprine
     flatpak install -y flathub org.kde.kweather
     flatpak install -y flathub org.fedoraproject.MediaWriter
-
 
     # -----------------------------------------------------------------------------------
     # List all flatpak
     # -----------------------------------------------------------------------------------
-
-    echo -e "${GREEN}[✔]${NC} Show Flatpak info:"
+    echo -e "[✔] Show Flatpak info:"
     su - "$USER" -c "flatpak remote-list"
     echo ""
 
@@ -265,20 +179,16 @@ let
     flatpak list --runtime
     echo ""
 
-    echo -e "${GREEN}[✔]${NC}
+    echo -e "[✔]
     List of flatpak's installed on system:
     "
     flatpak list --app
     echo ""
 
-
-
     # -----------------------------------------------------------------------------------
     # Fix nixos horrible allowance to custom packages
     # -----------------------------------------------------------------------------------
     export NIXPKGS_ALLOW_INSECURE=1
-
-
 
     # -----------------------------------------------------------------------------------
     # For fun
@@ -288,13 +198,13 @@ let
     # -----------------------------------------------------------------------------------
     # Say hello
     # -----------------------------------------------------------------------------------
-    espeak -v # espeak -v en-us+m7 "Thank you for using my configuration."
-    espeak -v # espeak -v en-us+m7 -s 165 "Welcome! To    Part    2! set  up! initiate! samba!  and   user!  Groops.     " --punct=","
+    espeak -v espeak -v en-us+m7 "Thank you for using my configuration."
+    espeak -v espeak -v en-us+m7 -s 165 "Welcome! To    Part    2! set  up! initiate! samba!  and   user!  Groops.     " --punct=","
 
     # -----------------------------------------------------------------------------------
     # Create user/group
     # -----------------------------------------------------------------------------------
-    echo -e "${GREEN}[✔]${NC} Time to create smb user & group\n"
+    echo -e "[✔] Time to create smb user & group\n"
     sleep 2
 
     create-smb-user
@@ -304,8 +214,7 @@ let
     # -----------------------------------------------------------------------------------
     # Pause and continue
     # -----------------------------------------------------------------------------------
-
-    echo -e "${GREEN}[ 🎃 ]${NC} SMB user and Samba group added\n"
+    echo -e "[ 🎃 ] SMB user and Samba group added\n"
     read -r -n 1 -s -t 1
 
     clear
@@ -313,35 +222,31 @@ let
     # -----------------------------------------------------------------------------------
     # Define user and group IDs here
     # -----------------------------------------------------------------------------------
-
     user_id=$(id -u "$SUDO_USER")
     group_id=$(id -g "$SUDO_USER")
 
     # -----------------------------------------------------------------------------------
     # Get the user and group names using the IDs
     # -----------------------------------------------------------------------------------
-
     user_name=$(id -un "$user_id")
     group_name=$(getent group "$group_id" | cut -d: -f1)
 
-    echo -e "${GREEN} ¯\_(ツ)_/¯ ${NC} User info of: ${BLUE} "$user_name" ${NC}\n"
+    echo -e " ¯\_(ツ)_/¯  User info of: "$user_name" \n"
 
     # -----------------------------------------------------------------------------------
     # Display user information
     # -----------------------------------------------------------------------------------
-
-    echo -e "${GREEN}User Information${NC}"
-    echo -e "${BLUE}Username:${NC} $user_name"
-    echo -e "${BLUE}User ID:${NC} $user_id"
-    echo -e "${BLUE}Group Name:${NC} $group_name"
-    echo -e "${BLUE}Group ID:${NC} $group_id"
+    echo -e "User Information"
+    echo -e "Username: $user_name"
+    echo -e "User ID: $user_id"
+    echo -e "Group Name: $group_name"
+    echo -e "Group ID: $group_id"
 
     sleep 2
 
     # -----------------------------------------------------------------------------------
     # Function to read user input and prompt for input
     # -----------------------------------------------------------------------------------
-
     prompt_input() {
         read -p "$1" value
         echo "$value"
@@ -352,44 +257,38 @@ let
     # -----------------------------------------------------------------------------------
     # Configure Samba Filesharing Plugin for a user
     # -----------------------------------------------------------------------------------
-
-    echo -e "\nCreate and configure the Samba Filesharing Plugin..."
+    # echo -e "\nCreate and configure the Samba Filesharing Plugin..."
 
     # -----------------------------------------------------------------------------------
     # Prompt for the desired username to configure Samba Filesharing Plugin
     # -----------------------------------------------------------------------------------
-
-    echo -e "${GREEN}[ 🎃 ]${NC} Enter the username to configure Samba Filesharing Plugin for:"
-    echo ""
-    echo -e "${YELLOW}┌──($(whoami)@$(hostname))-[$(pwd)]${NC}"
-    echo -n -e "${YELLOW}└─\$>>${NC} "
-    read username
-    echo ""
+    # echo -e "[ 🎃 ] Enter the username to configure Samba Filesharing Plugin for:"
+    # echo ""
+    # echo -e "┌──($(whoami)@$(hostname))-[$(pwd)]"
+    # echo -n -e "└─\$>> "
+    # read username
+    # echo ""
 
     # -----------------------------------------------------------------------------------
     # Create the sambashares group if it doesn't exist
     # -----------------------------------------------------------------------------------
-
     sudo groupadd -r sambashares
 
     # -----------------------------------------------------------------------------------
     # Create the usershares directory and set permissions
     # -----------------------------------------------------------------------------------
-
-    sudo mkdir -p /var/lib/samba/usershares
-    sudo chown "$username:sambashares" /var/lib/samba/usershares
-    sudo chmod 1777 /var/lib/samba/usershares
+    # sudo mkdir -p /var/lib/samba/usershares
+    # sudo chown "$username:sambashares" /var/lib/samba/usershares
+    # sudo chmod 1777 /var/lib/samba/usershares
 
     # -----------------------------------------------------------------------------------
     # Add the user to the sambashares group
     # -----------------------------------------------------------------------------------
-
-    sudo gpasswd sambashares -a "$username"
+    # sudo gpasswd sambashares -a "$username"
 
     # -----------------------------------------------------------------------------------
     # Recheck to allow insecure packages
     # -----------------------------------------------------------------------------------
-
     export NIXPKGS_ALLOW_INSECURE=1
 
     clear
@@ -397,19 +296,17 @@ let
     # -----------------------------------------------------------------------------------
     # Rebuild system
     # -----------------------------------------------------------------------------------
-
     nixos-update
-    clear && echo -e "${GREEN}[✔]${NC} System updated\n"
+    clear && echo -e "[✔] System updated\n"
     sleep 2
 
     # -----------------------------------------------------------------------------------
     # Install wps fonts
     # -----------------------------------------------------------------------------------
-
-    clear && echo -e "${GREEN}[✔]${NC} Installing custom fonts for ${BLUE} WPS${NC}\n"
+    clear && echo -e "[✔] Installing custom fonts for  WPS\n"
     sleep 1
 
-    echo -e "\n${GREEN}[✔]${NC} Downloading custom fonts for ${BLUE} WPS${NC}\n"
+    echo -e "\n[✔] Downloading custom fonts for  WPS\n"
 
     sudo mkdir -p ~/.local/share/fonts
     wget https://github.com/tolgaerok/fonts-tolga/raw/main/WPS-FONTS.zip
@@ -422,8 +319,7 @@ let
     # -----------------------------------------------------------------------------------
     # make home directory executable
     # -----------------------------------------------------------------------------------
-
-    clear && echo -e "${GREEN}[✔]${NC} Almost finished\n"
+    clear && echo -e "[✔] Almost finished\n"
     cd $HOME
 
     make-executable
@@ -434,13 +330,11 @@ let
     my-nix && mylist && neofetch
     wps
 
-
     # -----------------------------------------------------------------------------------
     # Done
     # -----------------------------------------------------------------------------------
-
     espeak -v en+m7 -s 165 "Hewston!     we!   have!     finished!   " --punct=","
-    clear && echo -e "${GREEN}[✔]${NC} Setup finished\n"
+    clear && echo -e "[✔] Setup finished\n"
     clear && read -p "Press enter then control + c on next screen to exit cmatrix..."
 
     cmatrix
@@ -466,9 +360,7 @@ let
     # -----------------------------------------------------------------------------------
     # Probe system specs
     # -----------------------------------------------------------------------------------
-
     sudo -E hw-probe -all -upload
-
 
     # Return to the original directory
     cd "$current_dir"
