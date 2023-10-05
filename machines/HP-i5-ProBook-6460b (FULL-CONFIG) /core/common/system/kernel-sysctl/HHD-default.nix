@@ -1,12 +1,14 @@
-## Kernel Tweaks for Optimizing Performance
+{ config, pkgs, ... }:
 
-## This document outlines various kernel settings using sysctl parameters to optimize system performance, memory usage, disk writeback behavior, and network settings.
-
-## sysctl Configuration
-
+# Control how and when data is written from memory to disk, which can have an impact on system performance and responsiveness.  
+# useful for optimizing memory usage, disk writeback behavior, network settings, and other low-level kernel behaviors.
 
 {
   boot.kernel.sysctl = {
+
+    #---------------------------------------------------------------------
+    #   Network and memory-related optimizationss
+    #---------------------------------------------------------------------
     "kernel.sysrq" = 1;                         # Enable SysRQ for rebooting the machine properly if it freezes. [Source](https://oglo.dev/tutorials/sysrq/index.html)
     "net.core.netdev_max_backlog" = 30000;      # Help prevent packet loss during high traffic periods.
     "net.core.rmem_default" = 131072;           # Default socket receive buffer size, improving network performance and applications that use sockets.
@@ -23,11 +25,14 @@
     "vm.swappiness" = 20;                        # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. (Adjusted for 4GB RAM)
     "vm.vfs_cache_pressure" = 100;               # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. (Adjusted for 4GB RAM)
     
+    #---------------------------------------------------------------------
     # HDD tweaks: Adjust settings for an HDD to optimize performance.
+    #---------------------------------------------------------------------
     "vm.dirty_background_ratio" = "10";         # Set the ratio of dirty memory at which background writeback starts (10% for HDD).
     "vm.dirty_expire_centisecs" = "6000";       # Set the time at which dirty data is old enough to be eligible for writeout (6000 centiseconds for HDD).
     "vm.dirty_ratio" = "20";                    # Set the ratio of dirty memory at which a process is forced to write out dirty data (20% for HDD).
     "vm.dirty_time" = "0";                      # Disable dirty time accounting.
     "vm.dirty_writeback_centisecs" = "1000";    # Set the interval between two consecutive background writeback passes (1000 centiseconds for HDD).
   };
+
 }
