@@ -3,10 +3,12 @@
 # Control how and when data is written from memory to disk, which can have an impact on system performance and responsiveness.  
 # useful for optimizing memory usage, disk writeback behavior, network settings, and other low-level kernel behaviors.
 
-# Kernel tweaks
 {
   boot.kernel.sysctl = {
 
+    #---------------------------------------------------------------------
+    #   Network and memory-related optimizationss
+    #---------------------------------------------------------------------
     "kernel.sysrq" = 1;                         # SysRQ for is rebooting their machine properly if it freezes: SOURCE: https://oglo.dev/tutorials/sysrq/index.html
     "net.core.netdev_max_backlog" = 30000;      # Help prevent packet loss during high traffic periods.
     "net.core.rmem_default" = 131072;           # Default socket receive buffer size, improve network performance & applications that use sockets
@@ -23,7 +25,10 @@
     "vm.swappiness" = 10;                       # how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM,
     "vm.vfs_cache_pressure" = 80;               # Adjust vfs_cache_pressure (0-1000), how the kernel reclaims memory used for caching filesystem objects
     
-    # SSD tweaks: These settings optimize disk write behavior by reducing delay and improving performance
+    #---------------------------------------------------------------------
+    #   SSD tweaks: These settings optimize disk write behavior by reducing 
+    #   delay and improving performance
+    #---------------------------------------------------------------------
     "vm.dirty_background_ratio" = "5";          # Set the ratio of dirty memory at which background writeback starts (5%)
     "vm.dirty_expire_centisecs" = "3000";       # Set the time at which dirty data is old enough to be eligible for writeout (3000 centiseconds)
     "vm.dirty_ratio" = "10";                    # Set the ratio of dirty memory at which a process is forced to write out dirty data (10%)
@@ -35,7 +40,7 @@
 } 
 
 # -----------------------------------------------------------------
-# Summary of my configuration
+#     Summary of my configuration
 # -----------------------------------------------------------------
 
 # Network Performance Settings:

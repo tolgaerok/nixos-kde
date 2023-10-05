@@ -17,19 +17,22 @@
 
   ];
 
-  # Bootloader.
+  # -----------------------------------------------------------------
+  #   Bootloader.
+  # -----------------------------------------------------------------
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "HP_ProBook"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.hostName = "HP_ProBook"; # Define your hostname. 
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
+  # -----------------------------------------------------------------
+  #   Allow for the creation of a filesystem view based on environment variables,
+  # -----------------------------------------------------------------
   services = { envfs = { enable = true; }; };
 
+  # -----------------------------------------------------------------
+  #   D-Bus allows applications to communicate with each other and with the system.
+  # -----------------------------------------------------------------
   services = {
     dbus = {
       enable = true;
@@ -37,13 +40,24 @@
     };
   };
 
+  # -----------------------------------------------------------------
+  #   Enable flatpak
+  # -----------------------------------------------------------------
   services.flatpak.enable = true;
 
-  # For the sandboxed apps to work correctly, desktop integration portals need to be installed.
+  # -----------------------------------------------------------------
+  #   For the sandboxed apps to work correctly, desktop integration portals need to be installed.
+  # -----------------------------------------------------------------
   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
+  # -----------------------------------------------------------------
+  #   Enable fstrim for SSD 
+  # -----------------------------------------------------------------
   services = { fstrim = { enable = true; }; };
 
+  # -----------------------------------------------------------------
+  #   Enable avahi for printing
+  # -----------------------------------------------------------------
   services.avahi = {
     enable = true;
     nssmdns = true;
@@ -74,18 +88,20 @@
   };
 
   #---------------------------------------------------------------------
-  # Allow unfree packages
+  #   Allow unfree packages
   #---------------------------------------------------------------------
   environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
   nixpkgs.config.allowUnfree = true;
-
   nixpkgs.config.permittedInsecurePackages = [ "openssl-1.1.1u" ];
 
   #---------------------------------------------------------------------
-  # Enable the OpenSSH daemon.
+  #   Enable the OpenSSH daemon.
   #---------------------------------------------------------------------
   services.openssh.enable = true;
 
+  # -----------------------------------------------------------------
+  #   Custom program settings 
+  # -----------------------------------------------------------------
   programs = {
     # command-not-found.enable = false;
 
@@ -96,22 +112,20 @@
       shellAliases = {
 
         #---------------------------------------------------------------------
-        # Nixos related
+        #   Nixos related
         #---------------------------------------------------------------------
-
-        # rbs2 =        "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
+        # rbs2 =  "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
         garbage = "sudo nix-collect-garbage --delete-older-than 7d";
         lgens =   "sudo nix-env --profile /nix/var/nix/profiles/system --list-generations";
         neu =     "sudo nix-env --upgrade";
         nopt =    "sudo nix-store --optimise";
         rbs =     "sudo nixos-rebuild switch";
-        rebuild-all = "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot && sudo fstrim -av";
-        switch =  "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
+        rebuild-all =  "sudo nix-collect-garbage --delete-old && sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot && sudo fstrim -av";
+        switch =       "sudo nixos-rebuild switch -I nixos-config=$HOME/nixos/configuration.nix";
 
         #---------------------------------------------------------------------
-        # Personal scripts
+        #   Personal scripts
         #---------------------------------------------------------------------
-
         htos =    "sudo ~/scripts/MYTOOLS/scripts/Zysnc-Options/ZYSNC-HOME-TO-SERVER.sh";
         master =  "sudo ~/scripts/MYTOOLS/main.sh";
         mount =   "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/MOUNT-ALL.sh";
@@ -122,9 +136,8 @@
         umount =  "sudo ~/scripts/MYTOOLS/scripts/Mounting-Options/UMOUNT-ALL.sh";
 
         #---------------------------------------------------------------------
-        # Navigate files and directories
+        #   Navigate files and directories
         #---------------------------------------------------------------------
-
         # cd = "cd ..";
         cl = "clear";
         copy = "rsync -P";
@@ -134,21 +147,20 @@
         lsla = "lsd -la";
 
         #---------------------------------------------------------------------
-        # Fun stuff
+        #   Fun stuff
         #---------------------------------------------------------------------
-
         icons = "sxiv -t $HOME/Pictures/icons";
         wp = "sxiv -t $HOME/Pictures/Wallpapers";
 
         #---------------------------------------------------------------------
-        # File access
+        #   File access
         #---------------------------------------------------------------------
         cp = "cp -riv";
         mkdir = "mkdir -vp";
         mv = "mv -iv";
 
         #---------------------------------------------------------------------
-        # GitHub related
+        #   GitHub related
         #---------------------------------------------------------------------
 
         gitfix = "git fetch origin main && git diff --exit-code origin/main";
@@ -157,13 +169,19 @@
     };
   };
 
-  # Enable networking
+  # -----------------------------------------------------------------
+  #   Enable networking
+  # -----------------------------------------------------------------
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # -----------------------------------------------------------------
+  #   Set your time zone.
+  # -----------------------------------------------------------------
   time.timeZone = "Australia/Perth";
 
-  # Select internationalisation properties.
+  # -----------------------------------------------------------------
+  #   Select internationalisation properties.
+  # -----------------------------------------------------------------
   i18n.defaultLocale = "en_AU.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -178,23 +196,33 @@
     LC_TIME = "en_AU.UTF-8";
   };
 
-  # Enable the X11 windowing system.
+  # -----------------------------------------------------------------
+  #   Enable the X11 windowing system.
+  # -----------------------------------------------------------------
   services.xserver.enable = true;
 
-  # Enable the KDE Plasma Desktop Environment.
+  # -----------------------------------------------------------------
+  #   Enable the KDE Plasma Desktop Environment.
+  # -----------------------------------------------------------------
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-  # Configure keymap in X11
+  # -----------------------------------------------------------------
+  #   Configure keymap in X11
+  # -----------------------------------------------------------------
   services.xserver = {
     layout = "au";
     xkbVariant = "";
   };
 
-  # Enable CUPS to print documents.
+  # -----------------------------------------------------------------
+  #   Enable CUPS to print documents.
+  # -----------------------------------------------------------------
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # -----------------------------------------------------------------
+  #   Enable sound with pipewire.
+  # -----------------------------------------------------------------
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -203,18 +231,17 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
 
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # -----------------------------------------------------------------
+  #   Enable touchpad support (enabled default in most desktopManager).
+  # -----------------------------------------------------------------
+  services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # -----------------------------------------------------------------
+  #   Define a user account. Don't forget to set a password with ‘passwd’.
+  # -----------------------------------------------------------------
   users.users.tolga = {
     isNormalUser = true;
     description = "tolga erok";
@@ -226,8 +253,6 @@
     ];
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs;
     [
       #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -235,8 +260,8 @@
     ];
 
   #---------------------------------------------------------------------
-  # Automatic system upgrades, automatically reboot after an upgrade if
-  # necessary
+  #   Automatic system upgrades, automatically reboot after an upgrade if
+  #   necessary
   #---------------------------------------------------------------------
   # system.autoUpgrade.allowReboot = true;  # Very annoying .
   system.autoUpgrade.enable = true;

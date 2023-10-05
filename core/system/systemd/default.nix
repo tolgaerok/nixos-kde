@@ -5,7 +5,7 @@
   config.environment.systemPackages = with pkgs; [ gparted ];
 
   #---------------------------------------------------------------------
-  # Systemd tmpfiles rules for system directories
+  #   Systemd tmpfiles rules for system directories
   #---------------------------------------------------------------------
   systemd = {
 
@@ -24,7 +24,7 @@
   };
 
   #---------------------------------------------------------------------
-  # Systemd tmpfiles rules for user's home directory
+  #   Systemd tmpfiles rules for user's home directory
   #---------------------------------------------------------------------
   #systemd.user.tmpfiles.rules = lib.optionalString (username == "tolga") [
   
