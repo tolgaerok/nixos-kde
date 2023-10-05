@@ -18,13 +18,13 @@
   #---------------------------------------------------------------------
   boot.initrd.availableKernelModules = [
 
-    "ehci_pci"
     "ahci"
+    "ehci_pci"
     "firewire_ohci"
-    "usb_storage"
     "sd_mod"
-    "sr_mod"
     "sdhci_pci"
+    "sr_mod"
+    "usb_storage"
 
   ];
 
