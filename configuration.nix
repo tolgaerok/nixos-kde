@@ -13,14 +13,24 @@
   imports = [
 
     #---------------------------------------------------------------------
-    # Laptop: HP-i7-3615QM x 4 -Eilte-Folio-9470M Intel HD Graphics 4000
+    # Laptop: HP-i5-2520M x 4 ProBook 6460b Intel HD Graphics 3000
     #---------------------------------------------------------------------
-    # ./machines/HP-i7-Eilte-Folio-9470M/HP-FOLIO-configuration.nix
+    # ./machines/HP-i5-ProBook-6460b (FULL-CONFIG)/configuration.nix
 
     #---------------------------------------------------------------------
-    # Main: HP-i7-4770 x 8 -EliteDesk-800-G1-SFF Nvidia GT-1030
+    # Laptop: HP-i7-3615QM x 4 EliteBook Folio 9470M Intel HD Graphics 4000
+    #---------------------------------------------------------------------
+    # ./machines/HP-i7-Folio-9470M (FULL-CONFIG)/configuration.nix
+
+    #---------------------------------------------------------------------
+    # Main: HP-i7-4770 x 8 EliteDesk 800 G1 SFF Nvidia GT-1030
     #---------------------------------------------------------------------
     ./machines/HP-i7-EliteDesk-800-G1-SFF/EliteDesk-800-G1-configuration.nix
+
+    #---------------------------------------------------------------------
+    # Laptop: Sony Vaio VPCEB13FG i3-330M x 2 Intel HD Graphics
+    #---------------------------------------------------------------------
+    # ./machines/Sony-Vaio-i3-330M (FULL-CONFIG)/configuration.nix
 
   ];
 
