@@ -1,0 +1,37 @@
+#---------------------------------------------------------------------
+# How these paramaters are calculated:
+#---------------------------------------------------------------------
+
+The following settings, nestled within the 'sysctl Configuration,' are like instructions for the computer's memory management. 
+They tell the computer how to handle its tasks, particularly when it needs to save information to the hard drive (a.k.a. 'work'). 
+
+* The first setting is like saying, 'Start saving work in the background when the to-do list is about 5% full.' 
+* The second setting sets a time limit for how long a task can wait before it must be done. 
+* The third setting says, 'When the to-do list hits 10%, drop everything and get to work!' 
+* The fourth setting is about not worrying about exactly when a task arrived, just that it's on the to-do list. 
+* The last setting determines how often someone checks the to-do list. 
+
+Altogether, these instructions help the computer be efficient and not get overwhelmed.
+
+Let's break it down in simpler terms:
+
+1. **`vm.dirty_background_ratio` (Background Writeback Start)**:
+   - Imagine your computer has a bucket to hold all the work it needs to do. This bucket can hold up to 100 units of work. We say that when this bucket is 5% full, the computer starts doing some of that work in the background.
+   - So, if you have 16GB of memory, when about 5% (or around 819MB) of that memory is filled with "work" (data that needs to be saved to the disk), the computer starts saving it in the background.
+
+2. **`vm.dirty_expire_centisecs` (Age Limit for Work)**:
+   - Imagine the work in the bucket has a time stamp. We say that if a piece of work (data) in the bucket is older than 60 seconds, the computer will take it out of the bucket and save it to the disk.
+   - It's like saying, "If a task (work) has been waiting for more than a minute, let's get it done and save it!"
+
+3. **`vm.dirty_ratio` (Forcing to Do Work)**:
+   - When the bucket of work is 10% full, the computer says, "Okay, we can't wait anymore. Let's stop everything and start doing this work right now."
+   - It's like saying, "If the bucket is getting quite full (10%), we better stop everything and start finishing the tasks (saving data to disk)."
+
+4. **`vm.dirty_time` (Timing of Work)**:
+   - This setting just means we're not keeping track of exactly when each piece of work (data) was put in the bucket. We don't care about individual timings; we just care about the overall amount of work and when to do it.
+
+5. **`vm.dirty_writeback_centisecs` (How Often to Work)**:
+   - Imagine someone checking the bucket of work every 5 minutes to see if there's anything that needs to be done. If they see work, they start doing it.
+   - It's like saying, "Every 5 minutes, let's see if there's work to be done. If there is, let's start doing it."
+
+These settings help the computer manage its tasks (saving data to disk) efficiently, ensuring that important work gets done in a timely manner and without overwhelming the system.

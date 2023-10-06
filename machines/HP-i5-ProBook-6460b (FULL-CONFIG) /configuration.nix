@@ -22,7 +22,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "HP_ProBook"; # Define your hostname.
+  networking.hostName = "HP-ProBook"; # Define your hostname.
 
   #---------------------------------------------------------------------
   #   Allow unfree packages
