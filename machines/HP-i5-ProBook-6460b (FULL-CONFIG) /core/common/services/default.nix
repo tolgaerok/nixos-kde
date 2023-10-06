@@ -10,13 +10,15 @@
     # ./thermald                # Uncomment for laptops
     # ./tlp                     # Uncomment for laptops
     # ./virtualisation           # BETA NEEDS TESTING
+
     ./avahi
     ./bluetooth-manager
-
+    ./dbus
+    ./envfs
+    ./flat-pak
     ./fstrim
     ./mysql
     ./openssh
-    
     ./samba
     ./scanner
     ./sddm
@@ -24,6 +26,6 @@
     ./udisks2
     ./xdg-portal
     ./xserver
-
+    
   ];
 }

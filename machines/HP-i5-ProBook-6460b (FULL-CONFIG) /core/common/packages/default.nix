@@ -7,9 +7,9 @@
 
   imports = [
 
-    # ./plasma-manager/plasma-config.nix
+    ./custom-pkgs
     ./internet
-
+    ./packages.nix
     ./vm
 
   ];

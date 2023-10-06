@@ -9,29 +9,25 @@ let
     # Tolga Erok. ¯\_(ツ)_/¯
     # 9/9/2023
 
-    set -x
-
+    # set -x
 
     # -----------------------------------------------------------------------------------
     # Install some  agents
     # -----------------------------------------------------------------------------------
-
     start_time=$(date +%s)
     current_dir=$(pwd)
     clear
 
     # -----------------------------------------------------------------------------------
     # First etc/nixos backup
-    # -----------------------------------------------------------------------------------
+    # 
     nixos-archive
 
     # -----------------------------------------------------------------------------------
     # He's ALIVE!!
-    # -----------------------------------------------------------------------------------
-   espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
-   espeak -v en+m7 -s 165 "Copying!   fonts!    wallpapers!   and    creating!  the!   basic!   setup! for   your     system. " --punct=","
-
-
+    # 
+    espeak -v en+m7 -s 165 "Welcome! This script will! initiate! the! basic! setup! for your system. Thank you for using! my configuration." --punct=","
+    espeak -v en+m7 -s 165 "Copying!   fonts!    wallpapers!   and    creating!  the!   basic!   setup! for   your     system. " --punct=","
 
     # Paths
     font_folder="/etc/nixos/SETUP/fonts"
@@ -70,9 +66,7 @@ let
     cp -r "$wallpapers_src" "$wallpapers_dest"
     notify-send --icon=litedesktop --app-name="DONE" "Wallpaper folder moved into $(whoami)" "$wallpapers_dest" -u normal
 
-
     # Create directories in the user's home directory
-
     mkdir -p ~/Desktop
     mkdir -p ~/Documents
     mkdir -p ~/Downloads
@@ -147,13 +141,11 @@ let
     # -----------------------------------------------------------------------------------
     # Flatpak section
     # -----------------------------------------------------------------------------------
-
     echo -e "[✔] Install Flatpak apps..\n"
 
     # -----------------------------------------------------------------------------------
     # Enable Flatpak
     # -----------------------------------------------------------------------------------
-
     if ! flatpak remote-list | grep -q "flathub"; then
       sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     else
@@ -164,23 +156,19 @@ let
     # -----------------------------------------------------------------------------------
     # Update Flatpak
     # -----------------------------------------------------------------------------------
-
     echo -e "[✔] Updating cache, this will take a while..\n"
     sudo flatpak update -y
 
     # -----------------------------------------------------------------------------------
     # Install Flatpak apps
     # -----------------------------------------------------------------------------------
-
     flatpak install -y flathub com.sindresorhus.Caprine
     flatpak install -y flathub org.kde.kweather
     flatpak install -y flathub org.fedoraproject.MediaWriter
 
-
     # -----------------------------------------------------------------------------------
     # List all flatpak
     # -----------------------------------------------------------------------------------
-
     echo -e "[✔] Show Flatpak info:"
     su - "$USER" -c "flatpak remote-list"
     echo ""
@@ -226,7 +214,6 @@ let
     # -----------------------------------------------------------------------------------
     # Pause and continue
     # -----------------------------------------------------------------------------------
-
     echo -e "[ 🎃 ] SMB user and Samba group added\n"
     read -r -n 1 -s -t 1
 
@@ -235,14 +222,12 @@ let
     # -----------------------------------------------------------------------------------
     # Define user and group IDs here
     # -----------------------------------------------------------------------------------
-
     user_id=$(id -u "$SUDO_USER")
     group_id=$(id -g "$SUDO_USER")
 
     # -----------------------------------------------------------------------------------
     # Get the user and group names using the IDs
     # -----------------------------------------------------------------------------------
-
     user_name=$(id -un "$user_id")
     group_name=$(getent group "$group_id" | cut -d: -f1)
 
@@ -251,7 +236,6 @@ let
     # -----------------------------------------------------------------------------------
     # Display user information
     # -----------------------------------------------------------------------------------
-
     echo -e "User Information"
     echo -e "Username: $user_name"
     echo -e "User ID: $user_id"
@@ -263,7 +247,6 @@ let
     # -----------------------------------------------------------------------------------
     # Function to read user input and prompt for input
     # -----------------------------------------------------------------------------------
-
     prompt_input() {
         read -p "$1" value
         echo "$value"
@@ -274,44 +257,38 @@ let
     # -----------------------------------------------------------------------------------
     # Configure Samba Filesharing Plugin for a user
     # -----------------------------------------------------------------------------------
-
-    echo -e "\nCreate and configure the Samba Filesharing Plugin..."
+    # echo -e "\nCreate and configure the Samba Filesharing Plugin..."
 
     # -----------------------------------------------------------------------------------
     # Prompt for the desired username to configure Samba Filesharing Plugin
     # -----------------------------------------------------------------------------------
-
-    echo -e "[ 🎃 ] Enter the username to configure Samba Filesharing Plugin for:"
-    echo ""
-    echo -e "┌──($(whoami)@$(hostname))-[$(pwd)]"
-    echo -n -e "└─\$>> "
-    read username
-    echo ""
+    # echo -e "[ 🎃 ] Enter the username to configure Samba Filesharing Plugin for:"
+    # echo ""
+    # echo -e "┌──($(whoami)@$(hostname))-[$(pwd)]"
+    # echo -n -e "└─\$>> "
+    # read username
+    # echo ""
 
     # -----------------------------------------------------------------------------------
     # Create the sambashares group if it doesn't exist
     # -----------------------------------------------------------------------------------
-
     sudo groupadd -r sambashares
 
     # -----------------------------------------------------------------------------------
     # Create the usershares directory and set permissions
     # -----------------------------------------------------------------------------------
-
-    sudo mkdir -p /var/lib/samba/usershares
-    sudo chown "$username:sambashares" /var/lib/samba/usershares
-    sudo chmod 1777 /var/lib/samba/usershares
+    # sudo mkdir -p /var/lib/samba/usershares
+    # sudo chown "$username:sambashares" /var/lib/samba/usershares
+    # sudo chmod 1777 /var/lib/samba/usershares
 
     # -----------------------------------------------------------------------------------
     # Add the user to the sambashares group
     # -----------------------------------------------------------------------------------
-
-    sudo gpasswd sambashares -a "$username"
+    # sudo gpasswd sambashares -a "$username"
 
     # -----------------------------------------------------------------------------------
     # Recheck to allow insecure packages
     # -----------------------------------------------------------------------------------
-
     export NIXPKGS_ALLOW_INSECURE=1
 
     clear
@@ -319,7 +296,6 @@ let
     # -----------------------------------------------------------------------------------
     # Rebuild system
     # -----------------------------------------------------------------------------------
-
     nixos-update
     clear && echo -e "[✔] System updated\n"
     sleep 2
@@ -327,7 +303,6 @@ let
     # -----------------------------------------------------------------------------------
     # Install wps fonts
     # -----------------------------------------------------------------------------------
-
     clear && echo -e "[✔] Installing custom fonts for  WPS\n"
     sleep 1
 
@@ -344,7 +319,6 @@ let
     # -----------------------------------------------------------------------------------
     # make home directory executable
     # -----------------------------------------------------------------------------------
-
     clear && echo -e "[✔] Almost finished\n"
     cd $HOME
 
@@ -356,11 +330,9 @@ let
     my-nix && mylist && neofetch
     wps
 
-
     # -----------------------------------------------------------------------------------
     # Done
     # -----------------------------------------------------------------------------------
-
     espeak -v en+m7 -s 165 "Hewston!     we!   have!     finished!   " --punct=","
     clear && echo -e "[✔] Setup finished\n"
     clear && read -p "Press enter then control + c on next screen to exit cmatrix..."
@@ -388,9 +360,7 @@ let
     # -----------------------------------------------------------------------------------
     # Probe system specs
     # -----------------------------------------------------------------------------------
-
     sudo -E hw-probe -all -upload
-
 
     # Return to the original directory
     cd "$current_dir"
