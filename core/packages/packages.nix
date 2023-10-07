@@ -96,6 +96,10 @@
 
       ripgrep-all                     # Ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, and more
                                       # rga-preproc rga
+                                      # rga-fzf choose 
+
+      fzf                             # A command-line fuzzy finder written in Go
+
 
       # ---------------------------------------------------------------------
       # Utilities
@@ -226,8 +230,8 @@
       # Remote Access and Automation:
       # ---------------------------------------------------------------------
 
-      heroku                         # Everything you need to get started using Heroku
-      powershell                     # Powerful cross-platform (Windows, Linux, and macOS) shell and scripting language based on .NET
+      # heroku                         # Everything you need to get started using Heroku
+      # powershell                     # Powerful cross-platform (Windows, Linux, and macOS) shell and scripting language based on .NET
       sshpass                        # Non-interactive ssh password auth
       teamviewer                     # Desktop sharing application, providing remote support and online meetings
 
@@ -250,7 +254,7 @@
       kcalc               # Scientific calculator
       kgpg                # A KDE based interface for GnuPG, a powerful encryption utility
       krename
-      libsForQt5.qt5.qttools        # A cross-platform application framework for C++        
+      # libsForQt5.qt5.qttools      # A cross-platform application framework for C++        
                                     # qhelpgenerator linguist qtplugininfo qdistancefieldgenerator pixeltool 
                                     # qcollectiongenerator assistant qtdiag qdbusviewer lupdate qtpaths 
                                     # qtattributionsscanner lconvert designer lupdate-pro lrelease qdbus lprodump lrelease-pro
@@ -258,7 +262,7 @@
       libsForQt5.quazip             # Provides access to ZIP archives from Qt 5 programs
                                     # quazip
 
-      qt6.qttools                   # A cross-platform application framework for C++
+      # qt6.qttools                 # A cross-platform application framework for C++
                                     # assistant qtplugininfo qdbus lrelease linguist qtdiag6 qtdiag qdbusviewer 
                                     # qdistancefieldgenerator pixeltool lconvert lupdate designer
       
@@ -275,11 +279,11 @@
       # system tools
       # ---------------------------------------------------------------------
 
-      isoimagewriter                # isoimagewriter
+      # isoimagewriter                # isoimagewriter
       keepassxc                     # keepassxc keepassxc-cli keepassxc-proxy
       media-downloader              # media-downloader
-      testdisk-qt                   # testdisk photorec fidentify qphotorec
-      ventoy-full                   #  # A New Bootable USB Solution
+      # testdisk-qt                   # testdisk photorec fidentify qphotorec
+      # ventoy-full                   #  # A New Bootable USB Solution
                                     # ventoy   ventoy-persistent   ventoy-web   ventoy-plugson   ventoy-extend-persistent
 
       # ---------------------------------------------------------------------

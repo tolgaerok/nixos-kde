@@ -2,24 +2,32 @@
 
 {
   # ------------------------------------------
-  # Kde Desktop integration
+  # XDG Desktop Portal integration
   # ------------------------------------------
 
-  environment.systemPackages = with pkgs; [
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
 
-    # ------------------------------------------
-    # BAD CONFLICTS: NOT SURE WHY!
-    # ------------------------------------------
-    # libsForQt5.discover
-    # libsForQt5.bismuth
-    # libsForQt5.kio-gdrive
-    # libportal-qt5
-    # libsForQt5.kaccounts-integration
-    # libsForQt5.kaccounts-providers
-    # libsForQt5.packagekit-qt
-    # libsForQt5.qt5.qtgraphicaleffects
-    # libsForQt5.sddm-kcm
+    lxqt = {
+      enable = false;
+      styles = with pkgs;
+        with libsForQt5; [
+          qtstyleplugin-kvantum
+          breeze-qt5
+          qtcurve
+        ];
+    };
 
-  ];
+    # Turn Wayland off
+    wlr = { enable = true; };
+
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-kde
+      xdg-desktop-portal-wlr
+    ];
+
+  };
 
 }
