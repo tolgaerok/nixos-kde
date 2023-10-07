@@ -31,7 +31,13 @@
   boot.extraModulePackages = [ ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "mitigations=off" ];
+
+  boot.kernelParams = [
+
+    "mitigations=off"
+    "i915.enable_rc6=7"   # Only works on Intel HD Graphics 3000, which is found in the HP ProBook 6460p (Sandy Bridge architecture)
+
+  ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/29e28728-c9b9-42ed-bdfc-e063ef202434";
