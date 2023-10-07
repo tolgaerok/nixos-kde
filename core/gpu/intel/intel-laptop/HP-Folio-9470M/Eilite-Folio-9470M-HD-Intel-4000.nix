@@ -3,7 +3,8 @@
 with lib;
 
 #---------------------------------------------------------------------
-#   Works Well on HP Eilite Folio 9470M i7-3667u x 4 HD Intel GPU 4000 
+#   Works Well on various Intel Mesa HD GPU
+#   Read: core/gpu/intel/intel-laptop/HP-Folio-9470M/HD-INTEL_COMPATABILTY.txt
 #---------------------------------------------------------------------
 
 {
