@@ -10,7 +10,7 @@
 {
   imports = [
 
-    ../local/australia.nix
+    ../locale/australia.nix
     ./SOS/SOS.nix
     ./tolga/tolga.nix
     ./user-profile-pic
