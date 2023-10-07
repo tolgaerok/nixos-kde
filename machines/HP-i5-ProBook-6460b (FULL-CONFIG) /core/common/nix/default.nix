@@ -11,6 +11,7 @@ in {
     ./dconf
     ./nixpkgs-config
   ];
+  
   #---------------------------------------------------------------------  
   # Nix-specific settings and garbage collection options - 
   # Mostly research from NixOS wiki
@@ -37,12 +38,5 @@ in {
       options = "--delete-older-than 30d";
     };
   };
-
-  #--------------------------------------------------------------------- 
-  # Misc
-  #--------------------------------------------------------------------- 
-
-  # services.fwupd.enable = true;
-  services.sshd.enable = true;
 
 }
