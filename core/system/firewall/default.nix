@@ -67,7 +67,7 @@
           to = 1764;
         }
         # Teamviewer
-        5938
+        # 5938
       ];
 
       allowedUDPPorts = [
@@ -84,7 +84,7 @@
         # Syncthing port
         21027
         # Teamviewer
-        5938
+       # 5938
         # Open KDE Connect
         {
           from = 1714;

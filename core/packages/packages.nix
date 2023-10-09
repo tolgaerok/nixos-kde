@@ -24,6 +24,10 @@
       # ---------------------------------------------------------------------
 
       atool                           # apack arepack als adiff atool aunpack acat
+                                      # atool -x WPS-FONTS.zip    ==> this extracts the compressed file
+                                      # atool -l WPS-FONTS.zip    ==> this lists the contents of the compressed file
+                                      # atool -a name-your-compression.rar 1.pdf 2.pdf 3.sh    ==> this adds indovidual files to the compressed file
+
       gzip                            # gunzip zmore zegrep zfgrep zdiff zcmp uncompress gzip znew zless zcat zforce gzexe zgrep
       lz4                             # lz4c lz4 unlz4 lz4cat
       lzip                            # lzip
@@ -234,6 +238,7 @@
       # powershell                     # Powerful cross-platform (Windows, Linux, and macOS) shell and scripting language based on .NET
       sshpass                        # Non-interactive ssh password auth
       teamviewer                     # Desktop sharing application, providing remote support and online meetings
+      anydesk
 
       # ---------------------------------------------------------------------
       # File Sharing & Network

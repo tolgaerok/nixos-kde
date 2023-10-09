@@ -10,9 +10,10 @@
 {
   imports = [
 
-    ../locale/australia.nix
-    ./SOS/SOS.nix
-    ./tolga/tolga.nix
+
+    ./SOS/SOS.nix     # uid = 1001;
+    ./brian/brian.nix # uid = 1003;
+    ./tolga/tolga.nix # uid = 1000;
     ./user-profile-pic
 
   ];

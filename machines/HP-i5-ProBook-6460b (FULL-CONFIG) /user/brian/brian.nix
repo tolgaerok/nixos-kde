@@ -10,18 +10,18 @@
 {
   imports = [
 
-    ../locale/austrlia.nix
+    ../locale/america.nix
 
   ];
 
   #---------------------------------------------------------------------
   # User Configuration
   #---------------------------------------------------------------------
-  users.users.tolga = {
-    homeMode = "0755";
+  users.users.brian = {
+    homeMode = "0777";
     isNormalUser = true;
-    description = "King_Tolga";
-    uid = 1000;
+    description = "Brian Francisco";
+    uid = 1003;
     extraGroups = [
       "adbusers"
       "audio"
@@ -54,11 +54,11 @@
     # Create new password => mkpasswd -m sha-512
     #---------------------------------------------------------------------
     hashedPassword =
-      "$6$wgzbg6pZEFLdCQSt$dMlwT7mjlP4P4tl06gyCpx9ufnxoMrVXHQhfoIEaQKQ/XOHnIlzL3py7Tocdd1GFe13O.prBfOm9MqBbfM6jO0";
+      "$6$Tu7yLQIHKegAKA8Z$heAAQqzb2WXyWJ2YHcIRBBDZgGmAN0ukjUyWRDQ23XcAzPW9zQb6Ai36htKq84FxgoLCIcIRl2J1XQNO6q1TW0";
 
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDrS+VQMWkyNZ70Ym/TZoozhPfLpj9Rx+IlswOK01ZVx kintolga@gmail.com"
-    ];
+    #   openssh.authorizedKeys.keys = [
+    #     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDrS+VQMWkyNZ70Ym/TZoozhPfLpj9Rx+IlswOK01ZVx kintolga@gmail.com"
+    #   ];
 
   };
 
@@ -69,7 +69,7 @@
     enable = true;
     systemCronJobs = [
 
-      "*/59 * * * * nixos-archive >> /home/tolga/test.log"
+      "*/59 * * * * nixos-archive >> /home/brian/test.log"
 
     ];
   };
