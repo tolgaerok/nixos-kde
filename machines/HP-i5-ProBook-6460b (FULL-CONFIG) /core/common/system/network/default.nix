@@ -1,13 +1,13 @@
 { config, hostname, pkgs, username, lib, ... }:
 
 #--------------------------------------------------------------------- 
-# Configuration for networking and samba
+#   Configuration for networking and samba
 #--------------------------------------------------------------------- 
 
 {
 
   #--------------------------------------------------------------------- 
-  # Modify autoconnect priority of the connection
+  #   Modify autoconnect priority of the connection for tolga's home
   #--------------------------------------------------------------------- 
 
   systemd.services.modify-autoconnect-priority = {
@@ -18,7 +18,7 @@
   };
 
   #--------------------------------------------------------------------- 
-  # Enable openssh
+  #   Enable openssh
   #--------------------------------------------------------------------- 
 
   services = { openssh = { enable = true; }; };

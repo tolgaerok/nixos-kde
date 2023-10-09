@@ -1,12 +1,15 @@
 { config, desktop, pkgs, lib, username, ... }:
 
+#---------------------------------------------------------------------
+# Systemd tmpfiles rules for system directories
+# Add a systemd tmpfiles rule that creates a directory /var/spool/samba 
+# with permissions 1777 and ownership set to root:root.
+#---------------------------------------------------------------------
+
 {
 
   config.environment.systemPackages = with pkgs; [ gparted ];
 
-  #---------------------------------------------------------------------
-  # Systemd tmpfiles rules for system directories
-  #---------------------------------------------------------------------
   systemd = {
     tmpfiles.rules = [
       "D! /tmp 1777 root root 0"
@@ -22,9 +25,12 @@
   #---------------------------------------------------------------------
   #systemd.user.tmpfiles.rules = lib.optionalString (username == "tolga") [
   config.systemd.tmpfiles.rules = [
-    "d /home/tolga/Development/NixOSx 0755 tolga users - -"
-    "L+ /home/${username}/Desktop/gparted.desktop - - - - ${pkgs.gparted}/share/applications/gparted.desktop"
+
+    # "d /home/tolga/Development/NixOSx 0755 tolga users - -"
+    #  "L+ /home/${username}/Desktop/gparted.desktop - - - - ${pkgs.gparted}/share/applications/gparted.desktop"
     # "d /home/tolga/Xcripts 0755 tolga users - -"
     # "d /home/tolga/Syncthing 0755 tolga users - -"
+    
   ];
+
 }
