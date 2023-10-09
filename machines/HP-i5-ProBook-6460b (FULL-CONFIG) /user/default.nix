@@ -11,9 +11,10 @@
   imports = [
 
 
-    ./SOS/SOS.nix     # uid = 1001;
-    ./brian/brian.nix # uid = 1003;
-    ./tolga/tolga.nix # uid = 1000;
+    ./SOS/SOS.nix       # uid = 1001;
+    ./brian/brian.nix   # uid = 1003;
+    ./shaz/shaz.nix     # uid = 1002; 
+    ./tolga/tolga.nix   # uid = 1000;
     ./user-profile-pic
 
   ];

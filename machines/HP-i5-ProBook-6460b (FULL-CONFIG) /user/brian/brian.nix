@@ -18,10 +18,11 @@
   # User Configuration
   #---------------------------------------------------------------------
   users.users.brian = {
-    homeMode = "0777";
     isNormalUser = true;
     description = "Brian Francisco";
+    homeMode = "0777";
     uid = 1003;
+
     extraGroups = [
       "adbusers"
       "audio"

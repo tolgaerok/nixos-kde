@@ -18,10 +18,11 @@
   # User Configuration
   #---------------------------------------------------------------------
   users.users.tolga = {
-    homeMode = "0755";
     isNormalUser = true;
     description = "King_Tolga";
+    homeMode = "0755";
     uid = 1000;
+
     extraGroups = [
       "adbusers"
       "audio"
