@@ -14,7 +14,9 @@
     tmpfiles.rules = [
       "D! /tmp 1777 root root 0"
       "D! /var/tmp 1777 root root 0"
-      "d /home/tolga/Development/NixOSx 0755 tolga users - -"
+
+      # "d /home/tolga/Development/NixOSx 0755 tolga users - -"
+      
       "d /var/spool/samba 1777 root root -"
       "r! /tmp/**/*"
     ];

@@ -3,7 +3,7 @@
 with lib;
 
 #---------------------------------------------------------------------
-#   Works Well on various Intel Mesa HD GPU
+# Works Well on various Intel Mesa HD GPU
 #---------------------------------------------------------------------
 
 {
@@ -63,8 +63,7 @@ with lib;
 
   #---------------------------------------------------------------------
   # Power management & Analyze power consumption on Intel-based laptops
-  #---------------------------------------------------------------------
-  environment.systemPackages = [ pkgs.acpi pkgs.powertop ];
+  #---------------------------------------------------------------------  
   hardware.bluetooth.powerOnBoot = false;
   networking.networkmanager.wifi.powersave = true;
   services.power-profiles-daemon.enable = false;
@@ -93,7 +92,6 @@ with lib;
   services.tlp.enable = true;
 
   services.tlp.settings = {
-
     AHCI_RUNTIME_PM_ON_BAT = "auto";
     CPU_BOOST_ON_AC = 1;
     CPU_BOOST_ON_BAT = 0;
@@ -115,9 +113,17 @@ with lib;
     TPACPI_ENABLE = 1;
     TPSMAPI_ENABLE = 1;
     WOL_DISABLE = "Y";
-
   };
 
-  # services.blueman.enable = lib.mkForce false;
-
+  #---------------------------------------------------------------------
+  # Extra laptop packages
+  #---------------------------------------------------------------------
+  environment.systemPackages = with pkgs; [
+    acpi
+    cpufrequtils
+    cpupower-gui
+    powerstat
+    powertop
+    tlp
+  ];
 }
