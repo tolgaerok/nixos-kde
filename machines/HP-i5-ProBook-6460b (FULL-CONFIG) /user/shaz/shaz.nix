@@ -10,7 +10,7 @@
 {
   imports = [
 
-    ../locale/austrlia.nix
+    ../../locale/australia.nix
 
   ];
 

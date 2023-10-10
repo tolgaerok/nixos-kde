@@ -4,7 +4,7 @@
 
   imports = [
 
-    ../locale/australia.nix
+    ../../locale/australia.nix
 
   ];
 
