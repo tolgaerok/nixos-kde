@@ -7,6 +7,8 @@
 {
   imports = [
 
+    # ./core/system-tweaks/kernel-upgrades/xanmod.nix
+    # ./core/system-tweaks/zram/zram-8GB-SYSTEM.nix
     ./core/common
     ./core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix
     ./core/system-tweaks/storage-tweaks/HHD/HHD-tweak.nix

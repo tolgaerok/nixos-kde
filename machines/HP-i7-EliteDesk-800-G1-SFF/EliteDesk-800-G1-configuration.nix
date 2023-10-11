@@ -12,8 +12,13 @@
 
   imports = [
 
+    # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix
+    # ../../core/system-tweaks/kernel-upgrades/xanmod.nix
     ../../core
     ../../core/gpu/nvidia/nvidia-stable-opengl # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix
+    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix
+    ../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
     ./EliteDesk-800-G1-hardware-configuration.nix
@@ -144,11 +149,5 @@
   system.copySystemConfiguration = true;
   system.stateVersion = "23.05";
   systemd.extraConfig = "DefaultTimeoutStopSec=10s";
-
-  #---------------------------------------------------------------------
-  # Enable memory compression for faster processing and less SSD usage
-  #---------------------------------------------------------------------
-
-  zramSwap.enable = true;
 
 }

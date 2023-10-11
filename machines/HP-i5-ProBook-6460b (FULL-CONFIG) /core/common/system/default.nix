@@ -16,6 +16,7 @@
     ./network
     ./sound
     ./systemd
+    ./filesystem-support
 
   ]; 
 
