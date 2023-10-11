@@ -12,13 +12,13 @@
 
   imports = [
 
-    # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix
-    ../../core/system-tweaks/kernel-upgrades/xanmod.nix
+    # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix          # Latest default NixOS kernel
     ../../core
-    ../../core/gpu/nvidia/nvidia-stable-opengl # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix
-    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix
-    ../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix
+    ../../core/gpu/nvidia/nvidia-stable-opengl                              # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix      # Kernel tweak for 28GB
+    ../../core/system-tweaks/kernel-upgrades/xanmod.nix                     # Xanmod kernel
+    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix               # SSD read & write tweaks
+    ../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                      # Zram tweak for 28GB
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
     ./EliteDesk-800-G1-hardware-configuration.nix
