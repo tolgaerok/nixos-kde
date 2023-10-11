@@ -8,7 +8,12 @@
 #---------------------------------------------------------------------
 
 {
-  imports = [ ../user-profile-pic ];
+  imports = [
+
+    ../../core/home-network/samba-share.nix
+    ../user-profile-pic
+
+  ];
 
   #---------------------------------------------------------------------
   # Set your time zone.

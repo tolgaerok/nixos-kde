@@ -13,7 +13,7 @@
   imports = [
 
     # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix
-    # ../../core/system-tweaks/kernel-upgrades/xanmod.nix
+    ../../core/system-tweaks/kernel-upgrades/xanmod.nix
     ../../core
     ../../core/gpu/nvidia/nvidia-stable-opengl # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix

@@ -28,7 +28,7 @@
 
     ];
 
-    kernelPackages = pkgs.linuxPackages_latest;
+    # kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [ "mitigations=off" ];
     initrd.availableKernelModules = [
 
