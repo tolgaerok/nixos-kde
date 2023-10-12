@@ -32,7 +32,7 @@
   #---------------------------------------------------------------------
 
   zramSwap.enable = true;
-  zramSwap.memoryMax = 4294967296;
+  zramSwap.memoryMax = 4294967296; # 4gb ram
   zramSwap.memoryPercent = 20;
 
 }
