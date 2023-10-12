@@ -1,8 +1,4 @@
-{ config, hostname, pkgs, username, lib, ... }:
-
-#--------------------------------------------------------------------- 
-#   Configuration for networking and samba
-#--------------------------------------------------------------------- 
+{ config, lib, ... }:
 
 {
 
@@ -16,11 +12,5 @@
       nmcli connection modify OPTUS_B27161 connection.autoconnect-priority 1
     '';
   };
-
-  #--------------------------------------------------------------------- 
-  #   Enable openssh
-  #--------------------------------------------------------------------- 
-
-  services = { openssh = { enable = true; }; };
 
 }
