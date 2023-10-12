@@ -51,6 +51,9 @@ with lib;
   #---------------------------------------------------------------------
   hardware.opengl = {
     enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+
     extraPackages = with pkgs; [
       intel-gmmlib
       intel-media-driver
