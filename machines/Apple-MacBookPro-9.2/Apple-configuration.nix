@@ -20,9 +20,6 @@
     ../../core
     ../../core/gpu
     ./Apple-hardware-configuration.nix
-    "${
-      builtins.fetchTarball "https://github.com/Mic92/envfs/archive/main.tar.gz"
-    }/modules/envfs.nix"
 
   ];
 
@@ -55,7 +52,7 @@
   # boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.consoleMode = "auto";
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
 
   services.devmon.enable = true;
   # services.gvfs.enable = true;
