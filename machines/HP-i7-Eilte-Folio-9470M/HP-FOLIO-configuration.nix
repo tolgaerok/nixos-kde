@@ -14,9 +14,12 @@
 
 {
   imports = [
-
+    # ../../core/system-tweaks/kernel-upgrades/xanmod.nix                                   # Xanmod kernel
     ../../core
     ../../core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix
+    ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix                        # Kernel tweak for 8GB
+    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix                               # SSD read & write tweaks
+    ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                                       # Zram tweak for 8GB
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
     ./HP-FOLIO-hardware-configuration.nix
@@ -41,29 +44,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   #---------------------------------------------------------------------
-  # Install a couple of basic, off the bat pkgs
-  #---------------------------------------------------------------------
-  environment.systemPackages = with pkgs; [
-
-    appimage-run
-    espeak-classic
-    firefox
-    kate
-
-    # direnv
-    # nix-direnv
-
-    #-----------------------------------------------------------------
-    # Extra Audio packages
-    #-----------------------------------------------------------------
-    alsa-utils
-    pavucontrol
-    pulseaudio
-    pulsemixer
-
-  ];
-
-  #---------------------------------------------------------------------
   # Enable networking
   #---------------------------------------------------------------------
   networking.networkmanager.enable = true;
@@ -71,27 +51,6 @@
   networking.networkmanager.connectionConfig = {
     "ethernet.mtu" = 1462;
     "wifi.mtu" = 1462;
-  };
-  #---------------------------------------------------------------------
-  # Set your time zone.
-  #---------------------------------------------------------------------
-  time.timeZone = "Australia/Perth";
-
-  #---------------------------------------------------------------------
-  # Select internationalisation properties.
-  #---------------------------------------------------------------------
-  i18n.defaultLocale = "en_AU.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_AU.UTF-8";
-    LC_IDENTIFICATION = "en_AU.UTF-8";
-    LC_MEASUREMENT = "en_AU.UTF-8";
-    LC_MONETARY = "en_AU.UTF-8";
-    LC_NAME = "en_AU.UTF-8";
-    LC_NUMERIC = "en_AU.UTF-8";
-    LC_PAPER = "en_AU.UTF-8";
-    LC_TELEPHONE = "en_AU.UTF-8";
-    LC_TIME = "en_AU.UTF-8";
   };
 
   #---------------------------------------------------------------------
