@@ -25,7 +25,6 @@ with lib;
   #---------------------------------------------------------------------
   services.xserver = {
     videoDrivers = [ "modesetting" ]; # Use the dedicated Intel driver
-    # layout = "au";
     xkbVariant = "";
     libinput.enable = true;
     libinput.touchpad.tapping = false;
