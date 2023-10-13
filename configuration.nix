@@ -23,9 +23,9 @@
     # ./machines/HP-i7-Folio-9470M (FULL-CONFIG)/configuration.nix
 
     #---------------------------------------------------------------------
-    # Main: HP-i7-4770 x 8 EliteDesk 800 G1 SFF Nvidia GT-1030
+    # Main: HP-i7-4770 x 8 EliteDesk G1 800 SFF Nvidia GT-1030
     #---------------------------------------------------------------------
-    ./machines/HP-i7-EliteDesk-800-G1-SFF/EliteDesk-800-G1-configuration.nix
+    ./machines/HP-i7-4770-EliteDesk-G1-800-SFF/EliteDesk-800-G1-configuration.nix
 
     #---------------------------------------------------------------------
     # Laptop: Sony Vaio VPCEB13FG i3-330M x 2 Intel HD Graphics
