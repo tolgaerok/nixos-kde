@@ -66,10 +66,12 @@
     options = [
 
       "data=ordered"
+      "defaults"
       "discard"
       "errors=remount-ro"
-      "noatime"
       "nodiratime"
+      "relatime"
+      # "noatime"
 
     ];
 
