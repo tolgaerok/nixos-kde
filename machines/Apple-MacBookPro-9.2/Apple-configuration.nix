@@ -47,15 +47,15 @@
   #---------------------------------------------------------------------
   # Bootloader and System Settings
   #---------------------------------------------------------------------
-  # boot.loader.grub.enable = true;
   # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.enable = true;
   # boot.loader.grub.useOSProber = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.consoleMode = "auto";
-  # boot.loader.systemd-boot.enable = true;
 
-  services.devmon.enable = true;
   # services.gvfs.enable = true;
+  services.devmon.enable = true;
   services.udisks2.enable = true;
 
   #---------------------------------------------------------------------
