@@ -55,12 +55,17 @@ with lib;
     driSupport32Bit = true;
 
     extraPackages = with pkgs; [
+
+      # nvidia-vaapi-driver
+      amdvlk
       intel-gmmlib
-      intel-media-driver
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
       intel-ocl
       libvdpau-va-gl
-      vaapiIntel
+      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       vaapiVdpau
+      vulkan-validation-layers
+
     ];
   };
 

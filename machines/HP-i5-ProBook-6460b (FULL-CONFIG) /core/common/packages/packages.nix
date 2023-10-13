@@ -403,8 +403,30 @@
       glances           # glances   : Cross-platform curses-based monitoring tool
 
 
+      #-----------------------------------------------------------------  
+      # Extra Audio packages
+      #-----------------------------------------------------------------
 
+      alsa-utils
+      pavucontrol
+      pulseaudio
+      pulsemixer
 
-    ];
+      #-----------------------------------------------------------------  
+      # Extra Misc packages
+      #-----------------------------------------------------------------
+
+      glxinfo
+      rocm-opencl-icd
+      rocm-opencl-runtime
+      libva
+      libva-utils
+      glxinfo
+
+      appimage-run
+      espeak-classic
+      firefox
+
+    ]; 
   };
 }

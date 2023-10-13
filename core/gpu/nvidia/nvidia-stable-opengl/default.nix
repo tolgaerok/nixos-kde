@@ -63,15 +63,15 @@ with lib;
       # Install additional packages that improve graphics performance and compatibility.
       #---------------------------------------------------------------------
 
-      extraPackages = with pkgs; [
-
-        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      extraPackages = with pkgs; [        
+        
+        amdvlk
+        intel-media-driver      # LIBVA_DRIVER_NAME=iHD
         libvdpau-va-gl
         nvidia-vaapi-driver
-        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        vaapiIntel              # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         vulkan-validation-layers
-
       ];
 
     };

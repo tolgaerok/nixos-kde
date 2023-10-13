@@ -13,6 +13,7 @@
   imports = [
 
     # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix          # Latest default NixOS kernel
+    # ../../core/system-tweaks/kernel-upgrades/zen.nix                      # Zen kernel
     ../../core
     ../../core/gpu/nvidia/nvidia-stable-opengl                              # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix      # Kernel tweak for 28GB

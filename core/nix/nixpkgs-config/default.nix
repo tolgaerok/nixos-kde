@@ -40,14 +40,6 @@
 
   programs = {
 
-    # type "fuck" to fix the last command that made you go "fuck"
-    # thefuck.enable = true;
-
-    # Please put eval "$(thefuck --alias)" in your ~/.bashrc and apply changes with source ~/.bashrc or restart your shell.
-    # Or run fuck a second time to configure it automatically.
-    # More details - https://github.com/nvbn/thefuck#manual-installation
-    # If fuck alias already configured, to apply run source ~/.bashrc or restart your shell.
-
     # allow users to mount fuse filesystems with allow_other
     fuse.userAllowOther = true;
 

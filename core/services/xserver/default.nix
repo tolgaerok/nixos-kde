@@ -4,7 +4,7 @@
   #---------------------------------------------------------------------
   # X11 and KDE Plasma
   #---------------------------------------------------------------------
-  
+
   services.xserver = {
     enable = true;
     layout = "au";
@@ -19,5 +19,17 @@
 
       };
     };
+
+    # default settings
+    videoDrivers = [
+
+      "amdgpu"
+      "radeon"
+      "nouveau"
+      "modesetting"
+      "fbdev"
+
+    ];
+    
   };
 }
