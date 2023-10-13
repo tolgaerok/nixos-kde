@@ -18,8 +18,13 @@
   imports = [
 
     ../../core
-    ../../core/gpu
+    ../../core/gpu/intel/intel-laptop
+    ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/28GB-SYSTEM.nix      # Kernel tweak for 8GB
+    ../../core/system-tweaks/kernel-upgrades/xanmod.nix                    # Xanmod kernel
+    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
+    ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                      # Zram tweak for 8GB
     ./Apple-hardware-configuration.nix
+    ./boot
 
   ];
 
@@ -44,16 +49,7 @@
   nixpkgs.config.permittedInsecurePackages =
     [ "openssl-1.1.1u" "openssl-1.1.1v" "electron-12.2.3" ];
 
-  #---------------------------------------------------------------------
-  # Bootloader and System Settings
-  #---------------------------------------------------------------------
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.useOSProber = true;
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.consoleMode = "auto";
-
+ 
   # services.gvfs.enable = true;
   services.devmon.enable = true;
   services.udisks2.enable = true;
@@ -135,7 +131,7 @@
     isNormalUser = true;
     description = "Brian Francisco";
 
-    homeMode = "0755"; # <-----  Copy from here
+    homeMode = "0777"; # <-----  Copy from here
     uid = 1000; # Replace with your specific UID
     extraGroups = [
       "adbusers"
