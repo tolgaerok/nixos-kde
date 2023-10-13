@@ -16,6 +16,13 @@
   #---------------------------------------------------------------------
   # Boot configuration
   #---------------------------------------------------------------------
+
+  # ---------------------------------------------------------------------
+  # Boot - Plymouth
+  # ---------------------------------------------------------------------
+  plymouth.enable = true;
+  plymouth.theme = "breeze";
+
   boot = {
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
     extraModulePackages = [ ];
@@ -28,8 +35,13 @@
 
     ];
 
-    # kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [ "mitigations=off" ];
+    kernelParams = [
+
+      "mitigations=off"
+      "quiet"
+
+    ];
+
     initrd.availableKernelModules = [
 
       "ahci"
