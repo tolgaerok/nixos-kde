@@ -16,9 +16,10 @@
     # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix              # Latest default NixOS kernel
     # ../../core/system-tweaks/kernel-upgrades/zen.nix                          # Zen kernel
 
-    ../../core/system-tweaks/kernel-upgrades/xanmod.nix                         # Xanmod kernel
     ../../core
+    ../../core/core/gpu/amd/opengl                                              # AMD opengl
     ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix            # Kernel tweak for 8GB    
+    ../../core/system-tweaks/kernel-upgrades/xanmod.nix                         # Xanmod kernel
     ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix                   # SSD read & write tweaks
     ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                           # Zram tweak for 8GB
     ../../user/SOS/SOS.nix
