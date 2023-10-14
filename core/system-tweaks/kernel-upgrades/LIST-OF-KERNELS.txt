@@ -1,0 +1,19 @@
+pkgs.linuxPackages                           pkgs.linuxPackages_latest
+pkgs.linuxPackages-libre                     pkgs.linuxPackages_latest-libre
+pkgs.linuxPackages-rt                        pkgs.linuxPackages_latest_hardened
+pkgs.linuxPackages-rt_5_4                    pkgs.linuxPackages_latest_xen_dom0
+pkgs.linuxPackages-rt_5_6                    pkgs.linuxPackages_latest_xen_dom0_hardened
+pkgs.linuxPackages-rt_latest                 pkgs.linuxPackages_mptcp
+pkgs.linuxPackagesFor                        pkgs.linuxPackages_rpi0
+pkgs.linuxPackages_4_14                      pkgs.linuxPackages_rpi1
+pkgs.linuxPackages_4_19                      pkgs.linuxPackages_rpi2
+pkgs.linuxPackages_4_4                       pkgs.linuxPackages_rpi3
+pkgs.linuxPackages_4_9                       pkgs.linuxPackages_rpi4
+pkgs.linuxPackages_5_4                       pkgs.linuxPackages_testing
+pkgs.linuxPackages_5_8                       pkgs.linuxPackages_testing_bcachefs
+pkgs.linuxPackages_5_9                       pkgs.linuxPackages_testing_hardened
+pkgs.linuxPackages_custom                    pkgs.linuxPackages_xen_dom0
+pkgs.linuxPackages_custom_tinyconfig_kernel  pkgs.linuxPackages_xen_dom0_hardened
+pkgs.linuxPackages_hardened                  pkgs.linuxPackages_zen
+pkgs.linuxPackages_hardkernel_4_14
+pkgs.linuxPackages_hardkernel_latest
