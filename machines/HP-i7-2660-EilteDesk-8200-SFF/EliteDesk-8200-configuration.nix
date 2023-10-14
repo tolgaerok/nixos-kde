@@ -17,29 +17,23 @@
     # ../../core/system-tweaks/kernel-upgrades/zen.nix                          # Zen kernel
 
     ../../core
-    ../../core/core/gpu/amd/opengl                                              # AMD opengl
-    ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix            # Kernel tweak for 8GB    
-    ../../core/system-tweaks/kernel-upgrades/xanmod.nix                         # Xanmod kernel
-    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix                   # SSD read & write tweaks
-    ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                           # Zram tweak for 8GB
+    ../../core/core/gpu/amd/opengl # AMD opengl
+    ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix # Kernel tweak for 8GB
+    ../../core/system-tweaks/kernel-upgrades/xanmod.nix # Xanmod kernel
+    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix # SSD read & write tweaks
+    ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix # Zram tweak for 8GB
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
-    ./EliteDesk-8200-hardware-configuration.nix                                 # With AMD GPU configurations
+    ./EliteDesk-8200-hardware-configuration.nix # With AMD GPU configurations
 
   ];
-
-  #---------------------------------------------------------------------
-  # Bootloader.
-  #---------------------------------------------------------------------
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  #---------------------------------------------------------------------
+ 
   # Name of your pc to appear on the Network
-  #---------------------------------------------------------------------
-
   networking.hostName = "HP_8200_AMD"; # Define your hostname.
 
   #---------------------------------------------------------------------

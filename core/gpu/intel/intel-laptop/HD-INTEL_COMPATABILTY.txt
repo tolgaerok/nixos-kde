@@ -1,0 +1,34 @@
+Compatibility Note:
+
+The Nix snippet (Eilite-Folio-9470M-HD-Intel-4000.nix) located in:
+
+    core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix
+
+is compatible with the following laptops equipped with HD Mesa GPU:
+
+1. **Apple MacBook Pro 9.2:**
+   - CPU: Intel Core i7-3615QM (Third Generation - Ivy Bridge)
+   - Cores: 4 cores, 8 threads
+   - Intel HD Graphics: Intel HD Graphics 4000
+
+2. **Dell Latitude E6540:**
+   - CPU: Intel Core i7-4800MQ (Fourth Generation - Haswell)
+   - Cores: 4 cores, 8 threads
+   - Intel HD Graphics: Intel HD Graphics 4600
+
+3. **HP Elite Folio 9470M (i7 variant):**
+   - CPU: Intel Core i7-3667U (Third Generation - Ivy Bridge)
+   - Cores: 2 cores, 4 threads
+   - Intel HD Graphics: Intel HD Graphics 4000
+
+4. **HP ProBook 6460b:**
+   - CPU: Intel Core i5-2520M (Second Generation - Sandy Bridge)
+   - Cores: 2 cores, 4 threads
+   - Intel HD Graphics: Intel HD Graphics 3000
+
+5. **Sony Vaio VPCEB13FG with Intel Core i3-330M:**
+   - CPU: Intel Core i3-330M (First Generation - Arrandale)
+   - Cores: 2 cores, 4 threads
+   - Intel HD Graphics: Intel HD Graphics (Arrandale integrated GPU)
+
+These specifications provide details about the specific processor models, the number of cores, threads, and the associated Intel HD Graphics for each laptop. My HD-INTEL-GPU ensures that the respective hardware configurations match the requirements specified in the Nix snippet for seamless compatibility and optimal performance.
