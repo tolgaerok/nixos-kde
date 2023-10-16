@@ -23,7 +23,8 @@
     ../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                      # Zram tweak for 28GB
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
-    ./EliteDesk-800-G1-hardware-configuration.nix
+
+    ./EliteDesk-800-G1-hardware-configuration.nix                           # Hardware configuration
 
   ];
 
