@@ -430,11 +430,12 @@ with lib;
       rocm-opencl-runtime
       libva
       libva-utils
-      glxinfo
+     
 
       appimage-run
-      espeak-classic
+      
       firefox
+      
 
     ];
   };

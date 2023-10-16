@@ -14,6 +14,7 @@
 
     # ../../core/system-tweaks/kernel-upgrades/latest-standard.nix          # Latest default NixOS kernel
     # ../../core/system-tweaks/kernel-upgrades/zen.nix                      # Zen kernel
+
     ../../core
     ../../core/gpu/nvidia/nvidia-stable-opengl                              # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix      # Kernel tweak for 28GB
@@ -23,16 +24,24 @@
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
     ./EliteDesk-800-G1-hardware-configuration.nix
-    
+
   ];
 
   #---------------------------------------------------------------------
-  # Bootloader.
+  # Bootloader & tweaks
   #---------------------------------------------------------------------
-
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+
+  # Copies latest Linux kernels for smoother boot.
+  boot.loader.grub.copyKernels = true;
+
+  # Cleans /tmp directory on every boot.
+  boot.tmp.cleanOnBoot = true;
+
+  # Enables simultaneous use of processor threads.
+  security.allowSimultaneousMultithreading = true;
 
   #---------------------------------------------------------------------
   # Name of your pc to appear on the Network
@@ -53,23 +62,10 @@
   # Install a couple of basic, off the bat pkgs
   #---------------------------------------------------------------------
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs;
+    [
 
-    appimage-run
-    espeak-classic
-    firefox
-    kate
-
-    #-----------------------------------------------------------------  
-    # Extra Audio packages
-    #-----------------------------------------------------------------
-
-    alsa-utils
-    pavucontrol
-    pulseaudio
-    pulsemixer
-
-  ];
+    ];
 
   # --------------------------------------------------------------------
   # Permit Insecure Packages
