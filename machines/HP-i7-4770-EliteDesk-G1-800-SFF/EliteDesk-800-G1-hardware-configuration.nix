@@ -7,6 +7,8 @@
 #---------------------------------------------------------------------
 { config, lib, pkgs, modulesPath, ... }:
 
+with lib;
+
 {
   #---------------------------------------------------------------------
   # Module imports
@@ -25,9 +27,17 @@
 
       "kvm-intel"
       "nvidia"
+      "tcp_bbr"       # Dynamically optimize how data is sent over a network, aiming to achieve higher throughput and reduced latency
 
     ];
 
+    # Enable BBR congestion control algorithm for TCP, , which can lead to improved network throughput and reduced latency.
+    kernel.sysctl = {
+
+      "net.ipv4.tcp_congestion_control" = "bbr";
+
+    };
+    
     kernelParams = [
 
       "mitigations=off"
