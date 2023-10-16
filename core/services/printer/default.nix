@@ -4,7 +4,7 @@ let
   extraBackends = [ pkgs.epkowa ];
 
   #---------------------------------------------------------------------
-  # Printers and printer drivers (To suit my HP LaserJet 600 M601)
+  #   Printers and printer drivers (To suit my HP LaserJet 600 M601)
   #---------------------------------------------------------------------
   printerDrivers = [
 
@@ -21,19 +21,21 @@ let
 in {
 
   #---------------------------------------------------------------------
-  # Scanner and printing drivers
+  #   Scanner and printing drivers
   #---------------------------------------------------------------------
-
   hardware.sane.enable = true;
   hardware.sane.extraBackends = extraBackends;
   services.printing.drivers = printerDrivers;
+
+  #---------------------------------------------------------------------
+  #   Enable CUPS to print documents.
+  #---------------------------------------------------------------------
   services.printing.enable = true;
 
   #---------------------------------------------------------------------
   # Add a systemd tmpfiles rule that creates a directory /var/spool/samba 
   # with permissions 1777 and ownership set to root:root. 
   #---------------------------------------------------------------------
-
   systemd = {
     tmpfiles.rules = [
       "D! /tmp 1777 root root 0"

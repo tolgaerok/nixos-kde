@@ -54,25 +54,26 @@
   #---------------------------------------------------------------------
 
   networking.networkmanager.connectionConfig = {
+
     "ethernet.mtu" = 1462;
     "wifi.mtu" = 1462;
+
   };
 
-  #---------------------------------------------------------------------
-  # Install a couple of basic, off the bat pkgs
-  #---------------------------------------------------------------------
-
-  environment.systemPackages = with pkgs;
-    [
-
-    ];
-
   # --------------------------------------------------------------------
-  # Permit Insecure Packages
+  # Permit Insecure Packages && Allow unfree packages
   # --------------------------------------------------------------------
 
-  nixpkgs.config.permittedInsecurePackages =
-    [ "openssl-1.1.1u" "openssl-1.1.1v" "electron-12.2.3" ];
+  environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
+  nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.permittedInsecurePackages = [
+
+    "openssl-1.1.1u"
+    "openssl-1.1.1v"
+    "electron-12.2.3"
+
+  ];
 
   #---------------------------------------------------------------------
   # Enable networking
@@ -96,20 +97,12 @@
   #---------------------------------------------------------------------
   # Enable the KDE Plasma Desktop Environment.
   #---------------------------------------------------------------------
-
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-
-  #---------------------------------------------------------------------
-  # Enable CUPS to print documents.
-  #---------------------------------------------------------------------
-
-  services.printing.enable = true;
 
   # --------------------------------------------------------------------
   # Audio and extra audio packages
   #---------------------------------------------------------------------
-
   hardware.pulseaudio.enable = false;
 
   security.rtkit.enable = true;
@@ -128,13 +121,6 @@
   #---------------------------------------------------------------------
 
   services.xserver.libinput.enable = true;
-
-  #---------------------------------------------------------------------
-  # Allow unfree packages
-  #---------------------------------------------------------------------
-
-  environment.sessionVariables.NIXPKGS_ALLOW_UNFREE = "1";
-  nixpkgs.config.allowUnfree = true;
 
   #---------------------------------------------------------------------
   # Automatic system upgrades, automatically reboot after an upgrade if
