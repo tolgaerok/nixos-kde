@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, ... }:
 
 #---------------------------------------------------------------------
 # Automatically detect and manage storage devices connected to your 
@@ -13,10 +13,12 @@
 {
   services = {
     udisks2 = {
+
       enable = true;
     };
 
     devmon = {
+
       enable = true;
     };
   };

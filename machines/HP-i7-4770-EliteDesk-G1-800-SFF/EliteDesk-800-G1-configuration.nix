@@ -23,7 +23,7 @@
     ../../user/SOS/SOS.nix
     ../../user/tolga/tolga.nix
     ./EliteDesk-800-G1-hardware-configuration.nix
-
+    
   ];
 
   #---------------------------------------------------------------------

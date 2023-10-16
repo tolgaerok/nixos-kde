@@ -33,24 +33,27 @@ in {
 
     };
 
+    # package = pkgs.nixUnstable; # Keep this if you want to use nixUnstable, otherwise replace with the appropriate nix version
+
+    settings = {
+      trusted-substituters = [
+
+        "http://cache.nixos.org"
+      ];
+
+      substituters = [
+
+        "http://cache.nixos.org"
+      ];
+
+    };
+
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
+
   };
-
-  #--------------------------------------------------------------------- 
-  # trim deleted blocks from ssd
-  #---------------------------------------------------------------------  
-
-  services.fstrim.enable = true;
-
-  #--------------------------------------------------------------------- 
-  # Misc
-  #--------------------------------------------------------------------- 
-
-  # services.fwupd.enable = true;
-  services.sshd.enable = true;
 
 }

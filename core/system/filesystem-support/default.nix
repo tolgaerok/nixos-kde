@@ -7,7 +7,7 @@
 
     "exfat"
     "ntfs"
-    "zfs"
+    # "zfs"
 
  ];
 }

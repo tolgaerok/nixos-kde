@@ -18,8 +18,10 @@
     ./samba
     ./scanner
     ./sddm
+    ./sshd
     ./udev
     ./udisks2
+    ./update-firmware
     ./xdg-portal
     ./xserver
 
