@@ -1,7 +1,13 @@
 # ---------------------------------------------------------------------
-# NTFS Support
+# Various File-system Support
 #---------------------------------------------------------------------
 
 {
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = [
+
+    "exfat"
+    "ntfs"
+    "zfs"
+
+ ];
 }

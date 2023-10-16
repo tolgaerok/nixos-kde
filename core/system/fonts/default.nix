@@ -20,9 +20,11 @@
       comic-neue
       dejavu_fonts
       fira
+      fira-code
       fira-go
       font-awesome
       hackgen-nf-font
+      inconsolata
       inter
       iosevka-bin
       jetbrains-mono
@@ -57,7 +59,10 @@
     enableDefaultFonts = false;
 
     fontconfig = {
+      allowBitmaps = true;
       antialias = true;
+      cache32Bit = true;
+      useEmbeddedBitmaps = true;
 
       defaultFonts = {
         emoji = [ "Joypixels" "Noto Color Emoji" ];
