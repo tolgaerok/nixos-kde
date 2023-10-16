@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 let
   email = "kingtolga@gmail.com";
@@ -34,10 +34,25 @@ in {
         pull.rebase = true;
 
         # ignores = [ ".envrc" ".direnv" ];
-        
+
         url = {
-          "git@github.com:" = { insteadOf = [ "https://github.com/" ]; };
-          "git@gitlab.com:" = { insteadOf = [ "https://gitlab.com/" ]; };
+
+          "git@github.com:" = {
+
+            insteadOf = [
+
+              "https://github.com/"
+            ];
+          };
+
+          "git@gitlab.com:" = {
+
+            insteadOf = [
+
+              "https://gitlab.com/"
+            ];
+
+          };
         };
 
         user = {

@@ -2,15 +2,13 @@
 
 {
   #---------------------------------------------------------------------
-  # Enable flatpak
+  #   Enable flatpak
   #---------------------------------------------------------------------
-
   services.flatpak.enable = true;
 
   #---------------------------------------------------------------------
-  # Configure the flathub remote
+  #   Configure the flathub remote
   #---------------------------------------------------------------------
-
   systemd.services.configure-flathub-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];

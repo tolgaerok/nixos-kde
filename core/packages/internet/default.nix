@@ -1,9 +1,9 @@
 {
   # Execute the following:
-  imports =
-    [
+  imports = [
 
-      ./web-browsers
-    ];
+    ./web-browsers
+    
+  ];
 
 }

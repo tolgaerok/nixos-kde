@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }:
+with lib;
 
 {
   #---------------------------------------------------------------------
-  # Configure your nixpkgs instance
+  #   Configure your nixpkgs instance
   #---------------------------------------------------------------------
-
   nixpkgs = {
     config = {
       # Allow Unfree Packages
@@ -86,7 +86,7 @@
       vulkan-loader
       gdk-pixbuf
       xorg.libX11
-      
+
     ];
   };
 }
