@@ -4,7 +4,6 @@
 
     # Configuration for Programs
 
-    # ./steam
     ./adb
     ./command-not-found
     ./corectrl

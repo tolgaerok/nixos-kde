@@ -171,7 +171,7 @@ with lib;
       # Messaging and Communication:
       # ---------------------------------------------------------------------
 
-      whatsapp-for-linux # Whatsapp desktop messaging app
+      # whatsapp-for-linux # Whatsapp desktop messaging app
 
       # ---------------------------------------------------------------------
       # Scientific computing

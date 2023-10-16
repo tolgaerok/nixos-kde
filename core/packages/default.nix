@@ -7,7 +7,9 @@
 
   imports = [
 
+    # ./distrobox
     # ./plasma-manager/plasma-config.nix
+    # ./steam
     ./custom-pkgs
     ./flatpak
     ./internet
