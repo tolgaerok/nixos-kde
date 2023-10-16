@@ -172,6 +172,7 @@ with lib;
       # ---------------------------------------------------------------------
 
       # whatsapp-for-linux # Whatsapp desktop messaging app
+      # whatsapp-emoji-font
 
       # ---------------------------------------------------------------------
       # Scientific computing
