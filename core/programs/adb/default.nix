@@ -8,4 +8,11 @@
     };
 
   };
+
+    # iphone settings
+  iphone = {
+    enable = true;
+    user = "tolga";
+  };
+
 }

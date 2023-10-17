@@ -165,6 +165,7 @@ let
     flatpak install -y flathub com.sindresorhus.Caprine
     flatpak install -y flathub org.kde.kweather
     flatpak install -y flathub org.fedoraproject.MediaWriter
+    flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop
 
     # -----------------------------------------------------------------------------------
     # List all flatpak
