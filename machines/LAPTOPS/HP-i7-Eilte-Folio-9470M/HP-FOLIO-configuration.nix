@@ -15,13 +15,13 @@
 {
   imports = [
     # ../../core/system-tweaks/kernel-upgrades/xanmod.nix                                   # Xanmod kernel
-    ../../core
-    ../../core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix
-    ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix                        # Kernel tweak for 8GB
-    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix                               # SSD read & write tweaks
-    ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                                       # Zram tweak for 8GB
-    ../../user/SOS/SOS.nix
-    ../../user/tolga/tolga.nix
+    ../../../core
+    ../../../core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix
+    ../../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/8GB-SYSTEM.nix                        # Kernel tweak for 8GB
+    ../../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix                               # SSD read & write tweaks
+    ../../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                                       # Zram tweak for 8GB
+    ../../../user/SOS/SOS.nix
+    ../../../user/tolga/tolga.nix
     ./HP-FOLIO-hardware-configuration.nix
     ./boot
 

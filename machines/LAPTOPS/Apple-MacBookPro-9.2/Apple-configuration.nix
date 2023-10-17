@@ -17,12 +17,12 @@
   #---------------------------------------------------------------------
   imports = [
 
-    ../../core
-    ../../core/gpu/intel/intel-laptop
-    ../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/28GB-SYSTEM.nix      # Kernel tweak for 8GB
-    ../../core/system-tweaks/kernel-upgrades/xanmod.nix                    # Xanmod kernel
-    ../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
-    ../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                      # Zram tweak for 8GB
+    ../../../core
+    ../../../core/gpu/intel/intel-laptop
+    ../../../core/system-tweaks/kernel-tweaks/8GB-SYSTEM/28GB-SYSTEM.nix      # Kernel tweak for 8GB
+    ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                    # Xanmod kernel
+    ../../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
+    ../../../core/system-tweaks/zram/zram-8GB-SYSTEM.nix                      # Zram tweak for 8GB
     ./Apple-hardware-configuration.nix
     ./boot
 
