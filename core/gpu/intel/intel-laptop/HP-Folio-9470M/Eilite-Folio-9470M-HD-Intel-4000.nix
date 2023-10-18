@@ -14,7 +14,7 @@ with lib;
 
   imports = [
 
-    ../../../core/modules/laptop-related/autorandr.nix
+    ../../../../core/modules/laptop-related/autorandr.nix
 
   ];
 
@@ -32,8 +32,8 @@ with lib;
   services = {
 
     # kmscon.enable = false;
-    acpid.enable = true;
-    fwupd.enable = true;
+    # acpid.enable = true;
+    # fwupd.enable = true;
     kmscon.hwRender = true;
 
   };
@@ -165,53 +165,53 @@ with lib;
 
   # services.blueman.enable = lib.mkForce false;
 
-  udev.extraRules = lib.mkMerge
+  # udev.extraRules = lib.mkMerge
 
-    [
+  # [
 
-      # autosuspend USB devices
-      ''ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"''
-      # autosuspend PCI devices
-      ''ACTION=="add", SUBSYSTEM=="pci", TEST=="power/control", ATTR{power/control}="auto"''
-      # disable Ethernet Wake-on-LAN
-      ''ACTION=="add", SUBSYSTEM=="net", NAME=="enp*", RUN+="${pkgs.ethtool}/sbin/ethtool -s $name wol d"''
+  # autosuspend USB devices
+  #    ''ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="auto"''
+  # autosuspend PCI devices
+  #    ''ACTION=="add", SUBSYSTEM=="pci", TEST=="power/control", ATTR{power/control}="auto"''
+  # disable Ethernet Wake-on-LAN
+  #     ''ACTION=="add", SUBSYSTEM=="net", NAME=="enp*", RUN+="${pkgs.ethtool}/sbin/ethtool -s $name wol d"''
 
-    ];
+  #  ];
 
-  systemd = {
-    services = {
-      # Do not restart these, since it fucks up the current session
-      NetworkManager.restartIfChanged = false;
-      display-manager.restartIfChanged = false;
-      polkit.restartIfChanged = false;
-      systemd-logind.restartIfChanged = false;
-      wpa_supplicant.restartIfChanged = false;
+  #  systemd = {
+  #    services = {
+  #      # Do not restart these, since it fucks up the current session
+  #      NetworkManager.restartIfChanged = false;
+  #      display-manager.restartIfChanged = false;
+  #      polkit.restartIfChanged = false;
+  #      systemd-logind.restartIfChanged = false;
+  #      wpa_supplicant.restartIfChanged = false;#
+  #
+  #      lock-before-sleeping = {
+  #
+  #        restartIfChanged = false;
 
-      lock-before-sleeping = {
+  #       unitConfig = {
+  #          Description = "Helper service to bind locker to sleep.target";
+  #        };
 
-        restartIfChanged = false;
+  #        serviceConfig = {
+  #          ExecStart = "${pkgs.slock}/bin/slock";
+  #          Type = "simple";
+  #        };
 
-        unitConfig = {
-          Description = "Helper service to bind locker to sleep.target";
-        };
+  #        before = [ "pre-sleep.service" ];
 
-        serviceConfig = {
-          ExecStart = "${pkgs.slock}/bin/slock";
-          Type = "simple";
-        };
+  #        wantedBy = [ "pre-sleep.service" ];
 
-        before = [ "pre-sleep.service" ];
+  #        environment = {
+  #          DISPLAY = ":0";
+  #          XAUTHORITY = "/home/tolga/.Xauthority";
+  #        };
+  #      };
+  #    };
 
-        wantedBy = [ "pre-sleep.service" ];
-
-        environment = {
-          DISPLAY = ":0";
-          XAUTHORITY = "/home/tolga/.Xauthority";
-        };
-      };
-    };
-
-  };
+  #  };
 
 }
 
