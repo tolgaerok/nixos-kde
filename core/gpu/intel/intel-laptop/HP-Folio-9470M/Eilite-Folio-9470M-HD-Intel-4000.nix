@@ -14,7 +14,7 @@ with lib;
 
   imports = [
 
-    ../../../../core/modules/laptop-related/autorandr.nix
+    # ../../../../core/modules/laptop-related/autorandr.nix
 
   ];
 
