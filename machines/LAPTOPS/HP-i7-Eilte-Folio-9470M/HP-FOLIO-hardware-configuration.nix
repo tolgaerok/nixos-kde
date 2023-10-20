@@ -20,7 +20,7 @@
 
     extraModulePackages = [ ];
     initrd.kernelModules = [ ];
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ "kvm-intel" ]; 
 
     kernelParams = [
 
