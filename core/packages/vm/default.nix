@@ -22,7 +22,7 @@
     win-spice
     win-virtio
     virtualbox
-    gnome.gnome-boxes
+    # gnome.gnome-boxes
 
   ];
 
