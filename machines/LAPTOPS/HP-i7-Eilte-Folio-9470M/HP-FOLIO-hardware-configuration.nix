@@ -20,8 +20,20 @@
 
     extraModulePackages = [ ];
     initrd.kernelModules = [ ];
-    kernelModules = [ "kvm-intel" ]; 
+    kernelModules = [ 
 
+      "kvm-intel" 
+      "tcp_bbr"       # Dynamically optimize how data is sent over a network, aiming to achieve higher throughput and reduced latency
+
+      ]; 
+
+    # Enable BBR congestion control algorithm for TCP, , which can lead to improved network throughput and reduced latency.
+    kernel.sysctl = {
+
+      "net.ipv4.tcp_congestion_control" = "bbr";
+
+    };
+    
     kernelParams = [
 
       "intel_pstate=ondemand" # Enables the "ondemand" CPU frequency scaling governor for Intel processors, optimizing performance and power efficiency.
