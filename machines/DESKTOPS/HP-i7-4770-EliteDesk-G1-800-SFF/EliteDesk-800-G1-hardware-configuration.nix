@@ -27,7 +27,7 @@ with lib;
 
       "kvm-intel"
       "nvidia"
-      "tcp_bbr"       # Dynamically optimize how data is sent over a network, aiming to achieve higher throughput and reduced latency
+      "tcp_bbr"       # Dynamically optimize how data is sent over a network (not internet), aiming to achieve higher throughput and reduced latency
 
     ];
 

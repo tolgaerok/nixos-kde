@@ -23,7 +23,7 @@
     kernelModules = [ 
 
       "kvm-intel" 
-      "tcp_bbr"       # Dynamically optimize how data is sent over a network, aiming to achieve higher throughput and reduced latency
+      "tcp_bbr"       # Dynamically optimize how data is sent over a network (not internet), aiming to achieve higher throughput and reduced latency
 
       ]; 
 
@@ -33,7 +33,7 @@
       "net.ipv4.tcp_congestion_control" = "bbr";
 
     };
-    
+
     kernelParams = [
 
       "intel_pstate=ondemand" # Enables the "ondemand" CPU frequency scaling governor for Intel processors, optimizing performance and power efficiency.
