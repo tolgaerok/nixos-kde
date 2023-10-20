@@ -4,35 +4,19 @@
   #---------------------------------------------------------------------
   # Bootloader.
   #---------------------------------------------------------------------
-
-  #boot.loader.systemd-boot.consoleMode = "auto";
+  # boot.loader.systemd-boot.consoleMode = "auto";
   boot = {
     loader = {
 
-      efi.canTouchEfiVariables = true;
-      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;  # Enables the ability to modify EFI variables.
+      systemd-boot.enable = true;       # Activates the systemd-boot bootloader.
 
     };
 
-    initrd.systemd.enable = true;
-    kernelParams = [ "quiet" "intel_pstate=ondemand" ];
-    plymouth.enable = true;
-    plymouth.theme = "breeze";
+    initrd.systemd.enable = true;       # Enables systemd services in the initial ramdisk (initrd).
+    plymouth.enable = true;             # Activates the Plymouth boot splash screen.
+    plymouth.theme = "breeze";          # Sets the Plymouth theme to "breeze."
 
   };
-
-  #---------------------------------------------------------------------
-  # NTFS Support
-  #---------------------------------------------------------------------
-
-  boot.supportedFilesystems = [ "ntfs" ];
-
-  #---------------------------------------------------------------------
-  # Enable memory compression for faster processing and less SSD usage
-  #---------------------------------------------------------------------
-
-  zramSwap.enable = true;
-  zramSwap.memoryMax = 4294967296; # 4gb ram
-  zramSwap.memoryPercent = 20;
 
 }

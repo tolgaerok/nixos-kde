@@ -8,7 +8,6 @@
 
   imports = [
 
-    # ./zram
     ./bluetooth
     ./documentation
     ./env
@@ -16,6 +15,7 @@
     ./firewall
     ./fonts
     ./network
+    ./zram
 
   ];
 

@@ -5,10 +5,10 @@ with lib;
 {
   zramSwap = {
 
-    enable = false;
-    algorithm = "zstd"; # Use Zstandard (zstd) compression algorithm
-    #  algorithm = "lz4";  # Use LZ4 compression algorithm
+    enable = true;
     #  algorithm = "lzo";  # Use LZO compression algorithm
+    #  algorithm = "zstd"; # Use Zstandard (zstd) compression algorithm
+    algorithm = "lz4";  # Use LZ4 compression algorithm
     memoryPercent = 50;  #  % of ram used for compression
 
   };

@@ -21,17 +21,25 @@
     extraModulePackages = [ ];
     initrd.kernelModules = [ ];
     kernelModules = [ "kvm-intel" ];
-    kernelParams = [ "mitigations=off" ];
+
+    kernelParams = [
+
+      "intel_pstate=ondemand" # Enables the "ondemand" CPU frequency scaling governor for Intel processors, optimizing performance and power efficiency.
+      "mitigations=off"       # Disables certain security mitigations, potentially improving performance but reducing security.
+      "quiet"                 # Suppresses verbose kernel messages during boot, providing a quieter boot process.
+
+    ];
+
     initrd.availableKernelModules = [
 
-      "ahci"
-      "ehci_pci"
-      "sd_mod"
-      "sdhci_pci"
-      "uas"
-      "usb_storage"
-      "usbhid"
-      "xhci_pci"
+      "ahci"        # Enables the Advanced Host Controller Interface (AHCI) driver, typically used for SATA (Serial ATA) controllers.
+      "ehci_pci"    # Enables the Enhanced Host Controller Interface (EHCI) driver for PCI-based USB controllers, providing support for USB 2.0.
+      "sd_mod"      # Enables the SCSI disk module (sd_mod), which allows the system to recognize and interact with SCSI-based storage devices.
+      "sdhci_pci"   #  Enables the Secure Digital Host Controller Interface (SDHCI) driver for PCI-based SD card readers.
+      "uas"         # Enables the USB Attached SCSI (UAS) driver, which provides a faster and more efficient way to access USB storage devices.
+      "usb_storage" # Enables the USB Mass Storage driver, allowing the system to recognize and use USB storage devices like USB flash drives and external hard drives.
+      "usbhid"      # Enables the USB Human Interface Device (HID) driver, which provides support for USB input devices such as keyboards and mice.
+      "xhci_pci"    # Enables the eXtensible Host Controller Interface (xHCI) driver for PCI-based USB controllers, providing support for USB 3.0 and later standards.
 
     ];
   };
@@ -44,14 +52,16 @@
     fsType = "ext4";
 
     # Optimize SSD
+    # ---------------------------------------------
     options = [
 
-      "data=ordered"
-      "discard"
-      "errors=remount-ro"
-      "noatime"
-      "nodiratime"
-
+      "data=ordered"        # Ensures data is written to the journal before being committed to the file system.
+      "defaults"            # Standard mount options for read-write access, program execution, device interpretation, automatic mounting, and more.
+      "discard"             # Enables automatic trimming of unused blocks on SSDs.
+      "errors=remount-ro"   # Remounts the file system as read-only upon encountering errors to protect data.
+      "noatime"             # Disables access time updates for all files, significantly improving performance.
+      "nodiratime"          # Disables access time updates for directories, improving performance.
+      "relatime"            # Updates access time only if needed, balancing performance and access time tracking.
     ];
 
   };
