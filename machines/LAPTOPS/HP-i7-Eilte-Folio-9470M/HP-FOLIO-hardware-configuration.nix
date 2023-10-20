@@ -35,7 +35,8 @@
       "ahci"        # Enables the Advanced Host Controller Interface (AHCI) driver, typically used for SATA (Serial ATA) controllers.
       "ehci_pci"    # Enables the Enhanced Host Controller Interface (EHCI) driver for PCI-based USB controllers, providing support for USB 2.0.
       "sd_mod"      # Enables the SCSI disk module (sd_mod), which allows the system to recognize and interact with SCSI-based storage devices.
-      "sdhci_pci"   #  Enables the Secure Digital Host Controller Interface (SDHCI) driver for PCI-based SD card readers.
+      "sr_mod"      # Loads the SCSI (Small Computer System Interface) CD/DVD-ROM driver, allowing the system to recognize and use optical drives.
+      "sdhci_pci"   # Enables the Secure Digital Host Controller Interface (SDHCI) driver for PCI-based SD card readers.
       "uas"         # Enables the USB Attached SCSI (UAS) driver, which provides a faster and more efficient way to access USB storage devices.
       "usb_storage" # Enables the USB Mass Storage driver, allowing the system to recognize and use USB storage devices like USB flash drives and external hard drives.
       "usbhid"      # Enables the USB Human Interface Device (HID) driver, which provides support for USB input devices such as keyboards and mice.
