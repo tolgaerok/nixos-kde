@@ -1,5 +1,7 @@
 { config, pkgs, lib, ... }:
+
 let cfg = config.iphone;
+
 in {
   options.iphone = {
 
@@ -24,7 +26,7 @@ in {
 
     services.usbmuxd.enable = true;
     services.usbmuxd.user = cfg.user;
-    
+
     systemd.services.iphone = {
 
       preStart =
@@ -40,6 +42,7 @@ in {
         User = cfg.user;
         Type = "forking";
       };
+
     };
   };
 
