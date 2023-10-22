@@ -11,7 +11,8 @@
 #---------------------------------------------------------------------
 
 let
-  setGnomeProfilePicture = ''
+
+  createProfilePictures = ''
     # Create profile picture directory
     # ------------------------------------------------------------------
     mkdir -p /var/lib/AccountsService/icons
@@ -63,12 +64,12 @@ let
     # Print output in blue
     # ------------------------------------------------------------------
     echo -e "\n\e[34mUser directories created, switching back into:\e[0m $HOME\e[0m\n"
-    echo -e "\e[34mUser User profile pictures set\e[0m\n"
+    echo -e "\e[34mUser User profile picture's set\e[0m\n"
   '';
 
 in {
   config = {
-    system.activationScripts.setGnomeProfilePicture = setGnomeProfilePicture;
+    system.activationScripts.createProfilePictures = createProfilePictures;
     system.activationScripts.createCustomDirectories = createCustomDirectories;
   };
 }
