@@ -18,8 +18,9 @@ let
   '';
 
   createCustomDirectories = ''
+    echo ""
     for user_home in /home/*; do
-     echo "User home: $user_home"
+     echo -e "\e[34mUser directories created in:\e[0m $user_home\e[0m"
       username=$(basename "$user_home")
       if [[ "$username" != "root" && "$username" != "NixOs" ]]; then
         # Create basic .bashrc file if it doesn't exist
@@ -49,7 +50,7 @@ let
     done
 
     # Print "User directories created" in blue
-    echo -e "\n\e[34mUser directories created in:\e[0m $HOME\e[0m\n"
+    echo -e "\n\e[34mUser directories created, switching back into:\e[0m $HOME\e[0m\n"
   '';
 in {
   options = {
