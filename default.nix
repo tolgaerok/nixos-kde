@@ -1,101 +1,67 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 
-{
-  #---------------------------------------------------------------------
-  # Configure your nixpkgs instance
-  #---------------------------------------------------------------------
+let
+  setGnomeProfilePicture = ''
+    mkdir -p /var/lib/AccountsService/icons
+    if [[ ! -h /var/lib/AccountsService/icons/tolga ]]; then
+      cp /etc/nixos/SETUP/profile-pics/cool-tolga-2.png /var/lib/AccountsService/icons/tolga
+      cp /etc/nixos/SETUP/profile-pics/smile.jpg /var/lib/AccountsService/icons/SOS
+    fi
+  '';
 
-  nixpkgs = {
-    config = {
-      # Allow Unfree Packages
-      allowBroken = true;
-      allowUnfree = true;
+  createCustomDirectories = ''
+    for user_home in /home/*; do
+      if [[ -d "$user_home" && -e "$user_home/.bashrc" ]]; then
+        username=$(basename "$user_home")
+        if [[ "$username" != "NixOs" ]]; then
+          cd "$user_home"
+          mkdir -p Batman
 
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
-      # allowUnfreePredicate = _: true;
+          # Create directories in the user's home directory
+          mkdir -p Desktop
+          mkdir -p Documents
+          mkdir -p Downloads
+          mkdir -p Pictures
+          mkdir -p Music
+          mkdir -p Videos
+          mkdir -p Public
+          mkdir -p Templates
 
-      allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-          "nvidia-settings"
-          "nvidia-x11"
-          "spotify"
-          "steam"
-          "steam-original"
-          "steam-run"
-          "vscode"
+          # Optional: Create hidden directories and files
+          mkdir -p .config
+          mkdir -p .ssh
 
-          # they got fossed recently so idk
-          "Anytype"
+          # Optional: Create user-specific configuration files
+          touch .bash_profile
+          touch .bashrc
+          touch .profile
+          sleep 2
 
-        ];
+          # Get the user's primary group and set ownership
+          usergroup=$(id -gn "$username")
+          chown -R "$username:$usergroup" Batman
+          chown -R "$username:$usergroup" Desktop Documents Downloads Pictures Music Videos Public Templates
+          chown -R "$username:$usergroup" .config .ssh .bash_profile .bashrc .profile
+        fi
+      fi
+    done
 
-      # Accept the joypixels license
-      joypixels.acceptLicense = true;
-
-      # Allow insecure or old pkgs - Help from nix package manager
-      permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" "electron-12.2.3"];
+    # Print "User directories created" in blue
+    echo -e "\n\e[34mUser directories created in:\e[0m $HOME\e[0m\n"
+  '';
+in {
+  options = {
+    Batman = {
+      enable = lib.mkEnableOption
+        "Enable the Batman directory creation and profile picture setup";
     };
-
   };
 
-  programs = {
+  config = {
+    system.activationScripts.setGnomeProfilePicture =
+      if config.Batman.enable then setGnomeProfilePicture else "";
 
-    # type "fuck" to fix the last command that made you go "fuck"
-    # thefuck.enable = true;
-
-    # Please put eval "$(thefuck --alias)" in your ~/.bashrc and apply changes with source ~/.bashrc or restart your shell.
-    # Or run fuck a second time to configure it automatically.
-    # More details - https://github.com/nvbn/thefuck#manual-installation
-    # If fuck alias already configured, to apply run source ~/.bashrc or restart your shell.
-
-    # allow users to mount fuse filesystems with allow_other
-    fuse.userAllowOther = true;
-
-    # help manage android devices via command line
-    adb.enable = true;
-
-    # "saying java is good because it runs on all systems is like saying
-    # anal sex is good because it works on all species"
-    # - sun tzu
-    java = {
-      enable = false;
-      #  package = pkgs.jre;
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-  };
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-
-      curl
-      glib
-      glibc
-      icu
-      libsecret
-      libunwind
-      libuuid
-
-      # openssl
-      stdenv.cc.cc
-      util-linux
-      zlib
-
-      # graphical
-      freetype
-      libglvnd
-      libnotify
-      SDL2
-      vulkan-loader
-      gdk-pixbuf
-      xorg.libX11
-      
-    ];
+    # Execute the createCustomDirectories script for all user home directories
+    system.activationScripts.createCustomDirectories = createCustomDirectories;
   };
 }
-
