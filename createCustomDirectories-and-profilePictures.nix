@@ -86,7 +86,7 @@ let
     # Print output in blue
     # ------------------------------------------------------------------
     echo -e "\n\e[34mUser directories created, switching back into: \e[32m$HOME\e[34m\n"
-    echo -e "\e[34mUser profile pictures set\e[0m\n"
+    echo -e "\e[33mUser profile pictures set\e[0m\n"
   '';
 
 in {
