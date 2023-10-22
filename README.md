@@ -14,6 +14,8 @@
           <br>NixOS
           <td align="center">
           <img src="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884" alt="Screenshot">
+            
+
         </td>
         </a>
       </td>     
@@ -21,7 +23,7 @@
   </table>
 </div>
 
-
+![desktop](https://github.com/tolgaerok/nixos-kde/assets/110285959/c36fc2d7-0885-461b-b2ed-2333e2634a36)
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
     <td style="border: none; width: 30%;" valign="top">
