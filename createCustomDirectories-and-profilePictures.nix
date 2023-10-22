@@ -11,7 +11,7 @@
 let
 
   createProfilePictures = ''
-    # Create profile picture directory
+    # Create the profile picture directory
     # ------------------------------------------------------------------
     mkdir -p /var/lib/AccountsService/icons
 
@@ -67,7 +67,18 @@ let
         # Get the user's primary group and set ownership
         # ------------------------------------------------------------------
         usergroup=$(id -gn "$username")
-        chown -R "$username:$usergroup" "$user_home/Documents" "$user_home/Downloads" "$user_home/Pictures" "$user_home/Music" "$user_home/Videos" "$user_home/Public" "$user_home/Templates" "$user_home/.config" "$user_home/.ssh" "$user_home/.bash_profile" "$user_home/.profile"
+        chown -R "$username:$usergroup" \
+          "$user_home/Documents" \
+          "$user_home/Downloads" \
+          "$user_home/Pictures" \
+          "$user_home/Music" \
+          "$user_home/Videos" \
+          "$user_home/Public" \
+          "$user_home/Templates" \
+          "$user_home/.config" \
+          "$user_home/.ssh" \
+          "$user_home/.bash_profile" \
+          "$user_home/.profile"
       fi
 
     done
@@ -75,7 +86,7 @@ let
     # Print output in blue
     # ------------------------------------------------------------------
     echo -e "\n\e[34mUser directories created, switching back into:\e[0m $HOME\e[0m\n"
-    echo -e "\e[34mUser User profile picture's set\e[0m\n"
+    echo -e "\e[34mUser profile pictures set\e[0m\n"
   '';
 
 in {
