@@ -24,6 +24,8 @@ let
     for user_home in /home/*; do
      echo -e "\e[34mUser directories created in:\e[0m $user_home\e[0m"
       username=$(basename "$user_home")
+
+      # Skip populating directories in root and personal samba folder
       if [[ "$username" != "root" && "$username" != "NixOs" ]]; then
         # Create standard directories
         mkdir -p "$user_home/Documents"
