@@ -32,6 +32,7 @@ let
             profile_pic_src="/etc/nixos/SETUP/profile-pics/$username-profile.png"
 
             # If user-specific profile picture doesn't exist, set the default profile picture
+            # --------------------------------------------------------------------------------
             if [[ ! -e "$profile_pic_src" ]]; then
               profile_pic_src="/etc/nixos/SETUP/profile-pics/default-profile.png"
             fi
