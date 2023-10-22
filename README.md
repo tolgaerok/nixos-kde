@@ -14,8 +14,6 @@
           <br>NixOS
           <td align="center">
           <img src="https://github.com/tolgaerok/Linux-Tweaks-And-Scripts/assets/110285959/af6b682f-0ddd-45bc-babc-0584b0e70884" alt="Screenshot">
-            
-
         </td>
         </a>
       </td>     
