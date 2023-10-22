@@ -1,13 +1,5 @@
 { config, lib, ... }:
 
-#---------------------------------------------------------------------
-# Tolga Erok
-# 22/10/23
-# My personal custom directories creator 
-# 
-# ¯\_(ツ)_/¯
-#---------------------------------------------------------------------
-
 let
   setGnomeProfilePicture = ''
     mkdir -p /var/lib/AccountsService/icons
@@ -19,38 +11,32 @@ let
 
   createCustomDirectories = ''
     for user_home in /home/*; do
-      if [[ -d "$user_home" && -e "$user_home/.bashrc" ]]; then
-        username=$(basename "$user_home")
-        if [[ "$username" != "NixOs" ]]; then
-          cd "$user_home"
-          mkdir -p Batman
-
-          # Create directories in the user's home directory
-          mkdir -p Desktop
-          mkdir -p Documents
-          mkdir -p Downloads
-          mkdir -p Pictures
-          mkdir -p Music
-          mkdir -p Videos
-          mkdir -p Public
-          mkdir -p Templates
-
-          # Optional: Create hidden directories and files
-          mkdir -p .config
-          mkdir -p .ssh
-
-          # Optional: Create user-specific configuration files
-          touch .bash_profile
-          touch .bashrc
-          touch .profile
-          sleep 2
-
-          # Get the user's primary group and set ownership
-          usergroup=$(id -gn "$username")
-          chown -R "$username:$usergroup" Batman
-          chown -R "$username:$usergroup" Desktop Documents Downloads Pictures Music Videos Public Templates
-          chown -R "$username:$usergroup" .config .ssh .bash_profile .bashrc .profile
+     echo "User home: $user_home"
+      username=$(basename "$user_home")
+      if [[ "$username" != "root" && "$username" != "NixOs" ]]; then
+        # Create basic .bashrc file if it doesn't exist
+        if [[ ! -e "$user_home/.bashrc" ]]; then
+          echo 'PS1="\\u@\\h:\\w\\$ "' > "$user_home/.bashrc"
         fi
+
+        # Create standard directories
+        mkdir -p "$user_home/Documents"
+        mkdir -p "$user_home/Downloads"
+        mkdir -p "$user_home/Pictures"
+        mkdir -p "$user_home/Music"
+        mkdir -p "$user_home/Videos"
+        mkdir -p "$user_home/Public"
+        mkdir -p "$user_home/Templates"
+        mkdir -p "$user_home/.config"
+        mkdir -p "$user_home/.ssh"
+
+        # Optional: Create user-specific configuration files
+        touch "$user_home/.bash_profile"
+        touch "$user_home/.profile"
+
+        # Get the user's primary group and set ownership
+        usergroup=$(id -gn "$username")
+        chown -R "$username:$usergroup" "$user_home/Documents" "$user_home/Downloads" "$user_home/Pictures" "$user_home/Music" "$user_home/Videos" "$user_home/Public" "$user_home/Templates" "$user_home/.config" "$user_home/.ssh" "$user_home/.bash_profile" "$user_home/.bashrc" "$user_home/.profile"
       fi
     done
 
