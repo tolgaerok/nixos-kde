@@ -3,7 +3,7 @@
 #---------------------------------------------------------------------
 # Tolga Erok
 # 22/10/23
-# My personal profile picture and home directory automator
+# My personal profile picture and home directory automator for KDE Plasma
 #
 # ¯\_(ツ)_/¯
 #---------------------------------------------------------------------
