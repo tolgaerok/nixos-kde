@@ -3,7 +3,7 @@
 #---------------------------------------------------------------------
 # Tolga Erok
 # 22/10/23
-# My personal profile picture && $HOME directory populator auto-mater
+# My personal profile picture and home directory automator
 #
 # ¯\_(ツ)_/¯
 #---------------------------------------------------------------------
