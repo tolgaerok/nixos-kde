@@ -51,20 +51,12 @@ let
 
     # Print "User directories created" in blue
     echo -e "\n\e[34mUser directories created, switching back into:\e[0m $HOME\e[0m\n"
+    echo -e "\e[34mUser User profile pictures set: \e[0m\n"
   '';
+
 in {
-  options = {
-    Batman = {
-      enable = lib.mkEnableOption
-        "Enable the Batman directory creation and profile picture setup";
-    };
-  };
-
   config = {
-    system.activationScripts.setGnomeProfilePicture =
-      if config.Batman.enable then setGnomeProfilePicture else "";
-
-    # Execute the createCustomDirectories script for all user home directories
+    system.activationScripts.setGnomeProfilePicture = setGnomeProfilePicture;
     system.activationScripts.createCustomDirectories = createCustomDirectories;
   };
 }
