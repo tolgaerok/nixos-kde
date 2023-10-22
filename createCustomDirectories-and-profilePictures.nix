@@ -40,7 +40,7 @@ let
   createCustomDirectories = ''
     echo ""
     for user_home in /home/*; do
-     echo -e "\e[34mUser directories created in:\e[0m $user_home\e[0m"
+     echo -e "\e[34mUser directories created in: \e[32m$user_home\e[0m"
       username=$(basename "$user_home")
 
       # Skip populating directories in root and personal samba folder
@@ -85,7 +85,7 @@ let
 
     # Print output in blue
     # ------------------------------------------------------------------
-    echo -e "\n\e[34mUser directories created, switching back into:\e[0m $HOME\e[0m\n"
+    echo -e "\n\e[34mUser directories created, switching back into: \e[32m$HOME\e[34m\n"
     echo -e "\e[34mUser profile pictures set\e[0m\n"
   '';
 
