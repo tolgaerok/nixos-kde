@@ -1,11 +1,9 @@
 { config, lib, ... }:
 
-# version 2
-
 #---------------------------------------------------------------------
 # Tolga Erok
 # 22/10/23
-# My personal $HOME directory populator
+# My personal profile picture && $HOME directory populator auto-mater
 #
 # ¯\_(ツ)_/¯
 #---------------------------------------------------------------------
@@ -17,12 +15,26 @@ let
     # ------------------------------------------------------------------
     mkdir -p /var/lib/AccountsService/icons
 
-    # Check if exists then copy the custom user profile pictures
+    # Loop through user home directories
     # ------------------------------------------------------------------
-    if [[ ! -h /var/lib/AccountsService/icons/tolga ]]; then
-      cp /etc/nixos/SETUP/profile-pics/cool-tolga-2.png /var/lib/AccountsService/icons/tolga
-      cp /etc/nixos/SETUP/profile-pics/smile.jpg /var/lib/AccountsService/icons/SOS
-    fi
+    for user_home in /home/*; do
+      if [[ -d "$user_home" ]]; then
+        username=$(basename "$user_home")
+        
+        # Check if the user is not 'root' or 'NixOs'
+        # ------------------------------------------------------------------
+        if [[ "$username" != "root" && "$username" != "NixOs" ]]; then
+          profile_pic_dest="/var/lib/AccountsService/icons/$username"
+
+          # Check if the profile picture doesn't exist for the user, then copy it
+          # -----------------------------------------------------------------------
+          if [[ ! -h "$profile_pic_dest" ]]; then
+            profile_pic_src="/etc/nixos/SETUP/profile-pics/$username-profile.png"
+            cp "$profile_pic_src" "$profile_pic_dest"
+          fi
+        fi
+      fi
+    done
   '';
 
   createCustomDirectories = ''
@@ -33,7 +45,6 @@ let
 
       # Skip populating directories in root and personal samba folder
       # ------------------------------------------------------------------
-
       if [[ "$username" != "root" && "$username" != "NixOs" ]]; then
 
         # Create standard directories
