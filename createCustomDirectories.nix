@@ -1,5 +1,13 @@
 { config, lib, ... }:
 
+#---------------------------------------------------------------------
+# Tolga Erok
+# 22/10/23
+# My personal custom directories creator 
+# 
+# ¯\_(ツ)_/¯
+#---------------------------------------------------------------------
+
 let
   setGnomeProfilePicture = ''
     mkdir -p /var/lib/AccountsService/icons
