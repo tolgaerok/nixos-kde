@@ -11,7 +11,7 @@
 let
 
   createProfilePictures = ''
-    # Create the profile picture directory
+    # Create profile picture directory
     # ------------------------------------------------------------------
     mkdir -p /var/lib/AccountsService/icons
 
@@ -30,12 +30,19 @@ let
           # -----------------------------------------------------------------------
           if [[ ! -h "$profile_pic_dest" ]]; then
             profile_pic_src="/etc/nixos/SETUP/profile-pics/$username-profile.png"
+
+            # If user-specific profile picture doesn't exist, set the default profile picture
+            if [[ ! -e "$profile_pic_src" ]]; then
+              profile_pic_src="/etc/nixos/SETUP/profile-pics/default-profile.png"
+            fi
+
             cp "$profile_pic_src" "$profile_pic_dest"
           fi
         fi
       fi
     done
   '';
+
 
   createCustomDirectories = ''
     echo ""
