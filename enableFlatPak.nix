@@ -23,7 +23,7 @@ let
       echo -e "\e[31mError: \e[33mFailed to enable Flatpak \e[31m[✘]\e[0m\n"
     fi
   else
-    echo -e "\e[34mFlatpak passed: \e[32m[✔]\e[34m\n"
+    echo -e "\e[34mFlatpak checked and enabled: \e[32m[✔]\e[34m\n"
   fi
 '';
 
