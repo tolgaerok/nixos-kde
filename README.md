@@ -21,7 +21,7 @@
   </table>
 </div>
 
-
+![desktop](https://github.com/tolgaerok/nixos-kde/assets/110285959/c36fc2d7-0885-461b-b2ed-2333e2634a36)
 <table style="border-collapse: collapse; width: 100%;">
   <tr>
     <td style="border: none; width: 30%;" valign="top">
