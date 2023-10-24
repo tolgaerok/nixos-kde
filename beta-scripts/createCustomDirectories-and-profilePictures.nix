@@ -44,10 +44,11 @@ let
     done
   '';
 
+
   createCustomDirectories = ''
     echo ""
     for user_home in /home/*; do
-     echo -e "\e[34m[\e[32m✔\e[34m] User directories created in: \e[32m$user_home\e[0m"
+     echo -e "\e[34mUser directories created in: \e[32m$user_home\e[0m"
       username=$(basename "$user_home")
 
       # Skip populating directories in root and personal samba folder
@@ -56,16 +57,15 @@ let
 
         # Create standard directories
         # ------------------------------------------------------------------
-        mkdir -p "$user_home/.config"
-        mkdir -p "$user_home/.ssh"
-        mkdir -p "$user_home/Applications"
         mkdir -p "$user_home/Documents"
         mkdir -p "$user_home/Downloads"
-        mkdir -p "$user_home/Music"
         mkdir -p "$user_home/Pictures"
+        mkdir -p "$user_home/Music"
+        mkdir -p "$user_home/Videos"
         mkdir -p "$user_home/Public"
         mkdir -p "$user_home/Templates"
-        mkdir -p "$user_home/Videos"
+        mkdir -p "$user_home/.config"
+        mkdir -p "$user_home/.ssh"
 
         # Optional: Create user-specific configuration files
         # ------------------------------------------------------------------
@@ -93,8 +93,8 @@ let
 
     # Print output in blue
     # ------------------------------------------------------------------
-    echo -e "\n\e[34m[\e[32m✔\e[34m] User directories created, switching back into: \e[32m$HOME\e[34m"
-    echo -e "\e[33m[\e[32m✔\e[33m] User profile pictures set\e[0m\n"
+    echo -e "\n\e[34mUser directories created, switching back into: \e[32m$HOME\e[34m\n"
+    echo -e "\e[33mUser profile pictures set\e[0m\n"
   '';
 
 in {

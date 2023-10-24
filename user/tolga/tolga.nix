@@ -8,7 +8,10 @@
 #---------------------------------------------------------------------
 
 {
-  imports = [ ../user-profile-pic ];
+  imports = [
+
+    ../user-profile-pic
+  ];
 
   #---------------------------------------------------------------------
   # Set your time zone.
@@ -46,6 +49,7 @@
   users.users.tolga = {
     homeMode = "0755";
     isNormalUser = true;
+    home = "/home/tolga/";
     description = "King_Tolga";
     uid = 1000;
     extraGroups = [
