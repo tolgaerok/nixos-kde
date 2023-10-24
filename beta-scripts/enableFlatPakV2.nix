@@ -8,9 +8,7 @@
 #---------------------------------------------------------------------
 {
   services.flatpak.enable = true;
-
   systemd.services.configure-flathub-repo = {
-    enable = true;
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
     script = ''
