@@ -8,10 +8,10 @@
   imports = [
 
     # ./distrobox
+    # ./flatpak
     # ./plasma-manager/plasma-config.nix
     # ./steam
     ./custom-pkgs
-    ./flatpak
     ./internet
     ./packages.nix
     ./vm

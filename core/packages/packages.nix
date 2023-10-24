@@ -167,10 +167,11 @@ with lib;
       # mosh                            # Mobile shell (ssh replacement)
       # sublime4                        # Sophisticated text editor for code, markup and prose
       direnv                            # A shell extension that manages your environment
-      nix-direnv                      # A fast, persistent use_nix implementation for direnv
-      nixfmt                          # An opinionated formatter for Nix
+      nix-direnv                        # A fast, persistent use_nix implementation for direnv
+      nixfmt                            # An opinionated formatter for Nix
+      # nix-linter                        # to check for several common mistakes or stylistic errors in Nix expressions, such as unused arguments, empty let blocks, etcetera.
       nixos-option
-      vscode                          # Open source source code editor developed by Microsoft for Windows, Linux and macOS 
+      vscode                            # Open source source code editor developed by Microsoft for Windows, Linux and macOS 
       vscode-extensions.brettm12345.nixfmt-vscode
       vscode-extensions.mkhl.direnv
 
