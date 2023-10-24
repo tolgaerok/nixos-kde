@@ -130,9 +130,11 @@ with lib;
     CPU_SCALING_GOVERNOR_ON_AC = "performance"; # Adjust as needed
     CPU_SCALING_GOVERNOR_ON_BAT = "schedutil"; # Adjust as needed
     CPU_SCALING_MAX_FREQ_ON_AC = 2350000; # Average of 2.35 GHz
-    CPU_SCALING_MAX_FREQ_ON_BAT = 1000000; # For HP ProBook 6460b (Approx. 1.0 GHz)
+    CPU_SCALING_MAX_FREQ_ON_BAT =
+      1000000; # For HP ProBook 6460b (Approx. 1.0 GHz)
     CPU_SCALING_MIN_FREQ_ON_AC = 1100000; # Average of 1.1 GHz
-    CPU_SCALING_MIN_FREQ_ON_BAT = 800000; # For HP EliteBook Folio 9470m (i7 3667u) = 800 Mhz
+    CPU_SCALING_MIN_FREQ_ON_BAT =
+      800000; # For HP EliteBook Folio 9470m (i7 3667u) = 800 Mhz
 
     # GPU Settings
     INTEL_GPU_BOOST_FREQ_ON_AC = 1100;
@@ -177,41 +179,6 @@ with lib;
   #     ''ACTION=="add", SUBSYSTEM=="net", NAME=="enp*", RUN+="${pkgs.ethtool}/sbin/ethtool -s $name wol d"''
 
   #  ];
-
-  #  systemd = {
-  #    services = {
-  #      # Do not restart these, since it fucks up the current session
-  #      NetworkManager.restartIfChanged = false;
-  #      display-manager.restartIfChanged = false;
-  #      polkit.restartIfChanged = false;
-  #      systemd-logind.restartIfChanged = false;
-  #      wpa_supplicant.restartIfChanged = false;#
-  #
-  #      lock-before-sleeping = {
-  #
-  #        restartIfChanged = false;
-
-  #       unitConfig = {
-  #          Description = "Helper service to bind locker to sleep.target";
-  #        };
-
-  #        serviceConfig = {
-  #          ExecStart = "${pkgs.slock}/bin/slock";
-  #          Type = "simple";
-  #        };
-
-  #        before = [ "pre-sleep.service" ];
-
-  #        wantedBy = [ "pre-sleep.service" ];
-
-  #        environment = {
-  #          DISPLAY = ":0";
-  #          XAUTHORITY = "/home/tolga/.Xauthority";
-  #        };
-  #      };
-  #    };
-
-  #  };
 
 }
 
