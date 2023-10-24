@@ -6,10 +6,10 @@ with lib;
   zramSwap = {  # Source: https://docs.kernel.org/admin-guide/blockdev/zram.html
 
     enable = true;
-    #  algorithm = "lzo";  # Use LZO compression algorithm
-    #  algorithm = "zstd"; # Use Zstandard (zstd) compression algorithm
-    algorithm = "lz4";  # Use LZ4 compression algorithm
-    memoryPercent = 50;  #  % of ram used for compression
+    #  algorithm = "lzo";   # Use LZO compression algorithm
+    #  algorithm = "zstd";  # Use Zstandard (zstd) compression algorithm
+    algorithm = "lz4";      # Use LZ4 compression algorithm
+    memoryPercent = 35;     #  % of ram used for compression
 
     # Note: Load Module
     # in terminal: sudo modprobe zram num_devices=4
