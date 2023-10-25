@@ -44,16 +44,19 @@
       unitConfig = {
         Description = "Helper service to bind locker to sleep.target";
       };
+
       serviceConfig = {
         ExecStart = "${pkgs.slock}/bin/slock";
         Type = "simple";
       };
+
       before = [ "pre-sleep.service" ];
       wantedBy = [ "pre-sleep.service" ];
       environment = {
         DISPLAY = ":0";
         XAUTHORITY = "/home/tolga/.Xauthority";
       };
+      
     };
 
     configure-flathub-repo = {
