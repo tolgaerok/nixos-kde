@@ -28,6 +28,7 @@
     ];
   };
 
+  services.flatpak.enable = true;
   systemd.services = {
     # ---------------------------------------------------------------------
     # Do not restart these, since it messes up the current session
