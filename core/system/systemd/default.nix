@@ -56,12 +56,12 @@
         DISPLAY = ":0";
         XAUTHORITY = "/home/tolga/.Xauthority";
       };
-      
+
     };
 
     configure-flathub-repo = {
       enable = true;
-      after = [ "network.target" ];
+      after = [ "multi-user.target" "network.target" ];
       wantedBy = [ "multi-user.target" ];
       path = [ pkgs.flatpak ];
       script = ''
