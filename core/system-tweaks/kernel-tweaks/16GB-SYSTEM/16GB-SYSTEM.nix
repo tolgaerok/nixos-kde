@@ -23,7 +23,7 @@
     "vm.dirty_bytes" = 16777216;                # Data (16 MB) modified in memory and needs to be written to disk. Adjusted for SSD.
     "vm.min_free_kbytes" = 65536;               # Minimum free memory for safety (in KB), helping prevent memory exhaustion situations. Adjusted for 16GB RAM.
     "vm.swappiness" = 10;                       # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. Adjusted for 16GB RAM.
-    "vm.vfs_cache_pressure" = 200;              # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 16GB RAM.
+    "vm.vfs_cache_pressure" = 90;              # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 16GB RAM.
 
   };
 

@@ -7,9 +7,9 @@
   # Faster processing and less SSD usage
   #---------------------------------------------------------------------
   zramSwap.enable = true;
-  zramSwap.memoryPercent = 20;
+  zramSwap.memoryPercent = 35;
 
   # 8GB
-  zramSwap.memoryMax = 8589934592;
+  #zramSwap.memoryMax = 8589934592;
 
 }
