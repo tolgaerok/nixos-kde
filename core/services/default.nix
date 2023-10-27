@@ -8,6 +8,7 @@
     ./avahi
     ./bluetooth-manager
     ./dbus
+    ./earlyoom
     ./envfs
     ./flat-pak
     ./fstrim

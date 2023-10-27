@@ -19,16 +19,17 @@ with lib;
     
     # Select your kernel
     #---------------------------------------------
-    # ../../core/system-tweaks/kernel-upgrades/xanmod.nix                   # Xanmod kernel
-    # ../../core/system-tweaks/kernel-upgrades/zen.nix                      # Zen kernel
-    ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix        # Latest default NixOS kernel
+    # ../../core/system-tweaks/kernel-upgrades/xanmod.nix                                     # Xanmod kernel
+    # ../../core/system-tweaks/kernel-upgrades/zen.nix                                        # Zen kernel
+    ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix                           # Latest default NixOS kernel
 
     # Main core
     # ---------------------------------------------
     ../../../core
+    ../../../core/boot/grub/efi.nix                                                           # Use EFI loader on this machine, not GRUB
     ../../../core/gpu/intel/intel-laptop/HP-Folio-9470M/Eilite-Folio-9470M-HD-Intel-4000.nix
     ./HP-FOLIO-hardware-configuration.nix
-    ./boot
+    # ./boot
 
     # Custom System tweaks
     # ---------------------------------------------
