@@ -6,7 +6,7 @@
     # Early OOM Killer
 
     earlyoom = {
-      enable = true; # Enable the early OOM (Out Of Memory) killer service.
+      enable = true;          # Enable the early OOM (Out Of Memory) killer service.
 
       # Free Memory Threshold
       # Sets the point at which earlyoom will intervene to free up memory.
