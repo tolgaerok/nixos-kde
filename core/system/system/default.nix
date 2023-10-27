@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }:
 #---------------------------------------------------------------------
-# Automatic system upgrades, automatically reboot after an upgrade if
-# necessary
+# Automatic system upgrades
 #---------------------------------------------------------------------
 
 let
