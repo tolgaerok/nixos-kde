@@ -10,6 +10,10 @@
 #---------------------------------------------------------------------
 
 {
+  imports = [
+
+    #  ./tmpfs-mount.service
+  ];
 
   # ---------------------------------------------------------------------
   # Configure the flathub remote
@@ -30,6 +34,7 @@
 
   services.flatpak.enable = true;
   systemd.services = {
+
     # ---------------------------------------------------------------------
     # Do not restart these, since it messes up the current session
     # Idea's used from previous fedora woe's

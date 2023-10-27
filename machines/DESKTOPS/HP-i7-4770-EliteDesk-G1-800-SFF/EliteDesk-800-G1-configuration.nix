@@ -58,11 +58,15 @@
 
   # tmpfs (a filesystem stored in RAM) settings for the NixOS boot process. 
   #-------------------------------------------------------------------------
-  boot.tmp = {
-    cleanOnBoot = true;     # Clean tmpfs on system boot, useful for ensuring a clean state.
-    useTmpfs = true;        # Enable tmpfs for the specified directories.
-    tmpfsSize = "50%";      # Allocate 50% of RAM for tmpfs. You can adjust this percentage to your needs.
-  };
+
+  # Clean tmpfs on system boot, useful for ensuring a clean state.
+  boot.tmp.cleanOnBoot = true;
+
+  # Enable tmpfs for the specified directories.
+  boot.tmp.useTmpfs = true;
+
+  # Allocate 50% of RAM for tmpfs. You can adjust this percentage to your needs.
+  boot.tmp.tmpfsSize = "50%";
 
   # Enables simultaneous use of processor threads.
   # ---------------------------------------------
