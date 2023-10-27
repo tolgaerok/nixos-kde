@@ -16,10 +16,13 @@
     ./filesystem-support
     ./firewall
     ./fonts
+    ./multi-threading
     ./network
+    ./system
     ./systemd
     ./unfree-insecure
     ./zram
+
 
   ];
 

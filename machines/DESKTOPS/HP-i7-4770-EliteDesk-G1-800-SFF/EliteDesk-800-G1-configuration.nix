@@ -29,6 +29,7 @@
     # Main core
     # ---------------------------------------------
     ../../../core
+    ../../../core/boot/grub/grub.nix                                          # Use GRUB loader on this machine, not EFI
     ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./EliteDesk-800-G1-hardware-configuration.nix
 
@@ -46,45 +47,8 @@
 
   ];
 
-  # Bootloader
-  #----------------------------------------------
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
-  # Copies latest Linux kernels for smoother boot.
-  # ---------------------------------------------
-  boot.loader.grub.copyKernels = true;
-
-  # Enables simultaneous use of processor threads.
-  # ---------------------------------------------
-  security.allowSimultaneousMultithreading = true;
-
   # Name of your pc to appear on the Network
   #---------------------------------------------------------------------
-  networking.hostName = "HP-G800"; # Define your hostname.
-
-  #-------------------------------------------------------------------------
-  # tmpfs (a filesystem stored in RAM) settings for the NixOS boot process. 
-  #-------------------------------------------------------------------------
-
-  # Clean tmpfs on system boot, useful for ensuring a clean state.
-  boot.tmp.cleanOnBoot = true;
-
-  # Enable tmpfs for the specified directories.
-  boot.tmp.useTmpfs = true;
-
-  # Allocate 50% of RAM for tmpfs. You can adjust this percentage to your needs.
-  boot.tmp.tmpfsSize = "50%";
-
-  #---------------------------------------------------------------------
-  # Automatic system upgrades, automatically reboot after an upgrade if
-  # necessary
-  #---------------------------------------------------------------------
-  # system.autoUpgrade.allowReboot = true;  # Very annoying .
-  system.autoUpgrade.enable = true;
-  system.copySystemConfiguration = true;
-  system.stateVersion = "23.05";
-  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
+  networking.hostName = "HP-G800";                                            # Define your hostname.
 
 }
