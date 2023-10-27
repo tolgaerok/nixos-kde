@@ -46,7 +46,7 @@
 
   ];
 
-  # Bootloader & tweaks
+  # Bootloader
   #----------------------------------------------
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
@@ -56,6 +56,15 @@
   # ---------------------------------------------
   boot.loader.grub.copyKernels = true;
 
+  # Enables simultaneous use of processor threads.
+  # ---------------------------------------------
+  security.allowSimultaneousMultithreading = true;
+
+  # Name of your pc to appear on the Network
+  #---------------------------------------------------------------------
+  networking.hostName = "HP-G800"; # Define your hostname.
+
+  #-------------------------------------------------------------------------
   # tmpfs (a filesystem stored in RAM) settings for the NixOS boot process. 
   #-------------------------------------------------------------------------
 
@@ -68,19 +77,10 @@
   # Allocate 50% of RAM for tmpfs. You can adjust this percentage to your needs.
   boot.tmp.tmpfsSize = "50%";
 
-  # Enables simultaneous use of processor threads.
-  # ---------------------------------------------
-  security.allowSimultaneousMultithreading = true;
-
-  # Name of your pc to appear on the Network
-  #---------------------------------------------------------------------
-  networking.hostName = "HP-G800"; # Define your hostname.
-
   #---------------------------------------------------------------------
   # Automatic system upgrades, automatically reboot after an upgrade if
   # necessary
   #---------------------------------------------------------------------
-
   # system.autoUpgrade.allowReboot = true;  # Very annoying .
   system.autoUpgrade.enable = true;
   system.copySystemConfiguration = true;
