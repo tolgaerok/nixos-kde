@@ -56,13 +56,12 @@
   # ---------------------------------------------
   boot.loader.grub.copyKernels = true;
 
-  # tmpfs Configuration
-
   # tmpfs (a filesystem stored in RAM) settings for the NixOS boot process. 
+  #-------------------------------------------------------------------------
   boot.tmp = {
     cleanOnBoot = true;   # Clean tmpfs on system boot, useful for ensuring a clean state.
     useTmpfs = true;      # Enable tmpfs for the specified directories.
-   tmpfsSize = "50%";     # Allocate 50% of RAM for tmpfs. You can adjust this percentage to your needs.
+    tmpfsSize = "50%";     # Allocate 50% of RAM for tmpfs. You can adjust this percentage to your needs.
   };
 
   # Enables simultaneous use of processor threads.
