@@ -28,7 +28,9 @@
       "d /var/spool/samba 1777 root root -"
       "r! /tmp/**/*"
     ];
+
     extraConfig = "DefaultTimeoutStopSec=10s";
+
   };
 
   systemd.services = {
