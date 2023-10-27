@@ -71,6 +71,7 @@
       "scanner"
       "smb"
       "sound"
+      "storage"
       "systemd-journal"
       "udev"
       "users"

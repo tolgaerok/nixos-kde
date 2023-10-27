@@ -6,7 +6,10 @@
 # Imports and basic configuration
 #---------------------------------------------------------------------
 { config, lib, pkgs, modulesPath, ... }:
+let
+  defaultXfsOpts = [ "defaults" "relatime" "nodiratime" ];
 
+in
 {
   #---------------------------------------------------------------------
   # Module imports
@@ -66,6 +69,7 @@
 
     # Optimize SSD
     # ---------------------------------------------
+    # mountOptions = defaultXfsOpts;
     options = [
 
       "data=ordered"        # Ensures data is written to the journal before being committed to the file system.
@@ -83,6 +87,20 @@
     device = "/dev/disk/by-uuid/E73E-5FCA";
     fsType = "vfat";
   };
+
+  # Add a file system entry for the "Public" directory bind mount
+  #fileSystems."/home/tolga/Public" = {
+  #  device = "/home/tolga/Public";
+  #  fsType = "none";
+  #  options = [ "bind" "rw" ];  # Read-write access
+  #};
+
+  # Add a file system entry for the "Public" directory bind mount
+  fileSystems."/mnt/public_access" = {
+    device = "/home/tolga/Public";
+    fsType = "none";
+    options = [ "bind" "rw" ];  # Read-write access
+};
 
   #---------------------------------------------------------------------
   # Mounting options for samba
