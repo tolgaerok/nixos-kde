@@ -14,6 +14,7 @@
       styles = with pkgs;
         with libsForQt5; [
           qtstyleplugin-kvantum
+          catppuccin-kvantum
           breeze-qt5
           qtcurve
         ];
