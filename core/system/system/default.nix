@@ -15,7 +15,9 @@ in {
       enable = true;
       allowReboot = false;
     };
+
     copySystemConfiguration = true;
     stateVersion = "${version}";
+
   };
 }
