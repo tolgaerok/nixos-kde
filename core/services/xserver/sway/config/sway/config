@@ -20,7 +20,7 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /home/mkelly/Projects/Arch-Manjaro-Scripts/wallpaper-btw.png fill
+# output * bg /home/tolga/Projects/Arch-Manjaro-Scripts/wallpaper-btw.png fill
 #
 # Example configuration:
 #
