@@ -1,0 +1,19 @@
+[Desktop Entry]
+Actions=new-empty-window
+Categories=Utility;TextEditor;Development;IDE
+Comment=Code Editing. Redefined.
+Exec=codium %F --enable-features=UseOzonePlatform --ozone-platform=wayland
+GenericName=Text Editor
+Icon=code
+Keywords=vscode
+MimeType=text/plain;inode/directory
+Name=VSCodium
+StartupNotify=true
+StartupWMClass=vscodium
+Type=Application
+Version=1.4
+
+[Desktop Action new-empty-window]
+Exec=codium --new-window %F --enable-features=UseOzonePlatform --ozone-platform=wayland
+Icon=code
+Name=New Empty Window

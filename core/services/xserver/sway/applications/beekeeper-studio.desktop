@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Beekeeper Studio
+Exec=beekeeper-studio --no-sandbox %U --enable-features=UseOzonePlatform --ozone-platform=wayland
+Terminal=false
+Type=Application
+Icon=beekeeper-studio
+StartupWMClass=beekeeper-studio
+X-AppImage-Version=3.6.2
+Comment=An easy-to use SQL query editor and database UI for Mac, Windows, and Linux
+MimeType=application/vnd.sqlite3;application/vnd.sqlite3;application/vnd.sqlite3;x-scheme-handler/redshift;x-scheme-handler/cockroachdb;x-scheme-handler/cockroach;x-scheme-handler/mariadb;x-scheme-handler/mysql;x-scheme-handler/postgresql;x-scheme-handler/postgres;x-scheme-handler/psql;x-scheme-handler/sqlite;x-scheme-handler/sqlserver;x-scheme-handler/microsoftsqlserver;x-scheme-handler/mssql;
+Categories=Development;

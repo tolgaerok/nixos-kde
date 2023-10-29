@@ -1,0 +1,19 @@
+[Desktop Entry]
+Actions=new-empty-window
+Categories=Utility;TextEditor;Development;IDE
+Comment=Code Editing. Redefined.
+Exec=code %F --enable-features=UseOzonePlatform --ozone-platform=wayland
+GenericName=Text Editor
+Icon=code
+Keywords=vscode
+MimeType=text/plain;inode/directory
+Name=Visual Studio Code
+StartupNotify=true
+StartupWMClass=Code
+Type=Application
+Version=1.4
+
+[Desktop Action new-empty-window]
+Exec=code --new-window %F
+Icon=code
+Name=New Empty Window
