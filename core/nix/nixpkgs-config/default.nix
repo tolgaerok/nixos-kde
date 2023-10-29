@@ -18,10 +18,10 @@ with lib;
         builtins.elem (lib.getName pkg) [
           "nvidia-settings"
           "nvidia-x11"
-          "spotify"
-          "steam"
-          "steam-original"
-          "steam-run"
+          # "spotify"
+          # "steam"
+          # "steam-original"
+          # "steam-run"
           "vscode"
 
           # they got fossed recently so idk

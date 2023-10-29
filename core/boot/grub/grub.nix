@@ -20,3 +20,4 @@
   boot.tmp.tmpfsSize = "50%";
 }
 
+ 

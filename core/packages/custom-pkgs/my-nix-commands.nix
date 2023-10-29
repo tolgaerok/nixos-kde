@@ -35,7 +35,9 @@ let
         echo -e "\033[1;32m14.   nix-store optimise\033[0m                      Optimize the Nix store (alternative command)"
         echo -e "\033[1;32m15.   nix-store --optimise --all\033[0m              Optimize the Nix store (alternative command)"
         echo -e "\033[1;32m16.   nix-store --gc --print-dead\033[0m             Print the paths to be deleted during garbage collection"
-        echo -e "\033[1;32m17.   Delete old generations\033[0m                   Delete old generations of the active profile"
+        echo -e "\033[1;32m17.   Delete old generations\033[0m                  Delete old generations of the active profile"
+        echo -e "\033[1;33m18.   nixos-rebuild test\033[0m                      Test configuration first before rebuild switch"
+        echo -e "\033[1;33m19.   nixos-rebuild switch --upgrade\033[0m          Fetch and apply the latest configuration and package versions"
         echo -e "\033[1;32m 0.   Exit\033[0m                                    Exit the script"
     }
 
@@ -90,6 +92,10 @@ let
             15) execute_command "nix-collect-garbage" ;;
             16) execute_command "nix-store --gc --print-dead" ;;
             17) execute_command "sudo nix-collect-garbage --delete-old" ;;
+            18) execute_command "sudo nixos-rebuild test" ;;
+            19) execute_command "sudo nixos-rebuild switch --upgrade" ;;
+
+
             0) exit ;;
             *) echo -e "\033[1;31mInvalid choice. Please try again.\033[0m" ;;
         esac
