@@ -59,6 +59,7 @@ in
     # ./core/services/xserver/kde/kde.nix
     # ./core/services/xserver/sway/sway.nix
     ./core/services/xserver
+    ./test.nix
     
   ];
 }
