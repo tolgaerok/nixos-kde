@@ -1,4 +1,5 @@
 #!/run/current-system/sw/bin/sh
+# Tolga Erok
 
 # Set PATH to include the necessary command directories
 export PATH="/run/current-system/sw/bin:$PATH"

@@ -32,8 +32,14 @@ let
 
     clear && echo -e "\e[1;32m[✔]\e[0m Checking updates for installed flatpak programs...\n"
     sudo flatpak update -y
-    sleep 2
+    sleep 1
     
+    clear && echo -e "\e[1;32m[✔]\e[0m Removing Old Flatpak Cruft...\n"
+    flatpak uninstall --unused
+    flatpak uninstall --delete-data
+    sudo rm -rfv /var/tmp/flatpak-cache-*
+    sleep 1
+
     clear && echo -e "\e[1;32m[✔]\e[0m System update's and optimization completed:\e[0m\n"
 
     echo "Your nix info:"
@@ -49,6 +55,8 @@ let
 
     notify-send --icon=ktimetracker --app-name="NixOS update..." "System updated and optimized" "
     Time taken: $time_taken seconds" -u normal
+
+    df
 
     exit 0
 
