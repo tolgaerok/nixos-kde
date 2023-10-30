@@ -23,7 +23,7 @@ in {
     settings = {
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
-      # experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       sandbox = true;
       trusted-users = [ "root" "${name}" ];
 

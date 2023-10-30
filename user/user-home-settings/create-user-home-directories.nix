@@ -23,6 +23,10 @@ let
         # Create standard directories
         # ------------------------------------------------------------------
         mkdir -p "$user_home/.config"
+        mkdir -p "$user_home/.gnupg"
+        mkdir -p "$user_home/.local/share/Steam"
+        mkdir -p "$user_home/.local/share/direnv"
+        mkdir -p "$user_home/.local/share/keyrings"
         mkdir -p "$user_home/.ssh"
         mkdir -p "$user_home/Applications"
         mkdir -p "$user_home/Documents"
@@ -42,16 +46,21 @@ let
         # ------------------------------------------------------------------
         usergroup=$(id -gn "$username")
         chown -R "$username:$usergroup" \
+          "$user_home/.bash_profile" \
+          "$user_home/.config" \
+          "$user_home/.gnupg" \
+          "$user_home/.local/share/Steam" \
+          "$user_home/.local/share/direnv" \
+          "$user_home/.local/share/keyrings" \
+          "$user_home/.ssh" \
+          "$user_home/Applications" \
           "$user_home/Documents" \
           "$user_home/Downloads" \
-          "$user_home/Pictures" \
           "$user_home/Music" \
-          "$user_home/Videos" \
+          "$user_home/Pictures" \
           "$user_home/Public" \
           "$user_home/Templates" \
-          "$user_home/.config" \
-          "$user_home/.ssh" \
-          "$user_home/.bash_profile" \
+          "$user_home/Videos" \
           "$user_home/.profile"
       fi
 
