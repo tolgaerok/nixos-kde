@@ -15,7 +15,6 @@ with lib;
     #---------------------------------------------------------------------
     # Nvidia virtulation for Docker/Virtulization
     #---------------------------------------------------------------------
-
     #./nvidia-docker.nix
 
   ];
@@ -28,20 +27,17 @@ with lib;
       #---------------------------------------------------------------------
       # Enable the nvidia settings menu
       #---------------------------------------------------------------------
-
       nvidiaSettings = true;
 
       #---------------------------------------------------------------------
       # Enable power management (do not disable this unless you have a reason to).
       # Likely to cause problems on laptops and with screen tearing if disabled.
       #---------------------------------------------------------------------
-
       powerManagement.enable = true; # Fix Suspend issue
 
       #---------------------------------------------------------------------
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       #---------------------------------------------------------------------
-
       package = config.boot.kernelPackages.nvidiaPackages.stable;
 
       # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
@@ -53,7 +49,6 @@ with lib;
     # Direct Rendering Infrastructure (DRI) support, both for 32-bit and 64-bit, and 
     # Make sure opengl is enabled
     #---------------------------------------------------------------------
-
     opengl = {
       enable = true;
       driSupport = true;
@@ -62,7 +57,6 @@ with lib;
       #---------------------------------------------------------------------
       # Install additional packages that improve graphics performance and compatibility.
       #---------------------------------------------------------------------
-
       extraPackages = with pkgs; [        
         
         amdvlk

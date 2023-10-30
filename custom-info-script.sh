@@ -22,3 +22,4 @@ printf "\e[33mRAM Used:\e[0m %s\n" "$RAM_USED"
 printf "\e[33mTMPFS Used:\e[0m\n%s\n" "$TMPFS_USED"
 printf "\e[33mZRAMSWAP Used:\e[0m %s\n" "$ZRAMSWAP_USED"
 printf "\e[33mEarlyoom Status:\e[0m %s\n" "$EARLYOOM_USED"
+lfs

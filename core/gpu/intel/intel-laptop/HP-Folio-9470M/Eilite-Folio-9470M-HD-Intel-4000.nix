@@ -82,7 +82,7 @@ with lib;
   # Likely to cause problems on laptops and with screen tearing if disabled.
   #---------------------------------------------------------------------
   powerManagement.enable = true;
-  powerManagement.powertop.enable = true;
+  powerManagement.powertop.enable = lib.mkForce true;
 
   #---------------------------------------------------------------------
   # CPU performance scaling
@@ -97,32 +97,33 @@ with lib;
   #---------------------------------------------------------------------
   # Enable TLP for better power management with Schedutil governor
   #---------------------------------------------------------------------
-  services.tlp.enable = true;
+  services.tlp = {
+    enable = true;
 
-  services.tlp.settings = {
-    AHCI_RUNTIME_PM_ON_BAT = "auto";
-    CPU_BOOST_ON_AC = 1;
-    CPU_BOOST_ON_BAT = 0;
-    CPU_ENERGY_PERF_POLICY_ON_AC = "ondemand";
-    CPU_ENERGY_PERF_POLICY_ON_BAT = "ondemand";
-    CPU_MAX_PERF_ON_AC = 99;
-    CPU_MAX_PERF_ON_BAT = 75;
-    CPU_MIN_PERF_ON_BAT = 75;
-    CPU_SCALING_GOVERNOR_ON_AC = "schedutil"; # Adjust as needed
-    CPU_SCALING_GOVERNOR_ON_BAT = "schedutil"; # Adjust as needed
-    NATACPI_ENABLE = 1;
-    RUNTIME_PM_ON_AC = "on";
-    RUNTIME_PM_ON_BAT = "auto";
-    SCHED_POWERSAVE_ON_BAT = 1;
-    SOUND_POWER_SAVE_ON_AC = 0;
-    SOUND_POWER_SAVE_ON_BAT = 1;
-    START_CHARGE_THRESH_BAT0 = 40;
-    STOP_CHARGE_THRESH_BAT0 = 80;
-    TPACPI_ENABLE = 1;
-    TPSMAPI_ENABLE = 1;
-    WOL_DISABLE = "Y";
+    settings = {
+      AHCI_RUNTIME_PM_ON_BAT = "auto";
+      CPU_BOOST_ON_AC = 1;
+      CPU_BOOST_ON_BAT = 0;
+      CPU_ENERGY_PERF_POLICY_ON_AC = "ondemand";
+      CPU_ENERGY_PERF_POLICY_ON_BAT = "ondemand";
+      CPU_MAX_PERF_ON_AC = 99;
+      CPU_MAX_PERF_ON_BAT = 75;
+      CPU_MIN_PERF_ON_BAT = 75;
+      CPU_SCALING_GOVERNOR_ON_AC = "schedutil"; # Adjust as needed
+      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil"; # Adjust as needed
+      NATACPI_ENABLE = 1;
+      RUNTIME_PM_ON_AC = "on";
+      RUNTIME_PM_ON_BAT = "auto";
+      SCHED_POWERSAVE_ON_BAT = 1;
+      SOUND_POWER_SAVE_ON_AC = 0;
+      SOUND_POWER_SAVE_ON_BAT = 1;
+      START_CHARGE_THRESH_BAT0 = 40;
+      STOP_CHARGE_THRESH_BAT0 = 80;
+      TPACPI_ENABLE = 1;
+      TPSMAPI_ENABLE = 1;
+      WOL_DISABLE = "Y";
+    };
   };
-
   #---------------------------------------------------------------------
   # Extra laptop packages
   #---------------------------------------------------------------------

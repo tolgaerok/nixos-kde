@@ -1,11 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, username, inputs, ... }:
+let
 
-{
+  # samba credentials:  Terminal==>   create-smb-user
+  name = "tolga";
+  group = "samba";
+
+in {
   #---------------------------------------------------------------------
   # Adding a rule to the iptables firewall to allow NetBIOS name 
   # resolution traffic on UDP port 137 - NixOS wiki
   #---------------------------------------------------------------------
-
   services.samba-wsdd.enable = true;
 
   #---------------------------------------------------------------------
@@ -13,7 +17,6 @@
   # For a user to be authenticated on the samba server, you must add 
   # their password using sudo smbpasswd -a <user> as root
   #---------------------------------------------------------------------
-
   services.samba = {
     enable = true;
 
@@ -73,7 +76,7 @@
       # Public Share
       #---------------------------------------------------------------------
 
-      Tolga_NixOS_Public = {
+      HP800_Public = {
         path = "/home/tolga/Public";
         comment = "Public Share";
         browseable = true;
@@ -82,15 +85,15 @@
         writable = true;
         "create mask" = "0777";
         "directory mask" = "0777";
-        "force user" = "tolga";
-        "force group" = "samba";
+        "force user" = "${name}";
+        "force group" = "${group}";
       };
 
       #---------------------------------------------------------------------
       # Private Share
       #---------------------------------------------------------------------
 
-      Tolga_NixOS_Private = {
+      HP800_Private = {
         path = "/home/NixOs";
         comment = "Private Share";
         browseable = true;
@@ -98,8 +101,8 @@
         "guest ok" = false;
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "tolga";
-        "force group" = "samba";
+        "force user" = "${name}";
+        "force group" = "${group}";
       };
 
       #---------------------------------------------------------------------
