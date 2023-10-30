@@ -51,6 +51,15 @@ in
     # ---------------------------------------------
     importfile 
     
+    # Choose DE, still under review
+    # ---------------------------------------------
+    # ./core/services/xserver/cinnamon/cinnamon.nix
+    # ./core/services/xserver/gnome/gnome.nix
+    # ./core/services/xserver/hyperland/hyperland.nix
+    # ./core/services/xserver/kde/kde.nix
+    # ./core/services/xserver/sway/sway.nix
+    ./core/services/xserver
+    
   ];
 }
 

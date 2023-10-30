@@ -23,7 +23,7 @@ in {
     settings = {
       allowed-users = [ "@wheel" ];
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      # experimental-features = [ "nix-command" "flakes" "repl-flake" ];
       sandbox = true;
       trusted-users = [ "root" "${name}" ];
 
@@ -33,6 +33,8 @@ in {
       warn-dirty = false;
 
     };
+    
+    extraOptions = "experimental-features = nix-command flakes";
 
     # package = pkgs.nixUnstable; # Keep this if you want to use nixUnstable, otherwise replace with the appropriate nix version
 
