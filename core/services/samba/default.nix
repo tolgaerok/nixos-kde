@@ -1,9 +1,21 @@
-{ config, pkgs, lib, username, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
 
-  # samba credentials:  Terminal==>   create-smb-user
-  name = "tolga";
-  group = "samba";
+  # samba credentials:  Terminal run ==>   create-smb-user
+  #---------------------------------------------------------------------
+  sharedOptions = {
+
+    # Common options
+    "guest ok" = true;
+    "read only" = false;
+
+    # Only users with samba in their extraGroup settings can access the following shared folders below HP800_Private && HP800_Public
+    "valid users" = "@samba"; 
+    
+    browseable = true;
+    writable = true;
+
+  };
 
 in {
   #---------------------------------------------------------------------
@@ -58,68 +70,63 @@ in {
 
     shares = {
 
+      sharedOptions = sharedOptions;
+
       #---------------------------------------------------------------------
       # Home Directories Share - From my old fedora days
       #---------------------------------------------------------------------
 
-      homes = {
+      homes = sharedOptions // {
         comment = "Home Directories";
         browseable = false;
-        "read only" = false;
         "create mask" = "0700";
         "directory mask" = "0700";
         "valid users" = "%S, %D%w%S";
-        writable = true;
       };
 
       #---------------------------------------------------------------------
       # Public Share
       #---------------------------------------------------------------------
 
-      HP800_Public = {
+      HP800_Public = sharedOptions // {
+
         path = "/home/tolga/Public";
         comment = "Public Share";
-        browseable = true;
-        "read only" = false;
-        "guest ok" = true;
-        writable = true;
         "create mask" = "0777";
         "directory mask" = "0777";
-        "force user" = "${name}";
-        "force group" = "${group}";
+
       };
 
       #---------------------------------------------------------------------
       # Private Share
       #---------------------------------------------------------------------
 
-      HP800_Private = {
+      HP800_Private = sharedOptions // {
+
         path = "/home/NixOs";
         comment = "Private Share";
-        browseable = true;
-        "read only" = false;
-        "guest ok" = false;
         "create mask" = "0644";
         "directory mask" = "0755";
-        "force user" = "${name}";
-        "force group" = "${group}";
+        "guest ok" = false;
+
       };
 
       #---------------------------------------------------------------------
       # Printer Share
       #---------------------------------------------------------------------
 
-      printers = {
+      printers = sharedOptions // {
+
         comment = "All Printers";
         path = "/var/spool/samba";
         public = true;
-        browseable = true;
-        "guest ok" = true;
         writable = false;
         printable = true;
         "create mask" = "0700";
+
       };
     };
+
   };
 
 }
