@@ -58,8 +58,8 @@ in
     # ./core/services/xserver/hyperland/hyperland.nix
     # ./core/services/xserver/kde/kde.nix
     # ./core/services/xserver/sway/sway.nix
+    #./test.nix
     ./core/services/xserver
-    ./test.nix
     
   ];
 }

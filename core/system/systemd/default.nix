@@ -83,5 +83,22 @@
       '';
     };
 
+    customInfoScript = {
+      description = "Custom Info Script";
+      script = "/etc/nixos/core/system/systemd/custom-info-script.sh";
+      wantedBy = [ "multi-user.target" ];
+    };
+
+  };
+
+  #---------------------------------------------
+  # Custom derivation
+  #---------------------------------------------
+  system.activationScripts = {
+    customInfoScript = {
+      text = ''
+        /etc/nixos/activation-scripts/run-custom-info-script.sh
+      '';
+    };
   };
 }

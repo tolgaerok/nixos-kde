@@ -10,25 +10,22 @@ let
     "read only" = false;
 
     # Only users with samba in their extraGroup settings can access the following shared folders below HP800_Private && HP800_Public
-    "valid users" = "@samba"; 
-    
+    "valid users" = "@samba";
+
     browseable = true;
     writable = true;
 
   };
 
 in {
-  #---------------------------------------------------------------------
-  # Adding a rule to the iptables firewall to allow NetBIOS name 
-  # resolution traffic on UDP port 137 - NixOS wiki
-  #---------------------------------------------------------------------
-  services.samba-wsdd.enable = true;
 
   #---------------------------------------------------------------------
   # Samba Configuration - NixOS wiki
   # For a user to be authenticated on the samba server, you must add 
   # their password using sudo smbpasswd -a <user> as root
   #---------------------------------------------------------------------
+  services.samba-wsdd.enable = true;
+
   services.samba = {
     enable = true;
 
