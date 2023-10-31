@@ -2,24 +2,24 @@
 
 {
   environment.systemPackages = with pkgs; [
-    fuzzel
-    kitty
-    slurp
-    grim
-    xfce.thunar
-    xfce.tumbler
-    ffmpegthumbnailer
-    gthumb
-    gnome.gnome-disk-utility
     arc-theme
-    xorg.xlsclients
-    xdg-utils
-    glib
     bc
-    wl-clipboard
+    ffmpegthumbnailer
+    fuzzel
+    glib
+    gnome.gnome-disk-utility
+    grim
+    gthumb
+    kitty
     libnotify
     mako
+    slurp
     waybar
+    wl-clipboard
+    xdg-utils
+    xfce.thunar
+    xfce.tumbler
+    xorg.xlsclients
   ];
 
   services.dbus.enable = true;

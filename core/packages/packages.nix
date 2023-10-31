@@ -492,6 +492,7 @@ with lib;
       glxinfo
       libva
       libva-utils
+      vim
 
     ];
   };

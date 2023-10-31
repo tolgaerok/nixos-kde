@@ -2,33 +2,33 @@
 
 {
     environment.systemPackages = with pkgs; [
-        mate.mate-polkit
-        fuzzel
-        foot
-        kitty
-        slurp
-        grim
-        xfce.thunar
-        xfce.tumbler
-        ffmpegthumbnailer
-        gthumb
-        gnome.gnome-disk-utility
         arc-theme
-        xorg.xlsclients
-        xdg-utils
-        glib
         bc
-        swaylock
-        swayidle
-        wl-clipboard
-        playerctl
         bluetuith
+        fd
+        ffmpegthumbnailer
+        foot
+        fuzzel
+        fzf
+        glib
+        gnome.gnome-disk-utility
+        grim
+        gthumb
+        kitty
         libnotify
         mako
-        unzip
+        mate.mate-polkit
+        playerctl
         ripgrep
-        fzf
-        fd
+        slurp
+        swayidle
+        swaylock
+        unzip
+        wl-clipboard
+        xdg-utils
+        xfce.thunar
+        xfce.tumbler
+        xorg.xlsclients
     ];
 
     hardware.bluetooth.enable = true;

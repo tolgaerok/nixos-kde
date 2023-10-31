@@ -10,9 +10,9 @@
   xdg.portal.enable = true;
 
   environment.systemPackages = with pkgs; [
-    wmctrl
-    rofi
-    papirus-icon-theme
     gthumb
+    papirus-icon-theme
+    rofi
+    wmctrl
   ];
 }
