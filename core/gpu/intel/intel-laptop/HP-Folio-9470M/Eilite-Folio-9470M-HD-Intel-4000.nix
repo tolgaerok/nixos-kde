@@ -101,7 +101,20 @@ with lib;
     enable = true;
 
     settings = {
-      AHCI_RUNTIME_PM_ON_BAT = "auto";
+      # DISK_DEVICES must be specified for AHCI_RUNTIME_PM settings to work right.
+      DISK_DEVICES = "nvme0n1 nvme1n1 sda sdb";
+
+      # with AHCI_RUNTIME_PM_ON_AC/BAT set to defaults in battery mode, P51
+      # can't resume from sleep and P50 can't go to sleep.
+      AHCI_RUNTIME_PM_ON_AC = "on";
+      AHCI_RUNTIME_PM_ON_BAT = "on";
+      # AHCI_RUNTIME_PM_ON_BAT = "auto";
+
+      # with RUNTIME_PM_ON_BAT/AC set to defaults, P50/P51 can't go to sleep
+      RUNTIME_PM_ON_AC = "on";
+      RUNTIME_PM_ON_BAT = "on";
+      # RUNTIME_PM_ON_BAT = "auto";
+
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;
       CPU_ENERGY_PERF_POLICY_ON_AC = "ondemand";
@@ -112,8 +125,7 @@ with lib;
       CPU_SCALING_GOVERNOR_ON_AC = "schedutil"; # Adjust as needed
       CPU_SCALING_GOVERNOR_ON_BAT = "schedutil"; # Adjust as needed
       NATACPI_ENABLE = 1;
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "auto";
+
       SCHED_POWERSAVE_ON_BAT = 1;
       SOUND_POWER_SAVE_ON_AC = 0;
       SOUND_POWER_SAVE_ON_BAT = 1;
