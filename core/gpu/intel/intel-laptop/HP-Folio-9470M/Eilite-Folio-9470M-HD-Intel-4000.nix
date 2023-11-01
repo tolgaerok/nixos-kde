@@ -51,8 +51,8 @@ with lib;
   #---------------------------------------------------------------------
   hardware.opengl = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    driSupport = lib.mkDefault true;
+    driSupport32Bit = lib.mkDefault true;
 
     extraPackages = with pkgs; [
 
