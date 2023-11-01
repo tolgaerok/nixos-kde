@@ -12,6 +12,7 @@
     ./git
     ./java
     ./konsole
+    ./nix-program-settings
     ./partition-manager
 
   ];

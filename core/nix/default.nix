@@ -21,24 +21,38 @@ in {
 
   nix = {
     settings = {
-      allowed-users = [ "@wheel" ];
+      allowed-users = [
+
+        "@wheel"
+        "${name}"
+      ];
+
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
-      sandbox = true;
-      trusted-users = [ "root" "${name}" ];
+
+      experimental-features = [
+
+        "flakes"
+        "nix-command"
+        "repl-flake"
+
+      ];
+
+      sandbox = "relaxed"; # if set to true, This enforces strict sandboxing, which is the default and most secure mode for building and running Nix packages
+
+      trusted-users = [
+
+        "${name}"
+        "@wheel"
+        "root"
+
+      ];
 
       # Avoid unwanted garbage collection when using nix-direnv
       keep-derivations = true;
       keep-outputs = true;
       warn-dirty = false;
+      tarball-ttl = 300;
 
-    };
-    
-    extraOptions = "experimental-features = nix-command flakes";
-
-    # package = pkgs.nixUnstable; # Keep this if you want to use nixUnstable, otherwise replace with the appropriate nix version
-
-    settings = {
       trusted-substituters = [
 
         "http://cache.nixos.org"
@@ -51,10 +65,14 @@ in {
 
     };
 
+    extraOptions = "experimental-features = nix-command flakes";
+
+    # package = pkgs.nixUnstable; # Keep this if you want to use nixUnstable, otherwise replace with the appropriate nix version
+
     gc = {
       automatic = true;
       dates = "weekly";
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 10d";
     };
 
   };

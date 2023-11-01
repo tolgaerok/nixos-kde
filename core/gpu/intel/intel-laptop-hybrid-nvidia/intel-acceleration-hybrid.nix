@@ -98,17 +98,34 @@
   # ---------------------------------------------------------------------
   # Hardware video acceleration and compatibility for Intel GPUs
   # ---------------------------------------------------------------------
-  hardware.opengl = {
-    enable = true;
-    extraPackages = with pkgs; [
+  hardware = {
+    nvidia = {
+      prime = {
+        offload.enable = true; # enable to use intel gpu (hybrid mode)
+        # sync.enable = true; # enable to use nvidia gpu (discrete mode)
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+      };
 
-      amdvlk
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      libvdpau-va-gl
-      vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
+      modesetting.enable = false;
 
-    ];
+    };
+
+    opengl = {
+      enable = true;
+      driSupport = lib.mkDefault true;
+      driSupport32Bit = lib.mkDefault true;
+      
+      extraPackages = with pkgs; [
+
+        amdvlk
+        intel-media-driver # LIBVA_DRIVER_NAME=iHD
+        libvdpau-va-gl
+        vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+        vaapiVdpau
+
+      ];
+    };
   };
 
   # ---------------------------------------------------------------------

@@ -57,13 +57,6 @@ with lib;
       "xhci_pci"    # Enables the eXtensible Host Controller Interface (xHCI) driver for PCI-based USB controllers, providing support for USB 3.0 and later standards.
 
     ];
-
-    # ---------------------------------------------------------------------
-    # Boot - Plymouth theme
-    # ---------------------------------------------------------------------
-    # plymouth.enable = true;
-    # plymouth.theme = "breeze";
-
   };
 
   #---------------------------------------------------------------------

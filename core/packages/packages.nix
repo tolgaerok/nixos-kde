@@ -7,7 +7,7 @@ with lib;
   # My personal software collection
   # ---------------------------------------------------------------------
 
- # services.teamviewer.enable = true;
+ services.teamviewer.enable = true;
 
   environment = {
     systemPackages = with pkgs; [
@@ -295,7 +295,7 @@ with lib;
 
       # heroku                         # Everything you need to get started using Heroku
       # powershell                     # Powerful cross-platform (Windows, Linux, and macOS) shell and scripting language based on .NET
-      # teamviewer                     # Desktop sharing application, providing remote support and online meetings
+      teamviewer                     # Desktop sharing application, providing remote support and online meetings
       anydesk
       sshpass                        # Non-interactive ssh password auth
 
@@ -493,7 +493,11 @@ with lib;
       libva
       libva-utils
       vim
-
+      obsidian
+      theme-obsidian2
+      iconpack-obsidian
+      dwarf-fortress-packages.themes.obsidian
+      
     ];
   };
 }

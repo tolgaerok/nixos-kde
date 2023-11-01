@@ -1,8 +1,13 @@
 { config, pkgs, lib, inputs, ... }:
 let
-
+  # Tolga Erok
+  # 30/10/2023
   # samba credentials:  Terminal run ==>   create-smb-user
   #---------------------------------------------------------------------
+
+  # Change to suit
+  mySharedPath = "/home/tolga/Public"; # Change this path to your desired value
+
   sharedOptions = {
 
     # Common options
@@ -87,7 +92,7 @@ in {
 
       HP800_Public = sharedOptions // {
 
-        path = "/home/tolga/Public";
+        path = mySharedPath;
         comment = "Public Share";
         "create mask" = "0777";
         "directory mask" = "0777";

@@ -14,15 +14,26 @@ with lib;
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       # allowUnfreePredicate = _: true;
 
+      permittedInsecurePackages = [
+
+        "electron-12.2.3"
+        "electron-24.8.6"
+        "openssl-1.1.1u"
+        "openssl-1.1.1v"
+        "python-2.7.18.6"
+        "qtwebkit-5.212.0-alpha4"
+
+      ];
+
       allowUnfreePredicate = pkg:
         builtins.elem (lib.getName pkg) [
           "nvidia-settings"
           "nvidia-x11"
-          # "spotify"
-          # "steam"
-          # "steam-original"
-          # "steam-run"
           "vscode"
+        # "spotify"
+        # "steam"
+        # "steam-original"
+        # "steam-run"
 
           # they got fossed recently so idk
           "Anytype"
@@ -32,62 +43,9 @@ with lib;
       # Accept the joypixels license
       joypixels.acceptLicense = true;
 
-      # Allow insecure or old pkgs - Help from nix package manager
-      permittedInsecurePackages = [ "qtwebkit-5.212.0-alpha4" ];
     };
 
   };
 
-  programs = {
-
-    # allow users to mount fuse filesystems with allow_other
-    fuse.userAllowOther = true;
-
-    # help manage android devices via command line
-    adb.enable = true;
-
-    # "saying java is good because it runs on all systems is like saying
-    # anal sex is good because it works on all species"
-    # - sun tzu
-    java = {
-      enable = false;
-      #  package = pkgs.jre;
-    };
-
-    direnv = {
-      enable = true;
-      nix-direnv.enable = true;
-    };
-
-  };
-
-  programs.nix-ld = {
-    enable = true;
-    libraries = with pkgs; [
-
-      curl
-      glib
-      glibc
-      icu
-      libsecret
-      libunwind
-      libuuid
-
-      # openssl
-      stdenv.cc.cc
-      util-linux
-      zlib
-
-      # graphical
-      freetype
-      libglvnd
-      libnotify
-      SDL2
-      vulkan-loader
-      gdk-pixbuf
-      xorg.libX11
-
-    ];
-  };
 }
 

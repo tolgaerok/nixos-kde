@@ -51,8 +51,8 @@ with lib;
     #---------------------------------------------------------------------
     opengl = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      driSupport = lib.mkDefault true;
+      driSupport32Bit = lib.mkDefault true;
 
       #---------------------------------------------------------------------
       # Install additional packages that improve graphics performance and compatibility.

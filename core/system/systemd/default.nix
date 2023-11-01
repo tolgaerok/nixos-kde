@@ -89,6 +89,8 @@
       wantedBy = [ "multi-user.target" ];
     };
 
+    NetworkManager-wait-online.enable = false;
+
   };
 
   #---------------------------------------------

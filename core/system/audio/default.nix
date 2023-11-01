@@ -19,9 +19,12 @@
   sound.enable = true;
 
   services.pipewire = {
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    jack.enable = true;
+    
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+
     pulse.enable = true;
     wireplumber.enable = true;
   };

@@ -45,4 +45,13 @@
 
   services.spice-vdagentd.enable = true;
 
+  # vmVariant configuration is added only when building VM with nixos-rebuild
+  # build-vm
+  virtualisation.vmVariant = {
+    virtualisation = {
+      cores = 7;
+      memorySize = 8192; # Use 8GB memory (value is in MB)
+    };
+  };
+
 }
