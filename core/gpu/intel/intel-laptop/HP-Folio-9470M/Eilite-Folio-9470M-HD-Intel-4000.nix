@@ -101,10 +101,7 @@ with lib;
     enable = true;
 
     settings = {
-<<<<<<< HEAD
 
-=======
->>>>>>> 33a352c7ef64b424323266140246393a1d695871
       # DISK_DEVICES must be specified for AHCI_RUNTIME_PM settings to work right.
       DISK_DEVICES = "nvme0n1 nvme1n1 sda sdb";
 
@@ -114,14 +111,11 @@ with lib;
       AHCI_RUNTIME_PM_ON_BAT = "on";
       # AHCI_RUNTIME_PM_ON_BAT = "auto";
 
-<<<<<<< HEAD
-=======
       # with RUNTIME_PM_ON_BAT/AC set to defaults, P50/P51 can't go to sleep
-      RUNTIME_PM_ON_AC = "on";
-      RUNTIME_PM_ON_BAT = "on";
+      # RUNTIME_PM_ON_AC = "on";
+      # RUNTIME_PM_ON_BAT = "on";
       # RUNTIME_PM_ON_BAT = "auto";
 
->>>>>>> 33a352c7ef64b424323266140246393a1d695871
       CPU_BOOST_ON_AC = 1;
       CPU_BOOST_ON_BAT = 0;
 
@@ -137,12 +131,9 @@ with lib;
 
       NATACPI_ENABLE = 1;
 
-<<<<<<< HEAD
       RUNTIME_PM_ON_AC = "on";
       RUNTIME_PM_ON_BAT = "on"; # or auto
 
-=======
->>>>>>> 33a352c7ef64b424323266140246393a1d695871
       SCHED_POWERSAVE_ON_BAT = 1;
 
       SOUND_POWER_SAVE_ON_AC = 0;
@@ -153,7 +144,7 @@ with lib;
 
       TPACPI_ENABLE = 1;
       TPSMAPI_ENABLE = 1;
-      
+
       WOL_DISABLE = "Y";
     };
   };
