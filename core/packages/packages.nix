@@ -493,10 +493,7 @@ with lib;
       libva
       libva-utils
       vim
-      obsidian
-      theme-obsidian2
-      iconpack-obsidian
-      dwarf-fortress-packages.themes.obsidian
+
       
     ];
   };

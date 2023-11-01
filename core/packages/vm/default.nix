@@ -46,6 +46,7 @@
   services.spice-vdagentd.enable = true;
 
   # vmVariant configuration is added only when building VM with nixos-rebuild
+  
   # build-vm
   virtualisation.vmVariant = {
     virtualisation = {
