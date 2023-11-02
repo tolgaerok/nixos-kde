@@ -5,7 +5,7 @@
 #---------------------------------------------------------------------
 # Imports and basic configuration
 #---------------------------------------------------------------------
-{ config, lib, pkgs, modulesPath, ... }:
+{ config, lib, pkgs, modulesPath, ... }: 
 
 with lib;
 

@@ -5,13 +5,23 @@
 # 17/10/23
 # My personal NIXOS KDE configuration 
 # 
-# ¯\_(ツ)_/¯
+#              ¯\_(ツ)_/¯
+#   ███▄    █     ██▓   ▒██   ██▒    ▒█████       ██████ 
+#   ██ ▀█   █    ▓██▒   ▒▒ █ █ ▒░   ▒██▒  ██▒   ▒██    ▒ 
+#  ▓██  ▀█ ██▒   ▒██▒   ░░  █   ░   ▒██░  ██▒   ░ ▓██▄   
+#  ▓██▒  ▐▌██▒   ░██░    ░ █ █ ▒    ▒██   ██░     ▒   ██▒
+#  ▒██░   ▓██░   ░██░   ▒██▒ ▒██▒   ░ ████▓▒░   ▒██████▒▒
+#  ░ ▒░   ▒ ▒    ░▓     ▒▒ ░ ░▓ ░   ░ ▒░▒░▒░    ▒ ▒▓▒ ▒ ░
+#  ░ ░░   ░ ▒░    ▒ ░   ░░   ░▒ ░     ░ ▒ ▒░    ░ ░▒  ░ ░
+#     ░   ░ ░     ▒ ░    ░    ░     ░ ░ ░ ▒     ░  ░  ░  
+#           ░     ░      ░    ░         ░ ░           ░  
+# 
 #---------------------------------------------------------------------
 
 let
   
-  #   Auto HOST chooser based on device product name
-  #   Terminal:   cat /sys/devices/virtual/dmi/id/product_name
+  # Auto HOST chooser based on device product name
+  # Terminal:   cat /sys/devices/virtual/dmi/id/product_name
   #---------------------------------------------------------------------
   importfile = ( if builtins.readFile "/sys/devices/virtual/dmi/id/product_name" == "HP EliteBook Folio 9470m\n" then
     ./machines/LAPTOPS/HP-i7-Eilte-Folio-9470M/HP-FOLIO-configuration.nix
@@ -53,13 +63,12 @@ in
     
     # Choose DE, still under review
     # ---------------------------------------------
+    # ./core/services/xserver
     # ./core/services/xserver/cinnamon/cinnamon.nix
     # ./core/services/xserver/gnome/gnome.nix
     # ./core/services/xserver/hyperland/hyperland.nix
-    # ./core/services/xserver/kde/kde.nix
-    # ./core/services/xserver/sway/sway.nix
-    #./test.nix
-    ./core/services/xserver
+    # ./core/services/xserver/sway/sway.nix    
+    ./core/services/xserver/kde/kde.nix
     
   ];
 }

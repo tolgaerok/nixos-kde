@@ -89,18 +89,19 @@
       wantedBy = [ "multi-user.target" ];
     };
 
+    #--------------------------------------------------------------------- 
+    # Modify autoconnect priority of the connection to tolgas home network
+    #---------------------------------------------------------------------
+    modify-autoconnect-priority = {
+      description = "Modify autoconnect priority of OPTUS_B27161 connection";
+      script = ''
+        nmcli connection modify OPTUS_B27161 connection.autoconnect-priority 1
+      '';
+    };
+    
     NetworkManager-wait-online.enable = false;
 
   };
 
-  #---------------------------------------------
-  # Custom derivation
-  #---------------------------------------------
-  system.activationScripts = {
-    customInfoScript = {
-      text = ''
-        /etc/nixos/activation-scripts/run-custom-info-script.sh
-      '';
-    };
-  };
 }
+

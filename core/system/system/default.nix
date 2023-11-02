@@ -18,5 +18,17 @@ in {
     copySystemConfiguration = true;
     stateVersion = "${version}";
 
+    #---------------------------------------------
+    # Custom derivation
+    #---------------------------------------------
+    activationScripts = {
+      customInfoScript = {
+        text = ''
+          /etc/nixos/activation-scripts/run-custom-info-script.sh
+        '';
+      };
+    };
+
   };
 }
+
