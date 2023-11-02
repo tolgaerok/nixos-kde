@@ -2,7 +2,7 @@
 
 let
 
-  auto-home-manager = pkgs.writeScriptBin "auto-home-manager" ''
+  nixos-hm = pkgs.writeScriptBin "nixos-hm" ''
     #!/bin/sh
     # Personal home-manager auto installer
     # Tolga Erok. ¯\_(ツ)_/¯
@@ -65,8 +65,8 @@ let
 in {
 
   #---------------------------------------------------------------------
-  # Type: auto-home-manager in terminal to execute above bash script
+  # Type: nixos-hm in terminal to execute above bash script
   #---------------------------------------------------------------------
 
-  environment.systemPackages = [ auto-home-manager ];
+  environment.systemPackages = [ nixos-hm ];
 }
