@@ -1,7 +1,7 @@
 { username, config, pkgs, stdenv, lib, modulesPath, ... }:
 
 # Tolga Erok
-# 10/6/2023
+# 3/11/2023
 # My personal NIXOS KDE configuration 
 # 
 #              ¯\_(ツ)_/¯
@@ -15,22 +15,21 @@
 #     ░   ░ ░     ▒ ░    ░    ░     ░ ░ ░ ▒     ░  ░  ░  
 #           ░     ░      ░    ░         ░ ░           ░  
 #  
-#------------------ HP EliteDesk 800 G1 SFF ------------------------
+#------------------ HP EliteDesk 800 G4 SFF ------------------------
 
 # BLUE-TOOTH        REALTEK 5G
-# CPU	              Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell)
-# i-GPU	            Integrated Intel HD Graphics
-# d-GPU	            NVIDIA GeForce GT 1030/PCIe/SSE2
-# MODEL             HP EliteDesk 800 G1 SFF
-# MOTHERBOARD	      Intel® Q87 Express
+# CPU	              Intel(R) Core(TM)  i7-8700 CPU @ 3.2GHz - 4.6Ghz (Turbo) x 6 (vPro)
+# i-GPU	            Intel UHD Graphics 630, Coffee Lake 
+# d-GPU             NVIDIA GeForce GT 1030/PCIe/SSE2
+# MODEL             HP EliteDesk 800 G4 SFF
+# MOTHERBOARD	      Intel Q370 PCH-H—vPro
 # NETWORK	          Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
-# RAM	              28 GB DDR3, 1600-MHz DDR3 SDRAM, Max 32
-# STORAGE           SAMSUNG SSD 870 EVO 500GB
-# EXPENSION SLOTS   (2) PCI Express x1 (v2.0), (1) PCI Express x 16 (v2.0 - wired as x4)
-#                   (1) PCI Express x16 (v3.0), (1) Optional PCI (v2.3)
-# PSU               320W
-# CERTIFIED         RHEL, SUSE ENTERPRISE, WINDOWS 7 - 10 (Can run hacked W11 ent)
-# SOURCE            https://support.hp.com/au-en/document/c03832938
+# RAM	              Maximum: 64 GB, DDR4-2666 (16 GB x 4)
+# STORAGE           256 GB, M.2 2280, PCIe NVMe SSD
+# EXPENSION SLOTS   (1) M.2 PCIe x1 2230 (for WLAN), (2) M.2 PCIe x4 2280/2230 combo (for storage)
+#                   (2) PCI Express v3.0 x1, (1) PCI Express v3.0 x16 (wired as x4), (1) PCI Express v3.0 x16
+# PSU               250W
+# SOURCE            https://support.hp.com/au-en/document/c06047207
 
 #---------------------------------------------------------------------
 
@@ -47,9 +46,9 @@
     # Main core
     # ---------------------------------------------
     ../../../core
-    ../../../core/boot/grub/grub.nix                                          # Use GRUB loader on this machine, not EFI
+    ../../../core/boot/efi/efi.nix                                          # Use GRUB loader on this machine, not EFI
     ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./EliteDesk-800-G1-hardware-configuration.nix
+    ./EliteDesk-800-G4-hardware-configuration.nix
 
     # Custom System tweaks
     # ---------------------------------------------
@@ -67,7 +66,7 @@
 
   # Name of your pc to appear on the Network
   #---------------------------------------------------------------------
-  networking.hostName = "HP-G1-800";                                            # Define your hostname. 
+  networking.hostName = "HP-G4-800";                                            # Define your hostname. 
   
   #                                                                       
   #    .--~*teu.      .x~~"*Weu.              .n~~%x.       cuuu....uK    

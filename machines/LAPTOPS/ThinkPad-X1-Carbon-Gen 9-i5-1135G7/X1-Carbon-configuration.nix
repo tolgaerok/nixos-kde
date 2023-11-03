@@ -1,7 +1,7 @@
 { username, config, pkgs, stdenv, lib, modulesPath, ... }:
 
 # Tolga Erok
-# 10/6/2023
+# 3/11/2023
 # My personal NIXOS KDE configuration 
 # 
 #              ¯\_(ツ)_/¯
@@ -15,22 +15,18 @@
 #     ░   ░ ░     ▒ ░    ░    ░     ░ ░ ░ ▒     ░  ░  ░  
 #           ░     ░      ░    ░         ░ ░           ░  
 #  
-#------------------ HP EliteDesk 800 G1 SFF ------------------------
+#------------------ ThinkPad X1 Carbon Gen 9 ------------------------
 
-# BLUE-TOOTH        REALTEK 5G
-# CPU	              Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell)
-# i-GPU	            Integrated Intel HD Graphics
-# d-GPU	            NVIDIA GeForce GT 1030/PCIe/SSE2
-# MODEL             HP EliteDesk 800 G1 SFF
-# MOTHERBOARD	      Intel® Q87 Express
-# NETWORK	          Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
-# RAM	              28 GB DDR3, 1600-MHz DDR3 SDRAM, Max 32
-# STORAGE           SAMSUNG SSD 870 EVO 500GB
-# EXPENSION SLOTS   (2) PCI Express x1 (v2.0), (1) PCI Express x 16 (v2.0 - wired as x4)
-#                   (1) PCI Express x16 (v3.0), (1) Optional PCI (v2.3)
-# PSU               320W
-# CERTIFIED         RHEL, SUSE ENTERPRISE, WINDOWS 7 - 10 (Can run hacked W11 ent)
-# SOURCE            https://support.hp.com/au-en/document/c03832938
+# BLUE-TOOTH        Bluetooth® 5.1
+# CPU	              11th Gen Intel® Core™ i5-1135G7 (4C / 8T, 2.4 / 4.2GHz, 8MB)
+# GPU	              Intel Iris® Xe Graphics, DirectX® 12.1
+# MODEL             ThinkPad X1 Carbon Gen 9
+# MOTHERBOARD	      Intel SoC (System on Chip) platform
+# NETWORK	          Intel Wi-Fi 6 AX201, 11ax, 2x2 
+# RAM	              Up to 16GB Soldered LPDDR4x-4266
+# SATA              Up to 1TB M.2 2280 SSD
+# CERTIFIED         Windows 11 Pro, Fedora, Linux, Ubuntu
+# SOURCE            https://www.lenovo.com/au/en/p/laptops/thinkpad/thinkpadx1/x1-carbon-g9/22tp2x1x1c9?orgRef=https%253A%252F%252Fwww.google.com%252F#tech_specs
 
 #---------------------------------------------------------------------
 
@@ -40,21 +36,21 @@
 
     # Select your kernel
     #---------------------------------------------
-    # ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix         # Latest default NixOS kernel
-    # ../../core/system-tweaks/kernel-upgrades/zen.nix                        # Zen kernel
-    ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                     # Xanmod kernel
+    # ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                # Xanmod kernel
+    # ../../core/system-tweaks/kernel-upgrades/zen.nix                      # Zen kernel
+    ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix         # Latest default NixOS kernel
 
     # Main core
     # ---------------------------------------------
+    # ../../../core/gpu/nvidia/nvidia-stable-opengl                         # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    # ./EliteDesk-800-G1-hardware-configuration.nix
     ../../../core
-    ../../../core/boot/grub/grub.nix                                          # Use GRUB loader on this machine, not EFI
-    ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./EliteDesk-800-G1-hardware-configuration.nix
+    ../../../core/boot/efi/efi.nix                                          # Use GRUB loader on this machine, not EFI
 
     # Custom System tweaks
     # ---------------------------------------------
     # ../../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                   # Zram tweak for 28GB
-    ../../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix     # Kernel tweak for 28GB
+    ../../../core/system-tweaks/kernel-tweaks/16GB-SYSTEM/16GB-SYSTEM.nix     # Kernel tweak for 28GB
     ../../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
 
     # Users && user settings
@@ -67,7 +63,7 @@
 
   # Name of your pc to appear on the Network
   #---------------------------------------------------------------------
-  networking.hostName = "HP-G1-800";                                            # Define your hostname. 
+  networking.hostName = "X1-CARBON";                                            # Define your hostname. 
   
   #                                                                       
   #    .--~*teu.      .x~~"*Weu.              .n~~%x.       cuuu....uK    
