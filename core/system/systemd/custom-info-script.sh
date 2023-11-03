@@ -56,5 +56,5 @@ printf "\e[33mEarlyoom Status:\e[0m %s\n" "$EARLYOOM_USED"
 echo -e "\nFlathub Service Status: $FLATHUB_ACTIVE / $FLATHUB_LOADED"
 
 lfs
-espeak -v en+m7 -s 165 "system! up! dated!  kernel! tweaks! applied!" --punct="," 2>/dev/null
+# espeak -v en+m7 -s 165 "system! up! dated!  kernel! tweaks! applied!" --punct="," 2>/dev/null
 
