@@ -1,6 +1,9 @@
 #!/run/current-system/sw/bin/sh
 # Tolga Erok
 
+# Reload the sysctl Configuration
+# doas sysctl --system
+
 # Set PATH to include the necessary command directories
 export PATH="/run/current-system/sw/bin:$PATH"
 
@@ -39,13 +42,19 @@ fi
 #fi
 
 stdbuf -o0 printf ""
+echo -e "\e[1;32m[✔]\e[0m Restarting kernel tweaks...\n"
+sleep 3
+sudo sysctl --system
+sleep 3
 
 # Print descriptions in yellow and results in blue
-printf "\e[33mRAM Installed:\e[0m %s\n" "$RAM_INSTALLED"
+printf "\n\e[33mRAM Installed:\e[0m %s\n" "$RAM_INSTALLED"
 printf "\e[33mRAM Used:\e[0m %s\n" "     $RAM_USED"
-printf "\e[33mDisk space and TMPS Used:\e[0m\n%s\n" "$TMPFS_USED"
-printf "\e[33mZRAMSWAP Used:\e[0m %s\n" "  $ZRAMSWAP_USED"
+printf "\n\e[33mDisk space and TMPS Used:\e[0m\n%s\n" "$TMPFS_USED"
+printf "\n\e[33mZRAMSWAP Used:\e[0m %s\n" "  $ZRAMSWAP_USED"
 printf "\e[33mEarlyoom Status:\e[0m %s\n" "$EARLYOOM_USED"
-echo -e "Flathub Service Status: $FLATHUB_ACTIVE / $FLATHUB_LOADED"
+echo -e "\nFlathub Service Status: $FLATHUB_ACTIVE / $FLATHUB_LOADED"
 
 lfs
+espeak -v en+m7 -s 165 "system! up! dated!  kernel! tweaks! applied!" --punct="," 2>/dev/null
+
