@@ -27,11 +27,13 @@
   ];
 
   #---------------------------------------------------------------------
-  # Manage the virtualisation services
+  # Manage the virtualisation services : Libvirt stuff
   #---------------------------------------------------------------------
   virtualisation = {
     libvirtd = {
       enable = true;
+      onBoot = "ignore";
+
       qemu = {
         swtpm.enable = true;
         ovmf.enable = true;
@@ -44,6 +46,7 @@
   };
 
   services.spice-vdagentd.enable = true;
+  systemd.services.libvirtd.restartIfChanged = false;
 
   # vmVariant configuration is added only when building VM with nixos-rebuild
   

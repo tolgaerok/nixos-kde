@@ -8,6 +8,9 @@
     networkmanager = {
       enable = true;
 
+      # Append Cloudflare and Google DNS servers
+      appendNameservers = [ "1.1.1.1" "8.8.8.8" ];
+
       #--------------------------------------------------------------------- 
       # Prevent fragmentation and reassembly, which can improve network performance
       #---------------------------------------------------------------------

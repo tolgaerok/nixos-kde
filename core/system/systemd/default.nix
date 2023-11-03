@@ -40,6 +40,7 @@
     # ---------------------------------------------------------------------
     NetworkManager.restartIfChanged = false;
     display-manager.restartIfChanged = false;
+    libvirtd.restartIfChanged = false;
     polkit.restartIfChanged = false;
     systemd-logind.restartIfChanged = false;
     wpa_supplicant.restartIfChanged = false;
@@ -57,6 +58,7 @@
 
       before = [ "pre-sleep.service" ];
       wantedBy = [ "pre-sleep.service" ];
+      
       environment = {
         DISPLAY = ":0";
         XAUTHORITY = "/home/tolga/.Xauthority";

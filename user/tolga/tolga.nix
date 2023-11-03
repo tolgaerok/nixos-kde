@@ -49,9 +49,12 @@
   users.users.tolga = {
     homeMode = "0755";
     isNormalUser = true;
+    createHome = true;
     home = "/home/tolga/";
+    # group = "tolga";
     description = "King_Tolga";
     uid = 1000;
+    
     extraGroups = [
       "adbusers"
       "audio"

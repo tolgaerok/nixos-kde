@@ -24,7 +24,6 @@ in
     extraModulePackages = [ ];
     initrd.kernelModules = [ ];
     kernelModules = [ 
-
       "kvm-intel" 
       "tcp_bbr"       # Dynamically optimize how data is sent over a network (not internet), aiming to achieve higher throughput and reduced latency
 
@@ -32,21 +31,19 @@ in
 
     # Enable BBR congestion control algorithm for TCP, , which can lead to improved network throughput and reduced latency.
     kernel.sysctl = {
-
       "net.ipv4.tcp_congestion_control" = "bbr";
 
     };
 
     kernelParams = [
-
-      "intel_pstate=ondemand" # Enables the "ondemand" CPU frequency scaling governor for Intel processors, optimizing performance and power efficiency.
-      "mitigations=off"       # Disables certain security mitigations, potentially improving performance but reducing security.
-      "quiet"                 # Suppresses verbose kernel messages during boot, providing a quieter boot process.
+      # "intel_pstate=ondemand" # Enables the "ondemand" CPU frequency scaling governor for Intel processors, optimizing performance and power efficiency.
+      "intel_pstate=disable"    # You may have more control over the CPU's performance and power management.
+      "mitigations=off"         # Disables certain security mitigations, potentially improving performance but reducing security.
+      "quiet"                   # Suppresses verbose kernel messages during boot, providing a quieter boot process.
 
     ];
 
     initrd.availableKernelModules = [
-
       "ahci"        # Enables the Advanced Host Controller Interface (AHCI) driver, typically used for SATA (Serial ATA) controllers.
       "ehci_pci"    # Enables the Enhanced Host Controller Interface (EHCI) driver for PCI-based USB controllers, providing support for USB 2.0.
       "sd_mod"      # Enables the SCSI disk module (sd_mod), which allows the system to recognize and interact with SCSI-based storage devices.
@@ -71,7 +68,6 @@ in
     # ---------------------------------------------
     # mountOptions = defaultXfsOpts;
     options = [
-
       "data=ordered"        # Ensures data is written to the journal before being committed to the file system.
       "defaults"            # Standard mount options for read-write access, program execution, device interpretation, automatic mounting, and more.
       "discard"             # Enables automatic trimming of unused blocks on SSDs.

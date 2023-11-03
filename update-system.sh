@@ -3,3 +3,5 @@
 
 sudo nix-channel --update
 
+./update-user.sh
+

@@ -9,6 +9,9 @@ with lib.my;
 let cfg = config.modules.desktop.gaming.steam;
 
 in {
+  
+  hardware.steam-hardware.enable = true;
+
   options.modules.desktop.gaming.steam = with types; {
     enable = mkBoolOpt false;
   };
@@ -27,7 +30,7 @@ in {
   };
 
   environment.systemPackages = with pkgs; [ steam vulkan-headers ntfs3g ];
-  
+
   config = mkIf cfg.enable {
     programs.steam = {
       enable = true;
@@ -40,5 +43,9 @@ in {
       systemd.extraConfig = "DefaultLimitNOFILE=1048576";
     };
   };
+
+  services.jack.alsa.support32Bit = true;
+  services.pipewire.alsa.support32Bit = true;
+
 }
 

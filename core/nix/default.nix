@@ -8,7 +8,6 @@ let
 in {
 
   imports = [
-
     ./dconf
     ./nixpkgs-config
 
@@ -22,7 +21,6 @@ in {
   nix = {
     settings = {
       allowed-users = [
-
         "@wheel"
         "${name}"
       ];
@@ -30,7 +28,6 @@ in {
       auto-optimise-store = true;
 
       experimental-features = [
-
         "flakes"
         "nix-command"
         "repl-flake"
@@ -40,7 +37,6 @@ in {
       sandbox = "relaxed"; # if set to true, This enforces strict sandboxing, which is the default and most secure mode for building and running Nix packages
 
       trusted-users = [
-
         "${name}"
         "@wheel"
         "root"
