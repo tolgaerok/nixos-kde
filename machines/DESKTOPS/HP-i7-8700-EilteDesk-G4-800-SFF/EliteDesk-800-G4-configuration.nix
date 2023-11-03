@@ -17,21 +17,22 @@
 #  
 #------------------ HP EliteDesk 800 G4 SFF ------------------------
 
-# BLUE-TOOTH        REALTEK 5G
-# CPU	              Intel(R) Core(TM)  i7-8700 CPU @ 3.2GHz - 4.6Ghz (Turbo) x 6 (vPro)
-# i-GPU	            Intel UHD Graphics 630, Coffee Lake 
-# d-GPU             NVIDIA GeForce GT 1030/PCIe/SSE2
 # MODEL             HP EliteDesk 800 G4 SFF
-# MOTHERBOARD	      Intel Q370 PCH-H—vPro
-# NETWORK	          Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
-# RAM	              Maximum: 64 GB, DDR4-2666 (16 GB x 4)
+# CPU               Intel(R) Core(TM) i7-8700 CPU @ 3.2GHz - 4.6GHz (Turbo) x 6 (vPro)
+# i-GPU             Intel UHD Graphics 630, Coffee Lake
+# d-GPU             NVIDIA GeForce GT 1030/PCIe/SSE2
+# BLUE-TOOTH        REALTEK 5G
+# MOTHERBOARD       Intel Q370 PCH-H—vPro
+# NETWORK           Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
+# RAM               Maximum: 64 GB, DDR4-2666 (16 GB x 4)
 # STORAGE           256 GB, M.2 2280, PCIe NVMe SSD
-# EXPENSION SLOTS   (1) M.2 PCIe x1 2230 (for WLAN), (2) M.2 PCIe x4 2280/2230 combo (for storage)
+# EXPANSION SLOTS   (1) M.2 PCIe x1 2230 (for WLAN), (2) M.2 PCIe x4 2280/2230 combo (for storage)
 #                   (2) PCI Express v3.0 x1, (1) PCI Express v3.0 x16 (wired as x4), (1) PCI Express v3.0 x16
 # PSU               250W
-# SOURCE            https://support.hp.com/au-en/document/c06047207
+# SOURCE            [HP EliteDesk 800 G4 SFF](https://support.hp.com/au-en/document/c06047207)
 
 #---------------------------------------------------------------------
+
 
 {
 
