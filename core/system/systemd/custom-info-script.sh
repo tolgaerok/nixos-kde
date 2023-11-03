@@ -57,4 +57,3 @@ echo -e "\nFlathub Service Status: $FLATHUB_ACTIVE / $FLATHUB_LOADED"
 
 lfs
 # espeak -v en+m7 -s 165 "system! up! dated!  kernel! tweaks! applied!" --punct="," 2>/dev/null
-

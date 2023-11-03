@@ -41,12 +41,12 @@
     #---------------------------------------------
     # ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix         # Latest default NixOS kernel
     # ../../core/system-tweaks/kernel-upgrades/zen.nix                        # Zen kernel
-    ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                     # Xanmod kernel
+    ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                    # Xanmod kernel
 
     # Main core
     # ---------------------------------------------
     ../../../core
-    ../../../core/boot/efi/efi.nix                                          # Use GRUB loader on this machine, not EFI
+    ../../../core/boot/efi/efi.nix                                            # Use GRUB loader on this machine, not EFI
     ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./EliteDesk-800-G4-hardware-configuration.nix
 

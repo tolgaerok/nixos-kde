@@ -63,7 +63,6 @@ in
     
     # Choose DE, still under review
     # ---------------------------------------------
-    # ./core/services/xserver
     # ./core/services/xserver/cinnamon/cinnamon.nix
     # ./core/services/xserver/gnome/gnome.nix
     # ./core/services/xserver/hyperland/hyperland.nix
