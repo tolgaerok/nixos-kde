@@ -26,7 +26,8 @@
 # NETWORK           Intel Wi-Fi 6 AX201 (11ax, 2x2)
 # CERTIFIED         Windows 11 Pro, Fedora, Linux, Ubuntu
 # MOTHERBOARD       Intel SoC (System on Chip) platform
-# SOURCE            [Lenovo ThinkPad X1 Carbon Gen 9](https://www.lenovo.com/au/en/p/laptops/thinkpad/thinkpadx1/x1-carbon-g9/22tp2x1x1c9?orgRef=https%253A%252F%252Fwww.google.com%252F#tech_specs)
+# SOURCE            [Lenovo ThinkPad X1 Carbon Gen 9]
+#                   (https://www.lenovo.com/au/en/p/laptops/thinkpad/thinkpadx1/x1-carbon-g9/22tp2x1x1c9?orgRef=https%253A%252F%252Fwww.google.com%252F#tech_specs)
 
 #---------------------------------------------------------------------
 
