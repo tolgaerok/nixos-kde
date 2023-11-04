@@ -20,7 +20,7 @@
 # MODEL             HP EliteDesk 800 G4 SFF
 # CPU               Intel(R) Core(TM) i7-8700 CPU @ 3.2GHz - 4.6GHz (Turbo) x 6 (vPro)
 # i-GPU             Intel UHD Graphics 630, Coffee Lake
-# d-GPU             NVIDIA GeForce GT 1030/PCIe/SSE2
+# d-GPU             NVIDIA GeForce GT 1030/PCIe/SSE2  or  Oland XT [Radeon HD 8670 / R5 340X OEM / R7 250/350/350X OEM]
 # BLUE-TOOTH        REALTEK 5G
 # MOTHERBOARD       Intel Q370 PCH-H—vPro
 # NETWORK           Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
@@ -46,16 +46,17 @@
 
     # Main core
     # ---------------------------------------------
+    # ../../../core/gpu/nvidia/nvidia-stable-opengl                           # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ../../../core
-    ../../../core/boot/efi/efi.nix                                            # Use GRUB loader on this machine, not EFI
-    ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
-    ./EliteDesk-800-G4-hardware-configuration.nix
+    ../../../core/boot/efi/efi.nix                                            # Use EFI loader on this machine, not GRUB
+    ../../../core/gpu/amd/opengl/default.nix
+    ./G4-hardware-configuration.nix
 
     # Custom System tweaks
     # ---------------------------------------------
-    # ../../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                   # Zram tweak for 28GB
-    ../../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix     # Kernel tweak for 28GB
-    ../../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
+    # ../../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                     # Zram tweak for 28GB
+    # ../../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix     # Kernel tweak for 28GB
+    # ../../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
 
     # Users && user settings
     # ---------------------------------------------
