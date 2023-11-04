@@ -20,11 +20,11 @@
 # MODEL             HP EliteDesk 800 G4 SFF (2019)
 # CPU               Intel(R) Core(TM) i7-8700 CPU @ 3.2GHz - 4.6GHz (Turbo) x 6 (vPro)
 # i-GPU             Intel UHD Graphics 630, Coffee Lake
-# d-GPU             NVIDIA GeForce GT 1030/PCIe/SSE2  or  Oland XT [Radeon HD 8670 / R5 340X OEM / R7 250/350/350X OEM]
+# d-GPU             Optional: NVIDIA GeForce GT 1030/PCIe/SSE2  or  Oland XT [Radeon HD 8670 / R5 340X OEM / R7 250/350/350X OEM]
 # BLUE-TOOTH        REALTEK 5G
 # MOTHERBOARD       Intel Q370 PCH-H—vPro
 # NETWORK           Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
-# RAM               Installed (39GB), Maximum: 64 GB, DDR4-2666 (16 GB x 4)
+# RAM               Vengeance LPX, CORSAIR: Installed (39GB), Maximum: 64 GB, DDR4-2666 (16 GB x 4)
 # STORAGE           Gen 4 (Current (2023) Samsung NVMe M.2 500GB SSD 970 EVO  , Gen 4 1st line - 256 GB, M.2 2280, PCIe NVMe SSD
 # EXPANSION SLOTS   (1) M.2 PCIe x1 2230 (for WLAN), (2) M.2 PCIe x4 2280/2230 combo (for storage)
 #                   (2) PCI Express v3.0 x1, (1) PCI Express v3.0 x16 (wired as x4), (1) PCI Express v3.0 x16
