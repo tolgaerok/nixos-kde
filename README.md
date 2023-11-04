@@ -1,5 +1,5 @@
 <div align="center">
-  <h1 style="font-size: 24px; color: blue;">My NixOs 23.05 environment, KDE & Nvidia GT-1030</h1>
+  <h1 style="font-size: 24px; color: blue;">My NixOs 23.05 environment, KDE & Nvidia, AMD && Intel</h1>
 </div>
 
 
