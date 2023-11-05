@@ -100,8 +100,12 @@
         nmcli connection modify OPTUS_B27161 connection.autoconnect-priority 1
       '';
     };
-    
+
+    #--------------------------------------------------------------------- 
+    # Make nixos boot a tad faster by turning these off during boot
+    #--------------------------------------------------------------------- 
     NetworkManager-wait-online.enable = false;
+    systemd-udev-settle.enable = false;
 
   };
 
