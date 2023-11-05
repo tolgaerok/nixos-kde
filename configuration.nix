@@ -26,6 +26,9 @@ let
   importfile = ( if builtins.readFile "/sys/devices/virtual/dmi/id/product_name" == "HP EliteBook Folio 9470m\n" then
     ./machines/LAPTOPS/HP-i7-Eilte-Folio-9470M/HP-FOLIO-configuration.nix
 
+    else if builtins.readFile "/sys/devices/virtual/dmi/id/product_name" == "HP EliteDesk 800 G4 SFF\n" then
+      ./machines/DESKTOPS/HP-i7-4770-EliteDesk-G1-800-SFF/EliteDesk-800-G4-configuration.nix
+
     else if builtins.readFile "/sys/devices/virtual/dmi/id/product_name" == "HP EliteDesk 800 G1 SFF\n" then
       ./machines/DESKTOPS/HP-i7-4770-EliteDesk-G1-800-SFF/EliteDesk-800-G1-configuration.nix
 
