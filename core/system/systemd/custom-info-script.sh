@@ -45,7 +45,7 @@ stdbuf -o0 printf ""
 echo -e "\e[1;32m[✔]\e[0m Restarting kernel tweaks...\n"
 sleep 3
 sudo sysctl --system
-sleep 3
+sleep 2
 
 # Print descriptions in yellow and results in blue
 printf "\n\e[33mRAM Installed:\e[0m %s\n" "$RAM_INSTALLED"
