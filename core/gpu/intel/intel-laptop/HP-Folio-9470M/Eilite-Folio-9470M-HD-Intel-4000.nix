@@ -118,7 +118,10 @@ with lib;
     powertop = {
       enable = lib.mkForce true;
     };
-};
+  };
+
+  # Allow brightness control by video group.
+  hardware.acpilight.enable = true;
 
   #---------------------------------------------------------------------
   # Enable TLP for better power management with Schedutil governor
@@ -146,8 +149,8 @@ with lib;
       CPU_MAX_PERF_ON_BAT = 75;
       CPU_MIN_PERF_ON_BAT = 75;
 
-      CPU_SCALING_GOVERNOR_ON_AC = "schedutil";       # Adjust as needed
-      CPU_SCALING_GOVERNOR_ON_BAT = "schedutil";      # Adjust as needed
+      CPU_SCALING_GOVERNOR_ON_AC = "performance";       # Adjust as needed
+      CPU_SCALING_GOVERNOR_ON_BAT = "powersave";      # Adjust as needed
 
       NATACPI_ENABLE = 1;
 

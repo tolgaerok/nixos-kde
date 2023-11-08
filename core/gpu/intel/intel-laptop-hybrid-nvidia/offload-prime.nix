@@ -1,15 +1,23 @@
-{ lib, pkgs, config, ... }:
+{ pkgs, ... }:
 
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
 {
-  imports = [ ./. ];
+  environment.systemPackages = [ nvidia-offload ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia.prime = {
-    offload = {
+    offload.enable = true;
 
-      enable = lib.mkOverride 990 true;
-      enableOffloadCmd = lib.mkIf config.hardware.nvidia.prime.offload.enable true; # Provides `nvidia-offload` command.
-      
-    };
-    # Hardware should specify the bus ID for intel/nvidia devices
+    intelBusId = "PCI:0:02:0";
+    nvidiaBusId = "PCI:1:00:0";
   };
 }

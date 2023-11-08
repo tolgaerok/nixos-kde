@@ -453,7 +453,7 @@ with lib;
       # ---------------------------------------------------------------------
 
       xdg-launch                    # A command line XDG compliant launcher and tools
-      xdg-utils                     # A set of command line tools that assist applications with a variety of desktop integration tasks
+      xdg-utils                     # A set of command line tools that assist applications with a variety of desktop integration tasks for opening default programs when clicking links
 
       #---------------------------------------------------------------------
       # Office and Productivity:
@@ -495,8 +495,9 @@ with lib;
       libva-utils
       plasma-browser-integration
       vim
+      redhat-official-fonts
+      nftables
 
-      
     ];
   };
 } 

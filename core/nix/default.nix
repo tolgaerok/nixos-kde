@@ -20,11 +20,7 @@ in {
 
   nix = {
     settings = {
-      allowed-users = [
-        "@wheel"
-        "${name}"
-      ];
-
+      allowed-users = [ "@wheel" "${name}" ];
       auto-optimise-store = true;
 
       experimental-features = [
@@ -34,7 +30,8 @@ in {
 
       ];
 
-      sandbox = "relaxed"; # if set to true, This enforces strict sandboxing, which is the default and most secure mode for building and running Nix packages
+      sandbox =
+        "relaxed"; # if set to true, This enforces strict sandboxing, which is the default and most secure mode for building and running Nix packages
 
       trusted-users = [
         "${name}"
@@ -48,22 +45,18 @@ in {
       keep-outputs = true;
       warn-dirty = false;
       tarball-ttl = 300;
-
-      trusted-substituters = [
-
-        "http://cache.nixos.org"
-      ];
-
-      substituters = [
-
-        "http://cache.nixos.org"
-      ];
+      trusted-substituters = [ "http://cache.nixos.org" ];
+      substituters = [ "http://cache.nixos.org" ];
 
     };
 
-    extraOptions = "experimental-features = nix-command flakes";
-
+    # extraOptions = "builders-use-substitutes";
+    # extraOptions = "experimental-features = nix-command flakes";
     # package = pkgs.nixUnstable; # Keep this if you want to use nixUnstable, otherwise replace with the appropriate nix version
+
+    # Lower the priority of Nix builds to not disturb other processes.
+    daemonCPUSchedPolicy = "idle";
+    daemonIOSchedPriority = 7;
 
     gc = {
       automatic = true;

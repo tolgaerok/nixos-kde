@@ -10,7 +10,7 @@
     #   Network and memory-related optimizationss for desktop 28GB
     #---------------------------------------------------------------------
     "kernel.sysrq" = 1;                         # Enable SysRQ for rebooting the machine properly if it freezes. [Source](https://oglo.dev/tutorials/sysrq/index.html)
-    "net.core.netdev_max_backlog" = 30000;      # Help prevent packet loss during high traffic periods.
+    "net.core.netdev_max_backlog" = 300000;      # Help prevent packet loss during high traffic periods.
     "net.core.rmem_default" = 262144;           # Default socket receive buffer size, improve network performance & applications that use sockets. Adjusted for 28GB RAM.
     "net.core.rmem_max" = 33554432;             # Maximum socket receive buffer size, determine the amount of data that can be buffered in memory for network operations. Adjusted for 28GB RAM.
     "net.core.wmem_default" = 262144;           # Default socket send buffer size, improve network performance & applications that use sockets. Adjusted for 28GB RAM.
