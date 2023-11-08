@@ -2,7 +2,7 @@
   # Execute the following:
   imports = [
 
-    ./web-browsers
+    ./web-browsers/firefox.nix
     
   ];
 

@@ -9,10 +9,10 @@
 
     # ./distrobox
     # ./flatpak
+    # ./internet
     # ./plasma-manager/plasma-config.nix
     # ./steam
     ./custom-pkgs
-    ./internet
     ./packages.nix
     ./vm
 

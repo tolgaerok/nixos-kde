@@ -1,16 +1,7 @@
 { pkgs, inputs, ... }:
 
 {
-  # Web Browsers & Plasma plasma-integration add-ons
-  environment = {
-    systemPackages = with pkgs; [
-      # kdeplasma-addons
-      # plasma-integration
-      firefox
-      google-chrome
-      plasma-browser-integration
-    ];
-  };
+ # FireFox program settings
 
   programs = {
     firefox = {

@@ -68,12 +68,12 @@ with lib;
     options = [
       "data=ordered"        # Ensures data ordering, improving file system reliability and performance by writing data to disk in a specific order.
       "defaults"            # Applies the default options for mounting, which usually include common settings for permissions, ownership, and read/write access.
-      "discard=async"       # Helps maintain the SSD's performance over time by reducing write amplification and improving block management
+      "discard"            # Enables the TRIM command, which allows the file system to notify the storage device of unused blocks, improving performance and longevity of solid-state drives (SSDs).
       "errors=remount-ro"   # Remounts the file system as read-only (ro) in case of errors to prevent further potential data corruption.
       "noatime"             # Disables updating access times for files, improving file system performance by reducing write operations.
       "nodiratime"          # Disables updating directory access time, improving file system performance by reducing unnecessary writes.
       "relatime"            # Updates the access time of files relative to the modification time, minimizing the performance impact compared to atime
-      #"discard"            # Enables the TRIM command, which allows the file system to notify the storage device of unused blocks, improving performance and longevity of solid-state drives (SSDs).
+      # "discard=async"     # Helps maintain the SSD's performance over time by reducing write amplification and improving block management
 
     ];
 

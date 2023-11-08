@@ -490,11 +490,13 @@ with lib;
       appimage-run     
       firefox
       glxinfo
+      google-chrome
       libva
       libva-utils
+      plasma-browser-integration
       vim
 
       
     ];
   };
-}
+} 

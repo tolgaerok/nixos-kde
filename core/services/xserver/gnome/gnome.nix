@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: 
+{ config, pkgs, ... }:
 
 {
   # Enable the X11 windowing system.
@@ -11,20 +11,24 @@
   environment.systemPackages = with pkgs; [
     fluent-icon-theme
     gnome-extension-manager
-    gnome.adwaita-icon-theme  
+    gnome.adwaita-icon-theme
     gnome.dconf-editor
-    gnome.gnome-tweaks
-    gnome3.gnome-tweaks
+    gnome.gnome-backgrounds
+    gnome.gnome-maps
+    gnome.gnome-music
+    gnome.gnome-tweaks                        # Choose either gnome.gnome-tweaks or gnome3.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.hide-universal-access
     papirus-icon-theme
+    pkgs.gnome-user-docs
+    pkgs.gnome-video-effects
     wmctrl
     zafiro-icons
   ];
 
   services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-  
+
 }
 
 ## NOTES

@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }:
+with lib;
 
 #---------------------------------------------------------------------
 # Tolga Erok
@@ -58,7 +59,7 @@
 
       before = [ "pre-sleep.service" ];
       wantedBy = [ "pre-sleep.service" ];
-      
+
       environment = {
         DISPLAY = ":0";
         XAUTHORITY = "/home/tolga/.Xauthority";

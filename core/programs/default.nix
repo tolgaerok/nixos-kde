@@ -10,6 +10,7 @@
     ./fish
     ./gamemode
     ./git
+    ./internet
     ./java
     ./konsole
     ./nix-program-settings
