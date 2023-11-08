@@ -22,9 +22,7 @@
     extraModulePackages = [ ];
 
     kernel.sysctl = {
-
       "net.ipv4.tcp_congestion_control" = "bbr";     # Tweak local networking
-
       "net.core.netdev_max_backlog" = 30000;
       "net.core.rmem_default" = 262144;
       "net.core.rmem_max" = 67108864;
@@ -50,7 +48,6 @@
     };
 
     kernelParams = [
-
       "mitigations=off"
       "quiet"
 
@@ -64,11 +61,10 @@
     options = [
 
       # Optimised && suitable for SSDs and NVMe drives to ensure good performance and longevity.
-
       "commit=600"                  # nvme tweak?
       "data=ordered"                # Ensures data ordering, improving file system reliability and performance by writing data to disk in a specific order.
       "defaults"                    # Applies the default options for mounting, which usually include common settings for permissions, ownership, and read/write access.
-      "discard"                     # Enables the TRIM command, which allows the file system to notify the storage device of unused blocks, improving performance and longevity of solid-state drives (SSDs).
+      "discard=async"               # Enables the TRIM command, which allows the file system to notify the storage device of unused blocks, improving performance and longevity of solid-state drives (SSDs).
       "errors=remount-ro"           # Remounts the file system as read-only (ro) in case of errors to prevent further potential data corruption.
       "noatime"                     # Disables updating access times for files, improving file system performance by reducing write operations.
       "nodiratime"                  # Disables updating directory access time, improving file system performance by reducing unnecessary writes.

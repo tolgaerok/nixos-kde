@@ -95,7 +95,7 @@ with lib;
       # intel-ocl
       # nvidia-vaapi-driver
       intel-gmmlib
-      intel-media-driver                                                                        
+      intel-media-driver                                                                         # hardware decode/encode of video streams                                                                      
       libvdpau-va-gl                                                                             # LIBVA_DRIVER_NAME=iHD
       vaapiIntel                                                                                 # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       vaapiVdpau

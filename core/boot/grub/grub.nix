@@ -5,6 +5,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
+  #  boot.loader.grub.kernelParams = [ "video.allow_duplicates = 1" ];
 
   # Copies latest Linux kernels for smoother boot.
   boot.loader.grub.copyKernels = true;
