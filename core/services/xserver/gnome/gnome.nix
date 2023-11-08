@@ -9,11 +9,22 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.systemPackages = with pkgs; [
+    fluent-icon-theme
+    gnome-extension-manager
+    gnome.adwaita-icon-theme  
+    gnome.dconf-editor
     gnome.gnome-tweaks
+    gnome3.gnome-tweaks
+    gnomeExtensions.appindicator
+    gnomeExtensions.blur-my-shell
     gnomeExtensions.hide-universal-access
     papirus-icon-theme
     wmctrl
+    zafiro-icons
   ];
+
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+  
 }
 
 ## NOTES

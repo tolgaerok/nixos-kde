@@ -5,19 +5,18 @@
   # Enable the X11 windowing system && KDE Plasma Desktop Environment.
   #---------------------------------------------------------------------
   services.xserver = {
-    enable = true;    
-    dpi = 98;               # scaling of fonts and graphical elements on the screen
-    libinput.enable = true; # Enable touchpad support (enabled default in most desktopManager).
+    dpi = 98; # scaling of fonts and graphical elements on the screen
+    enable = true;
+    exportConfiguration = true;
+    libinput.enable =
+      true; # Enable touchpad support (enabled default in most desktopManager).
 
-    desktopManager = {
-      plasma5.enable = true;
-    };
+    desktopManager = { plasma5.enable = true; };
 
     displayManager = {
       sddm = {
         enable = true;
         autoNumlock = true;
-
       };
     };
 
