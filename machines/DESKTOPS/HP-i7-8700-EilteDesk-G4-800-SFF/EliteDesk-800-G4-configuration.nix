@@ -68,6 +68,12 @@
   #---------------------------------------------------------------------
   networking.hostName = "HP-G4-800";                                            # Define your hostname. 
   
+  boot.kernel.sysctl = {
+    "kernel.pid_max" = 4194304;                                # allows a large number of processes and threads to be managed
+    "fs.aio-max-nr" = 1048576;
+    "fs.inotify.max_user_watches" = 524288;
+  };
+  
   #                                                                       
   #    .--~*teu.      .x~~"*Weu.              .n~~%x.       cuuu....uK    
   #   dF     988Nx   d8Nu.  9888c           x88X   888.     888888888     
