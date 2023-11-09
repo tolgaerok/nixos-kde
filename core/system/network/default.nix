@@ -6,7 +6,7 @@
     
     # Import miniDLNA
     # ---------------------------------------------
-    #./miniDLNA.nix
+    ./miniDLNA.nix
     
   ];
 

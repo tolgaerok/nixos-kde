@@ -12,10 +12,10 @@
   services.minidlna.settings = {
     friendly_name = "NixOS-DLNA";
     media_dir = [
-      "P,/home/tolga/public/Music/" # Videos files are located here
+      "PV,/home/tolga/public/Music/" # Videos files are located here
       "PV,/home/tolga/public/Vids/" # Audio files are here
-      "PV,/mnt/sambashare/"
-      "PV,/mnt/DLNA/"
+      #"PV,/mnt/sambashare/"
+      #"PV,/mnt/DLNA/"
     ];
     log_level = "error";
     inotify = "yes";
