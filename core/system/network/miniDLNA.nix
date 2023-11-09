@@ -20,8 +20,7 @@
       "PV,/mnt/sambashare/DLNA/"
       #"PV,/mnt/DLNA/"
     ];
-
-    announceInterval = 5;
+    
     inotify = "yes";
     log_level = "error";
     announceInterval = 05;
