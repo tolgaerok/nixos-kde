@@ -23,6 +23,7 @@
 
   
     inotify = "yes";
+    log_level = "error";
     announceInterval = 05;
   };
 
