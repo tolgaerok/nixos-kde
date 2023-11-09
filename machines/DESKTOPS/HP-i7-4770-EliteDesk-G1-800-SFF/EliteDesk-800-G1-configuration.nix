@@ -69,10 +69,11 @@
   #---------------------------------------------------------------------
   networking.hostName = "HP-G1-800";                                            # Define your hostname. 
 
+  # Nobara Tweaks
   boot.kernel.sysctl = {
     "kernel.pid_max" = 4194304;                                # allows a large number of processes and threads to be managed
-    "fs.aio-max-nr" = 1048576;
-    "fs.inotify.max_user_watches" = 524288;
+    "fs.aio-max-nr" = 1048576;                                 # defines the maximum number of asynchronous I/O requests that can be in progress at a given time.
+    "fs.inotify.max_user_watches" = 524288;                    # sets the maximum number of file system watches, enhancing file system monitoring capabilities.
   };
   
   #                                                                       
