@@ -1,13 +1,21 @@
 { config, lib, ... }:
 
 {
+
+  imports = [ 
+    
+    # Import miniDLNA
+    # ---------------------------------------------
+    #./miniDLNA.nix
+    
+  ];
+
   #--------------------------------------------------------------------- 
   # Enable networking
   #---------------------------------------------------------------------
   networking = {
     networkmanager = {
       enable = true;
-
       # Append Cloudflare and Google DNS servers
       appendNameservers = [ "1.1.1.1" "8.8.8.8" ];
 
@@ -20,6 +28,12 @@
       };
 
     };
+
+    # defaultGateway = "192.168.0.1";
+    # interfaces.enp3s0.ipv4.addresses = [{
+    #  address = "192.168.0.13";
+    #  prefixLength = 24;
+    # }];
 
     # terminal: arp -a
     extraHosts = ''

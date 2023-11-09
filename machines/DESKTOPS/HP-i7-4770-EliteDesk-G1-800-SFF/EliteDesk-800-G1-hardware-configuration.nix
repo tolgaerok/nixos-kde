@@ -79,11 +79,17 @@ with lib;
 
   };
 
+  #fileSystems."/mnt/DLNA" = {
+  #  device = "/home/tolga/Public";
+  #  fsType = "none";          # "none" for bind mount
+  #  options = ["rw" "bind"];
+    # http://192.168.0.13:8200/
+  #};
+
   #---------------------------------------------------------------------
   # Mounting options for samba
   #---------------------------------------------------------------------
   fileSystems."/mnt/sambashare" =
-
     {
       device = "//192.168.0.20/LinuxData/HOME/PROFILES/NIXOS-23-05/TOLGA/";
       fsType = "cifs";

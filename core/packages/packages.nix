@@ -495,8 +495,9 @@ with lib;
       libva-utils
       plasma-browser-integration
       vim
-      redhat-official-fonts
+      #redhat-official-fonts
       nftables
+      minidlna
 
     ];
   };

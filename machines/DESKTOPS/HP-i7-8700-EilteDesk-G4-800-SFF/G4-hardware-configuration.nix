@@ -79,6 +79,13 @@
     fsType = "vfat";
   };
 
+ # fileSystems."/mnt/DLNA" = {
+ #   device = "/mnt/DLNA";
+ #   fsType = "none";  # "none" for bind mount
+ #   options = ["rw", "bind"];
+ # };
+
+
   swapDevices =
     [{ device = "/dev/disk/by-uuid/3d5fb72d-f37c-4ad8-b349-942a8e98bbc6"; }];
 
