@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  # DLNA service
-  # ------------------------------------------------------
+  # DLNA service: Check if working. Open browser: http://192.168.0.13:8200/
+  # Add: ports 8200
+  # ------------------------------------------------------------------------
   services.minidlna.enable = true;
   services.minidlna.settings = {
     friendly_name = "NixOS-DLNA";
@@ -28,6 +29,12 @@
   users.users.minidlna = {
     extraGroups =
       [ "users" "samba" "wheel" "tolga" ]; # so minidlna can access the files.
+  };
+
+  networking.firewall = {
+    enable = false;
+    allowedTCPPorts = [ 8200 ];
+    allowedUDPPorts = [ 8200 ];
   };
 
 }
