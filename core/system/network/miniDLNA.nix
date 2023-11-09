@@ -19,6 +19,7 @@
     ];
     log_level = "error";
     inotify = "yes";
+    announceInterval = 05;
   };
 
   users.users.minidlna = {
