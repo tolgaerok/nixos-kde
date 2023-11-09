@@ -79,12 +79,12 @@ with lib;
 
   };
 
-  #fileSystems."/mnt/DLNA" = {
-  #  device = "/home/tolga/Public";
-  #  fsType = "none";          # "none" for bind mount
-  #  options = ["rw" "bind"];
+  fileSystems."/mnt/DLNA" = {
+    device = "/home/tolga/Public";
+    fsType = "none";          # "none" for bind mount
+    options = ["rw" "bind"];
     # http://192.168.0.13:8200/
-  #};
+  };
 
   #---------------------------------------------------------------------
   # Mounting options for samba

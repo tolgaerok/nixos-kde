@@ -10,11 +10,11 @@
   #DLNA
   services.minidlna.enable = true;
   services.minidlna.settings = {
-    friendly_name = "DLNA MEDIA";
+    friendly_name = "NixOS-DLNA";
     media_dir = [
       "P,/home/tolga/public/Music/" # Videos files are located here
       "PV,/home/tolga/public/Vids/" # Audio files are here
-      "PV,/mnt/sambashare/home/tolga/"
+      "PV,/mnt/sambashare/"
       "PV,/mnt/DLNA/"
     ];
     log_level = "error";
@@ -29,7 +29,7 @@
   # trick to create a directory with proper ownership
   # note that tmpfiles are not necesserarly temporary if you don't
   # set an expire time. Trick given on irc by someone I forgot the name..
-  systemd.tmpfiles.rules = [ "d /home/tolga/public 0755 tolga samba" ];
+  systemd.tmpfiles.rules = [ "d /home/tolga/public 0777 tolga users" ];
 }
 
 #     https://mylinuxramblings.wordpress.com/2016/02/19/mini-how-to-installing-minidlna-in-ubuntu/
