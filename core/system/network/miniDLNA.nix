@@ -20,12 +20,7 @@
       "PV,/mnt/sambashare/DLNA/"
       #"PV,/mnt/DLNA/"
     ];
-<<<<<<< HEAD
-
-  
-=======
     
->>>>>>> f71b02eaf2e3a590021052959fd6f895288d7688
     inotify = "yes";
     log_level = "error";
     announceInterval = 05;
