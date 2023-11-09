@@ -6,6 +6,7 @@
     
     # Import miniDLNA
     # ---------------------------------------------
+    # ./plex.nix
     ./miniDLNA.nix
     
   ];

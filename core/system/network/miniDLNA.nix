@@ -3,6 +3,7 @@
 {
   # DLNA service: Check if working. Open browser: http://192.168.0.13:8200/
   # Add: ports 8200
+  # Cache location: /var/cache/minidlna/  sometimes deleting it clears it
   # ------------------------------------------------------------------------
   services.minidlna.enable = true;
   services.minidlna.settings = {
@@ -15,15 +16,15 @@
     #    "PV" for pictures and video (eg. media_dir=PV,/var/lib/minidlna/digital_camera)
 
     media_dir = [
-      "PV,/home/tolga/public/Music/" # Music files are located here
-      "PV,/home/tolga/public/Vids/" # Audio files are here
-      "PV,/mnt/sambashare/DLNA/"
-      #"PV,/mnt/DLNA/"
+      "APV,/mnt/DLNA/"                      # Master directory, set APV to filter all
+      # "A,/home/tolga/public/Music/"       # Music files are located here
+      # "P,/home/tolga/public/Pictures/"    # Pics  
+      # "V,/home/tolga/public/Vids/"        # Vidoes files are here
     ];
     
     inotify = "yes";
     log_level = "error";
-    announceInterval = 05;
+    announceInterval = 1;
   };
 
   users.users.minidlna = {

@@ -80,7 +80,7 @@ with lib;
   };
 
   fileSystems."/mnt/DLNA" = {
-    device = "/home/tolga/public";
+    device = "/home/tolga/DLNA/";
     fsType = "none";          # "none" for bind mount
     options = ["rw" "bind"];
     # http://192.168.0.13:8200/

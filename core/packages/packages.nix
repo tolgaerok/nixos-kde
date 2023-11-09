@@ -495,9 +495,12 @@ with lib;
       libva-utils
       plasma-browser-integration
       vim
+      # plex
+      # plex-media-player
+      # plexRaw
       #redhat-official-fonts
-      nftables
       minidlna
+      nftables
 
     ];
   };
