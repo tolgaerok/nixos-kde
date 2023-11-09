@@ -23,7 +23,11 @@
 
     announceInterval = 5;
     inotify = "yes";
+<<<<<<< HEAD
     log_level = "error";
+=======
+    announceInterval = 05;
+>>>>>>> 742e019e1c3a65ddfc3faa5e259b76e754b23a0b
   };
 
   users.users.minidlna = {
