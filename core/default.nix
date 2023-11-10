@@ -8,6 +8,7 @@
   imports = [
     
     ./modules/iphone/iphone.nix
+    ./modules/smart-drv-mon
     ./nix
     ./packages
     ./programs

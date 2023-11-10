@@ -39,8 +39,13 @@ in {
     securityType = "user";
     extraConfig = ''
       workgroup = WORKGROUP
-      server string = HP_G800_NixOs_stoat
-      # netbios name = smb-NixOs23
+      server string = 23.05-NixOs_stoat
+      netbios name = ${config.networking.hostName}
+      name resolve order = bcast host
+
+      # Avoid ipv6 bind errors
+      bind interfaces only = yes
+
       security = user
       hosts allow = 192.168.0. 127.0.0.1 localhost
       hosts deny = 0.0.0.0/0

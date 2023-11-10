@@ -485,22 +485,23 @@ with lib;
       # Extra Misc packages
       #-----------------------------------------------------------------
 
+      # plex
+      # plex-media-player
+      # plexRaw
       # rocm-opencl-icd
       # rocm-opencl-runtime
+      # smartmontools
+      #redhat-official-fonts
       appimage-run     
       firefox
       glxinfo
       google-chrome
       libva
       libva-utils
-      plasma-browser-integration
-      vim
-      # plex
-      # plex-media-player
-      # plexRaw
-      #redhat-official-fonts
       minidlna
       nftables
+      plasma-browser-integration
+      vim
 
     ];
   };

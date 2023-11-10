@@ -38,7 +38,9 @@ with lib;
       #---------------------------------------------------------------------
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       #---------------------------------------------------------------------
-      package = config.boot.kernelPackages.nvidiaPackages.stable;
+     # package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340

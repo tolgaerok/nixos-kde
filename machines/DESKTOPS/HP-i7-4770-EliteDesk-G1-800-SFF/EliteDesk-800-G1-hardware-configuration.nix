@@ -104,7 +104,7 @@ with lib;
         cacheOpts = "cache=loose";
         credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
       in [
-        "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},vers=${vers},${cacheOpts}"
+        "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},rw,vers=${vers},${cacheOpts}"
       ];
 
     };

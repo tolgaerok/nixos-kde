@@ -20,6 +20,9 @@
   # Clean tmpfs on system boot, useful for ensuring a clean state.
   boot.tmp.cleanOnBoot = true;
 
+  # Reboot after 5 seconds on kernel panic
+  boot.kernel.sysctl = { "kernel.panic" = 5; };
+
   # Enable tmpfs for the specified directories.
   boot.tmp.useTmpfs = true;
 
