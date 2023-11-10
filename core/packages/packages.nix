@@ -135,7 +135,7 @@ with lib;
 
       # dialog                        # Display dialog boxes from shell
       doas                            # Executes the given command as another user
-      fx                              # Terminal JSON viewer
+      # fx                              # Terminal JSON viewer
 
       fzf                             # A command-line fuzzy finder written in Go
                                       # provides: fzf-tmux fzf-share fzf
@@ -206,8 +206,8 @@ with lib;
       # luigi                          # Python package that helps you build complex pipelines of batch jobs
       # quarto                         # Open-source scientific and technical publishing system built on Pandoc
       # visidata                       # Interactive terminal multitool for tabular data
-      mpi                              # Open source MPI-3 implementation
-      root                             # A data analysis framework
+      # mpi                              # Open source MPI-3 implementation
+      # root                             # A data analysis framework
 
       # ---------------------------------------------------------------------
       # Scanning and Image Viewing
@@ -434,7 +434,7 @@ with lib;
       # tig                           # Text-mode interface for git
       # tldr                          # Simplified and community-driven man pages
       # vim                           # The most popular clone of the VI editor
-      #parallel-full                 # provides additional features for parallel computing. It is used for parallel processing, distributed computing, and other high-performance computing scenarios
+      # parallel-full                 # provides additional features for parallel computing. It is used for parallel processing, distributed computing, and other high-performance computing scenarios
       gnome.zenity                  # Tool to display dialogs from the commandline and shell scripts
       lfs                           # Get information on your mounted disks
       lsd                           # The next gen ls command
