@@ -38,13 +38,21 @@ with lib;
       #---------------------------------------------------------------------
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
       #---------------------------------------------------------------------
-     # package = config.boot.kernelPackages.nvidiaPackages.stable;
-
-      package = config.boot.kernelPackages.nvidiaPackages.beta;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;      
 
       # Check legacy drivers https://www.nvidia.com/en-us/drivers/unix/legacy-gpu/
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340
       # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390
+
+      #---------------------------------------------------------------------
+      # Fix screen flipping to black randomly.
+      #---------------------------------------------------------------------
+      #package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs {
+      #  src = pkgs.fetchurl {
+      #    url = "https://download.nvidia.com/XFree86/Linux-x86_64/545.23.06/NVIDIA-Linux-x86_64-545.23.06.run";
+      #    sha256 = "sha256-QTnTKAGfcvKvKHik0BgAemV3PrRqRlM3B9jjZeupCC8=";
+      #  };
+      # };
     };
 
     #---------------------------------------------------------------------
@@ -61,7 +69,7 @@ with lib;
       #---------------------------------------------------------------------
       extraPackages = with pkgs; [        
         
-        amdvlk
+        # amdvlk
         intel-media-driver      # LIBVA_DRIVER_NAME=iHD
         libvdpau-va-gl
         nvidia-vaapi-driver
@@ -84,6 +92,7 @@ with lib;
       motherboard = "intel";
       package = pkgs.openrgb-with-all-plugins;
     };
+    # Video
     xserver.videoDrivers = [ "nvidia" ];
   };
 

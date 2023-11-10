@@ -2,6 +2,8 @@
 
 { config, lib, pkgs, modulesPath, ... }:
 
+with lib;
+
 {
   imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
@@ -50,6 +52,7 @@
     kernelParams = [
       "mitigations=off"
       "quiet"
+      "video.allow_duplicates=1"
 
     ];
 
@@ -79,20 +82,43 @@
     fsType = "vfat";
   };
 
- # fileSystems."/mnt/DLNA" = {
- #   device = "/mnt/DLNA";
- #   fsType = "none";  # "none" for bind mount
- #   options = ["rw", "bind"];
- # };
+  fileSystems."/mnt/DLNA" = {
+    device = "/home/tolga/DLNA/";
+
+    # "none" for bind mount
+    fsType = "none";              
+    options = ["rw" "bind"];
+    # http://192.168.0.13:8200/
+  };
+
+ #---------------------------------------------------------------------
+  # Mounting options for samba
+  #---------------------------------------------------------------------
+  fileSystems."/mnt/sambashare" =
+    {
+      device = "//192.168.0.20/LinuxData/HOME/PROFILES/NIXOS-23-05/TOLGA/";
+      fsType = "cifs";
+      options = let
+        automountOpts =
+          "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,x-systemd.requires=network.target";
+        uid =
+          "1000"; # Replace with your actual user ID, use `id -u <YOUR USERNAME>` to get your user ID
+        gid =
+          "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
+        vers = "3.1.1";
+        cacheOpts = "cache=loose";
+        credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
+      in [
+        "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},rw,vers=${vers},${cacheOpts}"
+      ];
+
+    };
 
 
   swapDevices =
     [{ device = "/dev/disk/by-uuid/3d5fb72d-f37c-4ad8-b349-942a8e98bbc6"; }];
 
   networking.useDHCP = lib.mkDefault true;
-
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode =
-    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";  
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

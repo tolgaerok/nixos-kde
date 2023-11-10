@@ -55,5 +55,7 @@ printf "\n\e[33mZRAMSWAP Used:\e[0m %s\n" "  $ZRAMSWAP_USED"
 printf "\e[33mEarlyoom Status:\e[0m %s\n" "$EARLYOOM_USED"
 echo -e "\nFlathub Service Status: $FLATHUB_ACTIVE / $FLATHUB_LOADED"
 
-lfs
+lfs 
+duf
+figlet system updated
 # espeak -v en+m7 -s 165 "system! up! dated!  kernel! tweaks! applied!" --punct="," 2>/dev/null

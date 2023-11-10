@@ -46,6 +46,7 @@ with lib;
     initrd.availableKernelModules = [
       "ahci"        # Enables the Advanced Host Controller Interface (AHCI) driver, typically used for SATA (Serial ATA) controllers.
       "ehci_pci"    # Enables the Enhanced Host Controller Interface (EHCI) driver for PCI-based USB controllers, providing support for USB 2.0.
+      "nvme" 
       "nvme"        # module in your initrd configuration can be useful if you plan to use an NVMe drive in the future
       "sd_mod"      # Enables the SCSI disk module (sd_mod), which allows the system to recognize and interact with SCSI-based storage devices.
       "sr_mod"      # Loads the SCSI (Small Computer System Interface) CD/DVD-ROM driver, allowing the system to recognize and use optical drives.
@@ -81,7 +82,9 @@ with lib;
 
   fileSystems."/mnt/DLNA" = {
     device = "/home/tolga/DLNA/";
-    fsType = "none";          # "none" for bind mount
+    
+    # "none" for bind mount
+    fsType = "none";              
     options = ["rw" "bind"];
     # http://192.168.0.13:8200/
   };
@@ -108,7 +111,7 @@ with lib;
       ];
 
     };
-
+ 
   #---------------------------------------------------------------------
   # Swap device configuration
   #---------------------------------------------------------------------

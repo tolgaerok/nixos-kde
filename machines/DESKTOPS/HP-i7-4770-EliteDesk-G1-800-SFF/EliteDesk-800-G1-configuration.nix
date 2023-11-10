@@ -69,6 +69,12 @@
   #---------------------------------------------------------------------
   networking.hostName = "HP-G1-800";                                            # Define your hostname. 
 
+  # Power Management
+  powerManagement.cpuFreqGovernor = "performance";
+
+  # Accelerate package building (28GB+ system)
+  nix.settings.max-jobs = 20;
+
   # Nobara Tweaks
   boot.kernel.sysctl = {
     "kernel.pid_max" = 4194304;                                # allows a large number of processes and threads to be managed

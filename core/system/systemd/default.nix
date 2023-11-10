@@ -29,8 +29,12 @@ with lib;
       "d /var/spool/samba 1777 root root -"
       "r! /tmp/**/*"
     ];
-
+    
+    # Default timeout for stopping services managed by systemd to 10 seconds
     extraConfig = "DefaultTimeoutStopSec=10s";
+
+    # When a program crashes, systemd will create a core dump file, typically in the /var/lib/systemd/coredump/ directory.
+    coredump.enable = true;
 
   };
 

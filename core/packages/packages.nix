@@ -426,6 +426,7 @@ with lib;
                                     # inotifywait   inotifywatch
                                     # Source:  https://github.com/inotify-tools/inotify-tools/wiki
 
+      # less                          # A more advanced file pager than ‘more’
       # lf                            # A terminal file manager written in Go and heavily inspired by ranger
       # neovim                        # Vim text editor fork focused on extensibility and agility
       # sl                            # Steam Locomotive runs across your terminal when you type 'sl'
@@ -433,14 +434,13 @@ with lib;
       # tig                           # Text-mode interface for git
       # tldr                          # Simplified and community-driven man pages
       # vim                           # The most popular clone of the VI editor
+      #parallel-full                 # provides additional features for parallel computing. It is used for parallel processing, distributed computing, and other high-performance computing scenarios
       gnome.zenity                  # Tool to display dialogs from the commandline and shell scripts
-      less                          # A more advanced file pager than ‘more’
       lfs                           # Get information on your mounted disks
       lsd                           # The next gen ls command
       lsdvd                         # Display information about audio, video, and subtitle tracks on a DVD
       ncdu                          # Disk usage analyzer with an ncurses interface
       neofetch                      # A fast, highly customizable system info script
-      parallel-full                 # provides additional features for parallel computing. It is used for parallel processing, distributed computing, and other high-performance computing scenarios
       pciutils                      # A collection of programs for inspecting and manipulating configuration of PCI devices
       pfetch                        # A pretty system information tool written in POSIX sh
       pmutils                       # A small collection of scripts that handle suspend and resume on behalf of HAL
@@ -502,7 +502,13 @@ with lib;
       nftables
       plasma-browser-integration
       vim
-
+      bash
+      bc
+      rename 
+      uptimed 
+      lsb-release
+      pstree 
+      sysstat
     ];
   };
 } 
