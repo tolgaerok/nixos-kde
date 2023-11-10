@@ -22,10 +22,11 @@
     };
 
     enableRedistributableFirmware = true;
-    
+
   };
 
   # [AMD/ATI] Thames [Radeon HD 7550M/7570M/7650M]
   services.xserver.videoDrivers = [ "amdgpu" ];
   boot.kernelModules = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
 }

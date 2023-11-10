@@ -485,14 +485,20 @@ with lib;
       # Extra Misc packages
       #-----------------------------------------------------------------
 
+      # lsb-release
       # plex
       # plex-media-player
       # plexRaw
+      # rename 
       # rocm-opencl-icd
       # rocm-opencl-runtime
       # smartmontools
+      # sysstat
+      # uptimed 
       #redhat-official-fonts
       appimage-run     
+      bash
+      bc
       firefox
       glxinfo
       google-chrome
@@ -501,14 +507,8 @@ with lib;
       minidlna
       nftables
       plasma-browser-integration
-      vim
-      bash
-      bc
-      rename 
-      uptimed 
-      lsb-release
       pstree 
-      sysstat
+      vim
     ];
   };
 } 
