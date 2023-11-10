@@ -9,11 +9,11 @@
   services.minidlna.settings = {
     friendly_name = "NixOS-DLNA";
 
-    #     https://mylinuxramblings.wordpress.com/2016/02/19/mini-how-to-installing-minidlna-in-ubuntu/
-    #    "A" for audio    (eg. media_dir=A,/var/lib/minidlna/music)
-    #    "P" for pictures (eg. media_dir=P,/var/lib/minidlna/pictures)
-    #    "V" for video    (eg. media_dir=V,/var/lib/minidlna/videos)
-    #    "PV" for pictures and video (eg. media_dir=PV,/var/lib/minidlna/digital_camera)
+    # https://mylinuxramblings.wordpress.com/2016/02/19/mini-how-to-installing-minidlna-in-ubuntu/
+    # "A" for audio    (eg. media_dir=A,/var/lib/minidlna/music)
+    # "P" for pictures (eg. media_dir=P,/var/lib/minidlna/pictures)
+    # "V" for video    (eg. media_dir=V,/var/lib/minidlna/videos)
+    # "PV" for pictures and video (eg. media_dir=PV,/var/lib/minidlna/digital_camera)
 
     media_dir = [
       "APV,/mnt/DLNA/"                      # Master directory, set APV to filter all

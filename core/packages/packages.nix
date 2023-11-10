@@ -502,6 +502,7 @@ with lib;
       firefox
       glxinfo
       google-chrome
+      krita
       libva
       libva-utils
       minidlna
