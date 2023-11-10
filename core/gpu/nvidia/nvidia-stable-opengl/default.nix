@@ -11,7 +11,6 @@ with lib;
   #---------------------------------------------------------------------
 
   imports = [
-
     #---------------------------------------------------------------------
     # Nvidia virtulation for Docker/Virtulization
     #---------------------------------------------------------------------
@@ -67,8 +66,7 @@ with lib;
       #---------------------------------------------------------------------
       # Install additional packages that improve graphics performance and compatibility.
       #---------------------------------------------------------------------
-      extraPackages = with pkgs; [        
-        
+      extraPackages = with pkgs; [ 
         # amdvlk
         intel-media-driver      # LIBVA_DRIVER_NAME=iHD
         libvdpau-va-gl
@@ -85,7 +83,6 @@ with lib;
   # OpenRGB && X Server Video Drivers Configuration
   # Tell Xorg to use the nvidia driver (also valid for Wayland)
   #---------------------------------------------------------------------
-
   services = {
     hardware.openrgb = {
       enable = true;
@@ -99,7 +96,6 @@ with lib;
   #---------------------------------------------------------------------
   # Set environment variables related to NVIDIA graphics:
   #---------------------------------------------------------------------
-
   environment.variables = {
     GBM_BACKEND = "nvidia-drm";
     LIBVA_DRIVER_NAME = "nvidia";
@@ -109,9 +105,7 @@ with lib;
   #---------------------------------------------------------------------
   # Packages related to NVIDIA graphics:
   #---------------------------------------------------------------------
-
   environment.systemPackages = with pkgs; [
-
     clinfo
     gwe
     nvtop-nvidia
