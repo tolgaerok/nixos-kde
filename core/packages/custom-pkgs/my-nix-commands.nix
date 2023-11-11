@@ -80,7 +80,13 @@ let
 
     # Loop until the user selects "Exit"
     while true; do
-        read -p "Enter your choice (0-17): " choice
+        #read -p "Enter your choice (0-17): " choice
+        echo -e "\033[1;33m┌──($USER㉿$HOST)-[$(pwd)]\033[0m"
+        choice=""
+        echo -n -e "\033[1;33m└─\$>>\033[0m "
+        read choice
+
+    echo ""
         case $choice in
             1) execute_command "nixos-rebuild switch" ;;
             2) execute_command "nix-store --optimise" ;;

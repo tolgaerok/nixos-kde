@@ -489,6 +489,7 @@ with lib;
       # plex
       # plex-media-player
       # plexRaw
+      # pstree 
       # rename 
       # rocm-opencl-icd
       # rocm-opencl-runtime
@@ -508,7 +509,6 @@ with lib;
       minidlna
       nftables
       plasma-browser-integration
-      pstree 
       vim
     ];
   };
