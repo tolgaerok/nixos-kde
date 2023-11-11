@@ -40,7 +40,7 @@ let
         echo -e "\033[1;32m17.   Delete old generations\033[0m                  Delete old generations of the active profile"
         echo -e "\033[1;33m18.   nixos-rebuild test\033[0m                      Test configuration first before rebuild switch"
         echo -e "\033[1;33m19.   nixos-rebuild switch --upgrade\033[0m          Fetch and apply the latest configuration and package versions"
-        echo -e "\033[1;33m20.   rebuild-all\033[0m                             Clean up: (remove old packages, free up boot cruft, optimize && trim SSD)"
+        echo -e "\033[1;33m20.   rebuild-all\033[0m                             Clean up: (remove old generations, packages, free up boot cruft, optimize && trim SSD)"
         echo -e ""
         echo -e "\033[1;34m# ------------------------------------------------------------------------------------------------------------------ #\033[0m"
         echo -e "\033[1;31m 0.   Exit\033[0m                                    Exit the script"
