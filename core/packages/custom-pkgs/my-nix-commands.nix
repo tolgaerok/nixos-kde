@@ -18,7 +18,8 @@ let
 
     # Function to display the menu options
     display_menu() {
-        echo -e "\033[1;34mNix Useful Commands Menu:\033[0m"
+        echo -e "\033[1;34m# ------------------------------------------------------------------------------------------------------------------ #\033[0m"
+        echo -e "\033[1;31m      my-nix\033[0m                                  \033[1;34mDescription\033[0m"
         echo -e "\033[1;34m# ------------------------------------------------------------------------------------------------------------------ #\033[0m"
         echo -e "\033[1;32m 1.   nixos-rebuild switch\033[0m                    Rebuild and switch to the NixOS configuration"
         echo -e "\033[1;32m 2.   nix-store --optimise\033[0m                    Optimize the Nix store"
@@ -39,12 +40,13 @@ let
         echo -e "\033[1;32m17.   Delete old generations\033[0m                  Delete old generations of the active profile"
         echo -e "\033[1;33m18.   nixos-rebuild test\033[0m                      Test configuration first before rebuild switch"
         echo -e "\033[1;33m19.   nixos-rebuild switch --upgrade\033[0m          Fetch and apply the latest configuration and package versions"
+        echo -e "\033[1;33m20.   rebuild-all\033[0m                             Clean up: (remove old packages, free up boot cruft, optimize && trim SSD)"
         echo -e ""
         echo -e "\033[1;34m# ------------------------------------------------------------------------------------------------------------------ #\033[0m"
         echo -e "\033[1;31m 0.   Exit\033[0m                                    Exit the script"
         echo -e "\033[1;34m# ------------------------------------------------------------------------------------------------------------------ #\033[0m"
                                     
-    }
+    } 
 
     # Function to delete old generations
     delete_old_generations() {
@@ -99,6 +101,11 @@ let
             17) execute_command "sudo nix-collect-garbage --delete-old" ;;
             18) execute_command "sudo nixos-rebuild test" ;;
             19) execute_command "sudo nixos-rebuild switch --upgrade" ;;
+            20) execute_command "sudo nix-collect-garbage --delete-old"
+                execute_command "sudo nix-collect-garbage -d"
+                execute_command "sudo /run/current-system/bin/switch-to-configuration boot"
+                execute_command "sudo fstrim -av"
+                ;;
 
 
             0) exit ;;
