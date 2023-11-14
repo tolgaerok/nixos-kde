@@ -73,7 +73,7 @@ in {
           name = "${fullname}";
         };
 
-        core = { sshCommand = "ssh -i $HOME/.ssh/id_ed25519.pub"; };
+        core = { sshCommand = "ssh -i $HOME/.ssh/id_ed25519"; };
 
         status = { short = true; };
       };

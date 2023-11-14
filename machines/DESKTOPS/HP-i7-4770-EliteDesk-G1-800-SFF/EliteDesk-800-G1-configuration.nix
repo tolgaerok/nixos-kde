@@ -41,15 +41,15 @@ with lib;
 
     # Select your kernel
     #---------------------------------------------
-    # ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix          # Latest default NixOS kernel
-     ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                   # Xanmod kernel
-    # ../../../core/system-tweaks/kernel-upgrades/zen.nix                      # Zen kernel
-    # ../../../core/system-tweaks/kernel-upgrades/stable-LTS.nix                 # Sometimes older pc's perform better on LTS kernel
+    # ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix        # Latest default NixOS kernel
+    # ../../../core/system-tweaks/kernel-upgrades/stable-LTS.nix             # Sometimes older pc's perform better on LTS kernel
+    # ../../../core/system-tweaks/kernel-upgrades/zen.nix                    # Zen kernel
+    ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                   # Xanmod kernel
 
     # Main core
     # ---------------------------------------------
-    ../../../core
     # ../../../core/programs/git/gitfs.nix
+    ../../../core
     ../../../core/boot/grub/grub.nix                                          # Use GRUB loader on this machine, not EFI
     ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./EliteDesk-800-G1-hardware-configuration.nix
@@ -76,7 +76,7 @@ with lib;
   powerManagement.cpuFreqGovernor = "performance";
 
   # Accelerate package building (28GB+ system)
-  nix.settings.max-jobs = 20; 
+  nix.settings.max-jobs = 15; 
   #                                                                       
   #    .--~*teu.      .x~~"*Weu.              .n~~%x.       cuuu....uK    
   #   dF     988Nx   d8Nu.  9888c           x88X   888.     888888888     
