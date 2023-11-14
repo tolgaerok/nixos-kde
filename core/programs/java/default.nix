@@ -1,0 +1,9 @@
+{ ... }: {
+  programs = {
+    java = {
+
+      enable = false;
+
+    };
+  };
+}

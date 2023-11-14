@@ -1,0 +1,12 @@
+# To launch chromium apps in wayland, add:
+# 	--enable-features=UseOzonePlatform --ozone-platform=wayland
+#
+#   Can copy .desktop files from: /run/current-system/sw/share/applications/
+#	to: ~/.local/share/applications
+
+Open ff profile manager: firefox --ProfileManager
+
+If under wayland:
+firefox --MOZ_ENABLE_WAYLAND=1
+chromium --enable-features=UseOzonePlatform --ozone-platform=wayland
+google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland

@@ -1,0 +1,10 @@
+{ ... }: {
+
+  programs = {
+
+    gamemode = {
+
+      enable = false;
+    };
+  };
+}

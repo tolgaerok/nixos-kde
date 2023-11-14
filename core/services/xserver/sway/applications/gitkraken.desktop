@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Development
+Comment=Graphical Git client from Axosoft
+Exec=gitkraken --enable-features=UseOzonePlatform --ozone-platform=wayland
+GenericName=Git Client
+Icon=gitkraken
+Name=GitKraken
+Type=Application
+Version=1.4

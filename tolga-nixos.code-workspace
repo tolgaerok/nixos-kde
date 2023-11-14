@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.unicodeHighlight.includeComments": true
+	},
+	"extensions": {
+		"recommendations": [
+			"b4dm4n.nixpkgs-fmt"
+		]
+	}
+}

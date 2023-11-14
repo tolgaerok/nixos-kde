@@ -1,0 +1,57 @@
+# Tolga Erok
+# 10/6/2023
+# My personal NIXOS KDE configuration 
+# 
+#              ¯\_(ツ)_/¯
+#   ███▄    █     ██▓   ▒██   ██▒    ▒█████       ██████ 
+#   ██ ▀█   █    ▓██▒   ▒▒ █ █ ▒░   ▒██▒  ██▒   ▒██    ▒ 
+#  ▓██  ▀█ ██▒   ▒██▒   ░░  █   ░   ▒██░  ██▒   ░ ▓██▄   
+#  ▓██▒  ▐▌██▒   ░██░    ░ █ █ ▒    ▒██   ██░     ▒   ██▒
+#  ▒██░   ▓██░   ░██░   ▒██▒ ▒██▒   ░ ████▓▒░   ▒██████▒▒
+#  ░ ▒░   ▒ ▒    ░▓     ▒▒ ░ ░▓ ░   ░ ▒░▒░▒░    ▒ ▒▓▒ ▒ ░
+#  ░ ░░   ░ ▒░    ▒ ░   ░░   ░▒ ░     ░ ▒ ▒░    ░ ░▒  ░ ░
+#     ░   ░ ░     ▒ ░    ░    ░     ░ ░ ░ ▒     ░  ░  ░  
+#           ░     ░      ░    ░         ░ ░           ░  
+#  
+#------------------ HP EliteDesk 800 G1 SFF ------------------------
+
+# BLUE-TOOTH        REALTEK 5G
+# CPU	            Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz x 8 (Haswell)
+# i-GPU	            Integrated Intel HD Graphics
+# d-GPU	            NVIDIA GeForce GT 1030/PCIe/SSE2
+# MODEL             HP EliteDesk 800 G1 SFF
+# MOTHERBOARD	    Intel® Q87 Express
+# NETWORK	        Intel Corporation Wi-Fi 6 AX210/AX211/AX411 160MHz
+# RAM	            28 GB DDR3, 1600-MHz DDR3 SDRAM, Max 32
+# STORAGE           SAMSUNG SSD 870 EVO 500GB
+# EXPENSION SLOTS   (2) PCI Express x1 (v2.0), (1) PCI Express x 16 (v2.0 - wired as x4)
+#                   (1) PCI Express x16 (v3.0), (1) Optional PCI (v2.3)
+# PSU               320W
+# CERTIFIED         RHEL, SUSE ENTERPRISE, WINDOWS 7 - 10 (Can run hacked W11 ent)
+# SOURCE            https://support.hp.com/au-en/document/c03832938
+
+#---------------------------------------------------------------------
+
+Fine-Tuning NixOS for Optimal Performance
+
+My NixOS configuration delves deep into tailoring performance and specific hardware optimizations. Here's an extensive breakdown of various settings and optimizations:
+
+Hardware and Kernel Configuration:
+I've meticulously adjusted the system to leverage hardware capabilities and Xanmod kernel enhancements. 
+CPU isolation (isolcpus, nohz_full, rcu_nocbs) specifically targets CPUs 1-7 for dedicated tasks, potentially improving their performance by minimizing interference from other processes. 
+While mitigating CPU security features (mitigations off) might boost performance, it could expose the system to potential vulnerabilities.
+
+Enhancing Video Playback and File Systems:
+The 'Video.allow_duplicates' setting allows duplicate frames, particularly beneficial for smoother video playback on systems struggling with rendering every frame. 
+For the SSD, file system optimizations, like enabling TRIM ('discard' option), ensure better performance and longevity.
+
+Boot, Power Management, and Package Building:
+Various adjustments during boot, like utilizing RAM efficiently ('useTmpfs' and 'tmpfsSize'), coupled with CPU frequency governance set to 'performance,' ensure consistent high performance. 
+Tweaks in kernel sysctl parameters optimize I/O, file system watches, and process/thread management. Moreover, configuring 'max-jobs' to 20 for Nix package building accelerates the 
+process on a high-resource system. 
+The 'boot.extraModprobeConfig' fine-tunes processor settings, managing Thread.ProcessorCount, Thread.MaxProcessorCount, Thread.MinFreeProcessorCount, and Thread.JobThreadPriority.
+
+
+This detailed configuration zeroes in on maximizing system performance and fine-tuning hardware capabilities for specific tasks. 
+However, it's essential to tread carefully, especially concerning security mitigations and CPU isolation, as they might impact system security or general-purpose performance. 
+Each tweak is a calculated trade-off between performance enhancement and potential system vulnerabilities or trade-offs.

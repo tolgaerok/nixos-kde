@@ -1,0 +1,15 @@
+# Tolga Erok
+# 14/7/2023
+# Post Nixos setup!
+# ¯\_(ツ)_/¯
+
+cd $HOME
+nix-env -iA nixos.git
+git clone https://github.com/tolgaerok/nixos-kde.git
+cd nixos-kde
+sudo cp /etc/nixos/configuration.nix /etc/nixos/configuration.nix.bak
+sudo rsync -av --exclude='.git' ./* /etc/nixos
+sudo chown -R $(whoami):$(id -gn) /etc/nixos
+sudo chmod -R 777 /etc/nixos
+sudo chmod +x /etc/nixos/*
+export NIXPKGS_ALLOW_INSECURE=1
