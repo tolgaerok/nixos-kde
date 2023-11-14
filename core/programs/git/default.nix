@@ -67,6 +67,12 @@ in {
     };
   };
 
+  # git remote remove main
+  # git remote add origin git@github.com:tolgaerok/nixos-kde.git
+  # git pull origin main
+
+
+
   # Do in terminal::
   # cat ~/.ssh/id_ed25519.pub
   # git config --global user.signingkey your_ssh_key_id_here
