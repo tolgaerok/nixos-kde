@@ -93,11 +93,9 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDrS+VQMWkyNZ70Ym/TZoozhPfLpj9Rx+IlswOK01ZVx kintolga@gmail.com"
       "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDd6n8jJw4AsjoUVl/tlnBIx0lfWN7Y9T16cYAuezidSq3kvKlsyd6xDDj/HZg6TPBH7KPyTc+ewFAC81syIekPk27jugFOniN4Bxdqbh7NX5pI7KTzaSkf7Mrw2miBj4J4nZa+Uic3wXKb0rr4udFhXKl7g7AO02D6sFSe/aqKVbGJCdG6TD4CF+TzUiSsQgvynPPIL1hGBDZZ7LXbk3qTrpOOEYmkffJFGDCI/1INNVhKmPKLFqoXxMT+YvG0NBxuGO/voxVHmR0bPBIsycmSZV8jOsDz6jR86KRvFGd1ZLXXEM+q4hhKb3qHOH2siLV1e4+RsmrwXSade3KIQO0Ob2dzwwvlj2juJCDY41OijRgtTEEvO5YTo5Ito12d+06fNzodMorGvmp7Arw8KnpseAqPswiH/etXClq8htOB4uQ18tb1HAWhKILfhBfP+sqi4mLmvxSqH1ZTDq3Ys2v+iUIL6eNB9ottpJSRrOR3zEVq/4DHsuhszyHWjFCWeAEEGqwVt2tBMV4SOuOoyjkAq3CcaBqjThDL1n/LudaruK07ZUPW7RfTBtnze29ZmY1ikau7+63wQRuyhAFFzFRM+zyJZeCmYfX5iPFEGNg5UDvrYFzQlYwqKmP1LhSGwILdvE3YIChs6lcw4XDqzhENq0ZvYMCWTfFGeM78kv58Yw== kingtolga@gmail.com"
     ];
-    openssh.authorizedKeys.keyFiles = [
 
-      /home/tolga/.ssh/id_rsa.pub
-      /home/tolga/.ssh/id_ed25519.pub
-    ];
+    openssh.authorizedKeys.keyFiles =
+      [ /home/tolga/.ssh/id_rsa.pub /home/tolga/.ssh/id_ed25519.pub ];
 
   };
 
@@ -108,8 +106,10 @@
     enable = true;
     systemCronJobs = [
 
+      "*/1 * * * * nixos-check-updates"
       "*/59 * * * * nixos-archive >> /home/tolga/test.log"
 
     ];
   };
+
 }
