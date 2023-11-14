@@ -97,8 +97,8 @@ with lib;
     # http://192.168.0.13:8200/
   };
 
-  fileSystems."/mnt/nixos-kde" = {
-    device = "/etc/nixos";
+  fileSystems."/mnt/gitFS" = {
+    device = "/home/tolga/gitFS";
     fsType = "none";
     options = [ "bind" ];
   };

@@ -105,31 +105,13 @@ with lib;
         nmcli connection modify OPTUS_B27161 connection.autoconnect-priority 1
       '';
     };
-    #--------------------------------------------------------------------- 
-    # Custom gitFS (my repo)....
-    #---------------------------------------------------------------------
-    gitfs = {
-      description = "GitFS service";
-      after = [ "network.target" ];
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = ''
-          ${pkgs.gitfs}/bin/gitfs -c /etc/core/programs/git/gitfs.conf &&
-          sudo mount --bind /etc/nixos /mnt/nixos-kde
-        '';
-        User = "tolga";
-        Group = "users";
-      };
-
-    };
 
     #--------------------------------------------------------------------- 
     # Make nixos boot a tad faster by turning these off during boot
     #--------------------------------------------------------------------- 
     NetworkManager-wait-online.enable = false;
     systemd-udev-settle.enable = false;
-    
+
   };
 
 }

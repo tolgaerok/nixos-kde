@@ -1,4 +1,5 @@
 { username, config, pkgs, stdenv, lib, modulesPath, ... }:
+with lib;
 
 # Tolga Erok
 # 10/6/2023
@@ -48,6 +49,7 @@
     # Main core
     # ---------------------------------------------
     ../../../core
+    # ../../../core/programs/git/gitfs.nix
     ../../../core/boot/grub/grub.nix                                          # Use GRUB loader on this machine, not EFI
     ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
     ./EliteDesk-800-G1-hardware-configuration.nix
@@ -74,8 +76,7 @@
   powerManagement.cpuFreqGovernor = "performance";
 
   # Accelerate package building (28GB+ system)
-  nix.settings.max-jobs = 20;  
-  
+  nix.settings.max-jobs = 20; 
   #                                                                       
   #    .--~*teu.      .x~~"*Weu.              .n~~%x.       cuuu....uK    
   #   dF     988Nx   d8Nu.  9888c           x88X   888.     888888888     

@@ -5,6 +5,11 @@ let
   fullname = "Tolga Erok";
 
 in {
+  imports = [
+
+    #./gitfs.nix
+
+  ];
 
   # Add the necessary packages
   environment.systemPackages = with pkgs; [
