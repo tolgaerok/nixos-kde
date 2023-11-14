@@ -46,12 +46,12 @@
   # User Configuration
   #---------------------------------------------------------------------
   users.users.tolga = {
+    # group = "tolga";
+    createHome = true;
+    description = "King_Tolga";
+    home = "/home/tolga/";
     homeMode = "0755";
     isNormalUser = true;
-    createHome = true;
-    home = "/home/tolga/";
-    # group = "tolga";
-    description = "King_Tolga";
     uid = 1000;
 
     extraGroups = [
@@ -95,7 +95,10 @@
     ];
 
     openssh.authorizedKeys.keyFiles =
-      [ /home/tolga/.ssh/id_rsa.pub /home/tolga/.ssh/id_ed25519.pub ];
+      [ 
+      /home/tolga/.ssh/id_rsa.pub 
+      /home/tolga/.ssh/id_ed25519.pub 
+      ];
 
   };
 
@@ -106,7 +109,7 @@
     enable = true;
     systemCronJobs = [
 
-      "*/1 * * * * nixos-check-updates"
+      "*/1 * * * * nixos-check-updates >> /home/tolga/test.log"
       "*/59 * * * * nixos-archive >> /home/tolga/test.log"
 
     ];
