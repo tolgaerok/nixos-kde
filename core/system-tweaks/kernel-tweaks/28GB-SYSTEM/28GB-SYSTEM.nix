@@ -19,8 +19,8 @@
     "net.ipv4.tcp_keepalive_intvl" = 30;        # TCP keepalive interval between probes to detect if a connection is still alive.
     "net.ipv4.tcp_keepalive_probes" = 5;        # TCP keepalive probes to detect if a connection is still alive.
     "net.ipv4.tcp_keepalive_time" = 300;        # TCP keepalive interval in seconds to detect if a connection is still alive.
-    "vm.dirty_background_bytes" = 434217728;    # 128 MB + 300 MB = 428 MB (rounded to 434217728)
-    "vm.dirty_bytes" = 702653184;               # 384 MB + 300 MB = 684 MB (rounded to 702653184)
+    "vm.dirty_background_bytes" = 474217728;     # 128 MB + 300 MB + 400 MB = 828 MB (rounded to 474217728)
+    "vm.dirty_bytes" = 742653184;                # 384 MB + 300 MB + 400 MB = 1084 MB (rounded to 742653184)
     "vm.min_free_kbytes" = 32768;               # Minimum free memory for safety (in KB), helping prevent memory exhaustion situations. Adjusted for 28GB RAM.
     "vm.swappiness" = 5;                        # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. Adjusted for 28GB RAM.
     "vm.vfs_cache_pressure" = 95;               # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 28GB RAM.
