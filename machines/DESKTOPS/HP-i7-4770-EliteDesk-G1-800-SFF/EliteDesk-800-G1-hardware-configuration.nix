@@ -88,15 +88,16 @@ with lib;
 
   };
 
-  fileSystems."/run" = {
-    device = "tmpfs";
-    options = [ "size=2G" ];  # Adjust based on your preferences and needs
-  };  
+  #fileSystems."/run" = {
+  #  device = "tmpfs";
+  #  options = [ "size=2G" ];  # Adjust based on your preferences and needs
+  #};  
 
-  fileSystems."/tmp" = {
-    device = "tmpfs";
-    options = [ "size=2G" ];  # Adjust based on your preferences and needs
-  };
+  # Fixed : better to use Dynamic 
+  #fileSystems."/tmp" = {
+  #  device = "tmpfs";
+  #  options = [ "size=2G" ];  # Adjust based on your preferences and needs
+  #};
 
   fileSystems."/mnt/DLNA" = {
     device = "/home/tolga/DLNA/";    
