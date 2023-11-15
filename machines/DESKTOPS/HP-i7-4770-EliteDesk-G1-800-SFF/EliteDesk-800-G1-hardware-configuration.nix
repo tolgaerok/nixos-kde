@@ -88,10 +88,18 @@ with lib;
 
   };
 
-  fileSystems."/mnt/DLNA" = {
-    device = "/home/tolga/DLNA/";
+  fileSystems."/run" = {
+    device = "tmpfs";
+    options = [ "size=2G" ];  # Adjust based on your preferences and needs
+  };  
 
-    # "none" for bind mount
+  fileSystems."/tmp" = {
+    device = "tmpfs";
+    options = [ "size=2G" ];  # Adjust based on your preferences and needs
+  };
+
+  fileSystems."/mnt/DLNA" = {
+    device = "/home/tolga/DLNA/";    
     fsType = "none";
     options = [ "rw" "bind" ];
     # http://192.168.0.13:8200/
