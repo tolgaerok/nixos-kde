@@ -8,10 +8,12 @@
   #   browsing in Dolphin easier, and it makes connecting from a 
   #   local Mac possible.
   #---------------------------------------------------------------------
-  services.printing.allowFrom =
-    [ "all" ]; # this gives access to anyone on the interface
-  services.printing.browsing = true;
-  services.printing.defaultShared = true;
+  services.printing = {
+    listenAddresses = [ "*:631" ];
+    allowFrom = [ "all" ];
+    browsing = true;
+    defaultShared = true;
+  };
 
   # ---------------------------------------------------------------------
   #   Open avahi ports for sharing
