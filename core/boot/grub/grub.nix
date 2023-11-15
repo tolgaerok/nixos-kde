@@ -21,7 +21,7 @@
   boot.tmp.useTmpfs = true;
 
   # NEW: set to auto to dynamically grow    OLD:Allocate 35% of RAM for tmpfs. You can adjust this percentage to your needs.
-  boot.tmp.tmpfsSize = "auto";  
+  boot.tmp.tmpfsSize = "35%";   
 
   # Control and optimize how an application utilizes the processor resources based on G1 800 ==> 8 × Intel® Core™ i7-4770 CPU @ 3.40GHz
   boot.extraModprobeConfig = ''
