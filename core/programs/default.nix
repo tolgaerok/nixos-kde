@@ -4,10 +4,10 @@
 
     # Configuration for Programs
 
+    # ./fish
     ./adb
     ./command-not-found
     ./corectrl
-    ./fish
     ./gamemode
     ./git
     ./internet

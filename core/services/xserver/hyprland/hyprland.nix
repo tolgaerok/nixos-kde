@@ -22,15 +22,28 @@
     xorg.xlsclients
   ];
 
-  services.dbus.enable = true;
+  # services.dbus.enable = true;
   programs.light.enable = true;
 
   programs.hyprland.enable = true;
-  
+  programs.hyprland.enableNvidiaPatches = true;
+  programs.hyprland.package = with pkgs;
+    [
+
+      hyprland
+
+    ];
+
 }
 
 ## NOTES ##
 #
+# Fixing suspend/wakeup issues
+# boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+# hardware.nvidia.powerManagement.enabled = true
+# Making sure to use the proprietary drivers until the issue above is fixed upstream
+# hardware.nvidia.open = false 
+# ------------------------------------------
 # For backlight control without sudo, add user to video group
 #   users.users.tolga = {
 #       isNormalUser = true;

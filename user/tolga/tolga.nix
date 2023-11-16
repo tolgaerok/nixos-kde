@@ -63,6 +63,7 @@
       "input"
       "libvirtd"
       "lp"
+      "minidlna"
       "mongodb"
       "mysql"
       "network"
