@@ -23,13 +23,12 @@
   ];
 
   # services.dbus.enable = true;
-  programs.light.enable = true;
 
   programs.hyprland.enable = true;
   programs.hyprland.enableNvidiaPatches = true;
+  programs.light.enable = true;
   programs.hyprland.package = with pkgs;
     [
-
       hyprland
 
     ];
