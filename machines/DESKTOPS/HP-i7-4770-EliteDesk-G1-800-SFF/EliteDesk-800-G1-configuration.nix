@@ -1,4 +1,5 @@
 { username, config, pkgs, stdenv, lib, modulesPath, ... }:
+
 with lib;
 
 # Tolga Erok
@@ -44,7 +45,7 @@ with lib;
     # ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix        # Latest default NixOS kernel
     # ../../../core/system-tweaks/kernel-upgrades/stable-LTS.nix             # Sometimes older pc's perform better on LTS kernel
     # ../../../core/system-tweaks/kernel-upgrades/zen.nix                    # Zen kernel
-    ../../../core/system-tweaks/kernel-upgrades/xanmod.nix                   # Xanmod kernel
+    ../../../core/modules/system-tweaks/kernel-upgrades/xanmod.nix           # Xanmod kernel
 
     # Main core
     # ---------------------------------------------
@@ -52,13 +53,14 @@ with lib;
     ../../../core
     ../../../core/boot/grub/grub.nix                                          # Use GRUB loader on this machine, not EFI
     ../../../core/gpu/nvidia/nvidia-stable-opengl                             # NVIDIA with hardware acceleration (Open-GL) for GT-1030++
+    ../../../core/modules
     ./EliteDesk-800-G1-hardware-configuration.nix
 
     # Custom System tweaks
     # ---------------------------------------------
-    # ../../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                   # Zram tweak for 28GB
-    ../../../core/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix     # Kernel tweak for 28GB
-    ../../../core/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
+    # ../../../core/system-tweaks/zram/zram-28GB-SYSTEM.nix                           # Zram tweak for 28GB
+    ../../../core/modules/system-tweaks/kernel-tweaks/28GB-SYSTEM/28GB-SYSTEM.nix     # Kernel tweak for 28GB
+    ../../../core/modules/system-tweaks/storage-tweaks/SSD/SSD-tweak.nix              # SSD read & write tweaks
 
     # Users && user settings
     # ---------------------------------------------
@@ -77,6 +79,12 @@ with lib;
 
   # Accelerate package building (28GB+ system)
   nix.settings.max-jobs = 15; 
+
+  # Control and optimize how an application utilizes the processor resources based on G1 800 ==> 8 × Intel® Core™ i7-4770 CPU @ 3.40GHz
+  boot.extraModprobeConfig = ''
+    options nptl Thread.ProcessorCount=8 Thread.MaxProcessorCount=8 Thread.MinFreeProcessorCount=1 Thread.JobThreadPriority=0  
+  '';
+
   #                                                                       
   #    .--~*teu.      .x~~"*Weu.              .n~~%x.       cuuu....uK    
   #   dF     988Nx   d8Nu.  9888c           x88X   888.     888888888     
@@ -92,4 +100,6 @@ with lib;
   #                                                                       
   #   https://patorjk.com/software/taag/#p=testall&h=1&c=bash&f=ANSI%20Shadow&t=23.05                                                                      
   # 
-}
+}                                                   
+             
+    

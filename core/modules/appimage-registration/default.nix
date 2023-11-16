@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
-
-# appimage-registration.nix
 # -----------------------------------------------------------------
+# Appimage-registration.nix
+# -----------| Credits to Brian Francisco |--------------------------
 
 {
   boot.binfmt.registrations.appimage = {

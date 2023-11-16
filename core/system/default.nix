@@ -8,7 +8,7 @@
 
   imports = [
 
-    ./appimage-registration
+    
     ./audio
     ./bluetooth
     ./documentation

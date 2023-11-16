@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   #---------------------------------------------------------------------
@@ -8,8 +8,7 @@
     dpi = 98; # scaling of fonts and graphical elements on the screen
     enable = true;
     exportConfiguration = true;
-    libinput.enable =
-      true; # Enable touchpad support (enabled default in most desktopManager).
+    libinput.enable = true; # Enable touchpad support (enabled default in most desktopManager).
 
     desktopManager = { plasma5.enable = true; };
 
@@ -17,7 +16,16 @@
       sddm = {
         enable = true;
         autoNumlock = true;
+
+        settings = {
+          Theme = {
+            CursorTheme = "layan-border_cursors";
+
+          };
+        };
+        # theme = "breeze";
       };
+      # defaultSession = "plasmawayland";
     };
 
     # ---------------------------------------------------------------------
