@@ -22,8 +22,8 @@
 
     # Turn Wayland off
     wlr = {
-
       enable = true;
+
     };
 
     extraPortals = with pkgs; [

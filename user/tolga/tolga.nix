@@ -96,23 +96,8 @@
     ];
 
     openssh.authorizedKeys.keyFiles =
-      [ 
-      /home/tolga/.ssh/id_rsa.pub 
-      /home/tolga/.ssh/id_ed25519.pub 
-      ];
+      [ /home/tolga/.ssh/id_rsa.pub /home/tolga/.ssh/id_ed25519.pub ];
 
-  };
-
-  #---------------------------------------------------------------------
-  # Back up nixos folder every 59 min 
-  #---------------------------------------------------------------------
-  services.cron = {
-    enable = true;
-    systemCronJobs = [      
-      "*/59 * * * * nixos-archive >> /home/tolga/test.log"
-      "*/01 * * * * nixos-check-updates >> /home/tolga/test.log"
-
-    ];
   };
 
 }
