@@ -162,10 +162,11 @@ let
     # -----------------------------------------------------------------------------------
     # Install Flatpak apps
     # -----------------------------------------------------------------------------------
+    flatpak install -y flathub com.anydesk.Anydesk
     flatpak install -y flathub com.sindresorhus.Caprine
-    flatpak install -y flathub org.kde.kweather
-    flatpak install -y flathub org.fedoraproject.MediaWriter
     flatpak install -y flathub io.github.mimbrero.WhatsAppDesktop
+    flatpak install -y flathub org.fedoraproject.MediaWriter
+    flatpak install -y flathub org.kde.kweather
 
     # -----------------------------------------------------------------------------------
     # List all flatpak

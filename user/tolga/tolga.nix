@@ -108,10 +108,9 @@
   #---------------------------------------------------------------------
   services.cron = {
     enable = true;
-    systemCronJobs = [
-
-      "*/1 * * * * nixos-check-updates >> /home/tolga/test.log"
+    systemCronJobs = [      
       "*/59 * * * * nixos-archive >> /home/tolga/test.log"
+      "*/01 * * * * nixos-check-updates >> /home/tolga/test.log"
 
     ];
   };

@@ -296,7 +296,7 @@ with lib;
       # heroku                         # Everything you need to get started using Heroku
       # powershell                     # Powerful cross-platform (Windows, Linux, and macOS) shell and scripting language based on .NET
       teamviewer                     # Desktop sharing application, providing remote support and online meetings
-      anydesk
+      # anydesk
       sshpass                        # Non-interactive ssh password auth
 
       # ---------------------------------------------------------------------

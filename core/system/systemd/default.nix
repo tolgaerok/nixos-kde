@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }:
+
 with lib;
 
 #---------------------------------------------------------------------
@@ -106,12 +107,34 @@ with lib;
       '';
     };
 
+    check-update = {
+      serviceConfig.Type = "oneshot";
+      path = [ pkgs.espeak-classic ];
+      script = ''
+      #!/bin/sh
+      espeak -v en+m7 -s 165 "PUNK! " --punct=","
+       
+        nixos-check-updates
+        
+      '';
+    };
+
     #--------------------------------------------------------------------- 
     # Make nixos boot a tad faster by turning these off during boot
     #--------------------------------------------------------------------- 
     NetworkManager-wait-online.enable = false;
     systemd-udev-settle.enable = false;
 
+  };
+
+  systemd.timers.check-updates = {
+    wantedBy = [ "timers.target" ];
+    partOf = [ "check-update.service" ];
+    timerConfig = {
+      # every 10 seconds
+      OnCalendar = "*-*-* *-*-*:00/10:00:00";
+      Unit = "check-update.service";
+    };
   };
 
 }

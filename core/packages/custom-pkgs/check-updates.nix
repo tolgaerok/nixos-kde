@@ -12,8 +12,9 @@ let
     start_time=$(date +%s)
 
     # Check for NixOS updates
-    #echo "Checking for NixOS updates..."
-    sudo nix-channel --update
+    echo "Checking for NixOS updates..."
+    # espeak -v en+m7 -s 165 "kust tom scripts! " --punct=","
+    nix-channel --update
 
     # Check if there are updates available
     updates_available=$(nixos-rebuild dry-run --show-trace 2>&1 | grep "these derivations will be built" | wc -l)
@@ -22,7 +23,8 @@ let
     time_taken=$((end_time - start_time))
 
     if [ "$updates_available" -gt 0 ]; then
-      #echo "Updates are available. Run 'sudo nixos-rebuild switch' to apply them."
+      echo "Updates are available. Run 'sudo nixos-rebuild switch' to apply them."
+      espeak -v en+m7 -s 165 "Updates! available! " --punct=","
       notify-send --icon=ktimetracker --app-name="Alert!" "UPDATES " "Updates available:
 
         (ツ)_/¯
@@ -30,7 +32,8 @@ let
     " -u normal
 
     else
-      #echo "No updates available."
+      echo "No updates available."
+      espeak -v en+m7 -s 165 "No! Updates! " --punct=","
       notify-send --icon=ktimetracker --app-name="Relax!" "Zero updates " "No updates available:
 
         (ツ)_/¯
