@@ -1,4 +1,6 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+
+with lib;
 
 {
 
@@ -6,7 +8,6 @@
   # Install necessary packages
   #---------------------------------------------------------------------
   environment.systemPackages = with pkgs; [
-
     OVMFFull
     gnome.adwaita-icon-theme
     kvmtool
@@ -22,7 +23,6 @@
     win-spice
     win-virtio
     virtualbox
-    # gnome.gnome-boxes
 
   ];
 
@@ -53,10 +53,18 @@
   # vmVariant configuration is added only when building VM with nixos-rebuild
 
   # build-vm
-  virtualisation.vmVariant = {
-    virtualisation = {
-      cores = 7;
-      memorySize = 8192; # Use 8GB memory (value is in MB)
+  virtualisation = {
+    vmVariant = {
+      virtualisation = {
+        cores = 7;
+        memorySize = 8192; # Use 8GB memory (value is in MB)
+      };
+
+      docker = {
+        enable = false;
+        enableOnBoot = false;
+        autoPrune = { enable = true; };
+      };
     };
   };
 
