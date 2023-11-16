@@ -33,7 +33,7 @@ let
 
     else
       echo "No updates available."
-      espeak -v en+m7 -s 165 "No! Updates! " --punct=","
+      espeak -v en-swedish -s 165 "No! Updates! " --punct=","
       notify-send --icon=ktimetracker --app-name="Relax!" "Zero updates " "No updates available:
 
         (ツ)_/¯
