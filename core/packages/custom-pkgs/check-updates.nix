@@ -12,7 +12,7 @@ let
     start_time=$(date +%s)
 
     # Check for NixOS updates
-    echo "Checking for NixOS updates..."
+    #echo "Checking for NixOS updates..."
     sudo nix-channel --update
 
     # Check if there are updates available
@@ -22,7 +22,7 @@ let
     time_taken=$((end_time - start_time))
 
     if [ "$updates_available" -gt 0 ]; then
-      echo "Updates are available. Run 'sudo nixos-rebuild switch' to apply them."
+      #echo "Updates are available. Run 'sudo nixos-rebuild switch' to apply them."
       notify-send --icon=ktimetracker --app-name="Alert!" "UPDATES " "Updates available:
 
         (ツ)_/¯
@@ -30,7 +30,7 @@ let
     " -u normal
 
     else
-      echo "No updates available."
+      #echo "No updates available."
       notify-send --icon=ktimetracker --app-name="Relax!" "Zero updates " "No updates available:
 
         (ツ)_/¯
