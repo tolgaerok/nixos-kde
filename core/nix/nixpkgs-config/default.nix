@@ -15,7 +15,6 @@ with lib;
       # allowUnfreePredicate = _: true;
 
       permittedInsecurePackages = [
-
         "electron-12.2.3"
         "electron-24.8.6"
         "openssl-1.1.1u"
@@ -30,10 +29,10 @@ with lib;
           "nvidia-settings"
           "nvidia-x11"
           "vscode"
-        # "spotify"
-        # "steam"
-        # "steam-original"
-        # "steam-run"
+          # "spotify"
+          # "steam"
+          # "steam-original"
+          # "steam-run"
 
           # they got fossed recently so idk
           "Anytype"

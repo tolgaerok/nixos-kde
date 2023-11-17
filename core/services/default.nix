@@ -4,7 +4,7 @@
     # ------------------------------------------
     # Configuration for  Services 
     # ------------------------------------------
-
+    # ./openRGB
     ./avahi
     ./bluetooth-manager
     ./dbus

@@ -13,9 +13,7 @@ with lib;
   #---------------------------------------------------------------------
   # Module imports
   #---------------------------------------------------------------------
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
-
-  environment.systemPackages = with pkgs; [ gitfs ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];  
 
   #---------------------------------------------------------------------
   # Boot configuration
@@ -87,42 +85,7 @@ with lib;
     ];
 
   };  
-
-  fileSystems."/mnt/DLNA" = {
-    device = "/home/tolga/DLNA/";    
-    fsType = "none";
-    options = [ "rw" "bind" ];
-    # http://192.168.0.13:8200/
-  };
-
-  fileSystems."/mnt/gitFS" = {
-    device = "/home/tolga/gitFS";
-    fsType = "none";
-    options = [ "bind" ];
-  };
-
-  #---------------------------------------------------------------------
-  # Mounting options for samba
-  #---------------------------------------------------------------------
-  fileSystems."/mnt/sambashare" = {
-    device = "//192.168.0.20/LinuxData/HOME/PROFILES/NIXOS-23-05/TOLGA/";
-    fsType = "cifs";
-    options = let
-      automountOpts =
-        "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,x-systemd.requires=network.target";
-      uid =
-        "1000"; # Replace with your actual user ID, use `id -u <YOUR USERNAME>` to get your user ID
-      gid =
-        "100"; # Replace with your actual group ID, use `id -g <YOUR USERNAME>` to get your group ID
-      vers = "3.1.1";
-      cacheOpts = "cache=loose";
-      credentialsPath = "/etc/nixos/core/system/network/smb-secrets";
-    in [
-      "${automountOpts},credentials=${credentialsPath},uid=${uid},gid=${gid},rw,vers=${vers},${cacheOpts}"
-    ];
-
-  };
-
+  
   #---------------------------------------------------------------------
   # Swap device configuration
   #---------------------------------------------------------------------

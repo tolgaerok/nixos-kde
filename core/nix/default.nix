@@ -7,8 +7,7 @@ let
 
 in {
 
-  imports = [
-    ./dconf
+  imports = [    
     ./nixpkgs-config
 
   ];
