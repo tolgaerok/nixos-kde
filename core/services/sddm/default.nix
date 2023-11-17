@@ -48,8 +48,38 @@ let
 
   themeName = if customTheme then theme.pkg.name else theme;
 
-  packages =
-    if customTheme then [ (buildTheme theme.pkg) ] ++ theme.deps else [ ];
+  packages = if customTheme then
+    with pkgs;
+    [
+      (buildTheme theme.pkg)
+      qt6.qtmultimedia
+      libsForQt5.qt5.qtmultimedia
+      libsForQt5.qt5.qtgraphicaleffects
+      qt6.qtquick3d
+      qt6.qtquicktimeline
+      libsForQt5.qt5.qtquickcontrols
+      qt6.qtquick3dphysics
+      libsForQt5.qt5.qtquickcontrols2
+      qt6.qtquickeffectmaker
+      libsForQt5.sddm-kcm
+      libsForQt5.phonon-backend-gstreamer
+    ] ++ theme.deps
+  else
+    with pkgs; [
+      qt6.qtmultimedia
+      libsForQt5.qt5.qtmultimedia
+      libsForQt5.qt5.qtgraphicaleffects
+      qt6.qtquick3d
+      qt6.qtquicktimeline
+      libsForQt5.qt5.qtquickcontrols
+      qt6.qtquick3dphysics
+      libsForQt5.qt5.qtquickcontrols2
+      qt6.qtquickeffectmaker
+      libsForQt5.sddm-kcm
+      libsForQt5.phonon-backend-gstreamer
+    ];
+
+  # packages = if customTheme then [ (buildTheme theme.pkg) ] ++ theme.deps else [ ];
 
   themes = {
     aerial = {
