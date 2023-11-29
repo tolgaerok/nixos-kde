@@ -6,7 +6,6 @@ let
 
 in {
   imports = [
-
     #./gitfs.nix
 
   ];
@@ -21,13 +20,14 @@ in {
   programs = {
     git = {
       enable = true;
+      package = pkgs.gitAndTools.gitFull; # Install git wiith all the optional extras
 
       lfs = {
         # Git Large File Storage (LFS)
         enable = true;
       };
 
-      config = {
+      extraConfig = {
         commit = {
           # Remove the gpgsign line or set it to "false" to disable GPG signing...
           # gpgsign = "false";
@@ -41,28 +41,34 @@ in {
 
         #init = { defaultBranch = "main"; };
         #pull = { rebase = "true"; };
+
+        # Cache git credentials for 15 minutes
+        credential.helper = "cache";
+
         core.editor = "kate";
         github.user = "tolgaerok";
         init.defaultBranch = "main";
         pull.rebase = true;
 
-        # ignores = [ ".envrc" ".direnv" ];
+        ignores = [ 
+          ".envrc" 
+          ".direnv" 
+          "NIXOS-*"
+
+        ];
 
         url = {
-
           "git@github.com:" = {
-
             insteadOf = [
-
               "https://github.com/"
+
             ];
           };
 
           "git@gitlab.com:" = {
-
             insteadOf = [
-
               "https://gitlab.com/"
+
             ];
 
           };
@@ -73,9 +79,16 @@ in {
           name = "${fullname}";
         };
 
-        core = { sshCommand = "ssh -i $HOME/.ssh/id_ed25519"; };
+        core = { 
+          sshCommand = "ssh -i $HOME/.ssh/id_ed25519"; 
 
-        status = { short = true; };
+        };
+
+        status = { 
+          short = true; 
+
+        };
+
       };
     };
   };
