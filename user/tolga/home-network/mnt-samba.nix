@@ -6,8 +6,8 @@
 
 { 
 
-  fileSystems."/mnt/WindowsServer" = {
-    device = "//192.168.0.20/";
+  fileSystems."/mnt/LinuxProfiles" = {
+    device = "//192.168.0.20/HOME/PROFILES/";
     fsType = "cifs";
     options = let
       automountOpts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s,x-systemd.requires=network.target";
