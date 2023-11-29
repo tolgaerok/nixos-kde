@@ -25,6 +25,7 @@
     ./update-firmware
     ./xdg-portal
     ./xserver
+    ./logind
 
   ];
 }

@@ -42,7 +42,8 @@ with lib;
 
     # Select your kernel
     #---------------------------------------------
-    # ../../../core/system-tweaks/kernel-upgrades/latest-standard.nix        # Latest default NixOS kernel
+    # ../../../core/modules/system-tweaks/kernel-upgrades/latest-standard.nix        # Latest default NixOS kernel
+    
     # ../../../core/system-tweaks/kernel-upgrades/stable-LTS.nix             # Sometimes older pc's perform better on LTS kernel
     # ../../../core/system-tweaks/kernel-upgrades/zen.nix                    # Zen kernel
     ../../../core/modules/system-tweaks/kernel-upgrades/xanmod.nix           # Xanmod kernel

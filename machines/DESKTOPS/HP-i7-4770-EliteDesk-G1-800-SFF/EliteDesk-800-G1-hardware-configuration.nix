@@ -20,7 +20,7 @@ with lib;
   #---------------------------------------------------------------------
   boot = {
     blacklistedKernelModules = lib.mkDefault [ "nouveau" ];
-    extraModulePackages = [ ];
+    # extraModulePackages = [ ];
     initrd.kernelModules = [ "nvidia" ];
 
     kernelModules = [
@@ -61,6 +61,10 @@ with lib;
       "usbhid"      # Enables the USB Human Interface Device (HID) driver, which provides support for USB input devices such as keyboards and mice.
       "xhci_pci"    # Enables the eXtensible Host Controller Interface (xHCI) driver for PCI-based USB controllers, providing support for USB 3.0 and later standards.
     ];
+
+    extraModulePackages = with config.boot.kernelPackages; [
+    ];
+
   };
 
   #---------------------------------------------------------------------

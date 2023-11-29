@@ -20,7 +20,8 @@ in {
   programs = {
     git = {
       enable = true;
-      package = pkgs.gitAndTools.gitFull; # Install git wiith all the optional extras
+      package =
+        pkgs.gitAndTools.gitFull; # Install git wiith all the optional extras
 
       lfs = {
         # Git Large File Storage (LFS)
@@ -36,7 +37,7 @@ in {
           # You may also need to configure Git to use your SSH key globally
           # (outside of this NixOS configuration).
           # See the note below for instructions.
-          signingKey = "ssh-ed25519";
+          # signingKey = "ssh-ed25519";
         };
 
         #init = { defaultBranch = "main"; };
@@ -50,9 +51,9 @@ in {
         init.defaultBranch = "main";
         pull.rebase = true;
 
-        ignores = [ 
-          ".envrc" 
-          ".direnv" 
+        ignores = [
+          ".envrc"
+          ".direnv"
           "NIXOS-*"
 
         ];
@@ -79,13 +80,13 @@ in {
           name = "${fullname}";
         };
 
-        core = { 
-          sshCommand = "ssh -i $HOME/.ssh/id_ed25519"; 
+        core = {
+          # sshCommand = "ssh -i $HOME/.ssh/id_ed25519"; 
 
         };
 
-        status = { 
-          short = true; 
+        status = {
+          short = true;
 
         };
 

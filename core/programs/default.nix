@@ -10,7 +10,7 @@
     ./corectrl
     ./dconf
     ./gamemode
-    ./git
+    #./git
     ./internet
     ./java
     ./konsole
