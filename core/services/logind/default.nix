@@ -1,9 +1,8 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}: {
+{ config,  pkgs, lib,  ... }:
+
+#  new service for tmpfs
+
+ {
   services = {
     logind = {
       extraConfig = ''
