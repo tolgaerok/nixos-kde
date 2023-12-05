@@ -31,8 +31,13 @@ with lib;
     ];
 
     # Enable BBR congestion control algorithm for TCP, , which can lead to improved network throughput and reduced latency.
+    # sysctl net.ipv4.tcp_available_congestion_control
+    # net.ipv4.tcp_available_congestion_control = reno cubic bbr westwood
+    # westwood (Westwood: Aimed at improving performance over wireless networks)
+    # sudo sysctl -w net.ipv4.tcp_congestion_control=bbr
+
     kernel.sysctl = {
-      "net.ipv4.tcp_congestion_control" = "bbr";
+      "net.ipv4.tcp_congestion_control" = "bbr";    
 
     };
 
