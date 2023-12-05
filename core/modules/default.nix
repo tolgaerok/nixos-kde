@@ -8,7 +8,7 @@
 
   imports = [    
     ./appimage-registration   # Credits to Brian Francisco
-    ./apple-fonts
+    # ./apple-fonts
     ./custom-pkgs             # personal coded scriptBin's
     ./iphone/iphone.nix
     ./openRGB
