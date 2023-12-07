@@ -49,30 +49,37 @@ in {
       security = user
       hosts allow = 192.168.0. 127.0.0.1 localhost
       hosts deny = 0.0.0.0/0
-
-      vfs objects = catia streams_xattr
+      
       pam password change = yes
+      inherit permissions = yes
 
       # Set the minimum SMB protocol version on the client end
       # Allow accessing old SMB protocols (SMB1++ = COREPLUS)
       client min protocol = COREPLUS
+
+      # Set AIO (Asynchronous I/O) read size to 0
       aio read size = 0
+
+      # Set AIO write size to 0
       aio write size = 0
-      vfs objects = acl_xattr catia streams_xattr
-      inherit permissions = yes
-      # Security
+
+      # Enable VFS (Virtual File System) objects including ACL (Access Control List) xattr, Catia, and Streams xattr
+      vfs objects = catia streams_xattr
+      vfs objects = acl_xattr catia streams_xattr      
+      
+      # Set maximum IPC protocol to SMB3 for the client
       client ipc max protocol = SMB3
 
-      # SMB2_10
+      # Set minimum IPC protocol to COREPLUS for the client
       client ipc min protocol = COREPLUS
 
+      # Set maximum SMB protocol to SMB3 for the client
       client max protocol = SMB3
 
-      # SMB2_10
-      client min protocol = COREPLUS
+      # Set maximum SMB protocol to SMB3 for the server
       server max protocol = SMB3
 
-      # SMB2_10
+      # Set minimum SMB protocol to COREPLUS for the server
       server min protocol = COREPLUS
 
       # Store additional metadata or attributes associated with files or directories on the file system.

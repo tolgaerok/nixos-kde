@@ -67,26 +67,21 @@
     })
   ];
 
+  # Set environment variables related to NVIDIA graphics
   environment.variables = {
     # Required to run the correct GBM backend for nvidia GPUs on wayland
-    # GBM_BACKEND = "nvidia-drm";
+    GBM_BACKEND = "nvidia-drm";
     # Apparently, without this nouveau may attempt to be used instead
     # (despite it being blacklisted)
-    # __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
     # Hardware cursors are currently broken on nvidia
+    LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
 
   # Specify the Nvidia video driver for Xorg 
   services.xserver.videoDrivers = [ "nvidia" ];
-
-  # Set environment variables related to NVIDIA graphics
-  environment.variables = {
-    GBM_BACKEND = "nvidia-drm";
-    LIBVA_DRIVER_NAME = "nvidia";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  };
-
+  
   # Packages related to NVIDIA graphics
   environment.systemPackages = with pkgs; [
     clinfo
