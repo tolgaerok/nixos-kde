@@ -24,16 +24,24 @@ with lib;
     initrd.kernelModules = [ "nvidia" ];
 
     kernelModules = [
-      "kvm-intel"
-      "nvidia"
-      "tcp_bbr" # Dynamically optimize how data is sent over a network (not internet), aiming to achieve higher throughput and reduced latency
-
+    "kvm-intel"
+    "nvidia"
+    "tcp_cubic"     # Cubic: A traditional and widely used congestion control algorithm
+    "tcp_reno"      # Reno: Another widely used and stable algorithm
+    "tcp_newreno"   # New Reno: An extension of the Reno algorithm with some improvements
+    "tcp_bbr"       # BBR: Dynamically optimize how data is sent over a network, aiming for higher throughput and reduced latency
+    "tcp_westwood"  # Westwood: Particularly effective in wireless networks
     ];
 
-    # Enable BBR congestion control algorithm for TCP, , which can lead to improved network throughput and reduced latency.
-    kernel.sysctl = {
-      "net.ipv4.tcp_congestion_control" = "bbr";
+    # sysctl net.ipv4.tcp_available_congestion_control
+    # sysctl net.ipv4.tcp_congestion_control
+    # net.ipv4.tcp_available_congestion_control = reno cubic bbr westwood
+    # westwood (Westwood: Aimed at improving performance over wireless networks)
+    # sudo sysctl -w net.ipv4.tcp_congestion_control=westwood
 
+    kernel.sysctl = {
+      # "net.ipv4.tcp_congestion_control" = "bbr";
+      "net.ipv4.tcp_congestion_control" = "westwood";   # sets the TCP congestion control algorithm to Westwood for IPv4 in the Linux kernel.
     };
 
     kernelParams = [
