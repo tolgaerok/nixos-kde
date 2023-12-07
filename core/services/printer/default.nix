@@ -8,9 +8,10 @@ let
   #---------------------------------------------------------------------
   printerDrivers = [
 
-    # pkgs.brgenml1cupswrapper    # Generic drivers for more Brother printers
-    # pkgs.brgenml1lpr            # Generic drivers for more Brother printers
-    # pkgs.brlaser                # Drivers for some Brother printers
+    pkgs.brgenml1cupswrapper      # Generic drivers for more Brother printers
+    pkgs.brgenml1lpr              # Generic drivers for more Brother printers
+    pkgs.brlaser                  # Drivers for some Brother printers
+    pkgs.cnijfilter2              # Generic cannon
     pkgs.gutenprint               # Drivers for many different printers from many different vendors
     pkgs.gutenprintBin            # Additional, binary-only drivers for some printers
     pkgs.hplip                    # Drivers for HP printers

@@ -1,4 +1,4 @@
-{ config, pkgs, stdenv, lib, ... }:
+{ config, pkgs, stdenv, lib, attrs, ... }:
 
 #---------------------------------------------------------------------
 # Tolga Erok
@@ -102,6 +102,13 @@
 
     ];
 
+  };
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "0,5,10,15,20,25,30,35,40,45,50,55 * * * * root sh /home/tolga/Desktop/none.sh"
+    ];
   };
 
 }

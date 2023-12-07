@@ -1,20 +1,26 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
 
-  imports = [ 
-    
+  imports = [
+
     # Import miniDLNA
     # ---------------------------------------------
     # ./plex.nix
     ./miniDLNA.nix
-    
+
   ];
 
   #--------------------------------------------------------------------- 
   # Enable networking
   #---------------------------------------------------------------------
   networking = {
+    # wireless = {
+    #  enable = true;
+    #  userControlled.enable = true;
+    #  networks = { "OPTUS_B27161" = { psk = "izardleary84422"; }; };
+    # };
+
     networkmanager = {
       enable = true;
       # Append Cloudflare and Google DNS servers
@@ -29,6 +35,17 @@
       };
 
     };
+
+    timeServers = [
+      "0.nixos.pool.ntp.org"
+      "1.nixos.pool.ntp.org"
+      "2.nixos.pool.ntp.org"
+      "3.nixos.pool.ntp.org"
+      "time.google.com"
+      "time2.google.com"
+      "time3.google.com"
+      "time4.google.com"
+    ];
 
     # defaultGateway = "192.168.0.1";
     # interfaces.enp3s0.ipv4.addresses = [{
@@ -52,28 +69,34 @@
 
   };
 
+  # Install network time protocol
+  environment.systemPackages = with pkgs; [ ntp ];
+
+  # Wifi network monitor connector
+  services.dbus.packages = [ pkgs.miraclecast ];
+
 }
 
 # wireless = {
-      # via wpa_supplicant.
+# via wpa_supplicant.
 #      enable = false;
 #      iwd = {
 #        enable = false;
- #       settings = {
+#       settings = {
 #          Network = {
 #            EnableIPv6 = true;
 #            RoutePriorityOffset = 300;
 #          };
- #         Settings = {
-  #          AutoConnect = true;
- #         };
- #       };
+#         Settings = {
+#          AutoConnect = true;
+#         };
+#       };
 #      };
 #    };
-    ## Configure network proxy if necessary.
-    # proxy = {
-    #   default = "http://user:password@proxy:port/";
-    #   noProxy = "127.0.0.1,localhost,internal.domain";
-    # };
+## Configure network proxy if necessary.
+# proxy = {
+#   default = "http://user:password@proxy:port/";
+#   noProxy = "127.0.0.1,localhost,internal.domain";
+# };
 #  };
 
