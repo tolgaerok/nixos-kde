@@ -60,6 +60,7 @@ in {
     gc = {
       automatic = true;
       dates = "weekly";
+      randomizedDelaySec = "14m";
       options = "--delete-older-than 10d";
     };
 

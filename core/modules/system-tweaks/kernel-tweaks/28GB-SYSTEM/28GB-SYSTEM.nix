@@ -22,10 +22,17 @@
     "vm.dirty_background_bytes" = 474217728;    # 128 MB + 300 MB + 400 MB = 828 MB (rounded to 474217728)
     "vm.dirty_bytes" = 742653184;               # 384 MB + 300 MB + 400 MB = 1084 MB (rounded to 742653184)
     "vm.min_free_kbytes" = 65536;               # Minimum free memory for safety (in KB), helping prevent memory exhaustion situations. Adjusted for 28GB RAM.
+<<<<<<< HEAD
     "vm.swappiness" = 1;                        # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. Adjusted for 28GB RAM.
     "vm.vfs_cache_pressure" = 137;              # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 28GB RAM.
 
     "net.core.default_qdisc"="fq";              # sets the default queuing discipline for network traffic in the Linux kernel to Fair Queueing (fq).
+=======
+    "vm.swappiness" = 1;                       # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. Adjusted for 28GB RAM.
+    "vm.vfs_cache_pressure" = 137;               # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 28GB RAM.
+
+    "net.core.default_qdisc"="fq";
+>>>>>>> 6f18a2ec1e2209f98aa317e900edfcbef8a7d724
     # "net.ipv4.tcp_congestion_control"="westwood";
 
     # Nobara Tweaks  
