@@ -23,7 +23,10 @@
     "vm.dirty_bytes" = 742653184;               # 384 MB + 300 MB + 400 MB = 1084 MB (rounded to 742653184)
     "vm.min_free_kbytes" = 65536;               # Minimum free memory for safety (in KB), helping prevent memory exhaustion situations. Adjusted for 28GB RAM.
     "vm.swappiness" = 1;                       # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. Adjusted for 28GB RAM.
-    "vm.vfs_cache_pressure" = 50;               # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 28GB RAM.
+    "vm.vfs_cache_pressure" = 137;               # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 28GB RAM.
+
+    "net.core.default_qdisc"="fq";
+    # "net.ipv4.tcp_congestion_control"="westwood";
 
     # Nobara Tweaks  
     "fs.aio-max-nr" = 1000000;                  # defines the maximum number of asynchronous I/O requests that can be in progress at a given time.     1048576
