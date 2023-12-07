@@ -26,8 +26,8 @@ with lib;
     kernelModules = [
       "kvm-intel"
       "nvidia"
-      "tcp_bbr" # Dynamically optimize how data is sent over a network (not internet), aiming to achieve higher throughput and reduced latency
-
+      "tcp_bbr"       # Dynamically optimize how data is sent over a network (not internet), aiming to achieve higher throughput and reduced latency
+      "tcp_westwood"  # For wifi performance
     ];
 
     # Enable BBR congestion control algorithm for TCP, , which can lead to improved network throughput and reduced latency.
@@ -37,8 +37,8 @@ with lib;
     # sudo sysctl -w net.ipv4.tcp_congestion_control=westwood
 
     kernel.sysctl = {
-      "net.ipv4.tcp_congestion_control" = "bbr";    
-
+      # "net.ipv4.tcp_congestion_control" = "bbr";    
+      "net.ipv4.tcp_congestion_control" = "westwood";
     };
 
     kernelParams = [
