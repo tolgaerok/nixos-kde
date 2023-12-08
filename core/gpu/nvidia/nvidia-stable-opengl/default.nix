@@ -34,6 +34,19 @@
         firefox.enable = true;
       };
 
+      #---------------------------------------------------------------------
+      # Fix screen flipping to black randomly.        (WORKS WELL: 535.86.05 (STABLE)
+      # https://download.nvidia.com/XFree86/Linux-x86_64/535.86.05/NVIDIA-Linux-x86_64-535.86.05.run
+      # cat /proc/driver/nvidia/version
+      #---------------------------------------------------------------------
+      # package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs {
+      #  src = pkgs.fetchurl {
+      #    url = "https://download.nvidia.com/XFree86/Linux-x86_64/535.146.02/NVIDIA-Linux-x86_64-535.146.02.run";
+      #   sha256 = "49fd1cc9e445c98b293f7c66f36becfe12ccc1de960dfff3f1dc96ba3a9cbf70";
+      #   sha256 = "sha256-QTnTKAGfcvKvKHik0BgAemV3PrRqRlM3B9jjZeupCC8=";
+      #  };
+      # };
+
     };
   };
 
@@ -81,7 +94,7 @@
 
   # Specify the Nvidia video driver for Xorg 
   services.xserver.videoDrivers = [ "nvidia" ];
-  
+
   # Packages related to NVIDIA graphics
   environment.systemPackages = with pkgs; [
     clinfo
