@@ -35,8 +35,8 @@
       };
 
       #---------------------------------------------------------------------
-      # Fix screen flipping to black randomly.        (WORKS WELL: 535.86.05 (STABLE)
-      # https://download.nvidia.com/XFree86/Linux-x86_64/535.86.05/NVIDIA-Linux-x86_64-535.86.05.run
+      # Fix screen flipping to black randomly (545x)      
+      # (WORKS WELL: 535.86.05 (STABLE) https://download.nvidia.com/XFree86/Linux-x86_64/535.86.05/NVIDIA-Linux-x86_64-535.86.05.run
       # cat /proc/driver/nvidia/version
       #---------------------------------------------------------------------
       # package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs {
