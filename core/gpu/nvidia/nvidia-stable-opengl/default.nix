@@ -42,7 +42,9 @@
       # package = config.boot.kernelPackages.nvidiaPackages.stable.overrideAttrs {
       #  src = pkgs.fetchurl {
       #    url = "https://download.nvidia.com/XFree86/Linux-x86_64/535.146.02/NVIDIA-Linux-x86_64-535.146.02.run";
+      #   sha256 = sha256_64bit;
       #   sha256 = "49fd1cc9e445c98b293f7c66f36becfe12ccc1de960dfff3f1dc96ba3a9cbf70";
+
       #   # sha256 = "sha256-QTnTKAGfcvKvKHik0BgAemV3PrRqRlM3B9jjZeupCC8=";
       #  };
       # };
