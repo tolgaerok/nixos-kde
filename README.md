@@ -2,7 +2,15 @@
   <h1 style="font-size: 24px; color: blue;">My NixOs 23.05 environment, KDE & Nvidia, AMD && Intel</h1>
 </div>
 
-
+```bash
+sudo nix-channel --add https://channels.nixos.org/nixos-23.11 nixos
+sudo nixos-rebuild boot --upgrade
+```
+* You probably get some errors and warnings here that you need to take care off
+* Do so and repeat until the above command succeeds
+```bash
+sudo shutdown -r now
+```
 
 
 <div align="center">
@@ -73,6 +81,15 @@
     </td>
   </tr>
 </table>
+
+# system upgrades
+* Add this into the configuration file if you have issues with Nvidia
+```bash  
+system.autoUpgrade.enable = true;
+system.autoUpgrade.allowReboot = false;
+boot.kernelPackages = pkgs.linuxPackages_6_5; # Use pkgs.linuxPackages_6_5 if nvidia drivers fail, use pkgs.linuxPackages_latest if nvidia drivers work on "latest"!
+system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.11";
+```
 
 ### 1. Clone
 ```bash
