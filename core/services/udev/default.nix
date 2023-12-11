@@ -12,7 +12,7 @@
     udev = {
       enable = true;
 
-      # enable high precision timers if they exist
+      # enable high precision timers if they exist && set I/O scheduler to NONE for ssd/nvme
       # (https://gentoostudio.org/?page_id=420)
       extraRules = ''
         KERNEL=="rtc0", GROUP="audio"
