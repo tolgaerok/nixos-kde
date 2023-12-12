@@ -14,6 +14,7 @@ with lib;
     #  algorithm = "zstd";  # Use Zstandard (zstd) compression algorithm
     algorithm = "lz4"; # Use LZ4 compression algorithm
     memoryPercent = 35; # % of ram used for compression
+    swapDevices = 1;
 
     # Note: Load Module
     # in terminal: sudo modprobe zram num_devices=4
