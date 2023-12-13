@@ -92,6 +92,9 @@
     # Hardware cursors are currently broken on nvidia
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
+    __GL_THREADED_OPTIMIZATION="1";
+    __GL_SHADER_CACHE="1";
+
   };
 
   # Specify the Nvidia video driver for Xorg 
