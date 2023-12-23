@@ -5,7 +5,7 @@
 
 let
 
-  version = "23.11";
+  version = "23.05";
   # version = "23.11";
 
 in {

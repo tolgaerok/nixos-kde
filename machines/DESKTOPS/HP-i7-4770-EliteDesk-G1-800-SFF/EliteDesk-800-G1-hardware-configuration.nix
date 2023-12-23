@@ -41,6 +41,8 @@ with lib;
 
     kernel.sysctl = {
       # "net.ipv4.tcp_congestion_control" = "bbr";
+      # "kernel.sysrq" = 1;
+      "kernel.pty.max" = 24000;
       "net.ipv4.tcp_congestion_control" = "westwood";   # sets the TCP congestion control algorithm to Westwood for IPv4 in the Linux kernel.
     };
 
@@ -48,6 +50,16 @@ with lib;
       "mitigations=off"           # turns off certain CPU security mitigations. It might enhance performance
       "quiet"                     # suppresses most boot messages during the system startup
       "video.allow_duplicates=1"  # allows duplicate frames or similar, help smoothen video playback, especially on systems that struggle with rendering every single frame due to hardware limitations.
+      
+      # prevent the kernel from blanking plymouth out of the fb
+      "fbcon=nodefer"
+      # disable boot logo if any
+      "logo.nologo"
+      # disable systemd status messages
+      "rd.systemd.show_status=auto"
+      # lower the udev log level to show only errors or worse
+      "rd.udev.log_level=3"
+
 
       # Isolating CPUs can potentially improve performance by dedicating them solely to the workload you want to optimize      
       # "isolcpus=1-7"                  # isolates CPUs 1 to 7 from the general system scheduler, often used for dedicated processing to prevent interference from unrelated tasks
