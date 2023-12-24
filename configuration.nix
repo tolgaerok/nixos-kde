@@ -75,6 +75,9 @@ in
     
   ];
 
+  # fix clock to be compatible with windows
+  time.hardwareClockInLocalTime = true;
+
 
 }
 
