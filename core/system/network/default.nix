@@ -55,6 +55,7 @@
 
     # terminal: arp -a
     extraHosts = ''
+      127.0.0.1	      localhost
       192.168.0.1     router
       192.168.0.2     DIGA            # Smart TV
       192.168.0.6     iPhone          # Dads mobile
@@ -65,6 +66,14 @@
       192.168.0.13    HP-G800         # Main NixOS rig
       192.168.0.15    KingTolga       # My mobile
       192.168.0.20    W11-SERVER      # Main home server
+
+      # The following lines are desirable for IPv6 capable hosts
+      ::1             localhost ip6-localhost ip6-loopback
+      fe00::0         ip6-localnet
+      ff00::0         ip6-mcastprefix
+      ff02::1         ip6-allnodes
+      ff02::2         ip6-allrouters
+      ff02::3         ip6-allhosts
     '';
 
   };
