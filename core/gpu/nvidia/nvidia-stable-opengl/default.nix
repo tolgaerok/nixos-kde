@@ -8,7 +8,7 @@
     ../../openGL/opengl.nix
     ./vaapi.nix
 
-  ];
+  ] ++ (myLib.filesIn ./included);
 
   hardware = {
     nvidia = {
