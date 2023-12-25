@@ -47,18 +47,17 @@ with lib;
     };
 
     kernelParams = [
-      "mitigations=off"           # turns off certain CPU security mitigations. It might enhance performance
-      "quiet"                     # suppresses most boot messages during the system startup
-      "video.allow_duplicates=1"  # allows duplicate frames or similar, help smoothen video playback, especially on systems that struggle with rendering every single frame due to hardware limitations.
-      # prevent the kernel from blanking plymouth out of the fb
-      "fbcon=nodefer"
-      # disable boot logo if any
-      "logo.nologo"
-      # disable systemd status messages
-      "rd.systemd.show_status=auto"
-      # lower the udev log level to show only errors or worse
-      "rd.udev.log_level=3"
-
+      "fbcon=nodefer"                # prevent the kernel from blanking plymouth out of the fb      
+      "logo.nologo"                  # disable boot logo if any      
+      "mitigations=off"              # turns off certain CPU security mitigations. It might enhance performance
+      "nvidia_drm.fbdev=1"           # Enables the use of a framebuffer device for NVIDIA graphics. This can be useful for certain configurations.
+      "nvidia_drm.modeset=1"         # Enables kernel modesetting for NVIDIA graphics. This is essential for proper graphics support on NVIDIA GPUs.
+      "quiet"                        # suppresses most boot messages during the system startup
+      "rd.systemd.show_status=auto"  # disable systemd status messages      
+      "rd.udev.log_level=3"          # lower the udev log level to show only errors or worse
+      "udev.log_level=3"             # Sets the overall udev log level to 3, displaying informational messages.
+      "video.allow_duplicates=1"     # allows duplicate frames or similar, help smoothen video playback, especially on systems that struggle with rendering every single frame due to hardware limitations.
+      
       # Isolating CPUs can potentially improve performance by dedicating them solely to the workload you want to optimize      
       # "isolcpus=1-7"                  # isolates CPUs 1 to 7 from the general system scheduler, often used for dedicated processing to prevent interference from unrelated tasks
       # "nohz_full=1-7"                 # isolates CPUs 1 to 7 from the tickless idle scheduler, which could potentially improve performance on those cores by reducing interruptions from timer ticks
