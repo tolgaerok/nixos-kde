@@ -8,9 +8,11 @@
     ../../openGL/opengl.nix
     ./vaapi.nix
 
-  ];
+  ] ++ (myLib.filesIn ./included);
 
   hardware = {
+    enableAllFirmware = true;
+
     nvidia = {
       modesetting.enable = true;
       nvidiaPersistenced = true;
@@ -19,7 +21,7 @@
       nvidiaSettings = true;
 
       # Enable power management
-      powerManagement.enable = true; # Fix Suspend issue
+      powerManagement.enable = true;   # Fix Suspend issue
 
       # Select the appropriate driver version for your GPU
       package = config.boot.kernelPackages.nvidiaPackages.production;
@@ -44,11 +46,9 @@
       #    url = "https://download.nvidia.com/XFree86/Linux-x86_64/535.146.02/NVIDIA-Linux-x86_64-535.146.02.run";
       #   sha256 = sha256_64bit;
       #   sha256 = "49fd1cc9e445c98b293f7c66f36becfe12ccc1de960dfff3f1dc96ba3a9cbf70";
-
       #   # sha256 = "sha256-QTnTKAGfcvKvKHik0BgAemV3PrRqRlM3B9jjZeupCC8=";
       #  };
       # };
-
     };
   };
 
@@ -92,6 +92,7 @@
     # Hardware cursors are currently broken on nvidia
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
     __GL_THREADED_OPTIMIZATION="1";
     __GL_SHADER_CACHE="1";
 

@@ -22,6 +22,7 @@
   # Initrd configuration, enables systemd services in the initial ramdisk (initrd).
   #---------------------------------------------------------------------  
   boot.initrd.systemd.enable = true;
+  boot.initrd.verbose = false;              # Add this line for less verbose initrd
 
   #---------------------------------------------------------------------
   # Plymouth boot splash screen, activates the Plymouth boot splash screen.

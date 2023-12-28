@@ -99,8 +99,7 @@
       # resolution traffic on UDP port 137
       #--------------------------------------------------------------------- 
 
-      extraCommands =
-        "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
+      extraCommands = "iptables -t raw -A OUTPUT -p udp -m udp --dport 137 -j CT --helper netbios-ns";
 
     };
   };
