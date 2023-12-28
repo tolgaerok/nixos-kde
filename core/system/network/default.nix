@@ -70,8 +70,14 @@
   };
 
   # Install network time protocol
-  environment.systemPackages = with pkgs; [ ntp ];
+  environment.systemPackages = with pkgs; [
+    ntp
+    gnome.rygel
 
+  ];
+
+  services.gnome.rygel.enable = true;
+  
   # Wifi network monitor connector
   services.dbus.packages = [ pkgs.miraclecast ];
 

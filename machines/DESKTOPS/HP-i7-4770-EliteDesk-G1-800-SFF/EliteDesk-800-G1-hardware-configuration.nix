@@ -41,7 +41,7 @@ with lib;
 
     kernel.sysctl = {
       # "net.ipv4.tcp_congestion_control" = "bbr";
-      "kernel.sysrq" = 1;
+      # "kernel.sysrq" = 1;
       "kernel.pty.max" = 24000;
       "net.ipv4.tcp_congestion_control" = "westwood";   # sets the TCP congestion control algorithm to Westwood for IPv4 in the Linux kernel.
     };
