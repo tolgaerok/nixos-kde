@@ -42,13 +42,13 @@ in {
     securityType = "user";
     extraConfig = ''
       workgroup = WORKGROUP
-      server string = Samba server (version: %v, protocol: %R)
-      netbios name = ${config.networking.hostName}
-      name resolve order = lmhosts wins bcast host
       dns proxy = no
-      server role = standalone
+      name resolve order = lmhosts wins bcast host
+      netbios name = ${config.networking.hostName}
       passdb backend = tdbsam
       security = user
+      server role = standalone
+      server string = Samba server (version: %v, protocol: %R)
 
       # Avoid ipv6 bind errors
       bind interfaces only = yes
@@ -58,15 +58,17 @@ in {
       hosts allow = 127.0.0. 10. 172.16.0.0/255.240.0.0 192.168. 169.254. fd00::/8 fe80::/10 localhost
       hosts deny = allow
       
-      pam password change = yes
-      inherit permissions = yes
-
       deadtime = 30
+      guest account = nobody
+      inherit permissions = yes
+      map to guest = bad user
+      pam password change = yes
       use sendfile = yes
 
       # Set the minimum SMB protocol version on the client end
-      # Allow accessing old SMB protocols (SMB1++ = COREPLUS)
+      # Allow accessing old SMB protocols (SMB1++ = COREPLUS)      
       client min protocol = COREPLUS
+      server min protocol = COREPLUS
 
       # Set AIO (Asynchronous I/O) read size to 0
       # 0 means that Samba should attempt to automatically determine the optimal read size based on the characteristics of the underlying filesystem.
@@ -76,8 +78,8 @@ in {
       aio write size = 0
 
       # Enable VFS (Virtual File System) objects including ACL (Access Control List) xattr, Catia, and Streams xattr
-      vfs objects = catia streams_xattr
       vfs objects = acl_xattr catia streams_xattr      
+      vfs objects = catia streams_xattr
       
       # Set maximum IPC protocol to SMB3 for the client
       client ipc max protocol = SMB3
@@ -91,14 +93,12 @@ in {
       # Set maximum SMB protocol to SMB3 for the server
       server max protocol = SMB3
 
-      # Set minimum SMB protocol to COREPLUS for the server
-      server min protocol = COREPLUS
-      client min protocol = COREPLUS
-
       # this tells Samba to use a separate log file for each machine that connects
       log file = /var/log/samba/log.%m
+
       # Put a capping on the size of the log files (in Kb).
       max log size = 500
+
       # level 1=WARN, 2=NOTICE, 3=INFO, 4 and up = DEBUG
       # Ensure that users get to see auth and protocol negotiation info
       log level = 1 auth:3 smb:3 smb2:3
@@ -114,9 +114,6 @@ in {
       fruit:zero_file_id = yes
       fruit:wipe_intentionally_left_blank_rfork = yes
       fruit:delete_empty_adfiles = yes
-
-      guest account = nobody
-      map to guest = bad user
             
       # printing = cups
       printcap name = cups
