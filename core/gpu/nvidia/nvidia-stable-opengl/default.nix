@@ -15,9 +15,7 @@
 
   hardware = {
     enableAllFirmware = true;
-
     nvidia = {
-
       modesetting.enable = true;
       nvidiaPersistenced = true;
 
