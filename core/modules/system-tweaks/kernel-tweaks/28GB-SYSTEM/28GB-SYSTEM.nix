@@ -89,7 +89,7 @@
     # "vm.swappiness" = 1;                        # Adjust how aggressively the kernel swaps data from RAM to disk. Lower values prioritize keeping data in RAM. Adjusted for 28GB RAM.
     # "vm.vfs_cache_pressure" = 60;               # Adjust vfs_cache_pressure (0-1000) to manage memory used for caching filesystem objects. Adjusted for 28GB RAM.
 
-}
+} 
 
 # -----------------------------------------------------------------
 #     Summary of my configuration

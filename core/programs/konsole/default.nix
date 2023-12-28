@@ -45,8 +45,9 @@
         #---------------------------------------------------------------------
         
         # cd = "cd ..";
-        cl =    "clear && CL";
         CL =    "source ~/.bashrc";
+        cl =    "clear && CL";
+        cong =  "echo && sysctl net.ipv4.tcp_congestion_control && echo";
         copy =  "rsync -P";
         io =    "echo &&  cat /sys/block/sda/queue/scheduler && echo";
         la =    "lsd -a";
