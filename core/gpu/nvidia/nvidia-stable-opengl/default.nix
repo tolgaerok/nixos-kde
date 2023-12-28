@@ -6,14 +6,18 @@
   imports = [
     # "./nvidia-docker.nix"    # Include the necessary file for Nvidia virtualization (if needed)
     ../../openGL/opengl.nix
+    ../included/cachix.nix
     ./vaapi.nix
 
-  ] ++ (myLib.filesIn ./included);
+  ];
+
+  # ++ (myLib.filesIn ./included);
 
   hardware = {
     enableAllFirmware = true;
 
     nvidia = {
+
       modesetting.enable = true;
       nvidiaPersistenced = true;
 
@@ -21,7 +25,7 @@
       nvidiaSettings = true;
 
       # Enable power management
-      powerManagement.enable = true;   # Fix Suspend issue
+      powerManagement.enable = true; # Fix Suspend issue
 
       # Select the appropriate driver version for your GPU
       package = config.boot.kernelPackages.nvidiaPackages.production;
@@ -93,8 +97,8 @@
     LIBVA_DRIVER_NAME = "nvidia";
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
-    __GL_THREADED_OPTIMIZATION="1";
-    __GL_SHADER_CACHE="1";
+    __GL_THREADED_OPTIMIZATION = "1";
+    __GL_SHADER_CACHE = "1";
 
   };
 
