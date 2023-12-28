@@ -46,7 +46,7 @@ with lib;
       "net.ipv4.tcp_congestion_control" = "westwood";   # sets the TCP congestion control algorithm to Westwood for IPv4 in the Linux kernel.
     };
 
-    kernelParams = [
+    kernelParams = [      
       "fbcon=nodefer"                # prevent the kernel from blanking plymouth out of the fb      
       "logo.nologo"                  # disable boot logo if any      
       "mitigations=off"              # turns off certain CPU security mitigations. It might enhance performance
@@ -57,7 +57,6 @@ with lib;
       "rd.udev.log_level=3"          # lower the udev log level to show only errors or worse
       "udev.log_level=3"             # Sets the overall udev log level to 3, displaying informational messages.
       "video.allow_duplicates=1"     # allows duplicate frames or similar, help smoothen video playback, especially on systems that struggle with rendering every single frame due to hardware limitations.
-      
       # Isolating CPUs can potentially improve performance by dedicating them solely to the workload you want to optimize      
       # "isolcpus=1-7"                  # isolates CPUs 1 to 7 from the general system scheduler, often used for dedicated processing to prevent interference from unrelated tasks
       # "nohz_full=1-7"                 # isolates CPUs 1 to 7 from the tickless idle scheduler, which could potentially improve performance on those cores by reducing interruptions from timer ticks
