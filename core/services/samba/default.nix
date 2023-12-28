@@ -30,8 +30,11 @@ in {
   # their password using sudo smbpasswd -a <user> as root
   #---------------------------------------------------------------------
   services.samba-wsdd.enable = true;
-
   services.samba = {
+
+    # 'sudo smbpasswd -a some_user'  # adds some_user to the samba login database
+    # 'sudo smbpasswd -e some_user'  # enables some_user's samba login
+    
     enable = true;
 
     package = pkgs.samba4Full;
@@ -39,25 +42,34 @@ in {
     securityType = "user";
     extraConfig = ''
       workgroup = WORKGROUP
-      server string = 23.05-NixOs_stoat
+      server string = Samba server (version: %v, protocol: %R)
       netbios name = ${config.networking.hostName}
-      name resolve order = bcast host
+      name resolve order = lmhosts wins bcast host
+      dns proxy = no
+      server role = standalone
+      passdb backend = tdbsam
+      security = user
 
       # Avoid ipv6 bind errors
       bind interfaces only = yes
-
-      security = user
-      hosts allow = 192.168.0. 127.0.0.1 localhost
-      hosts deny = 0.0.0.0/0
+      
+      # hosts allow = 192.168.0. 127.0.0.1 localhost
+      # hosts deny = 0.0.0.0/0
+      hosts allow = 127.0.0. 10. 172.16.0.0/255.240.0.0 192.168. 169.254. fd00::/8 fe80::/10 localhost
+      hosts deny = allow
       
       pam password change = yes
       inherit permissions = yes
+
+      deadtime = 30
+      use sendfile = yes
 
       # Set the minimum SMB protocol version on the client end
       # Allow accessing old SMB protocols (SMB1++ = COREPLUS)
       client min protocol = COREPLUS
 
       # Set AIO (Asynchronous I/O) read size to 0
+      # 0 means that Samba should attempt to automatically determine the optimal read size based on the characteristics of the underlying filesystem.
       aio read size = 0
 
       # Set AIO write size to 0
@@ -81,6 +93,15 @@ in {
 
       # Set minimum SMB protocol to COREPLUS for the server
       server min protocol = COREPLUS
+      client min protocol = COREPLUS
+
+      # this tells Samba to use a separate log file for each machine that connects
+      log file = /var/log/samba/log.%m
+      # Put a capping on the size of the log files (in Kb).
+      max log size = 500
+      # level 1=WARN, 2=NOTICE, 3=INFO, 4 and up = DEBUG
+      # Ensure that users get to see auth and protocol negotiation info
+      log level = 1 auth:3 smb:3 smb2:3
 
       # Store additional metadata or attributes associated with files or directories on the file system.
       ea support = yes
@@ -101,10 +122,10 @@ in {
       printcap name = cups
       load printers = yes
       cups options = raw
+      disable spoolss = yes
     '';
 
     shares = {
-
       sharedOptions = sharedOptions;
 
       #---------------------------------------------------------------------
@@ -124,7 +145,6 @@ in {
       #---------------------------------------------------------------------
 
       HP800_Public = sharedOptions // {
-
         path = mySharedPath;
         comment = "Public Share";
         "create mask" = "0777";
@@ -137,7 +157,6 @@ in {
       #---------------------------------------------------------------------
 
       HP800_Private = sharedOptions // {
-
         path = "/home/NixOs";
         comment = "Private Share";
         "create mask" = "0644";
@@ -151,7 +170,6 @@ in {
       #---------------------------------------------------------------------
 
       printers = sharedOptions // {
-
         comment = "All Printers";
         path = "/var/spool/samba";
         public = true;
