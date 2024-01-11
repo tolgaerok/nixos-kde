@@ -510,6 +510,20 @@ with lib;
       nftables
       plasma-browser-integration
       vim
+      blender
+
+      pkgs.libsForQt5.akonadi
+      pkgs.libsForQt5.akonadi-calendar
+      pkgs.libsForQt5.akonadi-calendar-tools
+      pkgs.libsForQt5.akonadi-contacts
+      pkgs.libsForQt5.akonadi-import-wizard
+      pkgs.libsForQt5.akonadi-mime
+      pkgs.libsForQt5.akonadi-notes
+      pkgs.libsForQt5.akonadi-search
+      pkgs.libsForQt5.akonadiconsole
+      pkgs.libsForQt5.kalendar
+      # pkgs.libsForQt5.merkuro
+      
     ];
   };
 } 

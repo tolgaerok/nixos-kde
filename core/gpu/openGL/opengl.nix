@@ -20,6 +20,9 @@ with lib;
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
         libvdpau-va-gl
         nvidia-vaapi-driver
+        # nvidia-thrust-cuda
+        # nvidia-thrust-intel
+        nvidia-thrust
         vaapiIntel # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
         vaapiVdpau
         vulkan-validation-layers

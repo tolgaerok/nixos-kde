@@ -13,7 +13,7 @@ with lib;
     #  algorithm = "lzo";   # Use LZO compression algorithm
     #  algorithm = "zstd";  # Use Zstandard (zstd) compression algorithm
     algorithm = "lz4"; # Use LZ4 compression algorithm
-    memoryPercent = 35; # % of ram used for compression
+    memoryPercent = 50; # % of ram used for compression
     swapDevices = 1;
 
     # Note: Load Module

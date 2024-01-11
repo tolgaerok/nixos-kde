@@ -19,7 +19,7 @@ with lib;
 
   fileSystems."/run" = {
     device = "tmpfs";
-    options = [ "size=3G" ]; # Adjust based on your preferences and needs
+    options = [ "size=6G" ]; # Adjust based on your preferences and needs
   };
 
   # Fixed : better to use Dynamic 
