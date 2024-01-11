@@ -4,6 +4,12 @@
 # useful for optimizing memory usage, disk writeback behavior, network settings, and other low-level kernel behaviors.
 
 {
+
+  imports = [
+   # ./extra.nix
+  ];
+
+
   boot.kernel.sysctl = {
 
     #---------------------------------------------------------------------
@@ -69,7 +75,13 @@
     "vm.mmap_min_addr" = 65536;                     # Minimum address allowed for a user-space mmap
     "vm.swappiness" = 10;                           # Swappiness parameter (tendency to swap out unused pages)
     "vm.vfs_cache_pressure" = 50;                   # Controls the tendency of the kernel to reclaim the memory used for caching of directory and inode objects
+
+    "-net.ipv4.conf.default.rp_filter" = 2;
+    "-net.ipv4.conf.default.accept_source_route" = 0;
+    "-net.ipv4.conf.default.promote_secondaries" = 1;
+
   }; 
+
 
     # Already defined
     # "kernel.pty.max" = 24000;                         # Maximum number of pseudo-terminals (PTYs) in the system

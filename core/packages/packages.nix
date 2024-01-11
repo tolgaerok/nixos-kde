@@ -523,7 +523,8 @@ with lib;
       pkgs.libsForQt5.akonadiconsole
       pkgs.libsForQt5.kalendar
       # pkgs.libsForQt5.merkuro
-      
+      ghostscript_headless
+      ghostscript
     ];
   };
 } 
