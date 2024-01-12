@@ -3,7 +3,7 @@
 let
 
   gitup = pkgs.writeScriptBin "gitup" ''
-    #!/bin/bash
+    #!/usr/bin/env bash
 
     # Personal nixos git folder uploader!!
     # Tolga Erok. ¯\_(ツ)_/¯..

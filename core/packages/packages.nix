@@ -512,17 +512,17 @@ with lib;
       vim
       blender
 
-      pkgs.libsForQt5.akonadi
-      pkgs.libsForQt5.akonadi-calendar
-      pkgs.libsForQt5.akonadi-calendar-tools
-      pkgs.libsForQt5.akonadi-contacts
-      pkgs.libsForQt5.akonadi-import-wizard
-      pkgs.libsForQt5.akonadi-mime
-      pkgs.libsForQt5.akonadi-notes
-      pkgs.libsForQt5.akonadi-search
-      pkgs.libsForQt5.akonadiconsole
-      pkgs.libsForQt5.kalendar
-      # pkgs.libsForQt5.merkuro
+      libsForQt5.akonadi
+      libsForQt5.akonadi-calendar
+      libsForQt5.akonadi-calendar-tools
+      libsForQt5.akonadi-contacts
+      libsForQt5.akonadi-import-wizard
+      libsForQt5.akonadi-mime
+      libsForQt5.akonadi-notes
+      libsForQt5.akonadi-search
+      libsForQt5.akonadiconsole
+      # libsForQt5.kalendar
+      libsForQt5.merkuro
       ghostscript_headless
       ghostscript
     ];

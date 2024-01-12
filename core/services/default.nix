@@ -9,7 +9,7 @@
     ./bluetooth-manager
     ./dbus
     ./earlyoom
-    ./envfs
+    # ./envfs
     ./flat-pak
     ./fstrim
     ./mysql

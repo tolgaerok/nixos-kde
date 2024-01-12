@@ -11,9 +11,23 @@
     fontconfig.enable = true;
     enableGhostscriptFonts = true;
 
-    fonts = with pkgs; [
+    # fonts = with pkgs; [
+    packages = with pkgs; [
       (nerdfonts.override {
-        fonts = [ "FiraCode" "SourceCodePro" "UbuntuMono" ];
+
+        fonts = [
+
+          "Agave"
+          "FiraCode"
+          "Inconsolata"
+          "JetBrainsMono"
+          "LiberationMono"
+          "Overpass"
+          "SourceCodePro"
+          "Ubuntu"
+          "UbuntuMono"
+
+        ];
       })
 
       # (nerdfonts.override {fonts = ["Iosevka" "JetBrainsMono"];})
@@ -60,7 +74,7 @@
     # families and reasonable coverage of Unicode.
     #---------------------------------------------------------------------
 
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
 
     fontconfig = {
       allowBitmaps = true;
@@ -78,7 +92,7 @@
       hinting = {
         autohint = false;
         enable = true;
-        style = "hintslight";
+        style = "slight";
       };
 
       subpixel = {

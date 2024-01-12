@@ -74,7 +74,7 @@ with lib;
   # Name of your pc to appear on the Network
   #---------------------------------------------------------------------
   networking.hostName = "HP-G1-800";                                            # Define your hostname. 
-
+  
   # Power Management
   powerManagement.cpuFreqGovernor = "performance";
 
