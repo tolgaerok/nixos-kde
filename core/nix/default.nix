@@ -28,7 +28,7 @@ in {
         "repl-flake"
 
       ];
-
+      cores = 0;
       sandbox =
         "relaxed"; # if set to true, This enforces strict sandboxing, which is the default and most secure mode for building and running Nix packages
 
