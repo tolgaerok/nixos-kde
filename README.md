@@ -2,6 +2,12 @@
   <h1 style="font-size: 24px; color: blue;">My NixOs 23.05 environment, KDE & Nvidia, AMD && Intel</h1>
 </div>
 
+ ##### My NixOS GNOME 24.05 available
+ ```bash
+ https://github.com/tolgaerok/nixos-2405-gnome
+ ```
+#
+
 ```bash
 sudo nix-channel --add https://channels.nixos.org/nixos-23.11 nixos
 sudo nixos-rebuild boot --upgrade
