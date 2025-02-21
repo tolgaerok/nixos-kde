@@ -1,0 +1,407 @@
+*PPD-Adobe: "4.3"
+
+*%
+*% This PPD file is intended for Epson Inkjet Printer Driver (ESC/P-R).
+*% Epson Inkjet Printer Driver (ESC/P-R) for Linux is presented by Seiko Epson.
+*% Copyright (C) Seiko Epson Corporation 2005-2011.
+*%
+*% LastUpdate: 2011/11/07
+*%
+*% This program is free software: you can redistribute it and/or modify
+*% it under the terms of the GNU General Public License as published by
+*% the Free Software Foundation, either version 2 of the License or, at
+*% your option, any later version.
+*%
+*%   This program is distributed in the hope that it will be useful,
+*%   but WITHOUT ANY WARRANTY; without even the implied warranty of
+*%   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+*%   GNU General Public License for more details.
+*%
+*% You ought to have received a copy of the GNU General Public License
+*% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*%
+
+*FormatVersion:         "4.3"
+*FileVersion:           "1.1"
+*LanguageVersion:       English
+*LanguageEncoding:      ISOLatin1
+*PCFileName:            "ESCPR.PPD"
+*Manufacturer:          "Epson"
+*Product:               "(Inkjet Printer)"
+*cupsVersion:           1.2
+*cupsManualCopies:      True
+*cupsModelNumber:       1
+*cupsFilter:            "application/vnd.cups-raster 0 /opt/epson-inkjet-printer-escpr/cups/lib/filter/epson-escpr-wrapper"
+*cupsLanguages:         "en ja nl fr de it pt es ko zh_CN zh_TW"
+*ModelName:             "Epson TX320 WorkForce320"
+*ShortNickName:         "Epson TX320 WorkForce320"
+*NickName:              "Epson TX320 WorkForce320 - epson-inkjet-printer-escpr 1.6.23-1lsb3.2 (Seiko Epson Corporation LSB 3.2)"
+*PSVersion:             "(3010.000) 550"
+*LanguageLevel:         "3"
+*ColorDevice:           True
+*DefaultColorSpace:     RGB
+*FileSystem:            True
+*Throughput:            "1"
+*LandscapeOrientation:  Plus90
+*VariablePaperSize:     False
+*TTRasterizer:          Type42
+*1284DeviceID:          "MFG:EPSON;MDL:TX320 WorkForce320;DES:EPSON TX320 WorkForce320;"
+
+*UIConstraints: *MediaType PLAIN_NORMAL *PageSize TA4
+*UIConstraints: *MediaType PLAIN_NORMAL *PageSize 4X6FULL
+*UIConstraints: *MediaType PLAIN_NORMAL *PageSize T4X6FULL
+*UIConstraints: *MediaType PLAIN_NORMAL *PageSize 2L
+*UIConstraints: *MediaType PLAIN_NORMAL *PageSize T2L
+*UIConstraints: *MediaType PLAIN_HIGH *PageSize TA4
+*UIConstraints: *MediaType PLAIN_HIGH *PageSize 4X6FULL
+*UIConstraints: *MediaType PLAIN_HIGH *PageSize T4X6FULL
+*UIConstraints: *MediaType PLAIN_HIGH *PageSize 2L
+*UIConstraints: *MediaType PLAIN_HIGH *PageSize T2L
+*UIConstraints: *MediaType PMMATT_NORMAL *PageSize 4X6FULL
+*UIConstraints: *MediaType PMMATT_NORMAL *PageSize T4X6FULL
+*UIConstraints: *MediaType PMMATT_NORMAL *PageSize 2L
+*UIConstraints: *MediaType PMMATT_NORMAL *PageSize T2L
+
+*OpenUI *PageSize/Paper Size: PickOne
+*OrderDependency: 10 AnySetup *PageSize
+*DefaultPageSize: A4
+*ja.Translation 	PageSize/用紙サイズ:""
+*nl.Translation 	PageSize/Papierformaat:""
+*fr.Translation 	PageSize/Taille papier:""
+*de.Translation 	PageSize/Papierformat:""
+*it.Translation 	PageSize/Formato carta:""
+*pt.Translation 	PageSize/Formato:""
+*es.Translation 	PageSize/Tamaño papel:""
+*ko.Translation 	PageSize/용지 크기:""
+*zh_CN.Translation 	PageSize/打印纸尺寸:""
+*zh_TW.Translation 	PageSize/紙張大小:""
+*PageSize A4/A4 210 x 297 mm: "<</PageSize[595.2 841.8]/ImagingBBox null>>setpagedevice"
+*ja.PageSize 	A4/A4 210 x 297 mm:""
+*nl.PageSize 	A4/A4 210 x 297 mm:""
+*fr.PageSize 	A4/A4 210 x 297 mm:""
+*de.PageSize 	A4/A4 297 x 210 mm:""
+*it.PageSize 	A4/A4 297 x 210 mm:""
+*pt.PageSize 	A4/A4 297 x 210 mm:""
+*es.PageSize 	A4/A4 297 x 210 mm:""
+*ko.PageSize 	A4/A4 210 x 297 mm:""
+*zh_CN.PageSize 	A4/A4 210 x 297 毫米:""
+*zh_TW.PageSize 	A4/A4 210 x 297 mm:""
+*PageSize TA4/A4 210 x 297 mm (Borderless): "<</PageSize[595.2 841.8]/ImagingBBox null>>setpagedevice"
+*ja.PageSize 	TA4/A4 210 x 297 mm (フチなし):""
+*nl.PageSize 	TA4/A4 210 x 297 mm (Randloos):""
+*fr.PageSize 	TA4/A4 210 x 297 mm (Sans marges):""
+*de.PageSize 	TA4/A4 297 x 210 mm (Randlos):""
+*it.PageSize 	TA4/A4 297 x 210 mm (Senza margini):""
+*pt.PageSize 	TA4/A4 297 x 210 mm (Sem margens):""
+*es.PageSize 	TA4/A4 297 x 210 mm (Sin márgenes):""
+*ko.PageSize 	TA4/A4 210 x 297 mm (여백 없음):""
+*zh_CN.PageSize 	TA4/A4 210 x 297 毫米 (无边距):""
+*zh_TW.PageSize 	TA4/A4 210 x 297 mm (無邊):""
+*PageSize 4X6FULL/10 x 15 cm (4 x 6 in): "<</PageSize[288.0 432.0]/ImagingBBox null>>setpagedevice"
+*ja.PageSize 	4X6FULL/KG サイズ 102 x 153 mm:""
+*nl.PageSize 	4X6FULL/10 x 15 cm (4 x 6 in):""
+*fr.PageSize 	4X6FULL/10 x 15 cm (4 x 6 p.):""
+*de.PageSize 	4X6FULL/10 x 15 cm (4 x 6 Zoll):""
+*it.PageSize 	4X6FULL/10 x 15 cm (4 x 6 pol.):""
+*pt.PageSize 	4X6FULL/10 x 15 cm (4 x 6 pol.):""
+*es.PageSize 	4X6FULL/10 x 15 cm (4 x 6 pulg):""
+*ko.PageSize 	4X6FULL/10 x 15 cm (4 x 6 in):""
+*zh_CN.PageSize 	4X6FULL/10 x 15 厘米 (4 x 6 英寸):""
+*zh_TW.PageSize 	4X6FULL/10 x 15 cm (4 x 6 in):""
+*PageSize T4X6FULL/10 x 15 cm (4 x 6 in) (Borderless): "<</PageSize[288.0 432.0]/ImagingBBox null>>setpagedevice"
+*ja.PageSize 	T4X6FULL/KG サイズ 102 x 153 mm (フチなし):""
+*nl.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 in) (Randloos):""
+*fr.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 p.) (Sans marges):""
+*de.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 Zoll) (Randlos):""
+*it.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 pol.) (Senza margini):""
+*pt.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 pol.) (Sem margens):""
+*es.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 pulg) (Sin márgenes):""
+*ko.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 in) (여백 없음):""
+*zh_CN.PageSize 	T4X6FULL/10 x 15 厘米 (4 x 6 英寸) (无边距):""
+*zh_TW.PageSize 	T4X6FULL/10 x 15 cm (4 x 6 in) (無邊):""
+*PageSize 2L/5 x 7 in / 127 x 178 mm: "<</PageSize[360.0 504.4]/ImagingBBox null>>setpagedevice"
+*ja.PageSize 	2L/2L判 127 x 178 mm:""
+*nl.PageSize 	2L/13 x 18 cm (5 x 7 in):""
+*fr.PageSize 	2L/13 x 18 cm (5 x 7 p.):""
+*de.PageSize 	2L/13 x 18 cm (5 x 7 Zoll):""
+*it.PageSize 	2L/13 x 18 cm (5 x 7 pol.):""
+*pt.PageSize 	2L/13 x 18 cm (5 x 7 pol):""
+*es.PageSize 	2L/13 x 18 cm (5 x 7 pulg):""
+*ko.PageSize 	2L/13 x 18 cm (5 x 7 in):""
+*zh_CN.PageSize 	2L/13 x 18 厘米 (5 x 7 英寸):""
+*zh_TW.PageSize 	2L/5 x 7 in / 127 x 178 mm:""
+*PageSize T2L/5 x 7 in / 127 x 178 mm (Borderless): "<</PageSize[360.0 504.4]/ImagingBBox null>>setpagedevice"
+*ja.PageSize 	T2L/2L判 127 x 178 mm (フチなし):""
+*nl.PageSize 	T2L/13 x 18 cm (5 x 7 in) (Randloos):""
+*fr.PageSize 	T2L/13 x 18 cm (5 x 7 p.) (Sans marges):""
+*de.PageSize 	T2L/13 x 18 cm (5 x 7 Zoll) (Randlos):""
+*it.PageSize 	T2L/13 x 18 cm (5 x 7 pol.) (Senza margini):""
+*pt.PageSize 	T2L/13 x 18 cm (5 x 7 pol) (Sem margens):""
+*es.PageSize 	T2L/13 x 18 cm (5 x 7 pulg) (Sin márgenes):""
+*ko.PageSize 	T2L/13 x 18 cm (5 x 7 in) (여백 없음):""
+*zh_CN.PageSize 	T2L/13 x 18 厘米 (5 x 7 英寸) (无边距):""
+*zh_TW.PageSize 	T2L/5 x 7 in / 127 x 178 mm (無邊):""
+*CloseUI: *PageSize
+
+*OpenUI *PageRegion: PickOne
+*OrderDependency: 10 AnySetup *PageRegion
+*DefaultPageRegion: A4
+*ja.Translation 	PageRegion/用紙サイズ:""
+*nl.Translation 	PageRegion/Papierformaat:""
+*fr.Translation 	PageRegion/Taille papier:""
+*de.Translation 	PageRegion/Papierformat:""
+*it.Translation 	PageRegion/Formato carta:""
+*pt.Translation 	PageRegion/Formato:""
+*es.Translation 	PageRegion/Tamaño papel:""
+*ko.Translation 	PageRegion/용지 크기:""
+*zh_CN.Translation 	PageRegion/打印纸尺寸:""
+*zh_TW.Translation 	PageRegion/紙張大小:""
+*PageRegion A4/A4 210 x 297 mm: "<</PageRegion[595.2 841.8]/ImagingBBox null>>setpagedevice"
+*ja.PageRegion 	A4/A4 210 x 297 mm:""
+*nl.PageRegion 	A4/A4 210 x 297 mm:""
+*fr.PageRegion 	A4/A4 210 x 297 mm:""
+*de.PageRegion 	A4/A4 297 x 210 mm:""
+*it.PageRegion 	A4/A4 297 x 210 mm:""
+*pt.PageRegion 	A4/A4 297 x 210 mm:""
+*es.PageRegion 	A4/A4 297 x 210 mm:""
+*ko.PageRegion 	A4/A4 210 x 297 mm:""
+*zh_CN.PageRegion 	A4/A4 210 x 297 毫米:""
+*zh_TW.PageRegion 	A4/A4 210 x 297 mm:""
+*PageRegion TA4/A4 210 x 297 mm (Borderless): "<</PageRegion[595.2 841.8]/ImagingBBox null>>setpagedevice"
+*ja.PageRegion 	TA4/A4 210 x 297 mm (フチなし):""
+*nl.PageRegion 	TA4/A4 210 x 297 mm (Randloos):""
+*fr.PageRegion 	TA4/A4 210 x 297 mm (Sans marges):""
+*de.PageRegion 	TA4/A4 297 x 210 mm (Randlos):""
+*it.PageRegion 	TA4/A4 297 x 210 mm (Senza margini):""
+*pt.PageRegion 	TA4/A4 297 x 210 mm (Sem margens):""
+*es.PageRegion 	TA4/A4 297 x 210 mm (Sin márgenes):""
+*ko.PageRegion 	TA4/A4 210 x 297 mm (여백 없음):""
+*zh_CN.PageRegion 	TA4/A4 210 x 297 毫米 (无边距):""
+*zh_TW.PageRegion 	TA4/A4 210 x 297 mm (無邊):""
+*PageRegion 4X6FULL/10 x 15 cm (4 x 6 in): "<</PageRegion[288.0 432.0]/ImagingBBox null>>setpagedevice"
+*ja.PageRegion 	4X6FULL/KG サイズ 102 x 153 mm:""
+*nl.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 in):""
+*fr.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 p.):""
+*de.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 Zoll):""
+*it.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 pol.):""
+*pt.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 pol.):""
+*es.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 pulg):""
+*ko.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 in):""
+*zh_CN.PageRegion 	4X6FULL/10 x 15 厘米 (4 x 6 英寸):""
+*zh_TW.PageRegion 	4X6FULL/10 x 15 cm (4 x 6 in):""
+*PageRegion T4X6FULL/10 x 15 cm (4 x 6 in) (Borderless): "<</PageRegion[288.0 432.0]/ImagingBBox null>>setpagedevice"
+*ja.PageRegion 	T4X6FULL/KG サイズ 102 x 153 mm (フチなし):""
+*nl.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 in) (Randloos):""
+*fr.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 p.) (Sans marges):""
+*de.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 Zoll) (Randlos):""
+*it.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 pol.) (Senza margini):""
+*pt.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 pol.) (Sem margens):""
+*es.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 pulg) (Sin márgenes):""
+*ko.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 in) (여백 없음):""
+*zh_CN.PageRegion 	T4X6FULL/10 x 15 厘米 (4 x 6 英寸) (无边距):""
+*zh_TW.PageRegion 	T4X6FULL/10 x 15 cm (4 x 6 in) (無邊):""
+*PageRegion 2L/5 x 7 in / 127 x 178 mm: "<</PageRegion[360.0 504.4]/ImagingBBox null>>setpagedevice"
+*ja.PageRegion 	2L/2L判 127 x 178 mm:""
+*nl.PageRegion 	2L/13 x 18 cm (5 x 7 in):""
+*fr.PageRegion 	2L/13 x 18 cm (5 x 7 p.):""
+*de.PageRegion 	2L/13 x 18 cm (5 x 7 Zoll):""
+*it.PageRegion 	2L/13 x 18 cm (5 x 7 pol.):""
+*pt.PageRegion 	2L/13 x 18 cm (5 x 7 pol):""
+*es.PageRegion 	2L/13 x 18 cm (5 x 7 pulg):""
+*ko.PageRegion 	2L/13 x 18 cm (5 x 7 in):""
+*zh_CN.PageRegion 	2L/13 x 18 厘米 (5 x 7 英寸):""
+*zh_TW.PageRegion 	2L/5 x 7 in / 127 x 178 mm:""
+*PageRegion T2L/5 x 7 in / 127 x 178 mm (Borderless): "<</PageRegion[360.0 504.4]/ImagingBBox null>>setpagedevice"
+*ja.PageRegion 	T2L/2L判 127 x 178 mm (フチなし):""
+*nl.PageRegion 	T2L/13 x 18 cm (5 x 7 in) (Randloos):""
+*fr.PageRegion 	T2L/13 x 18 cm (5 x 7 p.) (Sans marges):""
+*de.PageRegion 	T2L/13 x 18 cm (5 x 7 Zoll) (Randlos):""
+*it.PageRegion 	T2L/13 x 18 cm (5 x 7 pol.) (Senza margini):""
+*pt.PageRegion 	T2L/13 x 18 cm (5 x 7 pol) (Sem margens):""
+*es.PageRegion 	T2L/13 x 18 cm (5 x 7 pulg) (Sin márgenes):""
+*ko.PageRegion 	T2L/13 x 18 cm (5 x 7 in) (여백 없음):""
+*zh_CN.PageRegion 	T2L/13 x 18 厘米 (5 x 7 英寸) (无边距):""
+*zh_TW.PageRegion 	T2L/5 x 7 in / 127 x 178 mm (無邊):""
+*CloseUI: *PageRegion
+
+*DefaultImageableArea: A4
+*ImageableArea A4/A4 210 x 297 mm: 	"8.4 8.4 586.8 833.4"
+*ImageableArea TA4/A4 210 x 297 mm (Borderless): 	"0.0 0.0 595.2 841.8"
+*ImageableArea 4X6FULL/10 x 15 cm (4 x 6 in): 	"8.4 8.4 279.6 423.6"
+*ImageableArea T4X6FULL/10 x 15 cm (4 x 6 in) (Borderless): 	"0.0 0.0 288.0 432.0"
+*ImageableArea 2L/5 x 7 in / 127 x 178 mm: 	"8.4 8.4 351.6 496.0"
+*ImageableArea T2L/5 x 7 in / 127 x 178 mm (Borderless): 	"0.0 0.0 360.0 504.4"
+
+*DefaultPaperDimension: A4
+*PaperDimension A4/A4 210 x 297 mm: 	"595.2 841.8"
+*PaperDimension TA4/A4 210 x 297 mm (Borderless): 	"595.2 841.8"
+*PaperDimension 4X6FULL/10 x 15 cm (4 x 6 in): 	"288.0 432.0"
+*PaperDimension T4X6FULL/10 x 15 cm (4 x 6 in) (Borderless): 	"288.0 432.0"
+*PaperDimension 2L/5 x 7 in / 127 x 178 mm: 	"360.0 504.4"
+*PaperDimension T2L/5 x 7 in / 127 x 178 mm (Borderless): 	"360.0 504.4"
+
+*OpenUI *MediaType/Media Type: PickOne
+*OrderDependency: 20 AnySetup *MediaType
+*DefaultMediaType: PLAIN_NORMAL
+*ja.Translation 	MediaType/品質:""
+*nl.Translation 	MediaType/Kwaliteit:""
+*fr.Translation 	MediaType/Qualité:""
+*de.Translation 	MediaType/Qualität:""
+*it.Translation 	MediaType/Qualità:""
+*pt.Translation 	MediaType/Qualidade:""
+*es.Translation 	MediaType/Calidad:""
+*ko.Translation 	MediaType/품질:""
+*zh_CN.Translation 	MediaType/质量:""
+*zh_TW.Translation 	MediaType/品質:""
+*MediaType PLAIN_NORMAL/Plain Paper - Standard: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	PLAIN_NORMAL/普通紙 - 標準:""
+*nl.MediaType 	PLAIN_NORMAL/Gewoon papier - Standaard:""
+*fr.MediaType 	PLAIN_NORMAL/Papier ordinaire - Standard:""
+*de.MediaType 	PLAIN_NORMAL/Normalpapier - Standard:""
+*it.MediaType 	PLAIN_NORMAL/carte comuni - Standard:""
+*pt.MediaType 	PLAIN_NORMAL/Papel Normal - Normal:""
+*es.MediaType 	PLAIN_NORMAL/Papel Normal - Estándar:""
+*ko.MediaType 	PLAIN_NORMAL/일반 용지 - 표준:""
+*zh_CN.MediaType 	PLAIN_NORMAL/普通纸 - 标准:""
+*zh_TW.MediaType 	PLAIN_NORMAL/Plain Paper - 標準:""
+*MediaType PLAIN_HIGH/Plain Paper - Best: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	PLAIN_HIGH/普通紙 - きれい:""
+*nl.MediaType 	PLAIN_HIGH/Gewoon papier - Beste:""
+*fr.MediaType 	PLAIN_HIGH/Papier ordinaire - supérieure:""
+*de.MediaType 	PLAIN_HIGH/Normalpapier - Optimales:""
+*it.MediaType 	PLAIN_HIGH/carte comuni - migliore:""
+*pt.MediaType 	PLAIN_HIGH/Papel Normal - Superior:""
+*es.MediaType 	PLAIN_HIGH/Papel Normal - Superior:""
+*ko.MediaType 	PLAIN_HIGH/일반 용지 - 고급:""
+*zh_CN.MediaType 	PLAIN_HIGH/普通纸 - 优质:""
+*zh_TW.MediaType 	PLAIN_HIGH/Plain Paper - 最高品質:""
+*MediaType PMMATT_NORMAL/Matte Paper - Heavyweight - Standard: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	PMMATT_NORMAL/フォトマット紙 - 標準:""
+*nl.MediaType 	PMMATT_NORMAL/Matte Paper - Heavyweight - Standaard:""
+*fr.MediaType 	PMMATT_NORMAL/Papier Mat Epais - Standard:""
+*de.MediaType 	PMMATT_NORMAL/Matte Paper-Heavy Weight - Standard:""
+*it.MediaType 	PMMATT_NORMAL/Carta matte alto spessore - Standard:""
+*pt.MediaType 	PMMATT_NORMAL/Papel Mate Espesso - Normal:""
+*es.MediaType 	PMMATT_NORMAL/Matte Paper-Alto Gramaje - Estándar:""
+*ko.MediaType 	PMMATT_NORMAL/고중량 매트지 - 표준:""
+*zh_CN.MediaType 	PMMATT_NORMAL/重磅粗面纸 - 标准:""
+*zh_TW.MediaType 	PMMATT_NORMAL/Matte Paper - Heavyweight - 標準:""
+*MediaType PMPHOTO_NORMAL/Premium Glossy Photo Paper - Standard: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	PMPHOTO_NORMAL/写真用紙＜光沢＞ - 標準:""
+*nl.MediaType 	PMPHOTO_NORMAL/Premium Glossy Photo Paper - Standaard:""
+*fr.MediaType 	PMPHOTO_NORMAL/Papier Photo Glacé Premium - Standard:""
+*de.MediaType 	PMPHOTO_NORMAL/Premium Glossy Photo Paper - Standard:""
+*it.MediaType 	PMPHOTO_NORMAL/Carta Fotografica Lucida Premium - Standard:""
+*pt.MediaType 	PMPHOTO_NORMAL/Papel Fotográfico Brilhante Premium - Normal:""
+*es.MediaType 	PMPHOTO_NORMAL/Premium Glossy Photo Paper - Estándar:""
+*ko.MediaType 	PMPHOTO_NORMAL/프리미엄 광택 사진 용지 - 표준:""
+*zh_CN.MediaType 	PMPHOTO_NORMAL/高质量光泽照片纸 - 标准:""
+*zh_TW.MediaType 	PMPHOTO_NORMAL/Premium Glossy Photo Paper - 標準:""
+*MediaType PLATINA_NORMAL/Ultra Glossy Photo Paper - Standard: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	PLATINA_NORMAL/写真用紙クリスピア＜高光沢＞ - 標準:""
+*nl.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - Standaard:""
+*fr.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - Standard:""
+*de.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - Standard:""
+*it.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - Standard:""
+*pt.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - Normal:""
+*es.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - Estándar:""
+*ko.MediaType 	PLATINA_NORMAL/광택 사진 용지(Ultra) - 표준:""
+*zh_CN.MediaType 	PLATINA_NORMAL/爱普生超级光泽纸 - 标准:""
+*zh_TW.MediaType 	PLATINA_NORMAL/Ultra Glossy Photo Paper - 標準:""
+*MediaType GLOSSYPHOTO_NORMAL/Glossy Photo Paper - Standard: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	GLOSSYPHOTO_NORMAL/写真用紙エントリー＜光沢＞ - 標準:""
+*nl.MediaType 	GLOSSYPHOTO_NORMAL/Glossy Photo Paper - Standaard:""
+*fr.MediaType 	GLOSSYPHOTO_NORMAL/Glossy Photo Paper - Standard:""
+*de.MediaType 	GLOSSYPHOTO_NORMAL/Glossy Photo Paper - Standard:""
+*it.MediaType 	GLOSSYPHOTO_NORMAL/Carta fotografica lucida - Standard:""
+*pt.MediaType 	GLOSSYPHOTO_NORMAL/Glossy Photo Paper - Normal:""
+*es.MediaType 	GLOSSYPHOTO_NORMAL/Glossy Photo Paper - Estándar:""
+*ko.MediaType 	GLOSSYPHOTO_NORMAL/광택 사진 용지 - 표준:""
+*zh_CN.MediaType 	GLOSSYPHOTO_NORMAL/光泽照片纸 - 标准:""
+*zh_TW.MediaType 	GLOSSYPHOTO_NORMAL/Glossy Photo Paper - 標準:""
+*MediaType GLOSSYCAST_NORMAL/Epson Photo - Standard: 	"<</HWResolution[360 360]>>setpagedevice"
+*ja.MediaType 	GLOSSYCAST_NORMAL/フォト光沢紙 - 標準:""
+*nl.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - Standaard:""
+*fr.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - Standard:""
+*de.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - Standard:""
+*it.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - Standard:""
+*pt.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - Normal:""
+*es.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - Estándar:""
+*ko.MediaType 	GLOSSYCAST_NORMAL/Epson 사진 용지 - 표준:""
+*zh_CN.MediaType 	GLOSSYCAST_NORMAL/爱普生照片纸 - 标准:""
+*zh_TW.MediaType 	GLOSSYCAST_NORMAL/Epson Photo - 標準:""
+*CloseUI: *MediaType
+
+*OpenUI *Ink/Ink: PickOne
+*OrderDependency: 30 AnySetup *Ink
+*DefaultInk: COLOR
+*ja.Translation 	Ink/カラー:""
+*nl.Translation 	Ink/Kleur:""
+*fr.Translation 	Ink/Couleur:""
+*de.Translation 	Ink/Farbe:""
+*it.Translation 	Ink/Colore:""
+*pt.Translation 	Ink/Cor:""
+*es.Translation 	Ink/Color:""
+*ko.Translation 	Ink/컬러:""
+*zh_CN.Translation 	Ink/彩色:""
+*zh_TW.Translation 	Ink/彩色:""
+*Ink COLOR/Color: "<</cupsBitsPerColor 8/cupsColorOrder 0/cupsColorSpace 1/cupsCompression 1>>setpagedevice"
+*ja.Ink 	COLOR/カラー:""
+*nl.Ink 	COLOR/Kleur:""
+*fr.Ink 	COLOR/Couleur:""
+*de.Ink 	COLOR/Farbe:""
+*it.Ink 	COLOR/Colore:""
+*pt.Ink 	COLOR/Cor:""
+*es.Ink 	COLOR/Color:""
+*ko.Ink 	COLOR/컬러:""
+*zh_CN.Ink 	COLOR/彩色:""
+*zh_TW.Ink 	COLOR/彩色:""
+*Ink MONO/Monochrome: "<</cupsBitsPerColor 8/cupsColorOrder 0/cupsColorSpace 0/cupsCompression 1>>setpagedevice"
+*ja.Ink 	MONO/モノクロ:""
+*nl.Ink 	MONO/Monochroom:""
+*fr.Ink 	MONO/Monochrome:""
+*de.Ink 	MONO/Monochrom:""
+*it.Ink 	MONO/Monocromatico:""
+*pt.Ink 	MONO/Monocromático:""
+*es.Ink 	MONO/Monocromo:""
+*ko.Ink 	MONO/흑백:""
+*zh_CN.Ink 	MONO/黑白:""
+*zh_TW.Ink 	MONO/黑白:""
+*CloseUI: *Ink
+
+*DefaultFont: Courier
+*Font AvantGarde-Book: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-BookOblique: Standard "(001.006S)" Standard ROM
+*Font AvantGarde-Demi: Standard "(001.007S)" Standard ROM
+*Font AvantGarde-DemiOblique: Standard "(001.007S)" Standard ROM
+*Font Bookman-Demi: Standard "(001.004S)" Standard ROM
+*Font Bookman-DemiItalic: Standard "(001.004S)" Standard ROM
+*Font Bookman-Light: Standard "(001.004S)" Standard ROM
+*Font Bookman-LightItalic: Standard "(001.004S)" Standard ROM
+*Font Courier: Standard "(002.004S)" Standard ROM
+*Font Courier-Bold: Standard "(002.004S)" Standard ROM
+*Font Courier-BoldOblique: Standard "(002.004S)" Standard ROM
+*Font Courier-Oblique: Standard "(002.004S)" Standard ROM
+*Font Helvetica: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Narrow-Bold: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-BoldOblique: Standard "(001.007S)" Standard ROM
+*Font Helvetica-Narrow-Oblique: Standard "(001.006S)" Standard ROM
+*Font Helvetica-Oblique: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Bold: Standard "(001.009S)" Standard ROM
+*Font NewCenturySchlbk-BoldItalic: Standard "(001.007S)" Standard ROM
+*Font NewCenturySchlbk-Italic: Standard "(001.006S)" Standard ROM
+*Font NewCenturySchlbk-Roman: Standard "(001.007S)" Standard ROM
+*Font Palatino-Bold: Standard "(001.005S)" Standard ROM
+*Font Palatino-BoldItalic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Italic: Standard "(001.005S)" Standard ROM
+*Font Palatino-Roman: Standard "(001.005S)" Standard ROM
+*Font Symbol: Special "(001.007S)" Special ROM
+*Font Times-Bold: Standard "(001.007S)" Standard ROM
+*Font Times-BoldItalic: Standard "(001.009S)" Standard ROM
+*Font Times-Italic: Standard "(001.007S)" Standard ROM
+*Font Times-Roman: Standard "(001.007S)" Standard ROM
+*Font ZapfChancery-MediumItalic: Standard "(001.007S)" Standard ROM
+*Font ZapfDingbats: Special "(001.004S)" Standard ROM

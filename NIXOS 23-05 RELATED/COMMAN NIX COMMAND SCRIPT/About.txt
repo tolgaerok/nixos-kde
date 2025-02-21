@@ -1,0 +1,23 @@
+Tolga Erok
+10/6/2023
+
+
+This script is a menu-driven tool that allows the user to run common Nix commands with sudo privileges. It provides a list of commands related to Nix package management and system configuration and executes the selected command using the sudo command. Here is a summary of its functionality:
+
+    The script defines several functions, including execute_command to run a command in sudo mode, display_menu to show the menu options, and delete_old_generations to delete old generations of the active profile.
+
+    The display_menu function displays a list of Nix commands along with their descriptions.
+
+    The script clears the screen and displays the initial menu.
+
+    It enters a loop that waits for the user to input a choice.
+
+    Depending on the selected choice, the script executes the corresponding command using the execute_command function with the appropriate arguments.
+
+    After executing the command, the script prompts the user to press any key to continue.
+
+    The screen is cleared, and the menu is displayed again for the user to choose another command or exit the script.
+
+    The loop continues until the user selects the "Exit" option.
+
+Overall, this script provides a convenient way to run commonly used Nix commands with sudo privileges in a menu-driven manner.
